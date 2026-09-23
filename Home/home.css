@@ -1,0 +1,87 @@
+/* Fond de la page : Vert #2a9d8f */
+body { background-color: #2a9d8f; font-family: system-ui, -apple-system, sans-serif; color: #ffffff; }
+
+/* Gestion des langues via CSS */
+html[lang="ar"] .fr-text { display: none !important; }
+html[lang="fr"] .ar-text { display: none !important; }
+
+/* Adaptation de la direction selon la langue */
+html[lang="ar"] body { text-align: right; }
+html[lang="fr"] body { text-align: left; }
+
+/* Forcer l'alignement à droite en mode RTL pour le texte de la section héros */
+[dir="rtl"] .hero-section .text-lg-start {
+  text-align: right !important;
+}
+
+/* Barre de navigation : Même vert foncé que le footer (#264653) avec texte clair */
+.navbar-custom { background-color: #264653 !important; } 
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link { color: #ffffff !important; font-weight: bold; }
+.navbar-custom .nav-link:hover { color: #e9c46a !important; } /* Le survol passe au jaune */
+
+/* Style pour la photo de profil */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e9c46a;
+}
+
+/* Section Héros */
+.hero-section {
+    background: linear-gradient(135deg, #1d3557 0%, #2a9d8f 100%);
+    color: white;
+    padding: 5rem 1rem;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Cartes avec fond crème et bordure assortie */
+.feature-card { 
+    transition: transform 0.2s, box-shadow 0.2s; 
+    border-radius: 1rem; 
+    background-color: #f4f1de; 
+    border: 2px solid #e9c46a !important; 
+    color: #264653;
+}
+.feature-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2) !important; 
+}
+
+.btn-custom { color: #ffffff; font-weight: bold; background-color: #e76f51; border: none; }
+.btn-custom:hover { background-color: #f4a261; color: #ffffff; }
+
+/* Bouton de langue dans la navbar sombre */
+.lang-btn { cursor: pointer; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.5rem; color: #ffffff !important; background-color: rgba(255, 255, 255, 0.15); }
+.lang-btn:hover { background-color: rgba(255, 255, 255, 0.3); }
+
+.dropdown-menu { background-color: #ffffff; }
+.dropdown-item { color: #264653; }
+.dropdown-item:hover { background-color: #f0f0f0; }
+
+/* Style du carrousel réajusté pour une taille idéale */
+.hero-carousel {
+  max-width: 500px; /* On augmente un peu la largeur maximale */
+  margin: 0 auto;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border: 3px solid #e9c46a;
+  background-color: #0f172a;
+}
+
+.hero-carousel img, 
+.hero-carousel video {
+  height: 390px; /* On augmente la hauteur pour qu'il soit plus immersif et bien proportionné */
+  object-fit: contain;
+  width: 100%;
+  background-color: #0f172a;
+}
+
+/* Masquer les tirets indicateurs en bas du carrousel */
+.carousel-indicators {
+  display: none !important;
+}

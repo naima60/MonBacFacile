@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج اللغة العربية - مراجعة البكالوريا</title>
+
+    <!-- Votre feuille de style personnalisée -->
+  <link href="/style_pages/style_pages.css rel="stylesheet">
+
+
+
+    <style>
+        body {
+            font-family: 'Amiri', Tahoma, Geneva, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 10px;
+        }
+        header {
+            text-align: center;
+            background-color: #004d40;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        h1 { margin: 0; font-size: 1.5rem; }
+        .unit-container {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            /* Suppression du défilement forcé pour s'adapter à la page */
+            overflow-x: hidden; 
+        }
+        h2 {
+            color: #00796b;
+            border-bottom: 2px solid #00796b;
+            padding-bottom: 5px;
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        /* Conteneur pour afficher les 7 colonnes sur la même ligne sans dépassement */
+        .domains-row {
+            display: flex;
+            gap: 5px; /* Réduction de l'espace entre les colonnes */
+            margin-top: 10px;
+            width: 100%;
+        }
+        .domain-box {
+            background: #f1f8f6;
+            padding: 6px;
+            border-radius: 6px;
+            border-top: 3px solid #00796b;
+            flex: 1; /* Répartition égale sur toute la largeur */
+            min-width: 0; /* Permet aux colonnes de rétrécir proprement */
+        }
+        .domain-box h3 {
+            margin-top: 0;
+            margin-bottom: 6px;
+            color: #004d40;
+            font-size: 0.8rem; /* Taille de titre optimisée */
+            border-bottom: 1px dashed #b2dfdb;
+            padding-bottom: 3px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        ul {
+            padding-right: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            background: #fff;
+            padding: 3px 4px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.72rem; /* Texte légèrement plus compact */
+        }
+        .course-title {
+            text-decoration: none;
+            color: #0277bd;
+            flex-grow: 1;
+            line-height: 1.2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; /* Garde le titre sur une ligne avec des points de suspension si trop long */
+        }
+        .course-title:hover {
+            text-decoration: underline;
+            white-space: normal; /* Affiche tout au survol si nécessaire */
+        }
+        .page-number {
+            background: #00796b;
+            color: white;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            margin-right: 4px;
+            white-space: nowrap;
+        }
+        .empty-slot {
+            text-align: center;
+            color: #888;
+            font-size: 0.75rem;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Bouton de retour à l'accueil -->
+    <div class="mb-4">
+        <a href="/Home/Home.html" class="btn btn-retour shadow-sm">
+            ← Page d'Accueil / الصفحة الرئيسية 
+        </a>
+    </div> 
+
+    <header>
+        <h1>برنامج اللغة العربية - البكالوريا</h1>
+        <p>عرض تفصيلي للمحاور الـ 12 </p>
+    </header>
+
+    <!-- المحور 1 -->
+    <div class="unit-container">
+        <h2>المحور 1</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="في مدح الرسول (ص)">في مدح الرسول</a><span class="page-number">ص 1</span></li>
+                    <li><a href="#" class="course-title" title="في الزهد">في الزهد</a><span class="page-number">ص 12</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الإعراب اللفظي والتقديري">الإعراب اللفظي</a><span class="page-number">ص 11</span></li>
+                    <li><a href="#" class="course-title" title="إعراب المعتل الآخر">إعراب المعتل</a><span class="page-number">ص 14</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="تشابه الأطراف">تشابه الأطراف</a><span class="page-number">ص 11</span></li>
+                    <li><a href="#" class="course-title" title="التضمين والتناص">التضمين والتناص</a><span class="page-number">ص 17</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الشعر في عهد المماليك">شعر المماليك</a><span class="page-number">ص 20</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="إنسان ما بعد الموحدين">ما بعد الموحدين</a><span class="page-number">ص 22</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="تلخيص نص">تلخيص نص</a><span class="page-number">ص 26</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="إعداد الخريطة السياسية">الخريطة السياسية</a><span class="page-number">ص 28</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 2 -->
+    <div class="unit-container">
+        <h2>المحور 2</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="خواص القمر وتأثيراته">خواص القمر</a><span class="page-number">ص 30</span></li>
+                    <li><a href="#" class="course-title" title="علم التاريخ">علم التاريخ</a><span class="page-number">ص 37</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="معاني حروف الجر">حروف الجر</a><span class="page-number">ص 34</span></li>
+                    <li><a href="#" class="course-title" title="معاني حروف العطف">حروف العطف</a><span class="page-number">ص 38</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الجمع">الجمع</a><span class="page-number">ص 34</span></li>
+                    <li><a href="#" class="course-title" title="التقسيم">التقسيم</a><span class="page-number">ص 42</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="حركة التأليف في عصر المماليك">حركة التأليف</a><span class="page-number">ص 45</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="مقفونا والبيئة">مقفونا والبيئة</a><span class="page-number">ص 48</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="كتابة مقال عن تكوين الشخصية">مقال الشخصية</a><span class="page-number">ص 52</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <div class="empty-slot">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 3 -->
+    <div class="unit-container">
+        <h2>المحور 3</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="آلام الاغتراب">آلام الاغتراب</a><span class="page-number">ص 55</span></li>
+                    <li><a href="#" class="course-title" title="من وحي المنفى">من وحي المنفى</a><span class="page-number">ص 59</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المضاف إلى ياء المتكلم">المضاف لياء المتكلم</a><span class="page-number">ص 55</span></li>
+                    <li><a href="#" class="course-title" title="نون الوقاية">نون الوقاية</a><span class="page-number">ص 59</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المجاز العقلي والمرسل">المجاز العقلي</a><span class="page-number">ص 58</span></li>
+                    <li><a href="#" class="course-title" title="بلاغة التشبيه">بلاغة التشبيه</a><span class="page-number">ص 62</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المجتمع المعلوماتي">المجتمع المعلوماتي</a><span class="page-number">ص 63</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="اختلال البلاد العربية">اختلال البلاد</a><span class="page-number">ص 65</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <div class="empty-slot">-</div>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="إعداد إضبارة النهضة">إضبارة النهضة</a><span class="page-number">ص 70</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 4 -->
+    <div class="unit-container">
+        <h2>المحور 4</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="أنا">أنا</a><span class="page-number">ص 72</span></li>
+                    <li><a href="#" class="course-title" title="هنا وهناك">هنا وهناك</a><span class="page-number">ص 77</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="إذ، إذا، إذن، حينئذ">أخوات إذ وإذا</a><span class="page-number">ص 72</span></li>
+                    <li><a href="#" class="course-title" title="الجمل التي لها محل">الجمل لها محل</a><span class="page-number">ص 77</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الكناية وبلاغتها">الكناية وبلاغتها</a><span class="page-number">ص 75</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الشعر مفهومه وغايته">مفهوم الشعر</a><span class="page-number">ص 82</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="ثقافة أخر">ثقافة أخر</a><span class="page-number">ص 82</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="مقال نقدي عن المهجري">مقال نقدي</a><span class="page-number">ص 85</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <div class="empty-slot">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 5 -->
+    <div class="unit-container">
+        <h2>المحور 5</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="منشورات فدائية">منشورات فدائية</a><span class="page-number">ص 94</span></li>
+                    <li><a href="#" class="course-title" title="حالة حصار">حالة حصار</a><span class="page-number">ص 101</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الجمل لا محل لها">جمل لا محل لها</a><span class="page-number">ص 97</span></li>
+                    <li><a href="#" class="course-title" title="الخبر وأنواعه">الخبر وأنواعه</a><span class="page-number">ص 98</span></li>
+                    <li><a href="#" class="course-title" title="المسند والمسند إليه">المسند إليه</a><span class="page-number">ص 101</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الرجز في الشعر الحر">الرجز بالشعر الحر</a><span class="page-number">ص 99</span></li>
+                    <li><a href="#" class="course-title" title="المتقارب في الشعر الحر">المتقارب</a><span class="page-number">ص 104</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الالتزام في الشعر الحديث">الالتزام بالشعر</a><span class="page-number">ص 107</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="رصيف الأزهار لا يجيب">رصيف الأزهار</a><span class="page-number">ص 109</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <div class="empty-slot">-</div>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="تقصيبة المدارس الأدبية">المدارس الأدبية</a><span class="page-number">ص 114</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 6 -->
+    <div class="unit-container">
+        <h2>المحور 6</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الإنسان الكبير">الإنسان الكبير</a><span class="page-number">ص 116</span></li>
+                    <li><a href="#" class="course-title" title="حسناء">حسناء</a><span class="page-number">ص 123</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="أحكام التمييز والحال">أحكام التمييز</a><span class="page-number">ص 116</span></li>
+                    <li><a href="#" class="course-title" title="المفصل وأعرابها">المفصل وإعرابها</a><span class="page-number">ص 127</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الرمل في الشعر الحر">الرمل بالشعر الحر</a><span class="page-number">ص 120</span></li>
+                    <li><a href="#" class="course-title" title="الكامل في الشعر الحر">الكامل بالشعر الحر</a><span class="page-number">ص 129</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الأوراس في الشعر العربي">الأوراس بالشعر</a><span class="page-number">ص 131</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="إشكالية التعبير الجزائري">التعبير الجزائري</a><span class="page-number">ص 135</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="كتابة مقال فكري">مقال فكري</a><span class="page-number">ص 139</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <div class="empty-slot">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 7 -->
+    <div class="unit-container">
+        <h2>المحور 7</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="أغنيات للألم">أغنيات للألم</a><span class="page-number">ص 142</span></li>
+                    <li><a href="#" class="course-title" title="أحزان الغربة">أحزان الغربة</a><span class="page-number">ص 146</span></li>
+                    <li><a href="#" class="course-title" title="أبو تمام">أبو تمام</a><span class="page-number">ص 162</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="منتهى الجموع">منتهى الجموع</a><span class="page-number">ص 142</span></li>
+                    <li><a href="#" class="course-title" title="جموع القلة والأجوف">جموع القلة</a><span class="page-number">ص 146</span></li>
+                    <li><a href="#" class="course-title" title="البدل وعطف البيان">البدل وعطف البيان</a><span class="page-number">ص 166</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المتدارك بالشعر الحر">المتدارك بالشعر</a><span class="page-number">ص 145</span></li>
+                    <li><a href="#" class="course-title" title="الوافر والهزج">الوافر والهزج</a><span class="page-number">ص 149</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الإحساس بالألم">الإحساس بالألم</a><span class="page-number">ص 145</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="التسامح الديني">التسامح الديني</a><span class="page-number">ص 151</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="مقال حواري موضوعه الطلبة">مقال حواري للطلبة</a><span class="page-number">ص 154</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="تقصية جمعية العلماء">جمعية العلماء</a><span class="page-number">ص 160</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 8 -->
+    <div class="unit-container">
+        <h2>المحور 8</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="خطاب على قبر صلاح الدين">قبر صلاح الدين</a><span class="page-number">ص 168</span></li>
+                    <li><a href="#" class="course-title" title="منزلة المثقفين بالأمة">منزلة المثقفين</a><span class="page-number">ص 182</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="اسم الجنس الإفرادي">اسم الجنس الإفرادي</a><span class="page-number">ص 168</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الإرصاد">الإرصاد</a><span class="page-number">ص 171</span></li>
+                    <li><a href="#" class="course-title" title="الرمز الشعري">الرمز الشعري</a><span class="page-number">ص 172</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الصدمة الحضارية">الصدمة الحضارية</a><span class="page-number">ص 176</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <div class="empty-slot">-</div>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <div class="empty-slot">-</div>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <div class="empty-slot">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 9 -->
+    <div class="unit-container">
+        <h2>المحور 9</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الصراع بين التقليد والتجديد">التقليد والتجديد</a><span class="page-number">ص 189</span></li>
+                    <li><a href="#" class="course-title" title="الجرح والأمل">الجرح والأمل</a><span class="page-number">ص 204</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="أما، إما">أما، إما</a><span class="page-number">ص 189</span></li>
+                    <li><a href="#" class="course-title" title="الأحرف المشبهة">الأحرف المشبهة</a><span class="page-number">ص 204</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="بلاغة الاستعارة">بلاغة الاستعارة</a><span class="page-number">ص 192</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المقالة والصحافة">المقالة والصحافة</a><span class="page-number">ص 187</span></li>
+                    <li><a href="#" class="course-title" title="الأصالة والمعاصرة">الأصالة والمعاصرة</a><span class="page-number">ص 193</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <div class="empty-slot">-</div>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="مقال تفسير حجاجي">مقال حجاجي</a><span class="page-number">ص 201</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="إضبارة الفن القصصي">الفن القصصي</a><span class="page-number">ص 211</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 10 -->
+    <div class="unit-container">
+        <h2>المحور 10</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الطريق إلى قرية الطوب">قرية الطوب</a><span class="page-number">ص 212</span></li>
+                    <li><a href="#" class="course-title" title="من مسرحية شهرزاد">مسرحية شهرزاد</a><span class="page-number">ص 230</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="اسم الجمع وتقسيم">اسم الجمع</a><span class="page-number">ص 218</span></li>
+                    <li><a href="#" class="course-title" title="أي، أَيّ، إي، اللفيف">أي، إي، اللفيف</a><span class="page-number">ص 233</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="التفريق">التفريق</a><span class="page-number">ص 210</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="صورة الاحتلال بالقصة">صورة الاحتلال</a><span class="page-number">ص 211</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="من رواية «الأمير»">رواية الأمير</a><span class="page-number">ص 220</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="تحليل قصة قصيرة">تحليل قصة</a><span class="page-number">ص 228</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <div class="empty-slot">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 11 -->
+    <div class="unit-container">
+        <h2>المحور 11</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="كابوس في الظهيرة">كابوس بالظهيرة</a><span class="page-number">ص 235</span></li>
+                    <li><a href="#" class="course-title" title="لآلة فاطمة نسومر">فاطمة نسومر</a><span class="page-number">ص 254</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="كم، كاين، كذا">كم، كاين، كذا</a><span class="page-number">ص 235</span></li>
+                    <li><a href="#" class="course-title" title="إعراب المتعدي لأكثر">إعراب المتعدي</a><span class="page-number">ص 235</span></li>
+                    <li><a href="#" class="course-title" title="نونا التوكيد">نونا التوكيد</a><span class="page-number">ص 254</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="الجمع مع التفريق">الجمع مع التفريق</a><span class="page-number">ص 234</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المسرح بالأدب العربي">المسرح بالعربي</a><span class="page-number">ص 240</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="ثقافة الحوار">ثقافة الحوار</a><span class="page-number">ص 245</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="إعداد مسرحية">إعداد مسرحية</a><span class="page-number">ص 252</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <div class="empty-slot">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحور 12 -->
+    <div class="unit-container">
+        <h2>المحور 12</h2>
+        <div class="domains-row">
+            <div class="domain-box">
+                <h3>نصوص أدبية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="من مسرحية المغص">مسرحية المغص</a><span class="page-number">ص 264</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>قواعد اللغة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="ما: معانيها وإعرابها">ما: معانيها وإعرابها</a><span class="page-number">ص 264</span></li>
+                    <li><a href="#" class="course-title" title="تصريف الناقص">تصريف الناقص</a><span class="page-number">ص 270</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>بلاغة وعروض</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المشاكلة">المشاكلة</a><span class="page-number">ص 270</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>نصوص تواصلية</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="المسرح الجزائري">المسرح الجزائري</a><span class="page-number">ص 262</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مطالعة موجهة</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="محمد أبوشنب">محمد أبوشنب</a><span class="page-number">ص 274</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>التعبير</h3>
+                <ul>
+                    <li><a href="#" class="course-title" title="تحليل نص مسرحي">تحليل مسرحية</a><span class="page-number">ص 284</span></li>
+                </ul>
+            </div>
+            <div class="domain-box">
+                <h3>مشاريع</h3>
+                <div class="empty-slot">-</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BacApp - Sommaire Français</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/home.css"> <!-- Utilisation de votre charte graphique -->
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sommaire-header {
+            background: linear-gradient(135deg, #264653, #2a9d8f);
+            border-bottom: 4px solid #e9c46a;
+            padding: 2.5rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .project-card {
+            background-color: #1e293b;
+            border: 2px solid #2a9d8f;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+        .project-header {
+            background-color: #264653;
+            color: #e9c46a;
+            padding: 1rem 1.5rem;
+            font-weight: bold;
+            border-top-left-radius: 0.6rem;
+            border-top-right-radius: 0.6rem;
+            font-size: 1.25rem;
+        }
+        .table custom-table {
+            color: #f8fafc;
+        }
+        .table th, .table td {
+            border-color: #334155;
+            vertical-align: middle;
+        }
+        .table-dark {
+            background-color: transparent;
+        }
+        .btn-retour {
+            background-color: #e9c46a;
+            color: #264653;
+            font-weight: bold;
+            border: none;
+        }
+        .btn-retour:hover {
+            background-color: #f4a261;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container py-4">
+        <!-- Bouton de retour à l'accueil -->
+        <div class="mb-4">
+            <a href="/Home/Home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+        </div>
+
+        <!-- En-tête -->
+        <div class="sommaire-header shadow">
+            <h1 class="display-5 fw-bold text-warning mb-2">Programme de Français</h1>
+            <h3 class="h4 text-light fw-semibold opacity-90">Terminales - Langues Étrangères (البكالوريا)</h3>
+            <p class="text-light mt-2 mb-0">Sommaire officiel des projets, objets d'étude, séquences et techniques d'expression.</p>
+        </div>
+
+        <!-- Tableau récapitulatif des 4 Projets -->
+        <div class="table-responsive">
+            <table class="table table-dark table-striped table-hover align-middle border-secondary">
+                <thead class="table-active text-warning">
+                    <tr>
+                        <th scope="col" style="width: 20%;">Projet & Intentions</th>
+                        <th scope="col" style="width: 20%;">Objet d'étude</th>
+                        <th scope="col" style="width: 40%;">Séquences</th>
+                        <th scope="col" style="width: 20%;">Techniques d'expression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- PROJET 1 -->
+                    <tr>
+                        <td class="fw-bold text-info">
+                            Projet 1<br>
+                            <span class="small fw-normal text-light">Exposer pour manifester son esprit critique.</span>
+                        </td>
+                        <td><strong>Texte et document d'Histoire.</strong></td>
+                        <td>
+                            <ul class="mb-0 ps-3">
+                                <li><strong>Sép 1 :</strong> Informer d'un fait d'histoire. (pages 8 à 26)</li>
+                                <li><strong>Sép 2 :</strong> Introduire un témoignage dans un fait d'histoire. (pages 27 à 44)</li>
+                                <li><strong>Sép 3 :</strong> Analyser et commenter un fait d'histoire. (pages 45 à 60)</li>
+                            </ul>
+                        </td>
+                        <td>La synthèse de documents, Rédiger une synthèse de documents.</td>
+                    </tr>
+
+                    <!-- PROJET 2 -->
+                    <tr>
+                        <td class="fw-bold text-info">
+                            Projet 2<br>
+                            <span class="small fw-normal text-light">Dialoguer pour confronter des points de vue.</span>
+                        </td>
+                        <td><strong>Le débat d'idées.</strong></td>
+                        <td>
+                            <ul class="mb-0 ps-3">
+                                <li><strong>Sép 1 :</strong> S'inscrire dans un débat : convaincre ou persuader. (pages 77 à 98)</li>
+                                <li><strong>Sép 2 :</strong> Prendre position dans un débat : concéder et réfuter. (pages 99 à 115)</li>
+                            </ul>
+                        </td>
+                        <td>Le compte rendu critique, Rédiger un compte rendu.</td>
+                    </tr>
+
+                    <!-- PROJET 3 -->
+                    <tr>
+                        <td class="fw-bold text-info">
+                            Projet 3<br>
+                            <span class="small fw-normal text-light">Argumenter pour faire réagir.</span>
+                        </td>
+                        <td><strong>L'appel.</strong></td>
+                        <td>
+                            <ul class="mb-0 ps-3">
+                                <li><strong>Sép 1 :</strong> Comprendre l'enjeu de l'appel et le structurer. (pages 137 à 150)</li>
+                                <li><strong>Sép 2 :</strong> Inciter son interlocuteur à agir. (pages 151 à 166)</li>
+                            </ul>
+                        </td>
+                        <td>La lettre de motivation.</td>
+                    </tr>
+
+                    <!-- PROJET 4 -->
+                    <tr>
+                        <td class="fw-bold text-info">
+                            Projet 4<br>
+                            <span class="small fw-normal text-light">Raconter pour exprimer son imaginaire.</span>
+                        </td>
+                        <td><strong>La nouvelle fantastique.</strong></td>
+                        <td>
+                            <ul class="mb-0 ps-3">
+                                <li><strong>Sép 1 :</strong> Introduire le fantastique dans un cadre réaliste. (pages 180 à 195)</li>
+                                <li><strong>Sép 2 :</strong> Exprimer son imaginaire dans une nouvelle fantastique. (pages 196 à 207)</li>
+                                <li><strong>Sép 3 :</strong> Comprendre l'enjeu de la nouvelle fantastique. (pages 208 à 217)</li>
+                            </ul>
+                        </td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

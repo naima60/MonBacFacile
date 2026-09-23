@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج الجغرافيا - البكالوريا</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-box {
+            background-color: #134e4a;
+            color: white;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .unit-card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            padding: 1rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Remonte les éléments en haut */
+            text-align: right;
+        }
+        .unit-title {
+            color: #0d9488;
+            font-weight: bold;
+            font-size: 1rem;
+            border-bottom: 2px solid #ccfbf1;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .list-group {
+            gap: 8px; /* Espace propre entre les cours */
+        }
+        .list-group-item {
+            border: none;
+            padding: 0;
+            font-size: 0.9rem;
+            text-align: right;
+            background: transparent;
+        }
+        .list-group-item a {
+            text-decoration: none;
+            color: #334155;
+            transition: color 0.2s;
+            display: block;
+        }
+        .list-group-item a:hover {
+            color: #0d9488;
+            padding-left: 5px;
+        }
+
+         .btn-retour {
+            background-color: #e9c46a;
+            color: #264653;
+            font-weight: bold;
+            border: none;
+            border-radius: 8x;
+            height:30px;
+           
+        }
+        .btn-retour:hover {
+            background-color: #f4a261;
+            color: #fff;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Bouton de retour à l'accueil -->
+        <div class="mb-4">
+            <a href="/Home/home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+        </div> 
+
+    <div class="container my-auto" style="max-width: 1100px;">
+        <!-- En-tête -->
+        <div class="header-box text-center shadow-sm">
+            <h3 class="fw-bold mb-1">برنامج مادة الجغرافيا</h3>
+            <p class="mb-0 small">المراجع الشاملة لشعبة لغات أجنبية وآداب</p>
+        </div>
+
+        <!-- Grille des unités -->
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <!-- Unité 1 -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">I. واقع الاقتصاد العالمي</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_1.html">01. إشكالية التقدم والتخلف</a></li>
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_2.html">02. المبادلات والتنقلات في العالم</a></li>
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_3.html">03. أسئلة غير مباشرة وردت في البكالوريا</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Unité 2 -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">II. القوى الاقتصادية الكبرى في العالم</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_4.html">01. مصادر القوة الأمريكية وتأثيرها</a></li>
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_5.html">02. ظاهرة التكتل في الاتحاد الأوروبي</a></li>
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_6.html">03. السكان والتنمية في شرق وجنوب شرق آسيا</a></li>
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_7.html">04. أسئلة غير مباشرة وردت في البكالوريا</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Unité 3 -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">III. الاقتصاد والتنمية في دول الجنوب</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_8.html">01. الاقتصاد الجزائري في العالم</a></li>
+                        <li class="list-group-item"><a href="/Matieres/geographie/cours_9.html">02. التنمية في البرازيل</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

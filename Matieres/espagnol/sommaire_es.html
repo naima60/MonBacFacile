@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Español - Baccalaureate</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            background-color: #1a237e;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        h1 { margin: 0; font-size: 1.6rem; }
+        p { margin: 5px 0 0; font-size: 0.9rem; opacity: 0.9; }
+
+        .ambito-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            border-top: 4px solid #1a237e;
+        }
+        .ambito-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e8eaf6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .ambito-title {
+            color: #1a237e;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .ambito-subtitles {
+            font-size: 0.85rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .columns-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        @media (max-width: 1200px) {
+            .columns-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 700px) {
+            .columns-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .column-box {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+        .column-box h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #0277bd;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 5px;
+        }
+        .column-box ul {
+            margin: 0;
+            padding-left: 15px;
+            font-size: 0.8rem;
+            color: #444;
+            line-height: 1.4;
+        }
+        .column-box li {
+            margin-bottom: 4px;
+        }
+
+        .btn-retour {
+            background-color: #e9c46a;
+            color: #264653;
+            font-weight: bold;
+            border: none;
+            border-radius: 8x;
+            height:30px;
+           
+        }
+        .btn-retour:hover {
+            background-color: #f4a261;
+            color: #fff;
+        }       
+
+
+    </style>
+</head>
+<body>
+
+    <div class="mb-4">
+            <a href="/Home/Home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+    </div> 
+
+    <header>
+        <h1>Programa de Español - Baccalaureate</h1>
+        <p>Desglose detallado de los Ámbitos</p>
+    </header>
+
+    <!-- ÁMBITO 1 -->
+    <div class="ambito-container">
+        <div class="ambito-header">
+            <h2 class="ambito-title">ÁMBITO 1: Ámbito personal (p. 9)</h2>
+            <span class="ambito-subtitles">A- Los jóvenes de hoy | B- Los sueños</span>
+        </div>
+        <div class="columns-grid">
+            <div class="column-box">
+                <h4>Competencias pragmáticas</h4>
+                <ul>
+                    <li>Hablar del estado de ánimo y relaciones</li>
+                    <li>Describir personalidad y carácter</li>
+                    <li>Justificar ideas y dar opiniones</li>
+                    <li>Expresar sueños, deseos y tiempo libre</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Competencias lingüísticas</h4>
+                <ul>
+                    <li><strong>Gramatical:</strong> Ser/estar, futuro, potencial, hipótesis, pretérito imperfecto de subjuntivo, verbos de emoción.</li>
+                    <li><strong>Léxica:</strong> Adjetivos de personalidad, ocio, lenguaje juvenil.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Fonología & Sociocultural</h4>
+                <ul>
+                    <li><strong>Fonológica:</strong> Signos de puntuación, entonación.</li>
+                    <li><strong>Sociocultural:</strong> La canción protesta.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Proyecto</h4>
+                <ul>
+                    <li>Elaboración de un programa: el futuro del planeta Tierra. Los jóvenes tienen la palabra.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁMBITO 2 -->
+    <div class="ambito-container">
+        <div class="ambito-header">
+            <h2 class="ambito-title">ÁMBITO 2: Ámbito educativo (p. 50)</h2>
+            <span class="ambito-subtitles">A- El mundo de la enseñanza | B- La educación de un buen ciudadano</span>
+        </div>
+        <div class="columns-grid">
+            <div class="column-box">
+                <h4>Competencias pragmáticas</h4>
+                <ul>
+                    <li>Necesidad de hablar idiomas e importancia del español</li>
+                    <li>Estrategias y dificultad del aprendizaje</li>
+                    <li>Sensibilizar sobre la protección de la naturaleza</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Competencias lingüísticas</h4>
+                <ul>
+                    <li><strong>Gramatical:</strong> Expresión de la condición, por/para, gerundio, oraciones impersonales.</li>
+                    <li><strong>Léxica:</strong> Léxico relativo a la educación y a los estudios.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Fonología & Sociocultural</h4>
+                <ul>
+                    <li><strong>Fonológica:</strong> La acentuación.</li>
+                    <li><strong>Sociocultural:</strong> Sistema educativo español, derechos del niño, aprender español en la Red.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Proyecto</h4>
+                <ul>
+                    <li>Elaboración de un decálogo para conmemorar el día del árbol, del agua, de la tierra...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁMBITO 3 -->
+    <div class="ambito-container">
+        <div class="ambito-header">
+            <h2 class="ambito-title">ÁMBITO 3: Ámbito científico y tecnológico (p. 91)</h2>
+            <span class="ambito-subtitles">A- Los inventos | B- El pro y el contra de la tecnología</span>
+        </div>
+        <div class="columns-grid">
+            <div class="column-box">
+                <h4>Competencias pragmáticas</h4>
+                <ul>
+                    <li>Describir objetos, componentes y utilidad</li>
+                    <li>Discutir y argumentar sobre alimentos transgénicos</li>
+                    <li>Evolución de la humanidad e ingeniería genética</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Competencias lingüísticas</h4>
+                <ul>
+                    <li><strong>Gramatical:</strong> Concesión con indicativo/subjuntivo, voz pasiva, causa, imperativo.</li>
+                    <li><strong>Léxica:</strong> Terminología sobre ciencia, hombre, máquina y nuevas tecnologías.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Fonología & Sociocultural</h4>
+                <ul>
+                    <li><strong>Fonológica:</strong> Repaso acentuación.</li>
+                    <li><strong>Sociocultural:</strong> Los inventos, el mundo de Internet y el español.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Proyecto</h4>
+                <ul>
+                    <li>Elaboración de la revista del instituto.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁMBITO 4 -->
+    <div class="ambito-container">
+        <div class="ambito-header">
+            <h2 class="ambito-title">ÁMBITO 4: Ámbito laboral (p. 125)</h2>
+            <span class="ambito-subtitles">A- Construir el mañana | B- El mundo del trabajo</span>
+        </div>
+        <div class="columns-grid">
+            <div class="column-box">
+                <h4>Competencias pragmáticas</h4>
+                <ul>
+                    <li>Elegir profesiones, justificar elección y condiciones de trabajo</li>
+                    <li>Solicitar empleo, hablar del paro y trayectoria laboral</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Competencias lingüísticas</h4>
+                <ul>
+                    <li><strong>Gramatical:</strong> Expresión temporal, finalidad, comparativas, estilo directo e indirecto.</li>
+                    <li><strong>Léxica:</strong> Profesiones, CV, carta de presentación, mundo empresarial.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Fonología & Sociocultural</h4>
+                <ul>
+                    <li><strong>Fonológica:</strong> Acentuación y entonación.</li>
+                    <li><strong>Sociocultural:</strong> Artesanía popular en España, América Latina y Argelia.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Proyecto</h4>
+                <ul>
+                    <li>Crear tu propia empresa.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁMBITO 5 -->
+    <div class="ambito-container">
+        <div class="ambito-header">
+            <h2 class="ambito-title">ÁMBITO 5: Páginas eternas (p. 169)</h2>
+            <span class="ambito-subtitles">A- Rutas literarias y culturales | B- Rutas históricas</span>
+        </div>
+        <div class="columns-grid">
+            <div class="column-box">
+                <h4>Competencias pragmáticas</h4>
+                <ul>
+                    <li>Conocer a famosos, pacifistas, escritores y pintores hispánicos</li>
+                    <li>Contar biografías, relatar y ordenar acontecimientos pasados</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Competencias lingüísticas</h4>
+                <ul>
+                    <li><strong>Gramatical:</strong> Repaso tiempos pasados, correspondencia de tiempos, oraciones subordinadas.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Fonología & Sociocultural</h4>
+                <ul>
+                    <li><strong>Fonológica:</strong> Entonación y lectura expresiva.</li>
+                    <li><strong>Sociocultural:</strong> Premios Nobel, pasado de España, civilización precolombina, libertadores.</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>Proyecto</h4>
+                <ul>
+                    <li>Hombres y mujeres geniales.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دروس الرياضيات - القسمة الإقليدية والأعداد الصحيحة</title>
+    <!-- MathJax for rendering LaTeX mathematical expressions -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        ul {
+            padding-right: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .example-box {
+            background-color: #eef2f7;
+            border-right: 4px solid var(--secondary-color);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background-color: #fef5e7;
+            border-right: 4px solid var(--warning-color);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            text-align: right;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.02);
+        }
+
+        th, td {
+            padding: 1rem;
+            border: 1px solid #e1e8ed;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcfdfd;
+        }
+
+        /* تنسيق قسم التمارين والزر */
+        .exercise-box {
+            background-color: #fdfefe;
+            border: 2px dashed var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+        }
+
+        .btn-toggle {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn-toggle:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .solution-content {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: #e8f8f5;
+            border-right: 4px solid var(--success-color);
+            border-radius: 6px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+            table, th, td {
+                font-size: 0.9rem;
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>دروس الرياضيات: القسمة الإقليدية</h1>
+        <p>ملخص شامل ومنظم لمفهوم الأعداد الصحيحة والقسمة الإقليدية مع التمارين التطبيقية</p>
+    </header>
+
+    <div class="container">
+        <!-- رابط العودة للصفحة الرئيسية -->
+        <a href="/Home/home.html" class="nav-back">← العودة إلى الصفحة الرئيسية</a>
+
+        <!-- القسم الأول -->
+        <div class="card">
+            <h2>🔢 1. مجموعة الأعداد الصحيحة (\(\mathbb{Z}\))</h2>
+            <p>هي مجموعة تضم الأعداد الطبيعية الموجبة، الصفر، ومقابلاتها السالبة.</p>
+            <div class="example-box">
+                <strong>أمثلة:</strong> \(\dots, -3, -2, -1, 0, 1, 2, 3, \dots\)
+            </div>
+        </div>
+
+        <!-- القسم الثاني -->
+        <div class="card">
+            <h2>📐 2. القاعدة العامة للقسمة الإقليدية</h2>
+            <p>لكل عددين صحيحين \(a\) (المقسوم) و \(b\) (المقسوم عليه)، توجد مساواة وحيدة بالشكل:</p>
+            <div style="text-align: center; font-size: 1.25rem; margin: 1.5rem 0;">
+                \(a = b \times q + r\)
+            </div>
+            <p><strong>شروط الباقي (\(r\)) :</strong> يجب أن يكون عددًا صحيحًا موجبًا دائمًا، وأصغر تماماً من القيمة المطلقة للمقسوم عليه (\(0 \le r < \vert{}b\vert{}\)).</p>
+        </div>
+
+        <!-- القسم الثالث -->
+        <div class="card">
+            <h2>🔍 3. الحالات الثلاث للقسمة الإقليدية</h2>
+            <ul>
+                <li><strong>🟢 أعداد موجبة:</strong> عندما يكون المقسوم والمقسوم عليه موجبين، نحصل على حاصل وباقٍ موجبان بشكل طبيعي.
+                    <div class="example-box">مثال: \(23 \div 4 \implies 23 = 4 \times 5 + 3\)</div>
+                </li>
+                <li><strong>🟠 أعداد سالبة:</strong> عندما يكون المقسوم سالباً، نعدل حاصل القسمة (\(q\)) بتخفيضه بمقدار وحدة لضمان بقاء الباقي (\(r\)) موجباً.
+                    <div class="example-box">مثال: \(-22 \div 4 \implies -22 = 4 \times (-6) + 2\)</div>
+                </li>
+                <li><strong>🔵 الباقي صفر (قسمة تامة):</strong> عندما ينعدم الباقي (\(r = 0\))، فهذا يعني أن \(b\) قاسم لـ \(a\) وأن \(a\) مضاعف لـ \(b\).
+                    <div class="example-box">مثال: \(20 \div 4 \implies 20 = 4 \times 5 + 0\)</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- القسم الرابع -->
+        <div class="card">
+            <h2>⚖️ 4. الفرق بين القسمة الإقليدية والقسمة العشرية</h2>
+            <ul>
+                <li><strong>القسمة الإقليدية:</strong> هدفها إيجاد عددين صحيحين وهما حاصل القسمة (\(q\)) والباقي الصحيح والموجب (\(r\))، ضمن مجموعة الأعداد الصحيحة (\(\mathbb{Z}\)).</li>
+                <li><strong>القسمة العشرية:</strong> هدفها إيجاد ناتج دقيق على شكل عدد عشري (بالفواصل) دون الالتزام بباقي صحيح موجب، حيث تنتهي بقسمة تامة أو بقيمة تقريبية عشرية.</li>
+            </ul>
+        </div>
+
+        <!-- القسم الخامس -->
+        <div class="card">
+            <h2>📊 5. جدول ملخص حالات القسمة الإقليدية</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الحالة</th>
+                        <th>📌 الوصف الأساسي</th>
+                        <th>⚖️ الشرط الأساسي</th>
+                        <th>📝 مثال توضيحي</th>
+                        <th>📐 مساواة القسمة الإقليدية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>أعداد موجبة</strong></td>
+                        <td>حاصل وباقٍ موجبان بشكل طبيعي.</td>
+                        <td>\(0 \le r < b\)</td>
+                        <td>\(23 \div 4\)</td>
+                        <td>\(23 = 4 \times 5 + \mathbf{3}\)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>أعداد سالبة</strong></td>
+                        <td>تعديل حاصل القسمة لضمان بقاء الباقي موجباً.</td>
+                        <td>\(0 \le r < \vert{}b\vert{}\)</td>
+                        <td>\(-22 \div 4\)</td>
+                        <td>\(-22 = 4 \times (-6) + \mathbf{2}\)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>قسمة تامة</strong></td>
+                        <td>انعدام الباقي (\(r = 0\)) لتمثيل المضاعفات.</td>
+                        <td>\(r = 0\)</td>
+                        <td>\(20 \div 4\)</td>
+                        <td>\(20 = 4 \times 5 + \mathbf{0}\)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- القسم السادس: التمارين التطبيقية -->
+        <div class="exercise-box">
+            <h2>📝 6. تمارين تطبيقية هامة (تحضيراً للبكالوريا)</h2>
+            <p>أنجز القسمة الإقليدية لكل ممّا يلي، ثم اكتب المساواة المعبرة عنها:</p>
+            <ul>
+                <li>أ) العدد <strong>47</strong> على العدد <strong>6</strong>.</li>
+                <li>ب) العدد <strong>-35</strong> على الآلة الحاسبة: هل كتابة \( -35 = 4 \times (-8.75) \) تعتبر قسمة إقليدية؟</li>
+                <li>ج) العدد <strong>54</strong> على العدد <strong>9</strong> (حالة الباقي المعدوم).</li>
+            </ul>
+
+            <button class="btn-toggle" onclick="toggleSolution()">
+                <span>👁️</span> عرض الحل النموذجي والتحذير الهام
+            </button>
+
+            <div id="solutionBox" class="solution-content">
+                <h3>💡 الحل النموذجي والتنبيهات:</h3>
+                <ul>
+                    <li><strong>أ) قسمة 47 على 6:</strong>
+                        <div style="margin-top: 0.5rem;">
+                            \(47 \div 6 \implies 47 = 6 \times 7 + 5\) <br>
+                            (الحاصل هو \(7\) والباقي هو \(5\)، حيث \(0 \le 5 < 6\)).
+                        </div>
+                    </li>
+                    <li style="margin-top: 1rem;"><strong>ب) تحذير هام جداً (القسمة العادية بالآلة الحاسبة):</strong>
+                        <div class="warning-box" style="margin-top: 0.5rem;">
+                            عندما تحسب \(-35 \div 4\) بالآلة الحاسبة تعطيك مباشرة القيمة العشرية: \(-8.75\). <br>
+                            <strong>⚠️ تنبيه للبكالوريا:</strong> هذه تُسمى <em>قسمة عادية (عشرية)</em> ولا تُعتبر أبداً قسمة إقليدية، لأن الباقي فيها غير موجود (أو يعتبر صفراً مع ناتج عشري)، بينما شرط القسمة الإقليدية الحتمية هو أن يكون الحاصل عددًا صحيحًا والباقي عددًا صحيحًا موجبًا أصغر تماماً من المقسوم عليه! <br>
+                            الطريقة الصحيحة لإنجازها هي: \(-35 = 4 \times (-9) + 1\).
+                        </div>
+                    </li>
+                    <li style="margin-top: 1rem;"><strong>ج) قسمة 54 على 9 (حالة الباقي المعدوم):</strong>
+                        <div style="margin-top: 0.5rem;">
+                            \(54 \div 9 \implies 54 = 9 \times 6 + 0\) <br>
+                            (بما أن الباقي \(r = 0\)، فهذه قسمة تامة، ويعني أن \(9\) قاسم لـ \(54\) و \(54\) مضاعف لـ \(9\)).
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 جميع الحقوق محفوظة - منصة دروس الرياضيات</p>
+    </footer>
+
+    <!-- JavaScript لتشغيل زر عرض الحل -->
+    <script>
+        function toggleSolution() {
+            var box = document.getElementById("solutionBox");
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+                // إعادة تحميل MathJax لتفسير الرموز الرياضية عند ظهور الحل
+                if (window.MathJax) {
+                    MathJax.typeset();
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

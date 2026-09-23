@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Syllabus - Baccalaureate Review</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            background-color: #1a237e;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        h1 { margin: 0; font-size: 1.6rem; }
+        p { margin: 5px 0 0; font-size: 0.9rem; opacity: 0.9; }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Units Section */
+        .units-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+        .units-section h2 {
+            color: #1a237e;
+            margin-top: 0;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #e8eaf6;
+            padding-bottom: 8px;
+        }
+        .unit-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 10px;
+            border-bottom: 1px solid #f0f0f0;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s;
+            border-radius: 4px;
+        }
+        .unit-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        /* Unité en bleu et sujet en noir sur la même ligne */
+        .unit-content {
+            font-size: 0.95rem;
+        }
+        .unit-prefix {
+            font-weight: 700;
+            color: #0277bd; /* Couleur assortie aux blocs langue/skills */
+            margin-right: 8px;
+        }
+        .unit-subject {
+            font-weight: 600;
+            color: #333; /* Texte en noir/gris foncé */
+        }
+
+        .unit-number {
+            background: #e8eaf6;
+            color: #3f51b5;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        /* Methodology Section */
+        .methodology-section {
+            background: #e8eaf6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            border-left: 5px solid #3f51b5;
+            height: fit-content;
+        }
+        .methodology-section h2 {
+            color: #1a237e;
+            margin-top: 0;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #c5cae9;
+            padding-bottom: 8px;
+        }
+        .method-step {
+            background: white;
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            border-left: 3px solid #0277bd;
+        }
+        .method-step strong {
+            color: #0277bd;
+            display: block;
+            margin-bottom: 3px;
+        }
+        .sublist {
+            margin: 4px 0 0 0;
+            padding-left: 15px;
+            list-style-type: disc;
+            color: #444;
+        }
+        .sublist li {
+            margin-bottom: 2px;
+        }
+
+        .btn-retour {
+            background-color: #e9c46a;
+            color: #264653;
+            font-weight: bold;
+            border: none;
+            border-radius: 8x;
+            height:30px;
+           
+        }
+        .btn-retour:hover {
+            background-color: #f4a261;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+
+     <!-- Bouton de retour à l'accueil -->
+        <div class="mb-4">
+            <a href="/Home/home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+        </div> 
+
+    <header>
+        <h1>English Syllabus - Baccalaureate</h1>
+        <p>Overview of the 6 units and their common methodology</p>
+    </header>
+
+    <div class="main-container">
+        <!-- List of the 6 Units -->
+        <div class="units-section">
+            <h2>Syllabus Units</h2>
+            
+            <a href="#" class="unit-item">
+                <span class="unit-content">
+                    <span class="unit-prefix">UNIT ONE:</span>
+                    <span class="unit-subject">EXPLORING THE PAST</span>
+                </span>
+                <span class="unit-number">Unit 1</span>
+            </a>
+            <a href="#" class="unit-item">
+                <span class="unit-content">
+                    <span class="unit-prefix">UNIT TWO:</span>
+                    <span class="unit-subject">ILL-GOTTEN GAINS NEVER PROSPER</span>
+                </span>
+                <span class="unit-number">Unit 2</span>
+            </a>
+            <a href="#" class="unit-item">
+                <span class="unit-content">
+                    <span class="unit-prefix">UNIT THREE:</span>
+                    <span class="unit-subject">SCHOOLS: DIFFERENT AND ALIKE</span>
+                </span>
+                <span class="unit-number">Unit 3</span>
+            </a>
+            <a href="#" class="unit-item">
+                <span class="unit-content">
+                    <span class="unit-prefix">UNIT FOUR:</span>
+                    <span class="unit-subject">SAFETY FIRST</span>
+                </span>
+                <span class="unit-number">Unit 4</span>
+            </a>
+            <a href="#" class="unit-item">
+                <span class="unit-content">
+                    <span class="unit-prefix">UNIT FIVE:</span>
+                    <span class="unit-subject">ARE WE ALONE?</span>
+                </span>
+                <span class="unit-number">Unit 5</span>
+            </a>
+            <a href="#" class="unit-item">
+                <span class="unit-content">
+                    <span class="unit-prefix">UNIT SIX:</span>
+                    <span class="unit-subject">WE ARE A FAMILY!</span>
+                </span>
+                <span class="unit-number">Unit 6</span>
+            </a>
+        </div>
+
+        <!-- Common Methodology -->
+        <div class="methodology-section">
+            <h2>Common Methodology</h2>
+            <p style="font-size: 0.85rem; color: #555; margin-bottom: 15px;">Each unit follows the same pedagogical structure:</p>
+            
+            <div class="method-step">
+                <strong>1. Language Outcomes</strong>
+                <ul class="sublist">
+                    <li>Listen and consider</li>
+                    <li>Read and consider</li>
+                </ul>
+            </div>
+            <div class="method-step">
+                <strong>2. Take a Break</strong>
+                Break activities and relaxation
+            </div>
+            <div class="method-step">
+                <strong>3. Skills & Strategies Outcomes</strong>
+                <ul class="sublist">
+                    <li>Research & report</li>
+                    <li>Listening & speaking</li>
+                    <li>Reading & writing</li>
+                    <li>Project outcome & Assessment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

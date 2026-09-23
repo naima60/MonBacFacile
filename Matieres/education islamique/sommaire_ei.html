@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج التربية الإسلامية - البكالوريا</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 15px 0;
+        }
+        .header-box {
+            background-color: #134e4a;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .unit-card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            padding: 0.7rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: right;
+        }
+        .unit-title {
+            color: #0d9488;
+            font-weight: bold;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #ccfbf1;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .list-group {
+            gap: 3px;
+        }
+        .list-group-item {
+            border: none;
+            padding: 0;
+            font-size: 0.76rem;
+            text-align: right;
+            background: transparent;
+        }
+        .list-group-item a {
+            text-decoration: none;
+            color: #334155;
+            transition: color 0.2s;
+            display: block;
+        }
+        .list-group-item a:hover {
+            color: #0d9488;
+            padding-left: 5px;
+        }
+
+        .btn-retour {
+            background-color: #e9c46a;
+            color: #264653;
+            font-weight: bold;
+            border: none;
+            border-radius: 8x;
+            height:30px;
+           
+        }
+        .btn-retour:hover {
+            background-color: #f4a261;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Bouton de retour à l'accueil -->
+        <div class="mb-4">
+            <a href="/Home/home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+        </div> 
+
+    <div class="container my-auto" style="max-width: 1200px;">
+        <!-- En-tête -->
+        <div class="header-box text-center shadow-sm">
+            <h3 class="fw-bold mb-1" style="font-size: 1.2rem;">برنامج مادة التربية الإسلامية</h3>
+            <p class="mb-0 small">المراجع الشاملة لشعبة لغات أجنبية وآداب</p>
+        </div>
+
+        <!-- Grille des 7 fichiers -->
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <!-- 1. الملف الأول -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">الملف الأول: من هدي القرآن الكريم</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_1.html">01. وسائل القرآن الكريم في تثبيت العقيدة</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_2.html">02. موقف القرآن من العقل</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_3.html">03. الصحة النفسية والجسمية في القرآن</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_4.html">04. القيم في القرآن الكريم</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. الملف الثاني -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">الملف الثاني: من هدي السنة النبوية</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_5.html">01. المساواة أمام أحكام الشريعة الإسلامية</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_6.html">02. العمل والإنتاج ومشكلة البطالة</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_7.html">03. مشروعية الوقف</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_8.html">04. توجيهات الرسول ﷺ في صلة الآباء بالأبناء</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. الملف الثالث -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">الملف الثالث: القيم الإيمانية والتعبدية</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_9.html">01. أثر الإيمان والعبادات في اجتناب الانحراف</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_10.html">02. الإسلام والرسالات السماوية السابقة</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_11.html">03. من مصادر التشريع الإسلامي (الإجماع، القياس، المصالح المرسلة)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 4. الملف الرابع -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">الملف الرابع: القيم الحقوقية</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_12.html">01. حقوق الإنسان في العلاقات العامة والدولية</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_13.html">02. حقوق العمال وواجباتهم في الإسلام</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 5. الملف الخامس -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">الملف الخامس: القيم الاجتماعية والأسرية</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_14.html">01. العلاقات الاجتماعية بين المسلمين وغيرهم</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_15.html">02. من المشاكل الأسرية: النسب وأحكامها (النسب، التبني، الكفالة)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 6. الملف السادس -->
+            <div class="col">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">الملف السادس: القيم الإعلامية والتواصلية</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_16.html">01. تحليل وثيقة خطبة الرسول ﷺ في حجة الوداع</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 7. الملف السابع -->
+            <div class="col mx-auto">
+                <div class="unit-card shadow-sm">
+                    <h3 class="unit-title">الملف السابع: القيم المالية والاقتصادية</h3>
+                    <ul class="list-group mb-0">
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_17.html">01. الربا ومشكلة الفائدة</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_18.html">02. من المعاملات المالية الجائزة (بيع التقسيط، المرابحة، القراض، الصرف)</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_19.html">03. الشِركة في الفقه الإسلامي (شركة العنان، المفاوضعة، الأبدان، الوجوه، الشركات الحديثة)</a></li>
+                        <li class="list-group-item"><a href="/Matieres/islam/cours_20.html">04. من الطرق المشروعة لانتقال المال (الوصية، الميراث، الهبة، الوقف)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
