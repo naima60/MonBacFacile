@@ -174,33 +174,76 @@
         <bdi dir="ltr">uₙ + 1</bdi>.
       </div>
 
-      <h2 id="s3"><bdi dir="ltr">2</bdi>. اتجاه التغير</h2>
+     
+<h2 id="s3"><bdi dir="ltr">2</bdi>. اتجاه التغير</h2>
       <div class="rule">
-        <strong>القاعدة</strong> ندرس إشارة <bdi dir="ltr">uₙ₊₁ − uₙ</bdi>: إذا
-        كانت موجبة لكل <bdi dir="ltr">n</bdi> فالمتتالية تزايدية، وإذا كانت
-        سالبة لكل <bdi dir="ltr">n</bdi> فهي تناقصية.
+        <strong>القاعدة:</strong> ندرس إشارة الفرق <bdi dir="ltr">uₙ₊₁ − uₙ</bdi>: 
+        إذا كانت النتيجة موجبة تماماً لكل <bdi dir="ltr">n</bdi> فالمتتالية <strong>تزايدية تماماً</strong>، 
+        وإذا كانت سالبة تماماً فهي <strong>تناقصية تماماً</strong>.
       </div>
+      
+      <!-- المثال الأول مع الشرح المفصل سطر بسطر -->
       <div class="ex">
         <h3>
-          مثال <bdi dir="ltr">(Bac 2018)</bdi>: <bdi dir="ltr">uₙ = n² − 1</bdi>
+          مثال <bdi dir="ltr">(Bac 2018)</bdi> : <bdi dir="ltr">uₙ = n² − 1</bdi>
         </h3>
-        <p><bdi dir="ltr">uₙ₊₁ − uₙ = (n+1)² − 1 − (n² − 1) = 2n + 1</bdi></p>
-        <p>
-          وهي موجبة لكل <bdi dir="ltr">n</bdi> ، إذن
-          <bdi dir="ltr">(uₙ)</bdi> تزايدية تماماً.
+        <p><strong>الشرح خطوة بخطوة:</strong></p>
+        <ul>
+          <li><strong>الخطوة 1:</strong> نعوض كل حرف <bdi dir="ltr">n</bdi> بـ <bdi dir="ltr">(n + 1)</bdi> لنجد الحد الموالي: <bdi dir="ltr">uₙ₊₁ = (n + 1)² − 1</bdi></li>
+          <li><strong>الخطوة 2:</strong> نكتب الفرق ونقوم بعملية النشر والتبسيط:</li>
+        
+        <p><bdi dir="ltr">uₙ₊₁ − uₙ = [(n + 1)² − 1] − [(n² − 1)]</bdi></p>
+        <ul>
+          <li>نشر المطابقة الشهيرة وتبسيط الحدود المتشابهة:</li>
+        </ul>
+        <p><bdi dir="ltr">= (n² + 2n + 1 − 1) − (n² − 1) = ?</bdi></p>
+         <p><bdi dir="ltr">= n² + 2n + 1 − 1 − n² + 1 = 2n + 1</bdi></p>
+          <p>
+          <b><bdi dir="ltr">uₙ₊₁ − uₙ = 2n + 1 &gt; 0 </bdi></b>
         </p>
+        <li>
+         <p>
+          <strong>الاستنتاج:</strong> بما أن المقدار <bdi dir="ltr">2n + 1</bdi> موجب تماماً لكل عدد طبيعي <bdi dir="ltr">n</bdi>، 
+          إذن المتتالية <bdi dir="ltr">(uₙ)</bdi> <strong>تزايدية تماماً</strong>.
+        </p>
+        </li>
+        </ul>
       </div>
+
+      <!-- المثال الثاني مع الشرح المفصل سطر بسطر -->
       <div class="ex">
         <h3>
-          مثال <bdi dir="ltr">(Bac 2018)</bdi>: <bdi dir="ltr">uₙ = 6 × 4ⁿ</bdi>
+          مثال <bdi dir="ltr">(Bac 2018)</bdi> : <bdi dir="ltr">uₙ = 6 × 4ⁿ</bdi>
         </h3>
+        <p><strong>الشرح خطوة بخطوة:</strong></p>
+        <ul>
+          <li><strong>الخطوة 1:</strong> نعوض بـ <bdi dir="ltr">n + 1</bdi> في الأس لنحصل على: <bdi dir="ltr">uₙ₊₁ = 6 × 4ⁿ⁺¹</bdi></li>
+          <li><strong>الخطوة 2:</strong> نكتب الفرق ونفكك الأسس لإظهار العامل المشترك:</li>
+        </ul>
         <p>
-          <bdi dir="ltr"
-            >uₙ₊₁ − uₙ = 6×4ⁿ⁺¹ − 6×4ⁿ = 6×4ⁿ(4 − 1) = 18×4ⁿ &gt; 0</bdi
-          >
+          <bdi dir="ltr">uₙ₊₁ − uₙ = [6 × 4ⁿ⁺¹] − [6 × 4ⁿ]</bdi>
         </p>
-        <p>إذن <bdi dir="ltr">(uₙ)</bdi> تزايدية تماماً.</p>
+        <ul>
+          <li>نكتب <bdi dir="ltr">4ⁿ⁺¹</bdi> على شكل <bdi dir="ltr">4ⁿ × 4</bdi> ونستخرج <bdi dir="ltr">6 × 4ⁿ</bdi> كعامل مشترك:</li>
+        </ul>
+        <p>
+          <bdi dir="ltr">uₙ₊₁ − uₙ = [6 × 4ⁿx4¹] − [6 × 4ⁿ]</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">uₙ₊₁ − uₙ = 6 × 4ⁿ(4 − 1) = 18 × 4ⁿ &gt; 0</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">uₙ₊₁ − uₙ = 6 × 4ⁿ(3) = 18 × 4ⁿ &gt; 0</bdi>
+        </p>
+        <p>
+          <b><bdi dir="ltr">uₙ₊₁ − uₙ = 18 × 4ⁿ &gt; 0 </bdi></b>
+        </p>
+        <p>
+          <strong>الاستنتاج:</strong> بما أن النتيجة النهائية <bdi dir="ltr">18 × 4ⁿ</bdi> أكبر تماماً من الصفر مهما كانت قيمة <bdi dir="ltr">n</bdi>، 
+          إذن المتتالية <bdi dir="ltr">(uₙ)</bdi> <strong>تزايدية تماماً</strong>.
+        </p>
       </div>
+
       <h2 id="s4"><bdi dir="ltr">3</bdi>. المتتالية الحسابية</h2>
       <p>
         ننتقل من حد إلى الذي يليه بإضافة العدد نفسه <bdi dir="ltr">r</bdi> ،
@@ -230,24 +273,25 @@
                 <bdi dir="ltr">uₙ = u₀ + n·r</bdi> (الترقيم من
                 <bdi dir="ltr">u₀</bdi>) ،
                 <bdi dir="ltr">uₙ = u₁ + (n − 1)·r</bdi> (الترقيم من
-                <bdi dir="ltr">u₁</bdi>) ، وعموماً
-                <bdi dir="ltr">uₙ = uₚ + (n − p)·r</bdi>
+                <bdi dir="ltr">u₁</bdi>) ، وعموماً :
+                <p><bdi dir="ltr">uₙ = uₚ + (n − p)·r</bdi></p>
               </td>
             </tr>
             <tr>
               <td>الاتجاه</td>
               <td>
-                <bdi dir="ltr">r &gt; 0</bdi> تزايدية ،
-                <bdi dir="ltr">r &lt; 0</bdi> تناقصية ،
-                <bdi dir="ltr">r = 0</bdi> ثابتة
+                <bdi dir="ltr">r &gt; 0</bdi> : متتالية تزايدية ،
+                <bdi dir="ltr">r &lt; 0</bdi> : متتالية تناقصية ،
+                <bdi dir="ltr">r = 0</bdi> : متتالية ثابتة
               </td>
             </tr>
             <tr>
               <td>المجموع</td>
               <td>
-                <bdi dir="ltr">S =</bdi> عدد الحدود <bdi dir="ltr">×</bdi> (الحد
-                الأول <bdi dir="ltr">+</bdi> الحد الأخير)
                 <bdi dir="ltr">÷ 2</bdi>
+                [عدد الحدود <bdi dir="ltr">×</bdi> (الحد
+                الأول <bdi dir="ltr">+</bdi> الحد الأخير)]
+                <bdi dir="ltr">S =</bdi>
               </td>
             </tr>
           </tbody>
@@ -257,7 +301,9 @@
         <h3>
           مثال <bdi dir="ltr">(Bac 2025)</bdi>: <bdi dir="ltr">uₙ = 3n − 9</bdi>
         </h3>
-        <p><bdi dir="ltr">uₙ₊₁ − uₙ = 3(n+1) − 9 − (3n − 9) = 3</bdi></p>
+        <p><bdi dir="ltr">uₙ₊₁ − uₙ = 3(n+1) − 9 − (3n − 9) = ?</bdi></p>
+        <p><bdi dir="ltr">uₙ₊₁ − uₙ = 3n + 3 − 9 − 3n + 9 = 3</bdi></p>
+        <p><bdi dir="ltr">uₙ₊₁ − uₙ = 3</bdi></p>
         <p>
           إذن <bdi dir="ltr">(uₙ)</bdi> حسابية أساسها <bdi dir="ltr">3</bdi> ،
           وهي تزايدية لأن <bdi dir="ltr">3 &gt; 0</bdi>.
@@ -292,26 +338,27 @@
                 <bdi dir="ltr">uₙ = u₀ × qⁿ</bdi> (الترقيم من
                 <bdi dir="ltr">u₀</bdi>) ،
                 <bdi dir="ltr">uₙ = u₁ × qⁿ⁻¹</bdi> (الترقيم من
-                <bdi dir="ltr">u₁</bdi>) ، وعموماً
-                <bdi dir="ltr">uₙ = uₚ × qⁿ⁻</bdi>ᵖ
+                <bdi dir="ltr">u₁</bdi>) : وعموماً
+                <p><bdi dir="ltr">uₙ = uₚ × qⁿ⁻</bdi></p>
               </td>
             </tr>
             <tr>
               <td>الاتجاه <bdi dir="ltr">(u₀ &gt; 0)</bdi></td>
               <td>
-                <bdi dir="ltr">q &gt; 1</bdi> تزايدية ،
-                <bdi dir="ltr">0 &lt; q &lt; 1</bdi> تناقصية ،
-                <bdi dir="ltr">q = 1</bdi> ثابتة
+                <bdi dir="ltr">q &gt; 1</bdi> : متتالية تزايدية ،
+                <bdi dir="ltr">0 &lt; q &lt; 1</bdi> : متتالية تناقصية ،
+                <bdi dir="ltr">q = 1</bdi> : متتالية ثابتة
               </td>
             </tr>
             <tr>
               <td>المجموع (<bdi dir="ltr">q</bdi> ≠ <bdi dir="ltr">1</bdi>)</td>
-              <td>
-                <bdi dir="ltr">S =</bdi> الحد الأول
-                <bdi dir="ltr">× (1 − q</bdi>ᵏ)
-                <bdi dir="ltr">÷ (1 − q)</bdi> حيث <bdi dir="ltr">k</bdi> عدد
-                الحدود
-              </td>
+              
+             <td>
+  <div style="direction: ltr; text-align: right; display: inline-block;">
+    S = الحد الأول × <span style="display: inline-block; direction: ltr;">[(1 - q<sup>عدد الحدود</sup>) ÷ (1 - q)]</span>
+  </div>
+</td>
+
             </tr>
           </tbody>
         </table>
