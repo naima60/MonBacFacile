@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>درس المتتاليات العددية</title>
+    <link rel="stylesheet" href="style_cours2.css" />
+   
+   <style>
+      :root {
+        --accent: #0e7490;
+      }
+
+
+.btn-retour {
+            background-color: #e9c46a;
+            color: #264653;
+            font-weight: bold;
+            border: none;
+            border-radius: 8x;
+            height:30px;
+           
+        }
+        .btn-retour:hover {
+            background-color: #f4a261;
+            color: #fff;
+        }
+
+
+    </style>
+  </head>
+ 
+  <body>
+
+    <!-- Bouton de retour à l'accueil -->
+        <div class="mb-4">
+            <a href="../../Home/home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+        </div> 
+    
+    <!-- Titre du cours -->
+    <header>
+      <h1>درس المتتاليات العددية</h1>
+      <p class="sub">
+        السنة الثالثة ثانوي، شعبة لغات أجنبية. مبني على مواضيع بكالوريا
+        <bdi dir="ltr">2010</bdi> و<bdi dir="ltr">2018</bdi> و<bdi dir="ltr"
+          >2020</bdi>و<bdi dir="ltr">2025</bdi>.</p>
+    </header>
+
+    <!-- menu des section cliquable -->
+    <nav aria-label="فهرس الدرس">
+        <ol>
+            <li><a href="#s1">ماذا يُسأل في الباكالوريا؟</a></li>
+            <li><a href="#s2"><bdi dir="ltr">1</bdi>. ما هي المتتالية؟</a></li>
+            <li><a href="#s3"><bdi dir="ltr">2</bdi>. اتجاه التغير</a></li>
+            <li><a href="#s4"><bdi dir="ltr">3</bdi>. المتتالية الحسابية</a></li>
+            <li><a href="#s5"><bdi dir="ltr">4</bdi>. المتتالية الهندسية</a></li>
+            <li><a href="#s6"><bdi dir="ltr">5</bdi>. خاصية الحد الأوسط وإيجاد الأساس</a></li>
+            <li><a href="#s7"><bdi dir="ltr">6</bdi>. الدليل والرتبة وأن عدداً حد من الحدود</a></li>
+            <li><a href="#s8"><bdi dir="ltr">7</bdi>. المجموع وعدّ الحدود</a></li>
+            <li><a href="#s9"><bdi dir="ltr">8</bdi>. نفي الحسابية أو الهندسية</a></li>
+            <li><a href="#s10"><bdi dir="ltr">9</bdi>. الاستنتاج من علاقة بين متتاليتين</a></li>
+            <li><a href="#s11"><bdi dir="ltr">10</bdi>. الاستدلال بالتراجع (اختياري، ظهر في<bdi dir="ltr">2010</bdi> فقط)</a></li>
+            <li><a href="#s12"><bdi dir="ltr">11</bdi>. تمارين محلولة</a></li>
+            <li><a href="#s13"><bdi dir="ltr">12</bdi>. جدول الخلاصة</a></li>
+            <li><a href="#s14"><bdi dir="ltr">13</bdi>. نصائح لتفادي الأخطاء في الباكالوريا</a></li>
+        </ol>
+    </nav>
+
+    <!-- Comparaison de 5 sujets de bac -->
+    <main>
+      <h2 id="s1">ماذا يُسأل في الباكالوريا؟</h2>
+      <p>
+        في كل دورة يأتي تمرين المتتاليات من <bdi dir="ltr">5</bdi> إلى
+        <bdi dir="ltr">7</bdi> نقاط، وغالباً تكون المتتالية في أحد الموضوعين
+        حسابية وفي الآخر هندسية. هذه أهم النقاط مع أرقام أقسام الدرس وسنوات
+        ظهورها (<bdi dir="ltr">Bac 2010</bdi> و<bdi dir="ltr">Bac 2018</bdi> و<bdi
+          dir="ltr">Bac 2020</bdi>و<bdi dir="ltr">Bac 2025</bdi>).
+      </p>
+      
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>النقطة</th>
+              <th>القسم</th>
+              <th>ظهرت في</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>إثبات أن المتتالية حسابية أو هندسية</td>
+              <td><bdi dir="ltr">3</bdi> و<bdi dir="ltr">4</bdi></td>
+              <td><bdi dir="ltr">2010</bdi>، <bdi dir="ltr">2020</bdi>،<bdi dir="ltr">2025</bdi></tr>
+            <tr>
+              <td>إيجاد الأساس والحد الأول من معطيات</td>
+              <td><bdi dir="ltr">5</bdi></td>
+              <td>كل السنوات</td>
+            </tr>
+            <tr>
+              <td>خاصية الحد الأوسط</td>
+              <td><bdi dir="ltr">5</bdi></td>
+              <td><bdi dir="ltr">2018</bdi>، <bdi dir="ltr">2020</bdi>،<bdi dir="ltr">2025</bdi></td>
+            </tr>
+            <tr>
+              <td>الحد العام (من <bdi dir="ltr">u₀</bdi> أو من<bdi dir="ltr">u₁</bdi>)</td>
+              <td><bdi dir="ltr">3</bdi> و<bdi dir="ltr">4</bdi></td>
+              <td>كل السنوات</td>
+            </tr>
+            <tr>
+              <td>اتجاه التغير مع التبرير</td>
+              <td><bdi dir="ltr">2</bdi></td>
+              <td><bdi dir="ltr">2018</bdi>، <bdi dir="ltr">2020</bdi>،<bdi dir="ltr">2025</bdi></td>
+            </tr>
+            <tr>
+              <td>أن عدداً حد من الحدود، مع الدليل والرتبة</td>
+              <td><bdi dir="ltr">6</bdi></td>
+              <td>كل السنوات</td>
+            </tr>
+            <tr>
+              <td>المجاميع وعدّ الحدود</td>
+              <td><bdi dir="ltr">7</bdi></td>
+              <td>كل السنوات</td>
+            </tr>
+            <tr>
+              <td>النفي بمثال مضاد</td>
+              <td><bdi dir="ltr">8</bdi></td>
+              <td><bdi dir="ltr">2025</bdi></td>
+            </tr>
+            <tr>
+              <td>الاستنتاج من علاقة بين متتاليتين</td>
+              <td><bdi dir="ltr">9</bdi></td>
+              <td><bdi dir="ltr">2025</bdi></td>
+            </tr>
+            <tr>
+              <td>الاستدلال بالتراجع</td>
+              <td><bdi dir="ltr">10</bdi></td>
+              <td><bdi dir="ltr">2010</bdi></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+     
+      <!-- Début du cour -->
+      <h2 id="s2"><bdi dir="ltr">1</bdi>. ما هي المتتالية؟</h2>
+      <p>
+        المتتالية قائمة أعداد مرتبة: <bdi dir="ltr">u₀</bdi> ،
+        <bdi dir="ltr">u₁</bdi> ، <bdi dir="ltr">u₂</bdi> ،
+        <bdi dir="ltr">…</bdi> . نسمي <bdi dir="ltr">uₙ</bdi> الحد العام، و
+        <bdi dir="ltr">uₙ₊₁</bdi> الحد الذي يأتي بعده مباشرة.
+      </p>
+      <ul>
+        <li>
+          <strong>أ. متتالية صريحة :</strong> نعطي <bdi dir="ltr">uₙ</bdi> بدلالة <bdi dir="ltr">n</bdi> 
+          (يمكننا حساب أي حد مباشرة).<br>
+          مثال: <bdi dir="ltr">uₙ = 3n − 9</bdi> :<br>
+          - من أجل <bdi dir="ltr">n = 0</bdi> : <bdi dir="ltr">u₀ = (3 × 0) − 9 = −9</bdi><br>
+          - من أجل <bdi dir="ltr">n = 1</bdi> : <bdi dir="ltr">u₁ = (3 × 1) − 9 = −6</bdi><br>
+          - من أجل <bdi dir="ltr">n = 2</bdi> : <bdi dir="ltr">u₂ = (3 × 2) − 9 = −3</bdi>
+        </li>
+        <li>
+          <strong>ب. متتالية تراجعية :</strong> نعطي الحد الأول وقاعدة الانتقال (لحساب أي حد يجب معرفة الحد الذي يسبقه).<br>
+          مثال: <bdi dir="ltr">v₀ = 4</bdi> وقاعدة الانتقال <bdi dir="ltr">vₙ₊₁ = 2vₙ − 1</bdi> :<br>
+          - لحساب <bdi dir="ltr">v₁</bdi> (نضع <bdi dir="ltr">n = 0</bdi>) : <bdi dir="ltr">v₁ = 2v₀ − 1 = (2 × 4) − 1 = 7</bdi><br>
+          - لحساب <bdi dir="ltr">v₂</bdi> (نضع <bdi dir="ltr">n = 1</bdi>) : <bdi dir="ltr">v₂ = 2v₁ − 1 = (2 × 7) − 1 = 13</bdi><br>
+          - لحساب <bdi dir="ltr">v₃</bdi> (نضع <bdi dir="ltr">n = 2</bdi>) : <bdi dir="ltr">v₃ = 2v₂ − 1 = (2 × 13) − 1 = 25</bdi>
+        </li>
+      </ul>
+      <div class="tip">
+        <strong>انتبه</strong> <bdi dir="ltr">uₙ₊₁</bdi> هو الحد التالي، وليس
+        <bdi dir="ltr">uₙ + 1</bdi>.
+      </div>
+
+      <h2 id="s3"><bdi dir="ltr">2</bdi>. اتجاه التغير</h2>
+      <div class="rule">
+        <strong>القاعدة</strong> ندرس إشارة <bdi dir="ltr">uₙ₊₁ − uₙ</bdi>: إذا
+        كانت موجبة لكل <bdi dir="ltr">n</bdi> فالمتتالية تزايدية، وإذا كانت
+        سالبة لكل <bdi dir="ltr">n</bdi> فهي تناقصية.
+      </div>
+      <div class="ex">
+        <h3>
+          مثال <bdi dir="ltr">(Bac 2018)</bdi>: <bdi dir="ltr">uₙ = n² − 1</bdi>
+        </h3>
+        <p><bdi dir="ltr">uₙ₊₁ − uₙ = (n+1)² − 1 − (n² − 1) = 2n + 1</bdi></p>
+        <p>
+          وهي موجبة لكل <bdi dir="ltr">n</bdi> ، إذن
+          <bdi dir="ltr">(uₙ)</bdi> تزايدية تماماً.
+        </p>
+      </div>
+      <div class="ex">
+        <h3>
+          مثال <bdi dir="ltr">(Bac 2018)</bdi>: <bdi dir="ltr">uₙ = 6 × 4ⁿ</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr"
+            >uₙ₊₁ − uₙ = 6×4ⁿ⁺¹ − 6×4ⁿ = 6×4ⁿ(4 − 1) = 18×4ⁿ &gt; 0</bdi
+          >
+        </p>
+        <p>إذن <bdi dir="ltr">(uₙ)</bdi> تزايدية تماماً.</p>
+      </div>
+      <h2 id="s4"><bdi dir="ltr">3</bdi>. المتتالية الحسابية</h2>
+      <p>
+        ننتقل من حد إلى الذي يليه بإضافة العدد نفسه <bdi dir="ltr">r</bdi> ،
+        ويسمى الأساس. مثال: <bdi dir="ltr">5</bdi> ، <bdi dir="ltr">8</bdi> ،
+        <bdi dir="ltr">11</bdi> ، <bdi dir="ltr">14</bdi> ،
+        <bdi dir="ltr">…</bdi> أساسها <bdi dir="ltr">r = 3</bdi>.
+      </p>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>البند</th>
+              <th>القاعدة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>الإثبات</td>
+              <td>
+                نحسب <bdi dir="ltr">uₙ₊₁ − uₙ</bdi> ونجد عدداً ثابتاً
+                <bdi dir="ltr">r</bdi> لكل <bdi dir="ltr">n</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>الحد العام</td>
+              <td>
+                <bdi dir="ltr">uₙ = u₀ + n·r</bdi> (الترقيم من
+                <bdi dir="ltr">u₀</bdi>) ،
+                <bdi dir="ltr">uₙ = u₁ + (n − 1)·r</bdi> (الترقيم من
+                <bdi dir="ltr">u₁</bdi>) ، وعموماً
+                <bdi dir="ltr">uₙ = uₚ + (n − p)·r</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>الاتجاه</td>
+              <td>
+                <bdi dir="ltr">r &gt; 0</bdi> تزايدية ،
+                <bdi dir="ltr">r &lt; 0</bdi> تناقصية ،
+                <bdi dir="ltr">r = 0</bdi> ثابتة
+              </td>
+            </tr>
+            <tr>
+              <td>المجموع</td>
+              <td>
+                <bdi dir="ltr">S =</bdi> عدد الحدود <bdi dir="ltr">×</bdi> (الحد
+                الأول <bdi dir="ltr">+</bdi> الحد الأخير)
+                <bdi dir="ltr">÷ 2</bdi>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ex">
+        <h3>
+          مثال <bdi dir="ltr">(Bac 2025)</bdi>: <bdi dir="ltr">uₙ = 3n − 9</bdi>
+        </h3>
+        <p><bdi dir="ltr">uₙ₊₁ − uₙ = 3(n+1) − 9 − (3n − 9) = 3</bdi></p>
+        <p>
+          إذن <bdi dir="ltr">(uₙ)</bdi> حسابية أساسها <bdi dir="ltr">3</bdi> ،
+          وهي تزايدية لأن <bdi dir="ltr">3 &gt; 0</bdi>.
+        </p>
+      </div>
+      <h2 id="s5"><bdi dir="ltr">4</bdi>. المتتالية الهندسية</h2>
+      <p>
+        ننتقل من حد إلى الذي يليه بالضرب في العدد نفسه <bdi dir="ltr">q</bdi> ،
+        ويسمى الأساس. مثال: <bdi dir="ltr">2</bdi> ، <bdi dir="ltr">6</bdi> ،
+        <bdi dir="ltr">18</bdi> ، <bdi dir="ltr">54</bdi> ،
+        <bdi dir="ltr">…</bdi> أساسها <bdi dir="ltr">q = 3</bdi>.
+      </p>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>البند</th>
+              <th>القاعدة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>الإثبات</td>
+              <td>
+                نبيّن أن <bdi dir="ltr">uₙ₊₁ = q × uₙ</bdi> لكل
+                <bdi dir="ltr">n</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>الحد العام</td>
+              <td>
+                <bdi dir="ltr">uₙ = u₀ × qⁿ</bdi> (الترقيم من
+                <bdi dir="ltr">u₀</bdi>) ،
+                <bdi dir="ltr">uₙ = u₁ × qⁿ⁻¹</bdi> (الترقيم من
+                <bdi dir="ltr">u₁</bdi>) ، وعموماً
+                <bdi dir="ltr">uₙ = uₚ × qⁿ⁻</bdi>ᵖ
+              </td>
+            </tr>
+            <tr>
+              <td>الاتجاه <bdi dir="ltr">(u₀ &gt; 0)</bdi></td>
+              <td>
+                <bdi dir="ltr">q &gt; 1</bdi> تزايدية ،
+                <bdi dir="ltr">0 &lt; q &lt; 1</bdi> تناقصية ،
+                <bdi dir="ltr">q = 1</bdi> ثابتة
+              </td>
+            </tr>
+            <tr>
+              <td>المجموع (<bdi dir="ltr">q</bdi> ≠ <bdi dir="ltr">1</bdi>)</td>
+              <td>
+                <bdi dir="ltr">S =</bdi> الحد الأول
+                <bdi dir="ltr">× (1 − q</bdi>ᵏ)
+                <bdi dir="ltr">÷ (1 − q)</bdi> حيث <bdi dir="ltr">k</bdi> عدد
+                الحدود
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ex">
+        <h3>
+          مثال <bdi dir="ltr">(2025)</bdi>: <bdi dir="ltr">vₙ = 3 × 4ⁿ</bdi>
+        </h3>
+        <p><bdi dir="ltr">vₙ₊₁ = 3×4ⁿ⁺¹ = 4 × (3×4ⁿ) = 4vₙ</bdi></p>
+        <p>
+          إذن <bdi dir="ltr">(vₙ)</bdi> هندسية أساسها
+          <bdi dir="ltr">4</bdi> وحدها الأول <bdi dir="ltr">v₀ = 3</bdi>.
+        </p>
+        <p>
+          <bdi dir="ltr">Sₙ = v₀ + … + vₙ</bdi> وعدد حدوده
+          <bdi dir="ltr">n + 1</bdi>
+        </p>
+        <p><bdi dir="ltr">Sₙ = 3 × (1 − 4ⁿ⁺¹) ÷ (1 − 4) = 4ⁿ⁺¹ − 1</bdi></p>
+      </div>
+      <h2 id="s6"><bdi dir="ltr">5</bdi>. خاصية الحد الأوسط وإيجاد الأساس</h2>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>النوع</th>
+              <th>
+                القاعدة لثلاثة حدود متتالية <bdi dir="ltr">a</bdi> و
+                <bdi dir="ltr">b</bdi> و <bdi dir="ltr">c</bdi>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>حسابية</td>
+              <td><bdi dir="ltr">a + c = 2b</bdi></td>
+            </tr>
+            <tr>
+              <td>هندسية</td>
+              <td>
+                <bdi dir="ltr">a × c = b²</bdi> ، وإذا كانت الحدود موجبة فإن
+                <bdi dir="ltr">b = √(a × c)</bdi>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule">
+        <strong>القاعدة</strong> استعمل هذه الخاصية عندما يعطيك التمرين مجموع أو
+        جداء ثلاثة حدود متتالية.
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2018)</bdi> هندسية حدودها موجبة:
+          <bdi dir="ltr">u₀ + u₁ = 30</bdi> و <bdi dir="ltr">u₀ × u₂ = 576</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">u₀ × u₂ = u₁² = 576</bdi> والحدود موجبة إذن
+          <bdi dir="ltr">u₁ = 24</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">u₀ = 30 − 24 = 6</bdi> ومنه
+          <bdi dir="ltr">q = 24 ÷ 6 = 4</bdi>
+        </p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2020)</bdi> هندسية حدودها موجبة:
+          <bdi dir="ltr">u₃ × u₅ = 2916</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">u₃ × u₅ = u₄² = 2916</bdi> إذن
+          <bdi dir="ltr">u₄ = 54</bdi>
+        </p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2020)</bdi> حسابية:
+          <bdi dir="ltr">u₂ − u₀ = 4</bdi> و <bdi dir="ltr">u₁ + u₃ = 16</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">u₂ − u₀ = 2r = 4</bdi> إذن <bdi dir="ltr">r = 2</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">u₁ + u₃ = 2u₂ = 16</bdi> إذن
+          <bdi dir="ltr">u₂ = 8</bdi>
+        </p>
+        <p><bdi dir="ltr">u₀ = u₂ − 2r = 4</bdi></p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2010)</bdi> هندسية: <bdi dir="ltr">u₁ = 6</bdi> و
+          <bdi dir="ltr">u₄ = 48</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">u₄ = u₁ × q³</bdi> ومنه
+          <bdi dir="ltr">48 = 6q³</bdi> ومنه <bdi dir="ltr">q³ = 8</bdi> إذن
+          <bdi dir="ltr">q = 2</bdi>
+        </p>
+        <p><bdi dir="ltr">u₀ = u₁ ÷ q = 3</bdi></p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2010)</bdi> حسابية:
+          <bdi dir="ltr">u₁₀ = 31</bdi> و <bdi dir="ltr">u₁₅ = 46</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">u₁₅ = u₁₀ + 5r</bdi> ومنه
+          <bdi dir="ltr">46 = 31 + 5r</bdi> إذن <bdi dir="ltr">r = 3</bdi>
+        </p>
+        <p><bdi dir="ltr">u₀ = u₁₀ − 10r = 31 − 30 = 1</bdi></p>
+      </div>
+      <h2 id="s7">
+        <bdi dir="ltr">6</bdi>. الدليل والرتبة وأن عدداً حد من الحدود
+      </h2>
+      <div class="rule">
+        <strong>القاعدة</strong> نقول إن عدداً حد من حدود
+        <bdi dir="ltr">(uₙ)</bdi> إذا وجدنا <bdi dir="ltr">n</bdi> عدداً طبيعياً
+        يحقق <bdi dir="ltr">uₙ =</bdi> ذلك العدد. الحد
+        <bdi dir="ltr">uₙ</bdi> دليله <bdi dir="ltr">n</bdi> ، أما رتبته فتساوي
+        <bdi dir="ltr">n + 1</bdi> إذا بدأ الترقيم من <bdi dir="ltr">u₀</bdi> ،
+        وتساوي <bdi dir="ltr">n</bdi> إذا بدأ من <bdi dir="ltr">u₁</bdi>.
+      </div>
+      <div class="ex">
+        <h3><bdi dir="ltr">(Bac 2020) uₙ = 4 + 2n</bdi></h3>
+        <p>
+          <bdi dir="ltr">4 + 2n = 2020</bdi> ومنه
+          <bdi dir="ltr">n = 1008</bdi> عدد طبيعي
+        </p>
+        <p>
+          إذن <bdi dir="ltr">2020</bdi> حد من حدود المتتالية ، دليله
+          <bdi dir="ltr">1008</bdi> ورتبته <bdi dir="ltr">1009</bdi>.
+        </p>
+      </div>
+      <div class="ex">
+        <h3><bdi dir="ltr">(Bac 2018) uₙ = 6 × 4ⁿ</bdi></h3>
+        <p>
+          <bdi dir="ltr">6 × 4ⁿ = 1536</bdi> ومنه
+          <bdi dir="ltr">4ⁿ = 256 = 4⁴</bdi> إذن <bdi dir="ltr">n = 4</bdi>
+        </p>
+        <p>
+          إذن <bdi dir="ltr">1536</bdi> حد من حدود المتتالية ، دليله
+          <bdi dir="ltr">4</bdi> ورتبته <bdi dir="ltr">5</bdi>.
+        </p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2020) uₙ = 2 × 3ⁿ⁻¹</bdi> (الترقيم من
+          <bdi dir="ltr">u₁</bdi>)
+        </h3>
+        <p>
+          <bdi dir="ltr">2 × 3ⁿ⁻¹ = 1458</bdi> ومنه
+          <bdi dir="ltr">3ⁿ⁻¹ = 729 = 3⁶</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">n − 1 = 6</bdi> إذن <bdi dir="ltr">n = 7</bdi> ،
+          والرتبة <bdi dir="ltr">7</bdi>.
+        </p>
+      </div>
+      <div class="ex">
+        <h3>عدد ليس حداً: <bdi dir="ltr">uₙ = 2 + 5n</bdi></h3>
+        <p>
+          <bdi dir="ltr">2 + 5n = 500</bdi> ومنه
+          <bdi dir="ltr">n = 99.6</bdi> وهو ليس عدداً طبيعياً
+        </p>
+        <p>إذن <bdi dir="ltr">500</bdi> ليس حداً من حدود المتتالية.</p>
+      </div>
+      <div class="tip">
+        <strong>انتبه</strong> يعطيك التمرين عادة تلميحاً مثل
+        <bdi dir="ltr">256 = 2⁸</bdi> أو <bdi dir="ltr">729 = 3⁶</bdi> ، فاكتب
+        الطرفين بقوة الأساس نفسه. احفظ قوى <bdi dir="ltr">2</bdi>:
+        <bdi dir="ltr">2</bdi> ، <bdi dir="ltr">4</bdi> ،
+        <bdi dir="ltr">8</bdi> ، <bdi dir="ltr">16</bdi> ،
+        <bdi dir="ltr">32</bdi> ، <bdi dir="ltr">64</bdi> ،
+        <bdi dir="ltr">128</bdi> ، <bdi dir="ltr">256</bdi> ،
+        <bdi dir="ltr">512</bdi> ، <bdi dir="ltr">1024</bdi> ، وقوى
+        <bdi dir="ltr">3</bdi>: <bdi dir="ltr">3</bdi> ،
+        <bdi dir="ltr">9</bdi> ، <bdi dir="ltr">27</bdi> ،
+        <bdi dir="ltr">81</bdi> ، <bdi dir="ltr">243</bdi> ،
+        <bdi dir="ltr">729</bdi>.
+      </div>
+      <h2 id="s8"><bdi dir="ltr">7</bdi>. المجموع وعدّ الحدود</h2>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>المجموع</th>
+              <th>عدد حدوده</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>من <bdi dir="ltr">u₀</bdi> إلى <bdi dir="ltr">uₙ</bdi></td>
+              <td><bdi dir="ltr">n + 1</bdi></td>
+            </tr>
+            <tr>
+              <td>من <bdi dir="ltr">u₁</bdi> إلى <bdi dir="ltr">uₙ</bdi></td>
+              <td><bdi dir="ltr">n</bdi></td>
+            </tr>
+            <tr>
+              <td>من <bdi dir="ltr">uₘ</bdi> إلى <bdi dir="ltr">uₙ</bdi></td>
+              <td><bdi dir="ltr">n − m + 1</bdi></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2020)</bdi> حسابية:
+          <bdi dir="ltr">S = u₀ + … + u₁₀₀₈</bdi> حيث
+          <bdi dir="ltr">uₙ = 4 + 2n</bdi>
+        </h3>
+        <p>
+          عدد الحدود <bdi dir="ltr">1009</bdi> ، و
+          <bdi dir="ltr">u₁₀₀₈ = 2020</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">S = 1009 × (4 + 2020) ÷ 2 = 1009 × 1012 = 1021108</bdi>
+        </p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2025)</bdi> حسابية:
+          <bdi dir="ltr">S = u₀ + … + u₆₇₈</bdi> حيث
+          <bdi dir="ltr">uₙ = 3n − 9</bdi>
+        </h3>
+        <p>
+          عدد الحدود <bdi dir="ltr">679</bdi> ، و <bdi dir="ltr">u₀ = −9</bdi> ،
+          و <bdi dir="ltr">u₆₇₈ = 2025</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">S = 679 × (−9 + 2025) ÷ 2 = 679 × 1008 = 684432</bdi>
+        </p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2018)</bdi> هندسية من <bdi dir="ltr">u₁</bdi>:
+          <bdi dir="ltr">uₙ = 6 × 4ⁿ</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">u₁ = 24</bdi> و <bdi dir="ltr">q = 4</bdi> وعدد الحدود
+          <bdi dir="ltr">n</bdi>
+        </p>
+        <p><bdi dir="ltr">Sₙ = 24 × (1 − 4ⁿ) ÷ (1 − 4) = 8(4ⁿ − 1)</bdi></p>
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2010)</bdi> مجموع مع ثابت مضاف:
+          <bdi dir="ltr">uₙ = 3 × 2ⁿ</bdi> و <bdi dir="ltr">vₙ = uₙ + 1</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">S = u₀ + … + u₇ = 3 × (1 − 2⁸) ÷ (1 − 2) = 765</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">vₙ = uₙ + 1</bdi> فإن
+          <bdi dir="ltr">S′ = v₀ + … + v₇ = S + 8 × 1 = 773</bdi> (لأن عدد
+          الحدود <bdi dir="ltr">8</bdi>)
+        </p>
+      </div>
+      <div class="tip">
+        <strong>انتبه</strong> قسّم على <bdi dir="ltr">2</bdi> قبل الضرب لتسهيل
+        الحساب، واكتب الخطوات كلها.
+      </div>
+      <h2 id="s9"><bdi dir="ltr">8</bdi>. نفي الحسابية أو الهندسية</h2>
+      <div class="rule">
+        <strong>القاعدة</strong> لإثبات أن متتالية حسابية أو هندسية يجب البرهان
+        لكل <bdi dir="ltr">n</bdi>. أما لنفي ذلك فيكفي مثال مضاد: إذا كانت
+        <bdi dir="ltr">(vₙ)</bdi> حسابية فإن
+        <bdi dir="ltr">v₀ + v₂ = 2v₁</bdi> ، وإذا كانت هندسية فإن
+        <bdi dir="ltr">v₀ × v₂ = v₁²</bdi>. فإذا لم تتحقق المساواة فالمتتالية
+        ليست كذلك.
+      </div>
+      <div class="ex">
+        <h3><bdi dir="ltr">(Bac 2025) vₙ = 2ⁿ + 3n − 9</bdi></h3>
+        <p>
+          <bdi dir="ltr">v₀ = −8</bdi> و <bdi dir="ltr">v₁ = −4</bdi> و
+          <bdi dir="ltr">v₂ = 1</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">v₀ + v₂ = −7</bdi> و <bdi dir="ltr">2v₁ = −8</bdi> ،
+          مختلفان إذن <bdi dir="ltr">(vₙ)</bdi> ليست حسابية.
+        </p>
+        <p>
+          <bdi dir="ltr">v₀ × v₂ = −8</bdi> و <bdi dir="ltr">v₁² = 16</bdi> ،
+          مختلفان إذن <bdi dir="ltr">(vₙ)</bdi> ليست هندسية.
+        </p>
+      </div>
+      <h2 id="s10"><bdi dir="ltr">9</bdi>. الاستنتاج من علاقة بين متتاليتين</h2>
+      <div class="rule">
+        <strong>القاعدة</strong> عندما يقول السؤال «استنتج» فاستعمل العلاقة
+        المعطاة ولا تعد الحساب من الصفر.
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2025) uₙ = 2ⁿ</bdi> و
+          <bdi dir="ltr">vₙ = 3 × u₂ₙ</bdi> و
+          <bdi dir="ltr">Sₙ = v₀ + … + vₙ = 4ⁿ⁺¹ − 1</bdi>
+        </h3>
+        <p>
+          <bdi dir="ltr">u₂ₙ = vₙ ÷ 3</bdi> ومنه
+          <bdi dir="ltr"
+            >Tₙ = u₀ + u₂ + … + u₂ₙ = (v₀ + … + vₙ) ÷ 3 = Sₙ ÷ 3</bdi
+          >
+        </p>
+        <p>
+          تحقق <bdi dir="ltr">(n = 1)</bdi>:
+          <bdi dir="ltr">T₁ = u₀ + u₂ = 1 + 4 = 5</bdi> و
+          <bdi dir="ltr">S₁ ÷ 3 = 15 ÷ 3 = 5</bdi>
+        </p>
+      </div>
+      <h2 id="s11">
+        <bdi dir="ltr">10</bdi>. الاستدلال بالتراجع (اختياري، ظهر في
+        <bdi dir="ltr">2010</bdi> فقط)
+      </h2>
+      <p>تحقق من المنهاج الحالي قبل الاعتماد على هذه الفقرة.</p>
+      <div class="rule">
+        <strong>القاعدة</strong> نتحقق من الخاصية عند الرتبة الأولى ، ثم نفترض
+        صحتها عند <bdi dir="ltr">n</bdi> ونبرهنها عند
+        <bdi dir="ltr">n + 1</bdi> ، ثم نستنتج صحتها لكل <bdi dir="ltr">n</bdi>.
+      </div>
+      <div class="ex">
+        <h3>
+          <bdi dir="ltr">(Bac 2010) v₀ = 4</bdi> و
+          <bdi dir="ltr">vₙ₊₁ = 2vₙ − 1</bdi> ، نبرهن أن
+          <bdi dir="ltr">vₙ = 3 × 2ⁿ + 1</bdi>
+        </h3>
+        <p>التحقق: <bdi dir="ltr">v₀ = 3 × 1 + 1 = 4</bdi> صحيحة.</p>
+        <p>
+          الوراثة: نفترض <bdi dir="ltr">vₙ = 3 × 2ⁿ + 1</bdi> ومنه
+          <bdi dir="ltr">vₙ₊₁ = 2vₙ − 1 = 2(3 × 2ⁿ + 1) − 1 = 3 × 2ⁿ⁺¹ + 1</bdi>
+        </p>
+        <p>الاستنتاج: الخاصية صحيحة لكل <bdi dir="ltr">n</bdi>.</p>
+      </div>
+      <h2 id="s12"><bdi dir="ltr">11</bdi>. تمارين محلولة</h2>
+      <div class="ex">
+        <h3>
+          تمرين <bdi dir="ltr">1</bdi> (نمط <bdi dir="ltr">2018</bdi> و<bdi
+            dir="ltr"
+            >2020</bdi
+          >): <bdi dir="ltr">(uₙ)</bdi> هندسية حدودها موجبة وحدها الأول
+          <bdi dir="ltr">u₁</bdi> ، حيث <bdi dir="ltr">u₃ = 12</bdi> و
+          <bdi dir="ltr">u₃ × u₅ = 576</bdi>. احسب <bdi dir="ltr">u₄</bdi> ثم
+          <bdi dir="ltr">q</bdi> ثم <bdi dir="ltr">u₁</bdi> ثم
+          <bdi dir="ltr">uₙ</bdi> ؛ أثبت أن <bdi dir="ltr">384</bdi> حد وعيّن
+          رتبته ؛ احسب <bdi dir="ltr">Sₙ = u₁ + … + uₙ</bdi>.
+        </h3>
+        <p>
+          <bdi dir="ltr">u₃ × u₅ = u₄² = 576</bdi> والحدود موجبة إذن
+          <bdi dir="ltr">u₄ = 24</bdi>
+        </p>
+        <p><bdi dir="ltr">q = u₄ ÷ u₃ = 24 ÷ 12 = 2</bdi></p>
+        <p>
+          <bdi dir="ltr">u₁ = u₃ ÷ q² = 12 ÷ 4 = 3</bdi> ومنه
+          <bdi dir="ltr">uₙ = 3 × 2ⁿ⁻¹</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">3 × 2ⁿ⁻¹ = 384</bdi> ومنه
+          <bdi dir="ltr">2ⁿ⁻¹ = 128 = 2⁷</bdi> إذن <bdi dir="ltr">n = 8</bdi> ،
+          فالعدد <bdi dir="ltr">384</bdi> حد ورتبته <bdi dir="ltr">8</bdi>
+        </p>
+        <p><bdi dir="ltr">Sₙ = 3 × (1 − 2ⁿ) ÷ (1 − 2) = 3(2ⁿ − 1)</bdi></p>
+      </div>
+      <div class="ex">
+        <h3>
+          تمرين <bdi dir="ltr">2</bdi> (نمط <bdi dir="ltr">2010</bdi> و<bdi
+            dir="ltr"
+            >2020</bdi
+          >
+          و<bdi dir="ltr">2025</bdi>): <bdi dir="ltr">(uₙ)</bdi> حسابية حيث
+          <bdi dir="ltr">u₅ = 17</bdi> و <bdi dir="ltr">u₁₂ = 38</bdi>. أوجد
+          <bdi dir="ltr">r</bdi> و <bdi dir="ltr">u₀</bdi> و
+          <bdi dir="ltr">uₙ</bdi> ؛ حدد الاتجاه ؛ أثبت أن
+          <bdi dir="ltr">2018</bdi> حد وعيّن رتبته ؛ احسب
+          <bdi dir="ltr">S = u₀ + … + u₆₇₂</bdi>.
+        </h3>
+        <p>
+          <bdi dir="ltr">u₁₂ = u₅ + 7r</bdi> ومنه
+          <bdi dir="ltr">38 = 17 + 7r</bdi> إذن <bdi dir="ltr">r = 3</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">u₀ = u₅ − 5r = 17 − 15 = 2</bdi> ومنه
+          <bdi dir="ltr">uₙ = 2 + 3n</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">r &gt; 0</bdi> إذن <bdi dir="ltr">(uₙ)</bdi> تزايدية
+        </p>
+        <p>
+          <bdi dir="ltr">2 + 3n = 2018</bdi> ومنه
+          <bdi dir="ltr">n = 672</bdi> عدد طبيعي ، إذن
+          <bdi dir="ltr">2018</bdi> حد ورتبته <bdi dir="ltr">673</bdi>
+        </p>
+        <p>
+          عدد الحدود <bdi dir="ltr">673</bdi> و
+          <bdi dir="ltr">u₆₇₂ = 2018</bdi> ،
+          <bdi dir="ltr">S = 673 × (2 + 2018) ÷ 2 = 673 × 1010 = 679730</bdi>
+        </p>
+      </div>
+      <div class="ex">
+        <h3>
+          تمرين <bdi dir="ltr">3</bdi> (نمط <bdi dir="ltr">2010</bdi> و<bdi
+            dir="ltr"
+            >2025</bdi
+          >): <bdi dir="ltr">uₙ = 5 × 3ⁿ</bdi> و
+          <bdi dir="ltr">vₙ = uₙ − 2</bdi>. أثبت أن
+          <bdi dir="ltr">(uₙ)</bdi> هندسية ؛ احسب
+          <bdi dir="ltr">S = u₀ + u₁ + u₂ + u₃</bdi> ثم
+          <bdi dir="ltr">S′ = v₀ + v₁ + v₂ + v₃</bdi> ؛ برر أن
+          <bdi dir="ltr">(vₙ)</bdi> ليست هندسية.
+        </h3>
+        <p>
+          <bdi dir="ltr">uₙ₊₁ = 5 × 3ⁿ⁺¹ = 3uₙ</bdi> إذن
+          <bdi dir="ltr">(uₙ)</bdi> هندسية أساسها <bdi dir="ltr">3</bdi> وحدها
+          الأول <bdi dir="ltr">5</bdi>
+        </p>
+        <p><bdi dir="ltr">S = 5 × (1 − 3⁴) ÷ (1 − 3) = 5 × 40 = 200</bdi></p>
+        <p>
+          <bdi dir="ltr">vₙ = uₙ − 2</bdi> فإن
+          <bdi dir="ltr">S′ = S − 4 × 2 = 192</bdi>
+        </p>
+        <p>
+          <bdi dir="ltr">v₀ = 3</bdi> و <bdi dir="ltr">v₁ = 13</bdi> و
+          <bdi dir="ltr">v₂ = 43</bdi> ، و
+          <bdi dir="ltr">v₀ × v₂ = 129</bdi> بينما
+          <bdi dir="ltr">v₁² = 169</bdi> ، مختلفان إذن
+          <bdi dir="ltr">(vₙ)</bdi> ليست هندسية
+        </p>
+      </div>
+      <h2 id="s13"><bdi dir="ltr">12</bdi>. جدول الخلاصة</h2>
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>البند</th>
+              <th>حسابية</th>
+              <th>هندسية</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>الأساس</td>
+              <td><bdi dir="ltr">r</bdi> (نضيف)</td>
+              <td><bdi dir="ltr">q</bdi> (نضرب)</td>
+            </tr>
+            <tr>
+              <td>الإثبات</td>
+              <td><bdi dir="ltr">uₙ₊₁ − uₙ = r</bdi></td>
+              <td><bdi dir="ltr">uₙ₊₁ = q × uₙ</bdi></td>
+            </tr>
+            <tr>
+              <td>الحد العام من <bdi dir="ltr">u₀</bdi></td>
+              <td><bdi dir="ltr">u₀ + n·r</bdi></td>
+              <td><bdi dir="ltr">u₀ × qⁿ</bdi></td>
+            </tr>
+            <tr>
+              <td>الحد العام من <bdi dir="ltr">u₁</bdi></td>
+              <td><bdi dir="ltr">u₁ + (n − 1)·r</bdi></td>
+              <td><bdi dir="ltr">u₁ × qⁿ⁻¹</bdi></td>
+            </tr>
+            <tr>
+              <td>الحد الأوسط</td>
+              <td><bdi dir="ltr">a + c = 2b</bdi></td>
+              <td><bdi dir="ltr">a × c = b²</bdi></td>
+            </tr>
+            <tr>
+              <td>الاتجاه</td>
+              <td>إشارة <bdi dir="ltr">r</bdi></td>
+              <td>
+                <bdi dir="ltr">q &gt; 1</bdi> أو
+                <bdi dir="ltr">0 &lt; q &lt; 1</bdi> مع إشارة
+                <bdi dir="ltr">u₀</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>المجموع</td>
+              <td>
+                عدد الحدود <bdi dir="ltr">×</bdi> (الأول
+                <bdi dir="ltr">+</bdi> الأخير) <bdi dir="ltr">÷ 2</bdi>
+              </td>
+              <td>
+                الأول <bdi dir="ltr">× (1 − q</bdi>ᵏ)
+                <bdi dir="ltr">÷ (1 − q)</bdi>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2 id="s14">
+        <bdi dir="ltr">13</bdi>. نصائح لتفادي الأخطاء في الباكالوريا
+      </h2>
+      <ul>
+        <li>اكتب القانون أولاً ثم عوّض ، فالتنقيط يعتمد على الخطوات.</li>
+        <li>
+          اقرأ من أي حد يبدأ الترقيم: <bdi dir="ltr">u₀</bdi> أم
+          <bdi dir="ltr">u₁</bdi> ، فهو يغيّر الحد العام وعدد الحدود والرتبة.
+        </li>
+        <li>
+          الدليل غير الرتبة: عند الترقيم من <bdi dir="ltr">u₀</bdi> رتبة
+          <bdi dir="ltr">uₙ</bdi> هي <bdi dir="ltr">n + 1</bdi>.
+        </li>
+        <li>
+          عدد الحدود <bdi dir="ltr">=</bdi> آخر دليل <bdi dir="ltr">−</bdi> أول
+          دليل <bdi dir="ltr">+ 1</bdi> ، فمن <bdi dir="ltr">u₀</bdi> إلى
+          <bdi dir="ltr">u₆₇₈</bdi> يوجد <bdi dir="ltr">679</bdi> حداً.
+        </li>
+        <li>
+          لإثبات حسابية أو هندسية احسب لكل <bdi dir="ltr">n</bdi> ، ولنفيهما
+          يكفي مثال مضاد.
+        </li>
+        <li>
+          إذا كانت الحدود موجبة فخذ الجذر الموجب فقط في خاصية الحد الأوسط.
+        </li>
+        <li>
+          في المعادلة الأسية استعمل التلميح وأعد كتابة الطرفين بقوة الأساس نفسه.
+        </li>
+        <li>
+          <bdi dir="ltr">2 × 3ⁿ</bdi> لا تساوي <bdi dir="ltr">(2 × 3)ⁿ</bdi> ،
+          فالقوة على الأساس <bdi dir="ltr">q</bdi> فقط.
+        </li>
+        <li>في أسئلة الاقتراحات المتعددة اكتب التبرير ، فهو يُنقَّط.</li>
+        <li>
+          بعد استخراج الحد العام عوّض <bdi dir="ltr">n = 0</bdi> و
+          <bdi dir="ltr">n = 1</bdi> وقارن بالقيم المعطاة.
+        </li>
+        <li>اختم كل جواب بجملة «إذن ...» تذكر النتيجة.</li>
+      </ul>
+    </main>
+  </body>
+</html>
