@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الباب الخامس: الدوال التناظرية</title>
+
+<!--Lien css-->
+<link rel="stylesheet" href="../../style_pages/btnRetour_footerNav.css">
+<style>
+  :root{
+    --accent:#2b5f8a;
+    --accent-light:#eaf2f8;
+    --green:#2f7d4f;
+    --green-light:#eaf7ee;
+    --orange:#b5651d;
+    --orange-light:#fdf1e6;
+    --purple:#6a4c93;
+    --purple-light:#f3eefb;
+    --text:#222;
+    --muted:#555;
+    --border:#dfe3e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI","Tahoma","Arial",sans-serif;
+    background:#f6f7f9;
+    color:var(--text);
+    line-height:1.9;
+    margin:0;
+    padding:0;
+    font-size:17px;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:20px 22px 70px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--accent),#173c56);
+    color:#fff;
+    padding:34px 22px;
+    border-radius:14px;
+    margin:18px 0 26px;
+    text-align:center;
+  }
+  header.hero h1{margin:0 0 8px;font-size:26px;}
+  header.hero p{margin:4px 0;opacity:.9;font-size:15px;}
+  nav.toc{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:16px 20px;
+    margin-bottom:28px;
+  }
+  nav.toc h2{margin:0 0 10px;font-size:16px;color:var(--accent);}
+  nav.toc ol{margin:0;padding-inline-start:22px;}
+  nav.toc li{margin:4px 0;}
+  nav.toc a{color:var(--text);text-decoration:none;}
+  nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+
+  section{margin-bottom:34px;}
+  h2.section-title{
+    background:var(--accent);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:10px;
+    font-size:19px;
+    margin:0 0 16px;
+  }
+  h3{color:var(--accent);font-size:17px;margin:20px 0 8px;}
+
+  .box{
+    border-radius:10px;
+    padding:14px 18px;
+    margin:14px 0;
+    border:1px solid var(--border);
+  }
+  .definition{background:var(--accent-light);border-color:#c9dcea;}
+  .definition .tag{color:var(--accent);font-weight:bold;}
+  .example{background:var(--green-light);border-color:#c9e6d3;}
+  .example .tag{color:var(--green);font-weight:bold;}
+  .warning{background:var(--orange-light);border-color:#f0d3b0;}
+  .warning .tag{color:var(--orange);font-weight:bold;}
+  .bonus{background:#f1f1f1;border-color:#ccc;}
+  .bonus .tag{color:#666;font-weight:bold;}
+  .formula{
+    background:#fff;
+    border:2px dashed var(--accent);
+    border-radius:10px;
+    padding:12px 18px;
+    margin:14px 0;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:var(--accent);
+  }
+  .exercise{
+    background:var(--purple-light);
+    border:1px solid #ddceef;
+    border-radius:10px;
+    padding:16px 20px;
+    margin:18px 0;
+  }
+  .exercise .tag{color:var(--purple);font-weight:bold;}
+
+  table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff;}
+  th,td{border:1px solid var(--border);padding:8px 10px;text-align:center;font-size:15.5px;}
+  th{background:var(--accent-light);color:var(--accent);}
+  .var-table td.sign-pos{color:var(--green);font-weight:bold;}
+  .var-table td.sign-neg{color:#c0392b;font-weight:bold;}
+  .var-table td.arrow{font-size:20px;}
+  .var-table td.dbar{background:#333;color:#fff;font-weight:bold;}
+
+  details{
+    background:#fff;
+    border:1px solid var(--purple);
+    border-radius:8px;
+    padding:10px 16px;
+    margin-top:10px;
+  }
+  details summary{
+    cursor:pointer;
+    font-weight:bold;
+    color:var(--purple);
+  }
+  details.opt-details{border-color:#999;}
+  details.opt-details summary{color:#666;}
+  details[open] summary{margin-bottom:8px;}
+
+  .step{margin:6px 0;padding-inline-start:6px;}
+  .step b{color:var(--accent);}
+
+  .svg-box{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    text-align:center;
+    margin:14px 0;
+  }
+  ul.tips li{margin:6px 0;}
+  .badge{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    border-radius:20px;
+    padding:2px 12px;
+    font-size:13px;
+    margin-inline-end:6px;
+  }
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:40px;
+  }     
+
+</style>
+</head>
+<body>
+
+
+    <!-- Bouton de retour à l'accueil -->
+        <div class="mb-4">
+            <a href="../../Home/home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+        </div> 
+
+<div class="wrap">
+
+<header class="hero">
+  <h1>الباب الخامس: الدوال التناظرية</h1>
+  <p>السنة النهائية – شعبة اللغات الأجنبية</p>
+  <p>كورس مبسّط جداً + مثال محلول خطوة بخطوة + تمارين للتدريب</p>
+</header>
+
+<nav class="toc">
+  <h2>محتوى الدرس</h2>
+  <ol>
+    <li><a href="#s1">تذكير: ما هي الدالة التناظرية؟</a></li>
+    <li><a href="#s2">مجموعة التعريف</a></li>
+    <li><a href="#s3">النهايات عند ∞- و∞+ (المقارب الأفقي)</a></li>
+    <li><a href="#s4">النهاية عند القيمة الممنوعة (المقارب العمودي)</a></li>
+    <li><a href="#s5">أداة عملية: الكتابة f(x) = m + k/(x−p)</a></li>
+    <li><a href="#s6">المشتقة واتجاه التغير</a></li>
+    <li><a href="#s7">مركز التناظر Ω</a></li>
+    <li><a href="#s8">نقاط المنحنى ذات الإحداثيات الصحيحة</a></li>
+    <li><a href="#s9">معادلة المماس</a></li>
+    <li><a href="#s10">رسم المنحنى</a></li>
+    <li><a href="#s11">جدول تلخيصي للمنهجية</a></li>
+    <li><a href="#s12">نصائح لتجنّب الأخطاء الشائعة</a></li>
+    <li><a href="#s13">تمارين للتدريب (مع الحل)</a></li>
+  </ol>
+</nav>
+
+<!-- ============ SECTION 1 ============ -->
+<section id="s1">
+  <h2 class="section-title">1. تذكير: ما هي الدالة التناظرية؟</h2>
+
+  <div class="box definition">
+    <span class="tag">تعريف بسيط:</span>
+    الدالة التناظرية هي دالة تُكتب على شكل كسر، حيث البسط والمقام كلاهما من الدرجة الأولى:
+  </div>
+  <div class="formula">f(x) = (ax + b) / (cx + d) &nbsp; مع c ≠ 0</div>
+
+  <div class="box example">
+    <span class="tag">مثالنا الموجّه طوال الدرس:</span>
+    <div class="formula">f(x) = (2x − 1) / (x + 1)</div>
+  </div>
+
+  <p>سنستعمل هذا المثال في كل خطوة من الدرس، حتى تبقى الفكرة واضحة من البداية إلى النهاية.</p>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section id="s2">
+  <h2 class="section-title">2. مجموعة التعريف</h2>
+
+  <div class="box definition">
+    <span class="tag">القاعدة الذهبية:</span>
+    القسمة على الصفر ممنوعة تماماً في الرياضيات! إذن نبحث عن القيمة التي تجعل المقام يساوي صفراً، ونحذفها من ℝ.
+  </div>
+
+  <div class="box example">
+    <span class="tag">تطبيق:</span> نأخذ المقام ونساويه بالصفر:
+    <div class="step">x + 1 = 0 &nbsp;⟺&nbsp; x = −1</div>
+    <div class="step">هذه القيمة (−1) تسمى "القيمة الممنوعة".</div>
+    <div class="formula">D_f = ℝ − {−1}</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<section id="s3">
+  <h2 class="section-title">3. النهايات عند ∞- و∞+ (المقارب الأفقي)</h2>
+
+  <div class="box definition">
+    <span class="tag">القاعدة المبسّطة:</span>
+    لحساب النهاية عند ∞± لدالة تناظرية، نأخذ <b>الحدّ الأكبر في البسط</b> ونقسمه على <b>الحدّ الأكبر في المقام</b>، ثم نختزل x.
+  </div>
+
+  <div class="box example">
+    <span class="tag">تطبيق:</span> f(x) = (2x − 1)/(x + 1)
+    <div class="step">الحدّ الأكبر في البسط هو 2x، والحدّ الأكبر في المقام هو x.</div>
+    <div class="step">lim (x→+∞) f(x) = lim (x→+∞) (2x/x) = lim (x→+∞) 2 = 2</div>
+    <div class="step">ونفس الشيء عند −∞:</div>
+    <div class="formula">lim (x→−∞) f(x) = 2 &nbsp;&nbsp;&nbsp; lim (x→+∞) f(x) = 2</div>
+  </div>
+
+  <div class="box definition">
+    <span class="tag">استنتاج:</span>
+    المستقيم <b>y = 2</b> هو <b>مقارب أفقي</b> لمنحنى f عند ∞- وعند ∞+.
+  </div>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section id="s4">
+  <h2 class="section-title">4. النهاية عند القيمة الممنوعة (المقارب العمودي)</h2>
+
+  <div class="box definition">
+    <span class="tag">القاعدة المبسّطة:</span>
+    نعوّض بالقيمة الممنوعة في البسط (نجد عدداً حقيقياً)، وفي المقام نجد 0. لنعرف هل النتيجة +∞ أو −∞، نجرّب قيماً <b>قريبة جداً</b> من القيمة الممنوعة، من جهة اليمين ومن جهة اليسار.
+  </div>
+
+  <div class="box example">
+    <span class="tag">تطبيق: نحسب النهاية عند x = −1</span>
+    <div class="step"><b>من جهة اليمين (x أكبر قليلاً من −1)، مثلاً x = −0.9:</b></div>
+    <div class="step">f(−0.9) = (2×(−0.9) − 1)/(−0.9 + 1) = (−2.8)/(0.1) = −28</div>
+    <div class="step">النتيجة عدد سالب كبير جداً، إذن: lim (x→−1⁺) f(x) = −∞</div>
+    <div class="step"><b>من جهة اليسار (x أصغر قليلاً من −1)، مثلاً x = −1.1:</b></div>
+    <div class="step">f(−1.1) = (2×(−1.1) − 1)/(−1.1 + 1) = (−3.2)/(−0.1) = 32</div>
+    <div class="step">النتيجة عدد موجب كبير جداً، إذن: lim (x→−1⁻) f(x) = +∞</div>
+  </div>
+
+  <div class="box definition">
+    <span class="tag">استنتاج:</span>
+    بما أن إحدى النهايتين الجانبيتين على الأقل لا نهائية، فإن المستقيم <b>x = −1</b> هو <b>مقارب عمودي</b> لمنحنى f.
+  </div>
+
+  <div class="box warning">
+    <span class="tag">💡 كيف نتذكّر بسرعة الإشارة (بدون تجربة أعداد)؟</span>
+    نقترب من x = −1 <b>من اليمين</b> ⟵ المقام (x+1) يصبح <b>موجباً صغيراً جداً (0⁺)</b>.<br>
+    نقترب من x = −1 <b>من اليسار</b> ⟵ المقام (x+1) يصبح <b>سالباً صغيراً جداً (0⁻)</b>.<br>
+    ثم نقسم قيمة البسط (هنا −3 عند x=−1) على 0⁺ أو 0⁻ لنحصل مباشرة على ∞+ أو ∞−.
+  </div>
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section id="s5">
+  <h2 class="section-title">5. أداة عملية: الكتابة f(x) = m + k/(x − p)</h2>
+
+  <div class="box definition">
+    <span class="tag">لماذا هذه الأداة مفيدة؟</span>
+    بعد أن فهمنا فكرة النهايات جيداً (الأقسام 3 و4)، هذه الكتابة تعطينا <b>نفس النتائج مباشرة وبسرعة</b>، وستفيدنا لاحقاً في إيجاد مركز التناظر والنقاط ذات الإحداثيات الصحيحة.
+  </div>
+
+  <div class="box example">
+    <span class="tag">تطبيق:</span> f(x) = (2x − 1)/(x + 1)
+    <div class="step">نكتب: 2x − 1 = 2(x + 1) − 3 &nbsp;(نتحقق: 2x+2−3 = 2x−1 ✓)</div>
+    <div class="step">إذن: f(x) = [2(x+1) − 3]/(x+1) = 2 − 3/(x+1)</div>
+    <div class="formula">f(x) = 2 − 3/(x + 1)</div>
+    <p>هنا m = 2 ، p = −1 ، k = −3. نلاحظ أن:</p>
+    <div class="step">المقارب الأفقي y = m = 2 ✓ (نفس النتيجة التي وجدناها في القسم 3)</div>
+    <div class="step">المقارب العمودي x = p = −1 ✓ (نفس النتيجة التي وجدناها في القسم 4)</div>
+  </div>
+
+  <div class="box warning">
+    <span class="tag">💡 خلاصة:</span>
+    بمجرد ما تكتب الدالة على هذه الصورة، تحصل على المقاربين مباشرة بدون إعادة حساب النهايات بالتفصيل — لكن يبقى من المهم أن تعرف كيف تُحسب النهايات بالطريقتين السابقتين، لأن الامتحان قد يطلب ذلك صراحة.
+  </div>
+</section>
+
+<!-- ============ SECTION 6 ============ -->
+<section id="s6">
+  <h2 class="section-title">6. المشتقة واتجاه التغير</h2>
+
+  <div class="box definition">
+    <span class="tag">القاعدة العملية:</span>
+    لدالة على الصورة f(x) = (ax+b)/(cx+d)، مشتقتها دائماً:
+  </div>
+  <div class="formula">f′(x) = (ad − bc) / (cx + d)²</div>
+  <p>لاحظ أن المقام (cx+d)² هو دائماً <b>موجب تماماً</b> (مربّع). إذن إشارة f′(x) هي دائماً <b>إشارة العدد (ad − bc)</b>، وهي ثابتة على كل مجال التعريف!</p>
+
+  <div class="box example">
+    <span class="tag">تطبيق:</span> f(x) = (2x−1)/(x+1)، بمطابقتها مع الصورة (ax+b)/(cx+d) نجد: a=2, b=−1, c=1, d=1
+    <div class="step">ad − bc = (2×1) − (−1×1) = 2 + 1 = 3</div>
+    <div class="formula">f′(x) = 3 / (x + 1)²</div>
+    <div class="step">بما أن 3 > 0 وأن (x+1)² > 0 دائماً، فإن f′(x) > 0 على كل مجال التعريف.</div>
+  </div>
+
+  <h3>جدول التغيرات</h3>
+  <table class="var-table">
+    <tr><th>x</th><td>−∞</td><td></td><td>−1</td><td></td><td>+∞</td></tr>
+    <tr><th>f′(x)</th><td></td><td class="sign-pos">+</td><td class="dbar">‖</td><td class="sign-pos">+</td><td></td></tr>
+    <tr><th>f(x)</th><td>2</td><td class="arrow">↗</td><td class="dbar">‖</td><td class="arrow">↗</td><td>2</td></tr>
+  </table>
+  <p style="font-size:14px;color:#777;">(الخانة السوداء ‖ تعني أن الدالة غير معرّفة عند x = −1)</p>
+
+  <div class="box warning">
+    <span class="tag">⚠️ خطأ شائع جداً:</span>
+    لا تقل أبداً "الدالة تزايدية على ℝ" — اكتب دائماً اتجاه التغيّر على كل فرع على حدة: ]−∞ ؛ −1[ و ]−1 ؛ +∞[.
+  </div>
+</section>
+
+<!-- ============ SECTION 7 ============ -->
+<section id="s7">
+  <h2 class="section-title">7. مركز التناظر Ω</h2>
+
+  <div class="box definition">
+    <span class="tag">القاعدة البسيطة (تكفي في أغلب الأحيان):</span>
+    منحنى كل دالة تناظرية يقبل <b>مركز تناظر</b>، وهو ببساطة <b>نقطة تقاطع المقاربين</b>. إحداثياه هما (p ؛ m) من الكتابة f(x) = m + k/(x−p).
+  </div>
+
+  <div class="box example">
+    <span class="tag">تطبيق:</span> عندنا p = −1 و m = 2 (من القسم 5).
+    <div class="formula">Ω(−1 ؛ 2)</div>
+  </div>
+
+  <details class="opt-details">
+    <summary>🔎 للمهتمّين فقط: كيف نُثبت رياضياً أن Ω مركز تناظر؟ (اختياري، نادراً ما يُطلب)</summary>
+    <div class="step">نضع g(X) = f(X + p) − m، ونبيّن أن g دالة فردية (أي g(−X) = −g(X)).</div>
+    <div class="step">هنا: g(X) = f(X − 1) − 2 = [2 − 3/X] − 2 = −3/X</div>
+    <div class="step">g(−X) = −3/(−X) = 3/X = −(−3/X) = −g(X) ✓ إذن g فردية، وΩ فعلاً مركز تناظر.</div>
+  </details>
+</section>
+
+<!-- ============ SECTION 8 ============ -->
+<section id="s8">
+  <h2 class="section-title">8. نقاط المنحنى ذات الإحداثيات الصحيحة</h2>
+
+  <div class="box definition">
+    <span class="tag">فكرة الطريقة:</span>
+    باستعمال الكتابة f(x) = m + k/(x−p)، تكون إحداثيتا نقطة على المنحنى عددين صحيحين إذا وفقط إذا كان k/(x−p) عدداً صحيحاً — أي أن (x−p) يجب أن يكون <b>قاسماً</b> للعدد k.
+  </div>
+
+  <div class="box example">
+    <span class="tag">تطبيق:</span> f(x) = 2 − 3/(x+1)، هنا p = −1 و k = −3.
+    <div class="step">قواسم العدد 3 هي: −3 ، −1 ، 1 ، 3</div>
+    <div class="step">إذن (x+1) ∈ {−3 ؛ −1 ؛ 1 ؛ 3} ⟹ x ∈ {−4 ؛ −2 ؛ 0 ؛ 2}</div>
+    <div class="step">f(−4) = 2 − 3/(−3) = 3 &nbsp;→&nbsp; النقطة (−4 ؛ 3)</div>
+    <div class="step">f(−2) = 2 − 3/(−1) = 5 &nbsp;→&nbsp; النقطة (−2 ؛ 5)</div>
+    <div class="step">f(0) = 2 − 3/(1) = −1 &nbsp;→&nbsp; النقطة (0 ؛ −1)</div>
+    <div class="step">f(2) = 2 − 3/(3) = 1 &nbsp;→&nbsp; النقطة (2 ؛ 1)</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9 ============ -->
+<section id="s9">
+  <h2 class="section-title">9. معادلة المماس عند نقطة</h2>
+
+  <div class="formula">(T): y = f′(a) × (x − a) + f(a)</div>
+
+  <div class="box example">
+    <span class="tag">مثال:</span> نكتب معادلة المماس عند النقطة ذات الفاصلة a = 0:
+    <div class="step">f(0) = (2×0 − 1)/(0 + 1) = −1</div>
+    <div class="step">f′(0) = 3/(0+1)² = 3</div>
+    <div class="step">نعوّض: y = 3(x − 0) + (−1)</div>
+    <div class="formula">(T): y = 3x − 1</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 10 ============ -->
+<section id="s10">
+  <h2 class="section-title">10. رسم المنحنى (قطع زائد)</h2>
+
+  <div class="box definition">
+    <span class="tag">خطوات الرسم:</span>
+    <ol>
+      <li>ارسم المعلم (O ; i ، j)، ثم ارسم المقاربين بخط منقّط: العمودي x = −1، والأفقي y = 2</li>
+      <li>ضع مركز التناظر Ω(−1 ؛ 2) عند تقاطع المقاربين</li>
+      <li>ضع النقاط التي وجدناها في القسم 8 (لها إحداثيات صحيحة، سهلة الرسم)</li>
+      <li>ارسم الفرعين، كل واحد يقترب من المقاربين دون أن يلامسهما أبداً، مع احترام تناظرهما حول Ω</li>
+    </ol>
+  </div>
+
+  <div class="svg-box">
+    <svg viewBox="0 0 500 300" width="100%" height="300" xmlns="http://www.w3.org/2000/svg">
+      <line x1="20" y1="169" x2="480" y2="169" stroke="#b5651d" stroke-width="1.3" stroke-dasharray="5,4"/>
+      <text x="460" y="163" font-size="11" fill="#b5651d">y = 2</text>
+      <line x1="215" y1="10" x2="215" y2="290" stroke="#b5651d" stroke-width="1.3" stroke-dasharray="5,4"/>
+      <text x="220" y="22" font-size="11" fill="#b5651d">x = −1</text>
+
+      <line x1="40" y1="10" x2="40" y2="290" stroke="#bbb" stroke-width="1"/>
+      <line x1="20" y1="270" x2="480" y2="270" stroke="#ccc" stroke-width="1"/>
+
+      <path d="M40,157 C90,153 150,135 190,100 C205,75 212,45 214,20"
+            fill="none" stroke="#2b5f8a" stroke-width="2.5"/>
+      <path d="M216,280 C230,250 260,210 300,195 C350,182 420,172 460,168"
+            fill="none" stroke="#2b5f8a" stroke-width="2.5"/>
+
+      <circle cx="215" cy="169" r="4" fill="#6a4c93"/>
+      <text x="222" y="185" font-size="12" fill="#6a4c93">Ω(−1؛2)</text>
+
+      <circle cx="250" cy="224" r="4" fill="#c0392b"/>
+      <text x="255" y="240" font-size="12" fill="#c0392b">(0;−1)</text>
+
+      <circle cx="320" cy="187" r="4" fill="#2f7d4f"/>
+      <text x="326" y="182" font-size="12" fill="#2f7d4f">(2;1)</text>
+    </svg>
+    <p style="font-size:13px;color:#777;">تمثيل تقريبي (غير مرسوم بمقياس دقيق) يوضّح فرعي القطع الزائد حول مركز التناظر Ω.</p>
+  </div>
+</section>
+
+<!-- ============ SECTION 11 ============ -->
+<section id="s11">
+  <h2 class="section-title">11. جدول تلخيصي للمنهجية الكاملة</h2>
+  <table>
+    <tr><th>الخطوة</th><th>ماذا نفعل</th><th>الأداة / الصيغة</th></tr>
+    <tr><td>1</td><td>مجموعة التعريف</td><td>نساوي المقام بالصفر ونحذف الحل من ℝ</td></tr>
+    <tr><td>2</td><td>النهاية عند ∞±</td><td>الحدّ الأكبر في البسط ÷ الحدّ الأكبر في المقام</td></tr>
+    <tr><td>3</td><td>النهاية عند القيمة الممنوعة</td><td>نجرّب قيمة قريبة من اليمين ومن اليسار</td></tr>
+    <tr><td>4</td><td>الكتابة m + k/(x−p)</td><td>قسمة إقليدية للبسط على المقام (اختصار)</td></tr>
+    <tr><td>5</td><td>المشتقة</td><td>f′(x) = (ad−bc)/(cx+d)²</td></tr>
+    <tr><td>6</td><td>اتجاه التغير</td><td>إشارة f′(x) = إشارة (ad−bc)، ثابتة دائماً</td></tr>
+    <tr><td>7</td><td>مركز التناظر</td><td>Ω(p ؛ m) — تقاطع المقاربين</td></tr>
+    <tr><td>8</td><td>نقاط بإحداثيات صحيحة</td><td>(x−p) يجب أن يكون قاسماً لـ k</td></tr>
+    <tr><td>9</td><td>معادلة المماس</td><td>y = f′(a)(x−a) + f(a)</td></tr>
+    <tr><td>10</td><td>الرسم</td><td>مقاربان + Ω + النقاط المحسوبة</td></tr>
+  </table>
+</section>
+
+<!-- ============ SECTION 12 ============ -->
+<section id="s12">
+  <h2 class="section-title">12. نصائح لتجنّب الأخطاء الشائعة في البكالوريا</h2>
+  <ul class="tips">
+    <li>لا تنسَ استثناء القيمة الممنوعة من مجال التعريف: D_f = ℝ − {−d/c}.</li>
+    <li>عند حساب النهاية عند القيمة الممنوعة، جرّب قيمة قريبة جداً (مثل 0.1 فرق) وليس قيمة بعيدة، حتى تكون النتيجة واضحة.</li>
+    <li>اتجاه التغيّر يُكتب دائماً <b>على كل فرع على حدة</b>، ولا يجوز أبداً قول إن الدالة "متزايدة على ℝ".</li>
+    <li>إشارة f′(x) هنا بسيطة: هي إشارة العدد الثابت (ad−bc) فقط، لأن المقام مربّع دائماً موجب.</li>
+    <li>لا تخلط بين المقارب العمودي (x = p) والمقارب الأفقي (y = m).</li>
+    <li>للنقاط ذات الإحداثيات الصحيحة: لا تنسَ قواسم العدد <b>السالبة أيضاً</b> (مثلاً قواسم 3 هي −3,−1,1,3 وليس فقط 1 و3).</li>
+    <li>في ورقة الإجابة، اكتب دائماً "نطابق f(x) = ... مع الصورة العامة (ax+b)/(cx+d)" قبل تحديد قيم a، b، c، d.</li>
+  </ul>
+</section>
+
+<!-- ============ SECTION 13 : EXERCISES ============ -->
+<section id="s13">
+  <h2 class="section-title">13. تمارين للتدريب</h2>
+  <p>حاول حلّ كل تمرين بنفسك أولاً باتّباع المنهجية أعلاه، ثم اضغط على "إظهار الحل" للتحقق من إجابتك.</p>
+
+  <!-- EXERCISE A -->
+  <div class="exercise">
+    <span class="tag">التمرين الأول <span class="badge">تطبيق مباشر</span></span>
+    <p>لتكن الدالة العددية f المعرّفة بـ: f(x) = (x + 2)/(x − 1)</p>
+    <ol>
+      <li>عيّن مجموعة تعريف f.</li>
+      <li>بيّن أنّه من أجل كل x من D_f: f(x) = 1 + 3/(x − 1).</li>
+      <li>استنتج معادلتي المقاربين، وإحداثيتي مركز التناظر Ω.</li>
+      <li>احسب f′(x)، ثم استنتج اتجاه تغيّر f على كل فرع من مجال التعريف.</li>
+      <li>عيّن معادلة المماس (T) عند النقطة ذات الفاصلة a = 2.</li>
+      <li>عيّن نقط المنحنى ذات الإحداثيات الصحيحة.</li>
+    </ol>
+
+    <details>
+      <summary>إظهار الحل</summary>
+      <div class="step"><b>1)</b> x − 1 = 0 ⟺ x = 1. إذن D_f = ℝ − {1}.</div>
+      <div class="step"><b>2)</b> نتحقق: 1×(x−1) + 3 = x − 1 + 3 = x + 2 ✓. إذن f(x) = 1 + 3/(x−1).</div>
+      <div class="step"><b>3)</b> المقارب العمودي: x = 1. المقارب الأفقي: y = 1. مركز التناظر: Ω(1 ؛ 1).</div>
+      <div class="step"><b>4)</b> نذكّر بالقاعدة: لدالة على الصورة f(x)=(ax+b)/(cx+d)، فإن f′(x)=(ad−bc)/(cx+d)². نطابق f(x)=(x+2)/(x−1) مع هذه الصورة: a=1, b=2, c=1, d=−1.<br>
+      ad − bc = (1×(−1)) − (2×1) = −1−2 = −3.</div>
+      <div class="formula">f′(x) = −3/(x−1)²</div>
+      <div class="step">بما أن −3 &lt; 0، فإن f <b>متناقصة تماماً</b> على كل من ]−∞ ؛ 1[ و ]1 ؛ +∞[.</div>
+      <div class="step"><b>5)</b> f(2) = (2+2)/(2−1) = 4. f′(2) = −3/(2−1)² = −3. المعادلة: y = −3(x−2) + 4 = −3x + 10.</div>
+      <div class="step"><b>6)</b> قواسم 3 هي: −3,−1,1,3. إذن (x−1) ∈ {−3,−1,1,3} ⟹ x ∈ {−2,0,2,4}.<br>
+      f(−2)=0 → (−2؛0) &nbsp;&nbsp; f(0)=−2 → (0؛−2) &nbsp;&nbsp; f(2)=4 → (2؛4) &nbsp;&nbsp; f(4)=2 → (4؛2)</div>
+    </details>
+  </div>
+
+  <!-- EXERCISE B -->
+  <div class="exercise">
+    <span class="tag">التمرين الثاني <span class="badge">تطبيق مباشر</span></span>
+    <p>لتكن الدالة العددية g المعرّفة بـ: g(x) = (3x − 5)/(x − 2)</p>
+    <ol>
+      <li>عيّن مجموعة تعريف g.</li>
+      <li>بيّن أنّه من أجل كل x من D_g: g(x) = 3 + 1/(x − 2).</li>
+      <li>استنتج معادلتي المقاربين، وإحداثيتي مركز التناظر Ω.</li>
+      <li>احسب g′(x) واستنتج اتجاه تغير g.</li>
+      <li>اكتب معادلة المماس (T) للمنحنى عند النقطة ذات الفاصلة a = 3.</li>
+      <li>عيّن نقط المنحنى ذات الإحداثيات الصحيحة.</li>
+    </ol>
+
+    <details>
+      <summary>إظهار الحل</summary>
+      <div class="step"><b>1)</b> x − 2 = 0 ⟺ x = 2. إذن D_g = ℝ − {2}.</div>
+      <div class="step"><b>2)</b> نتحقق: 3(x−2)+1 = 3x−6+1 = 3x−5 ✓. إذن g(x) = 3 + 1/(x−2).</div>
+      <div class="step"><b>3)</b> المقارب العمودي: x = 2. المقارب الأفقي: y = 3. مركز التناظر: Ω(2 ؛ 3).</div>
+      <div class="step"><b>4)</b> نذكّر بالقاعدة: g(x)=(ax+b)/(cx+d) ⟹ g′(x)=(ad−bc)/(cx+d)². نطابق g(x)=(3x−5)/(x−2): a=3, b=−5, c=1, d=−2.<br>
+      ad − bc = (3×(−2)) − ((−5)×1) = −6+5 = −1.</div>
+      <div class="formula">g′(x) = −1/(x−2)²</div>
+      <div class="step">بما أن −1 &lt; 0، فإن g <b>متناقصة تماماً</b> على كل من ]−∞ ؛ 2[ و ]2 ؛ +∞[.</div>
+      <div class="step"><b>5)</b> g(3) = (9−5)/(3−2) = 4. g′(3) = −1/(3−2)² = −1. المعادلة: y = −1(x−3) + 4 = −x + 7.</div>
+      <div class="step"><b>6)</b> قواسم 1 هي: −1,1. إذن (x−2) ∈ {−1,1} ⟹ x ∈ {1,3}.<br>
+      g(1)=2 → (1؛2) &nbsp;&nbsp; g(3)=4 → (3؛4)</div>
+    </details>
+  </div>
+
+  <!-- EXERCISE C -->
+  <div class="exercise">
+    <span class="tag">التمرين الثالث <span class="badge">مستوى الامتحان</span></span>
+    <p>لتكن الدالة العددية h المعرّفة بـ: h(x) = (−2x + 1)/(x + 3)</p>
+    <ol>
+      <li>عيّن مجموعة تعريف h.</li>
+      <li>بيّن أنّه من أجل كل x من D_h: h(x) = −2 + 7/(x + 3).</li>
+      <li>استنتج معادلتي المقاربين، وإحداثيتي مركز التناظر Ω.</li>
+      <li>احسب h′(x) واستنتج اتجاه تغير h.</li>
+      <li>اكتب معادلة المماس (T) للمنحنى عند النقطة ذات الفاصلة a = −2.</li>
+      <li>عيّن نقط المنحنى ذات الإحداثيات الصحيحة.</li>
+    </ol>
+
+    <details>
+      <summary>إظهار الحل</summary>
+      <div class="step"><b>1)</b> x + 3 = 0 ⟺ x = −3. إذن D_h = ℝ − {−3}.</div>
+      <div class="step"><b>2)</b> نتحقق: −2(x+3)+7 = −2x−6+7 = −2x+1 ✓. إذن h(x) = −2 + 7/(x+3).</div>
+      <div class="step"><b>3)</b> المقارب العمودي: x = −3. المقارب الأفقي: y = −2. مركز التناظر: Ω(−3 ؛ −2).</div>
+      <div class="step"><b>4)</b> نذكّر بالقاعدة: h(x)=(ax+b)/(cx+d) ⟹ h′(x)=(ad−bc)/(cx+d)². نطابق h(x)=(−2x+1)/(x+3): a=−2, b=1, c=1, d=3.<br>
+      ad − bc = ((−2)×3) − (1×1) = −6−1 = −7.</div>
+      <div class="formula">h′(x) = −7/(x+3)²</div>
+      <div class="step">بما أن −7 &lt; 0، فإن h <b>متناقصة تماماً</b> على كل من ]−∞ ؛ −3[ و ]−3 ؛ +∞[.</div>
+      <div class="step"><b>5)</b> h(−2) = (4+1)/(−2+3) = 5. h′(−2) = −7/(−2+3)² = −7. المعادلة: y = −7(x+2) + 5 = −7x − 9.</div>
+      <div class="step"><b>6)</b> قواسم 7 هي: −7,−1,1,7. إذن (x+3) ∈ {−7,−1,1,7} ⟹ x ∈ {−10,−4,−2,4}.<br>
+      h(−10)=−3 → (−10؛−3) &nbsp;&nbsp; h(−4)=−9 → (−4؛−9) &nbsp;&nbsp; h(−2)=5 → (−2؛5) &nbsp;&nbsp; h(4)=−1 → (4؛−1)</div>
+    </details>
+  </div>
+
+</section>
+
+<!-- Accès au autres cours-->
+     <nav class="nav-projects">
+    <a href="cours1_division_euclidienne.html" class="current"> القسمة الإقليدية في Z</a>
+    <a href="cours2_suites_numeriques.html"> المتتاليات العددية</a>
+    <a href="cours3_direction_chang_fonction.html"> اتجاه تغير دالة </a>
+    <a href="cours4_fonctions_polynomiales.html"> الدوال كثيرات الحدود</a>
+    <a href="cours5_fonctions_analogiques.html"> الدوال التناظرية </a>
+    <a href="cours6_statistiques_probabilités.html">  الإحصاء والاحتمالات</a>
+  </nav>
+
+<footer>
+  إعداد كورس داعم لمادة الرياضيات — الباب 5: الدوال التناظرية — شعبة اللغات الأجنبية
+</footer>
+
+</div>
+</body>
+</html>

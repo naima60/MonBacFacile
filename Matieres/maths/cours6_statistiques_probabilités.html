@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الباب السادس: الإحصاء والاحتمالات</title>
+
+<!--Lien CSS-->
+<link rel="stylesheet" href="../../style_pages/btnRetour_footerNav.css">
+<style>
+  :root{
+    --accent:#2b5f8a;
+    --accent-light:#eaf2f8;
+    --green:#2f7d4f;
+    --green-light:#eaf7ee;
+    --orange:#b5651d;
+    --orange-light:#fdf1e6;
+    --purple:#6a4c93;
+    --purple-light:#f3eefb;
+    --text:#222;
+    --muted:#555;
+    --border:#dfe3e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI","Tahoma","Arial",sans-serif;
+    background:#f6f7f9;
+    color:var(--text);
+    line-height:1.9;
+    margin:0;
+    padding:0;
+    font-size:17px;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:20px 22px 70px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--accent),#173c56);
+    color:#fff;
+    padding:34px 22px;
+    border-radius:14px;
+    margin:18px 0 26px;
+    text-align:center;
+  }
+  header.hero h1{margin:0 0 8px;font-size:26px;}
+  header.hero p{margin:4px 0;opacity:.9;font-size:15px;}
+  nav.toc{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:16px 20px;
+    margin-bottom:28px;
+  }
+  nav.toc h2{margin:0 0 10px;font-size:16px;color:var(--accent);}
+  nav.toc ol{margin:0;padding-inline-start:22px;}
+  nav.toc li{margin:4px 0;}
+  nav.toc a{color:var(--text);text-decoration:none;}
+  nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+
+  section{margin-bottom:34px;}
+  h2.section-title{
+    background:var(--accent);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:10px;
+    font-size:19px;
+    margin:0 0 16px;
+  }
+  h3{color:var(--accent);font-size:17px;margin:20px 0 8px;}
+
+  .box{
+    border-radius:10px;
+    padding:14px 18px;
+    margin:14px 0;
+    border:1px solid var(--border);
+  }
+  .definition{background:var(--accent-light);border-color:#c9dcea;}
+  .definition .tag{color:var(--accent);font-weight:bold;}
+  .example{background:var(--green-light);border-color:#c9e6d3;}
+  .example .tag{color:var(--green);font-weight:bold;}
+  .warning{background:var(--orange-light);border-color:#f0d3b0;}
+  .warning .tag{color:var(--orange);font-weight:bold;}
+  
+  .formula{
+    background:#fff;
+    border:2px dashed var(--accent);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:14px 0;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:var(--accent);
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* Style pour de vraies fractions empilées */
+  .fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 4px;
+  }
+  .fraction .numerator {
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .fraction .denominator {
+    padding-top: 2px;
+  }
+
+  /* Style pour les coefficients binomiaux (combinaisons) */
+  .binomial {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 4px;
+    font-weight: bold;
+  }
+  .binomial .numerator {
+    padding-bottom: 1px;
+  }
+  .binomial .denominator {
+    padding-top: 1px;
+  }
+
+  .exercise{
+    background:var(--purple-light);
+    border:1px solid #ddceef;
+    border-radius:10px;
+    padding:16px 20px;
+    margin:18px 0;
+  }
+  .exercise .tag{color:var(--purple);font-weight:bold;}
+
+  table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff;}
+  th,td{border:1px solid var(--border);padding:8px 10px;text-align:center;font-size:15.5px;}
+  th{background:var(--accent-light);color:var(--accent);}
+
+  details{
+    background:#fff;
+    border:1px solid var(--purple);
+    border-radius:8px;
+    padding:10px 16px;
+    margin-top:10px;
+  }
+  details summary{
+    cursor:pointer;
+    font-weight:bold;
+    color:var(--purple);
+  }
+  details[open] summary{margin-bottom:8px;}
+
+  .step{margin:6px 0;padding-inline-start:6px;}
+  .step b{color:var(--accent);}
+
+  .badge{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    border-radius:20px;
+    padding:2px 12px;
+    font-size:13px;
+    margin-inline-end:6px;
+  }
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:40px;
+  }  
+</style>
+
+</head>
+<body>
+
+<div class="mb-4" style="padding: 15px 22px 0;">
+    <a href="../../Home/home.html" class="btn btn-retour shadow-sm">
+        ← Page d'Accueil / الصفحة الرئيسية 
+    </a>
+</div> 
+
+<div class="wrap">
+
+<header class="hero">
+  <h1>الباب السادس: الإحصاء والاحتمالات</h1>
+  <p>في مواضيع البكالوريا (خاصة للشعب الأدبية)، هذه التمارين مصممة خصيصاً لتكون في متناول الجميع، ويمكنك ضمان العلامة الكاملة فيها إذا فهمت القواعد الأساسية التالية.</p>
+</header>
+
+<nav class="toc">
+  <h2>محتوى الدرس</h2>
+  <ol>
+    <li><a href="#s1">أساسيات يجب معرفتها (قاموس الاحتمالات)</a></li>
+    <li><a href="#s2">القانون الأساسي لحساب أي احتمال</a></li>
+    <li><a href="#s3">أولاً: الأداة الأساسية (التوفيقات) وكيفية حسابها</a></li>
+    <li><a href="#s4">شجرة الاحتمالات (الطريقة السحرية لتسهيل الحل)</a></li>
+    <li><a href="#s5">تمرين تطبيقي شامل ومحلول خطوة بخطوة</a></li>
+    <li><a href="#s6">المثال الأول (المستوى البسيط): شجرة الاحتمالات (السحب المتتابع بإرجاع)</a></li>
+    <li><a href="#s7">ثانياً: مثال تطبيقي موسع (سحب 4 كرات)</a></li>
+    <li><a href="#s8">ثالثاً: تمارين محلولة (منهجية البكالوريا)</a></li>
+  </ol>
+</nav>
+
+<!-- ============ SECTION 1 ============ -->
+<section id="s1">
+  <h2 class="section-title">1. أساسيات يجب معرفتها (قاموس الاحتمالات)</h2>
+  <p>قبل البدء في الحل، عليك بمعرفة هذه المصطلحات:</p>
+
+  <div class="box definition">
+    <ul>
+      <li><b>التجربة العشوائية:</b> هي تجربة نعرف نتائجها الممكنة مسبقاً، لكننا لا نتحكم في النتيجة التي ستظهر (مثل: رمي نرد، أو سحب كرات من كيس).</li>
+      <li><b>مجموعة النتائج (Ω):</b> هي مجموعة كل النتائج الممكنة للتجربة (مثال: رمي نرد يحمل أرقاماً من 1 إلى 6 يعني أن عدد النتائج الكلي هو 6 أي Ω = {1, 2, 3, 4, 5, 6}).</li>
+      <li><b>الحادثة (A):</b> هي جزء من مجموعة النتائج (شرط نبحث عنه، مثل: "الحصول على عدد زوجي").</li>
+      <li><b>الحادثة العكسية (Ā أو A بار):</b> هي عكس الحادثة A تماماً (مثلاً: إذا كان A هو "الحصول على عدد زوجي"، فإن Ā هو "الحصول على عدد فردي").</li>
+      <li><b>القاعدة الذهبية:</b> P(Ā) = 1 - P(A).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section id="s2">
+  <h2 class="section-title">2. القانون الأساسي لحساب أي احتمال</h2>
+  <div class="box definition">
+    احتمال أي حادثة A، والذي نرمز له بـ P(A)، يُحسب دائماً بالقانون البسيط التالي:
+  </div>
+  <div class="box formula">
+    <span>P(A) =</span>
+    <span class="fraction">
+      <span class="numerator">عدد الحالات الملائمة (ما نطلبه منك في السؤال)</span>
+      <span class="denominator">عدد الحالات الكلية الممكنة (Ω)</span>
+    </span>
+  </div>
+
+  <div class="box warning">
+    <span class="tag">⚠️ ملاحظة مهمة جداً:</span> احتمال أي حادثة هو دائماً عدد محصور بين <b>0 و 1</b> (ولا يمكن أبداً أن يكون سالباً أو أكبر من 1!).
+  </div>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<!-- ============ SECTION 3 ============ -->
+<section id="s3">
+  <h2 class="section-title">📌 أولاً: الأداة الأساسية (التوفيقات)</h2>
+  <p>عندما نطلب سحب عدة عناصر في نفس الوقت (سحب متزامن)، نستخدم قانون التوفيقات:</p>
+
+  <div class="box formula" style="font-size: 20px;">
+    <span>
+      <span class="binomial">
+        <span class="numerator">n</span>
+        <span class="denominator">k</span>
+      </span>
+    </span>
+    <span>=</span>
+    <span class="fraction">
+      <span class="numerator">n × (n - 1) × ... × (n - k + 1)</span>
+      <span class="denominator">k × (k - 1) × ... × 1</span>
+    </span>
+  </div>
+
+  <div class="box definition">
+    <ul>
+      <li><b>القاعدة المبسطة:</b> الرقم الموجود في الأسفل (<span dir="ltr">k</span>) يحدد كم عدداً نكتب في البسط تنازلياً بدءاً من <span dir="ltr">n</span>، وفي المقام ننزل بالضرب من <span dir="ltr">k</span> إلى الرقم 1.</li>
+    </ul>
+  </div>
+
+  <div class="box example">
+    <span class="tag">مثال:</span> 
+    اختيار 2 عناصر من أصل 8 عناصر دون ترتيب:
+    <span class="binomial" style="font-size:15px; margin-inline: 10px;">
+      <span class="numerator">8</span>
+      <span class="denominator">2</span>
+    </span>
+    = 
+    <span class="fraction" style="font-size:14px;">
+      <span class="numerator">8 × 7</span>
+      <span class="denominator">2 × 1</span>
+    </span>
+    = 56 / 2 = 28 حالة.
+  </div>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section id="s4">
+  <h2 class="section-title">3. شجرة الاحتمالات (الطريقة السحرية لتسهيل الحل)</h2>
+  <p>عندما يحتوي التمرين على سحب متتابع (سحب كرة ثم إرجاعها أو عدم إرجاعها)، فإن شجرة الاحتمالات هي أفضل وسيلة للحل:</p>
+  
+  <div class="box definition">
+    <ol>
+      <li><b>قاعدة المجموع:</b> مجموع احتمالات الفروع الخارجة من نفس النقطة يساوي دائماً 1.</li>
+      <li><b>مسار "و" (الضرب):</b> لحساب احتمال مسار كامل من البداية إلى النهاية، نضرب الاحتمالات الموجودة على طول ذلك المسار.</li>
+      <li><b>مسار "أو" (الجمع):</b> لحساب احتمال عدة حالات مختلفة، نجمع احتمالات المسارات فيما بينها.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section id="s5">
+  <h2 class="section-title">✏️ تمرين تطبيقي شامل ومحلول خطوة بخطوة</h2>
+  
+  <div class="box exercise">
+    <span class="tag">نص التمرين:</span>
+    يحتوي كيس على 5 كرات حمراء و 3 كرات سوداء (المجموع الكلي: 8 = 3 + 5 كرات). نسحب عشوائياً وفي نفس الوقت كرتين (2) من الكيس.
+    <ol>
+      <li>ما هو عدد السحبات الممكنة كلياً؟</li>
+      <li>لتكن الحادثة A: "سحب كرتين من نفس اللون". احسب P(A).</li>
+      <li>لتكن الحادثة B: "سحب على الأقل كرة حمراء واحدة". احسب P(B).</li>
+    </ol>
+  </div>
+
+  <div class="box example">
+    <span class="tag">الحل المفصل بطريقة بسيطة:</span>
+    
+    <div class="step"><b>1. حساب عدد السحبات الممكنة (المجموع الكلي Ω):</b> بما أن السحب يتم "في نفس الوقت" (سحب عشوائي متزامن)، فإننا نستعمل التوفيقات:</div>
+    <div class="box formula">
+      <span>Ω = </span>
+      <span class="binomial">
+        <span class="numerator">8</span>
+        <span class="denominator">2</span>
+      </span>
+      <span> = </span>
+      <span class="fraction" style="font-size:14px;">
+        <span class="numerator">8 × 7</span>
+        <span class="denominator">2 × 1</span>
+      </span>
+      <span>= 56 / 2 = 28 حالة ككل</span>
+    </div>
+    
+    <div class="step"><b>تفصيل الحساب:</b></div>
+    <div class="step"><b>1. البسط (8 × 7): من أين جاءت؟</b>
+      <ul>
+        <li>انظر إلى الرقم الموجود في الأسفل (وهو 2). هذا الرقم يخبرك بعدد الأرقام التي يجب أن تكتبها في البسط.</li>
+        <li>انظر إلى الرقم الموجود في الأعلى (وهو 8). هذا هو الرقم الذي سنبدأ به العد التنازلي.</li>
+        <li>بما أن الرقم السفلي هو 2، فهذا يعني أننا سنكتب عددين فقط بالتنازل بدءاً من 8: <br><b>8 × 7</b> (لو كان الرقم السفلي 3، لكتبنا ثلاثة أعداد: 8 × 7 × 6 وهكذا).</li>
+      </ul>
+    </div>
+    <div class="step"><b>2. المقام (2 × 1): من أين جاءت؟</b>
+      <ul>
+        <li>المقام دائماً يبدأ من الرقم الموجود في الأسفل نفسه (وهو 2) ويستمر في النزول بالضرب حتى يصل إلى الرقم 1.</li>
+        <li>إذن دائماً نكتب: <b>2 × 1</b> (لو كان الرقم السفلي 3، لكتبنا في المقام: 3 × 2 × 1).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 ============ -->
+<section id="s6">
+  <h2 class="section-title">المثال الأول (المستوى البسيط): شجرة الاحتمالات (السحب المتتابع بإرجاع)</h2>
+  
+  <div class="box exercise">
+    <span class="tag">نص المثال:</span>
+    يحتوي كيس على 3 كرات خضراء و 2 كرات حمراء (المجموع = 5 كرات). نسحب عشوائياً كرة واحدة، نُعيدها إلى الكيس، ثم نسحب كرة ثانية.
+    <ol>
+      <li>ارسم شجرة الاحتمالات التي تعبر عن هذه التجربة.</li>
+      <li>احسب احتمال الحصول على كرتين خضراوين.</li>
+      <li>احسب احتمال الحصول على كرتين من لونين مختلفين.</li>
+    </ol>
+  </div>
+
+  <div class="box example">
+    <span class="tag">الحل خطوة بخطوة:</span>
+    <div class="step"><b>الخطوة 1: فهم احتمالات السحب الواحد</b></div>
+    <div class="step">بما أننا نعيد الكرة بعد كل سحب (بإرجاع)، يبقى المجموع الكلي ثابتاً وهو 5:
+      <ul>
+        <li>احتمال سحب كرة خضراء (V) هو: <span class="fraction"><span class="numerator">3</span><span class="denominator">5</span></span></li>
+        <li>احتمال سحب كرة حمراء (R) هو: <span class="fraction"><span class="numerator">2</span><span class="denominator">5</span></span></li>
+      </ul>
+    </div>
+
+    <div class="step"><b>الخطوة 2: حساب احتمال "كرتين خضراوين" (V و V)</b></div>
+    <div class="step">الطلب يعني: خضراء في السحب الأول <b>و</b> خضراء في السحب الثاني.</div>
+    <div class="step">في الاحتمالات، حرف "و" يعني الضرب بين فروع الشجرة:</div>
+    <div class="box formula">
+      <span>P(V و V) =</span>
+      <span class="fraction">
+        <span class="numerator">3</span>
+        <span class="denominator">5</span>
+      </span>
+      <span>×</span>
+      <span class="fraction">
+        <span class="numerator">3</span>
+        <span class="denominator">5</span>
+      </span>
+      <span>=</span>
+      <span class="fraction">
+        <span class="numerator">9</span>
+        <span class="denominator">25</span>
+      </span>
+    </div>
+
+    <div class="step"><b>الخطوة 3: حساب "كرتين من لونين مختلفين"</b></div>
+    <div class="step">الحصول على لونين مختلفين معناه:
+      <ul>
+        <li>إما خضراء ثم حمراء: <span class="fraction"><span class="numerator">3</span><span class="denominator">5</span></span> × <span class="fraction"><span class="numerator">2</span><span class="denominator">5</span></span> = <span class="fraction"><span class="numerator">6</span><span class="denominator">25</span></span></li>
+        <li>أو حمراء ثم خضراء: <span class="fraction"><span class="numerator">2</span><span class="denominator">5</span></span> × <span class="fraction"><span class="numerator">3</span><span class="denominator">5</span></span> = <span class="fraction"><span class="numerator">6</span><span class="denominator">25</span></span></li>
+      </ul>
+    </div>
+    <div class="step">في الاحتمالات، حرف "أو" يعني الجمع بين المسارين:</div>
+    <div class="box formula">
+      <span>P =</span>
+      <span class="fraction"><span class="numerator">6</span><span class="denominator">25</span></span>
+      <span>+</span>
+      <span class="fraction"><span class="numerator">6</span><span class="denominator">25</span></span>
+      <span>=</span>
+      <span class="fraction"><span class="numerator">12</span><span class="denominator">25</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 ============ -->
+<section id="s7">
+  <h2 class="section-title">📌 ثانياً: مثال تطبيقي موسع (سحب 4 كرات)</h2>
+  
+  <div class="box exercise">
+    <span class="tag">نص المثال:</span>
+    يحتوي كيس على 5 كرات حمراء و 4 كرات خضراء (المجموع الكلي = 9 كرات). نسحب عشوائياً وفي نفس الوقت 4 كرات من هذا الكيس.
+  </div>
+
+  <div class="box example">
+    <span class="tag">الحل:</span>
+    <div class="step"><b>1. حساب عدد السحبات الممكنة كلياً (Ω):</b> نختار 4 كرات من أصل 9 كرات معاً.</div>
+    <div class="box formula">
+      <span>Ω = </span>
+      <span class="binomial">
+        <span class="numerator">9</span>
+        <span class="denominator">4</span>
+      </span>
+      <span> = </span>
+      <span class="fraction" style="font-size:14px;">
+        <span class="numerator">9 × 8 × 7 × 6</span>
+        <span class="denominator">4 × 3 × 2 × 1</span>
+      </span>
+      <span>=</span>
+      <span class="fraction" style="font-size:14px;">
+        <span class="numerator">3024</span>
+        <span class="denominator">24</span>
+      </span>
+      <span>= 126 حالة</span>
+    </div>
+
+    <div class="step"><b>2. حساب احتمال الحادثة A: «الحصول على كرتين حمراوين وكرتين خضراوين بالتحديد»</b></div>
+    <div class="step">
+      <ul>
+        <li>اختيار كرتين حمراوين من أصل 5:<br>
+          <span class="binomial" style="font-size:14px;"><span class="numerator">5</span><span class="denominator">2</span></span> = <span class="fraction" style="font-size:14px;"><span class="numerator">5 × 4</span><span class="denominator">2 × 1</span></span> = 10
+        </li>
+        <li>اختيار كرتين خضراوين من أصل 4:<br>
+          <span class="binomial" style="font-size:14px;"><span class="numerator">4</span><span class="denominator">2</span></span> = <span class="fraction" style="font-size:14px;"><span class="numerator">4 × 3</span><span class="denominator">2 × 1</span></span> = 6
+        </li>
+      </ul>
+    </div>
+    <div class="step">عدد الحالات الملائمة هو: 10 × 6 = 60</div>
+    <div class="box formula">
+      <span>P(A) =</span>
+      <span class="fraction">
+        <span class="numerator">60</span>
+        <span class="denominator">126</span>
+      </span>
+      <span>=</span>
+      <span class="fraction">
+        <span class="numerator">10</span>
+        <span class="denominator">21</span>
+      </span>
+    </div>
+
+    <div class="step"><b>3. حساب احتمال الحادثة B : «الحصول على الأقل كرة حمراء واحدة»</b></div>
+    <div class="step">الحادثة العكسية (<span style="text-decoration:overline">B</span>): «عدم الحصول على أي كرة حمراء نهائياً»، أي سحب الكرات الأربع كلها خضراء من أصل 4 كرات خضراء.</div>
+    <div class="step">عدد حالات العكس: 
+      <span class="binomial" style="font-size:14px;"><span class="numerator">4</span><span class="denominator">4</span></span> = 1
+    </div>
+    <div class="step">احتمال العكس: <span class="fraction"><span class="numerator">1</span><span class="denominator">126</span></span></div>
+    <div class="box formula">
+      <span>P(B) = 1 - P(<span style="text-decoration:overline">B</span>) = 1 -</span>
+      <span class="fraction">
+        <span class="numerator">1</span>
+        <span class="denominator">126</span>
+      </span>
+      <span>=</span>
+      <span class="fraction">
+        <span class="numerator">125</span>
+        <span class="denominator">126</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8 ============ -->
+<section id="s8">
+  <h2 class="section-title">📌 ثالثاً: تمارين محلولة (منهجية البكالوريا)</h2>
+  
+  <div class="exercise">
+    <span class="tag">التمرين الأول: السحب المتتابع مع الإرجاع <span class="badge">شجرة الاحتمالات</span></span>
+    <p><b>النص:</b> صندوق يحتوي على 2 كرات بيضاء و 3 كرات سوداء. نسحب متتابعاً وبإرجاع 3 كرات. احسب احتمال الحصول على كرتين بيضاوين بالضبط.</p>
+    <details>
+      <summary>إظهار الحل الخطوة بخطوة</summary>
+      <div class="step">1. احتمال سحب كرة بيضاء هو <span class="fraction"><span class="numerator">2</span><span class="denominator">5</span></span>، وسوداء هو <span class="fraction"><span class="numerator">3</span><span class="denominator">5</span></span>.</div>
+      <div class="step">2. الحصول على كرتين بيضاوين وواحدة سوداء يعني الترتيبات التالية: (B, B, S) أو (B, S, B) أو (S, B, B) (أي 3 ترتيبات).</div>
+      <div class="step">3. احتمال الترتيب الواحد هو:</div>
+      <div class="box formula">
+        <span>(</span>
+        <span class="fraction"><span class="numerator">2</span><span class="denominator">5</span></span>
+        <span>)² ×</span>
+        <span class="fraction"><span class="numerator">3</span><span class="denominator">5</span></span>
+        <span>=</span>
+        <span class="fraction"><span class="numerator">4</span><span class="denominator">25</span></span>
+        <span>×</span>
+        <span class="fraction"><span class="numerator">3</span><span class="denominator">5</span></span>
+        <span>=</span>
+        <span class="fraction"><span class="numerator">12</span><span class="denominator">125</span></span>
+      </div>
+      <div class="step">4. نضرب في عدد الترتيبات (3):</div>
+      <div class="box formula">
+        <span>P = 3 ×</span>
+        <span class="fraction">
+          <span class="numerator">12</span>
+          <span class="denominator">125</span>
+        </span>
+        <span>=</span>
+        <span class="fraction">
+          <span class="numerator">36</span>
+          <span class="denominator">125</span>
+        </span>
+      </div>
+    </details>
+  </div>
+
+  <div class="exercise">
+    <span class="tag">التمرين الثاني: السحب المتزامن وقانون "على الأقل"</span>
+    <p><b>النص:</b> صندوق يحتوي على 3 كرات حمراء، وكرتين بيضاوين، وكرة خضراء واحدة (المجموع = 6 كرات). نسحب عشوائياً وفي نفس الوقت 3 كرات. احسب احتمال الحصول على الأقل كرة حمراء واحدة.</p>
+    <details>
+      <summary>إظهار الحل الخطوة بخطوة</summary>
+      <div class="step">1. حساب عدد السحبات الكلية (Ω):</div>
+      <div class="box formula">
+        <span>Ω = </span>
+        <span class="binomial">
+          <span class="numerator">6</span>
+          <span class="denominator">3</span>
+        </span>
+        <span> = </span>
+        <span class="fraction" style="font-size:14px;">
+          <span class="numerator">6 × 5 × 4</span>
+          <span class="denominator">3 × 2 × 1</span>
+        </span>
+        <span>= 20 حالة</span>
+      </div>
+      <div class="step">2. الحادثة العكسية هي «عدم سحب أي كرة حمراء»، أي سحب الكرات الثلاث من بين الكرات غير الحمراء (كرتان بيضاوان + كرة خضراء = 3 كرات غير الحمراء).</div>
+      <div class="step">3. عدد حالات العكس: 
+        <span class="binomial" style="font-size:14px;"><span class="numerator">3</span><span class="denominator">3</span></span> = 1
+      </div>
+      <div class="step">4. احتمال العكس: P(العكس) = <span class="fraction"><span class="numerator">1</span><span class="denominator">20</span></span></div>
+      <div class="step">5. استنتاج الاحتمال المطلوب:</div>
+      <div class="box formula">
+        <span>P = 1 -</span>
+        <span class="fraction">
+          <span class="numerator">1</span>
+          <span class="denominator">20</span>
+        </span>
+        <span>=</span>
+        <span class="fraction">
+          <span class="numerator">19</span>
+          <span class="denominator">20</span>
+        </span>
+      </div>
+    </details>
+  </div>
+
+</section>
+
+<!-- Accès au autres cours-->
+     <nav class="nav-projects">
+    <a href="cours1_division_euclidienne.html" class="current"> القسمة الإقليدية في Z</a>
+    <a href="cours2_suites_numeriques.html"> المتتاليات العددية</a>
+    <a href="cours3_direction_chang_fonction.html"> اتجاه تغير دالة </a>
+    <a href="cours4_fonctions_polynomiales.html"> الدوال كثيرات الحدود</a>
+    <a href="cours5_fonctions_analogiques.html"> الدوال التناظرية </a>
+    <a href="cours6_statistiques_probabilités.html">  الإحصاء والاحتمالات</a>
+  </nav>
+
+
+<footer>
+  إعداد كورس داعم لمادة الرياضيات — الباب 6: الاحتمالات — شعبة اللغات الأجنبية والأدبية
+</footer>
+
+</div>
+</body>
+</html>

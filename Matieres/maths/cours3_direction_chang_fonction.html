@@ -4,223 +4,448 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اتجاه تغير دالة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- lien css-->
+     <link rel="stylesheet" href="../../style_pages/btnRetour_footerNav.css">
+     
+    
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #f4f7f6;
             margin: 0;
-            padding: 15px;
+            padding: 20px;
+        }
+        .course-container {
+            max-width: 900px;
+            margin: 0 auto;
         }
         .course-content {
             background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        h1 { color: #2c3e50; font-size: 22px; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
-        h2 { color: #2980b9; font-size: 18px; margin-top: 25px; }
-        h3 { color: #16a085; font-size: 16px; }
-        p, li { font-size: 20px; }
-        ul, ol { margin-bottom: 15px; }
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; direction: ltr; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
-        th { background-color: #f2f2f2; }
-        .note { background-color: #e8f4f8; padding: 12px; border-right: 4px solid #3498db; margin: 15px 0; border-radius: 4px; direction: rtl; }
-    
-    .btn-retour {
-            background-color: #e9c46a;
-            color: #264653;
+        h1 {
+            color: #1a365d;
+            font-size: 26px;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        h2 {
+            color: #2b6cb0;
+            font-size: 20px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-right: 4px solid #3182ce;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+        h3 {
+            color: #2c7a7b;
+            font-size: 17px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        p, li {
+            font-size: 18px;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            direction: ltr;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: center;
+            font-size: 18px;
+        }
+        th {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+        }
+        .note {
+            background-color: #ebf8ff;
+            padding: 18px;
+            border-right: 5px solid #3182ce;
+            margin: 25px 0;
+            border-radius: 6px;
+            direction: rtl;
+        }
+        .btn-retour {
+            background-color: #ecc94b;
+            color: #744210;
             font-weight: bold;
             border: none;
-            border-radius: 8x;
-            height:30px;
-           
+            border-radius: 8px;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
         }
         .btn-retour:hover {
-            background-color: #f4a261;
+            background-color: #d69e2e;
             color: #fff;
         }
-    
-    
-    
+        .highlight-box {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .exercise-box {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .exercise-box h3 {
+            color: #c05621;
+        }
+        .solution-content {
+            display: none;
+            margin-top: 15px;
+            border-top: 2px dashed #feebc8;
+            padding-top: 15px;
+        }
     </style>
 </head>
 <body>
 
-        <!-- Bouton de retour à l'accueil -->
-        <div class="mb-4">
-            <a href="../../Home/home.html" class="btn btn-retour shadow-sm">
-                ← Page d'Accueil / الصفحة الرئيسية 
-            </a>
-        </div> 
+<div class="course-container">
+    <!-- Bouton de retour à l'accueil -->
+    <div class="mb-4">
+        <a href="../../Home/home.html" class="btn btn-retour shadow-sm">
+            ← Page d'Accueil / الصفحة الرئيسية 
+        </a>
+    </div> 
 
-<div class="course-content">
-    <h1>📚 الباب الثالث: اتجاه تغير دالة (Sens de variation d'une fonction)</h1>
-    <p>في امتحان البكالوريا، دراسة اتجاه تغير الدالة هي خطوة أساسية ومفتاح للأسئلة الموالية (مثل جدول التغيرات، رسم المنحنيات، وحل المتراجحات).</p>
-    <p>هدفنا في هذا الدرس هو الإجابة عن السؤال الكلاسيكي في البكالوريا: "أدرس اتجاه تغير الدالة f" أو "شكل جدول تغيرات الدالة f".</p>
+    <div class="course-content">
+        <h1>📚 الباب الثالث: اتجاه تغير دالة (Sens de variation d'une fonction)</h1>
+        
+        <div class="note">
+            <p class="mb-0"><strong>أهمية الدرس:</strong> في امتحان البكالوريا، دراسة اتجاه تغير الدالة هي خطوة أساسية ومفتاح للأسئلة الموالية (مثل جدول التغيرات، رسم المنحنيات، وحل المتراجحات). هدفنا هو الإجابة عن السؤال الكلاسيكي: <em>"أدرس اتجاه تغير الدالة f"</em> أو <em>"شكل جدول تغيرات الدالة f"</em>.</p>
+        </div>
 
-    <h2>1. ما معنى "اتجاه تغير دالة"؟</h2>
-    <p>يعني معرفة متى تكون الدالة صاعدة (متزايدة)، متى تكون نازلة (متناقصة)، أو متى تكون ثابتة على مجال معين.</p>
-    <ul>
-        <li><strong>دالة متزايدة تماماً:</strong> عندما نتحرك من اليسار إلى اليمين، المنحنى يصعد للأعلى (إذا كبرت x يكبر معها f(x)).</li>
-        <li><strong>دالة متناقصة تماماً:</strong> عندما نتحرك من اليسار إلى اليمين، المنحنى ينزل للأسفل (إذا كبرت x يصغر f(x)).</li>
-        <li><strong>دالة ثابتة:</strong> المنحنى أفقي لا يتحرك لأعلى أو لأسفل.</li>
-    </ul>
-    <p>لكي ندرس اتجاه تغير دالة f معرفة على مجال معين، نلجأ حتماً إلى حساب المشتقة الأولى f'(x)، وندرس إشارتها بالشروط التالية :</p>
-    <ul>
-        <li>إذا كانت المشتقة موجبة تماماً (f'(x) > 0) على مجال، فالقاعدة تقول: الدالة متزايدة تماماً على ذلك المجال.</li>
-        <li>إذا كانت المشتقة سالبة تماماً (f'(x) < 0) على مجال، فالقاعدة تقول: الدالة متناقصة تماماً على ذلك المجال.</li>
-        <li>إذا كانت المشتقة معدومة (f'(x) = 0) عند قيمة معينة، فغالباً ما تمثل تلك النقطة قيمة حدية (قمة أو قاع).</li>
-    </ul>
+        <h2>1. ما معنى "اتجاه تغير دالة"؟</h2>
+        <p>يعني معرفة متى تكون الدالة صاعدة (متزايدة)، متى تكون نازلة (متناقصة)، أو متى تكون ثابتة على مجال معين.</p>
+        <ul>
+            <li><strong>دالة متزايدة تماماً:</strong> عندما نتحرك من اليسار إلى اليمين، المنحنى يصعد للأعلى (إذا كبرت x يكبر معها f(x)).</li>
+            <li><strong>دالة متناقصة تماماً:</strong> عندما نتحرك من اليسار إلى اليمين، المنحنى ينزل للأسفل (إذا كبرت x يصغر f(x)).</li>
+            <li><strong>دالة ثابتة:</strong> المنحنى أفقي لا يتحرك لأعلى أو لأسفل.</li>
+        </ul>
+        <p>لكي ندرس اتجاه تغير دالة f معرفة على مجال معين، نلجأ حتماً إلى حساب المشتقة الأولى f'(x)، وندرس إشارتها بالشروط التالية:</p>
+        <ul>
+            <li>إذا كانت المشتقة موجبة تماماً (<span dir="ltr">f'(x) > 0</span>) على مجال، فالقاعدة تقول: الدالة متزايدة تماماً على ذلك المجال.</li>
+            <li>إذا كانت المشتقة سالبة تماماً (<span dir="ltr">f'(x) < 0</span>) على مجال، فالقاعدة تقول: الدالة متناقصة تماماً على ذلك المجال.</li>
+            <li>إذا كانت المشتقة معدومة (<span dir="ltr">f'(x) = 0</span>) عند قيمة معينة، فغالباً ما تمثل تلك النقطة قيمة حدية (قمة أو قاع).</li>
+        </ul>
 
-    <h2>🛠️ الوصفة السحرية في 3 خطوات</h2>
-    
-    <h3>الخطوة 1: اشتق الدالة (f'(x))</h3>
-    <p>يعطيك التمرين الدالة f(x)، ومهمتك الأولى هي حساب مشتقتها f'(x).</p>
-    <p><strong>قواعد بسيطة جداً للحفظ:</strong></p>
-    <ul>
-        <li>مشتقة x² هي 2x (الأس ينزل أمام الحرف وننقص من الأس 1).</li>
-        <li>مشتقة x⁵ هي 5x⁴ (الخمسة تنزل وتصبح الأس 4).</li>
-        <li>مشتقة الحرف المضروب في رقم (مثل 9x) هي الرقم وحده أي 9.</li>
-        <li>مشتقة أي عدد ثابت لوحده (مثل -4 أو +3 أو +5) هي صفر وتختفي تماماً.</li>
-    </ul>
-
-    <h3>الخطوة 2: ابحث عن أين تنعدم المشتقة؟ (f'(x) = 0)</h3>
-    <p>تأخذ المشتقة التي حسبتها وتساويها بالصفر لتجد قيم x.</p>
-    <p>في أغلب مواضيع البكالوريا الخاصة بكم، ستجد المشتقة جاهزة أو يطلب منك كتابتها على شكل جداء قوسين.</p>
-    <p>لكي تجد قيم x بسهولة ودون تعقيد، تأخذ كل قوس وتساويه بالصفر مباشرة :</p>
-    <ul>
-        <li>القوس الأول = 0 → تحله وتجد القيمة الأولى لـ x.</li>
-        <li>القوس الثاني = 0 → تحله وتجد القيمة الثانية لـ x.</li>
-    </ul>
-
-    <h3>الخطوة 3: جدول الإشارة والتغيرات (طريقة الإنشاء خطوة بخطوة)</h3>
-    <p>الجدول هو ملخص عملك ويتكون من 3 أسطر رئيسية :</p>
-    <ul>
-        <li><strong>السطر الأول (سطر x):</strong> نكتب فيه مجموعة التعريف من اليسار لليمين. نبدأ دائماً بـ -∞ وننهي بـ +∞، وفي المنتصف نضع الأرقام التي وجدناها عندما انعدمت المشتقة في الخطوة 2.</li>
-        <li><strong>السطر الثاني (إشارة المشتقة f'(x)):</strong> تحت كل رقم وجدناه نضع الصفر (0). بين الرقمين (في الوسط) نضع الإشارة السالبة (-)، وعلى الأطراف نضع الإشارة الموجبة (+).</li>
-        <li><strong>السطر الثالث (تغيرات الدالة f(x) - الأهم!):</strong> نربط الإشارة مباشرة بالأسهم :
+        <h2>🛠️ الوصفة السحرية في 3 خطوات</h2>
+        
+        <div class="highlight-box">
+            <h3>الخطوة 1: اشتق الدالة (<span dir="ltr">f'(x)</span>)</h3>
+            <p>يعطيك التمرين الدالة f(x)، ومهمتك الأولى هي حساب مشتقتها f'(x).</p>
+            <p><strong>قواعد بسيطة جداً للحفظ:</strong></p>
             <ul>
-                <li>تحت علامة (+) → نرسم سهماً يصعد للأعلى ↗ (دالة متزايدة).</li>
-                <li>تحت علامة (-) → نرسم سهماً ينزل للأسفل ↘ (دالة متناقصة).</li>
+                <li>مشتقة <span dir="ltr">x²</span> هي <span dir="ltr">2x</span> (الأس ينزل أمام الحرف وننقص من الأس 1).</li>
+                <li>مشتقة <span dir="ltr">x⁵</span> هي <span dir="ltr">5x⁴</span> (الخمسة تنزل وتصبح الأس 4).</li>
+                <li>مشتقة الحرف المضروب في رقم (مثل <span dir="ltr">9x</span>) هي الرقم وحده أي 9.</li>
+                <li>مشتقة أي عدد ثابت لوحده (مثل <span dir="ltr">-4</span> أو <span dir="ltr">+3</span>) هي صفر وتختفي تماماً.</li>
             </ul>
-        </li>
-    </ul>
-    <p>تخيلها بصرياً: السهم الصاعد يصنع قمة جبل، والسهم النازل يصنع قاعاً (حفرة)، ثم يصعد مرة أخرى نحو +∞.</p>
-    <p><strong>القاعدة المعيارية لملء قيم أطراف الأسهم:</strong> للحصول على الأعداد التي تكتب عند رؤوس الأسهم (القيم الحدية أو النهايات)، نقوم دائماً بتعويض قيم x الخاصة بالجذور أو حساب النهايات عند أطراف مجموعة التعريف في الدالة الأصلية f(x) وليست المشتقة f'(x).</p>
+        </div>
 
-    <h2>📝 مثال تطبيقي مبسط جداً</h2>
-    <p>لتكن الدالة: f(x) = x² - 4x + 3</p>
-    <ol>
-        <li><strong>نحسب المشتقة f'(x) :</strong>
+        <div class="highlight-box">
+            <h3>الخطوة 2: ابحث عن أين تنعدم المشتقة؟ (<span dir="ltr">f'(x) = 0</span>)</h3>
+            <p>تأخذ المشتقة التي حسبتها وتساويها بالصفر لتجد قيم x. في أغلب مواضيع البكالوريا، ستجد المشتقة جاهزة أو يطلب منك كتابتها على شكل جداء قوسين.</p>
+            <p>لكي تجد قيم x بسهولة، تأخذ كل قوس وتساويه بالصفر مباشرة:</p>
             <ul>
-                <li>مشتقة x² هي 2x.</li>
-                <li>مشتقة -4x هي -4.</li>
-                <li>مشتقة +3 هي 0.</li>
-                <li>إذن: f'(x) = 2x - 4.</li>
+                <li>القوس الأول = 0 ← تحله وتجد القيمة الأولى لـ x.</li>
+                <li>القوس الثاني = 0 ← تحله وتجد القيمة الثانية لـ x.</li>
             </ul>
-        </li>
-        <li><strong>نبحث عن انعدامها :</strong> نضع 2x - 4 = 0 ← 2x = 4 ← x = 2. المشتقة تنعدم في 2.</li>
-        <li><strong>جدول التغيرات :</strong> معامل x موجب (+2)، إذن الإشارة سالبة (-) قبل 2 وموجبة (+) بعده.</li>
-    </ol>
-    <table>
-        <tr>
-            <th>x</th>
-            <td>-∞</td>
-            <td>2</td>
-            <td>+∞</td>
-        </tr>
-        <tr>
-            <th>f'(x) إشارة</th>
-            <td>-</td>
-            <td>0</td>
-            <td>+</td>
-        </tr>
-        <tr>
-            <th>f(x) تغيرات</th>
-            <td>+∞ ↘</td>
-            <td>القيمة الصغرى</td>
-            <td>↗ +∞</td>
-        </tr>
-    </table>
+        </div>
 
-    <h2>🎯 تطبيق مباشر من مواضيع البكالوريا الرسمية (بكالوريا 2020)</h2>
-    <p>إليك تمريناً حقيقياً من مواضيع البكالوريا الرسمية لشعبة لغات أجنبية وآداب وفلسفة :</p>
-    
-    <h3>📋 نص السؤال من البكالوريا :</h3>
-    <p>لتكن الدالة العددية f المعرفة على R بـ :<br>f(x) = x³ - 6x² + 9x - 4</p>
-    <ul>
-        <li>تحقق أنه من أجل كل عدد حقيقي x، فإن: f'(x) = 3(x-1)(x-3)</li>
-        <li>ادرس إشارة f'(x) على R، ثم استنتج اتجاه تغير الدالة f.</li>
-        <li>شكل جدول تغيرات الدالة f.</li>
-    </ul>
+        <div class="highlight-box">
+            <h3>الخطوة 3: جدول الإشارة والتغيرات (طريقة الإنشاء خطوة بخطوة)</h3>
+            <p>الجدول هو ملخص عملك ويتكون من 3 أسطر رئيسية:</p>
+            <ul>
+                <li><strong>السطر الأول (سطر x):</strong> نكتب فيه مجموعة التعريف من اليسار لليمين. نبدأ دائماً بـ <span dir="ltr">-∞</span> وننهي بـ <span dir="ltr">+∞</span>، وفي المنتصف نضع الأرقام التي وجدناها عندما انعدمت المشتقة في الخطوة 2.</li>
+                <li><strong>السطر الثاني (إشارة المشتقة <span dir="ltr">f'(x)</span>):</strong> تحت كل رقم وجدناه نضع الصفر (0). بين الرقمين نضع الإشارة المعاكسة، وعلى الأطراف حسب إشارة المعامل الرئيسي.</li>
+                <li><strong>السطر الثالث (تغيرات الدالة <span dir="ltr">f(x)</span>):</strong> نربط الإشارة مباشرة بالأسهم (<span dir="ltr">↗</span> للدالة المتزايدة و <span dir="ltr">↘</span> للدالة المتناقصة).</li>
+            </ul>
+        </div>
 
-    <h3>📝 الحل النموذجي المفصل خطوة بخطوة :</h3>
-    <p><strong>1. كيف حصلنا على المشتقة وتحققنا من العبارة؟</strong></p>
-    <p>نقوم باشتقاق الدالة الأصلية f(x) = x³ - 6x² + 9x - 4 حدًا بحد :</p>
-    <ul>
-        <li>مشتقة x³ هي 3x².</li>
-        <li>مشتقة -6x² هي -6 × (2x) = -12x.</li>
-        <li>مشتقة +9x هي +9.</li>
-        <li>مشتقة العدد الثابت -4 هي 0.</li>
-    </ul>
-    <p>نجد إذن: f'(x) = 3x² - 12x + 9.</p>
-    <p>لكي نصل إلى الشكل المطلوب، نخرج العدد 3 كعامل مشترك :<br>f'(x) = 3(x² - 4x + 3)</p>
-    <p>وبتحليل العبارة داخل القوسين نجد تماماً: (x-3)(x-1)3 وهو المطلوب.</p>
-    <p>نجد إذن: مشتقة الدالة   f(x) = x³ - 6x² + 9x - 4  هي  f'(x) = 3(x-1)(x-3) </p>
-    <p><strong>2. دراسة إشارة f'(x) واتجاه التغير :</strong></p>
-    <p>أين تنعدم المشتقة؟ نضع 3(x-1)(x-3) = 0. بما أن 3 ≠ 0، نفصل القوسين :</p>
-    <ul>
-        <li>القوس الأول = 0 عندما : x - 1 = 0 ← x = 1 (العدد الذي تطرح منه 1 وتجد 0 هو 1).</li>
-        <li>القوس الثاني = 0 عندما : x - 3 = 0 ← x = 3 (العدد الذي تطرح منه 3 وتجد 0 هو 3).</li>
-    </ul>
-    <p>استنتاج الإشارة واتجاه التغير :</p>
-    <p>بما أن المشتقة عبارة عن جداء قوسين (ومعامل x² موجب وهو 3) :</p>
-    <ul>
-        <li>بين الجذرين (في المجال ]1, 3[): الإشارة سالبة (-)، إذن الدالة f متناقصة تماماً.</li>
-        <li>خارج الجذرين (في المجالين ]-∞, 1[ و ]3, +∞[): الإشارة موجبة (+)، إذن الدالة f متزايدة تماماً.</li>
-    </ul>
+        <h2>📝 مثال تطبيقي مبسط جداً</h2>
+        <p>لتكن الدالة: <span dir="ltr">f(x) = x² - 4x + 3</span></p>
+        <ol>
+            <li><strong>نحسب المشتقة <span dir="ltr">f'(x)</span>:</strong> <span dir="ltr">f'(x) = 2x - 4</span>.</li>
+            <li><strong>نبحث عن انعدامها:</strong> نضع <span dir="ltr">2x - 4 = 0 ⟹ x = 2</span>. المشتقة تنعدم في 2.</li>
+            <li><strong>جدول التغيرات:</strong> معامل x موجب (<span dir="ltr">+2</span>)، إذن الإشارة سالبة (<span dir="ltr">-</span>) قبل 2 وموجبة (<span dir="ltr">+</span>) بعده.</li>
+        </ol>
+        <table>
+            <tr>
+                <th>x</th>
+                <td dir="ltr">-∞</td>
+                <td dir="ltr">2</td>
+                <td dir="ltr">+∞</td>
+            </tr>
+            <tr>
+                <th>f'(x) إشارة</th>
+                <td>-</td>
+                <td>0</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <th>f(x) تغيرات</th>
+                <td><span dir="ltr">+∞ ↘</span></td>
+                <td>القيمة الصغرى</td>
+                <td><span dir="ltr">↗ +∞</span></td>
+            </tr>
+        </table>
 
-    <p><strong>3. جدول التغيرات النهائي :</strong></p>
-    <table>
-        <tr>
-            <th>x</th>
-            <td>-∞</td>
-            <td>1</td>
-            <td>3</td>
-            <td>+∞</td>
-        </tr>
-        <tr>
-            <th>f'(x) إشارة</th>
-            <td></td>
-            <td>+</td>
-            <td>0</td>
-            <td>-</td>
-            <td>0</td>
-            <td>+</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>f(x) تغيرات</th>
-            <td>-∞</td>
-            <td>↗</td>
-            <td>f(1) = 0</td>
-            <td>↘</td>
-            <td>f(3) = -4</td>
-            <td>↗</td>
-            <td>+∞</td>
-        </tr>
-    </table>
+        <h2>🎯 تطبيق مباشر من مواضيع البكالوريا الرسمية (بكالوريا 2020)</h2>
+        <p>إليك تمريناً حقيقياً من مواضيع البكالوريا الرسمية لشعبة لغات أجنبية وآداب وفلسفة:</p>
+        
+        <h3>📋 نص السؤال من البكالوريا:</h3>
+        <p>لتكن الدالة العددية f المعرفة على <span dir="ltr">R</span> بـ: <br><span dir="ltr">f(x) = x³ - 6x² + 9x - 4</span></p>
+        <ul>
+            <li>تحقق أنه من أجل كل عدد حقيقي x، فإن: <span dir="ltr">f'(x) = 3(x-1)(x-3)</span></li>
+            <li>ادرس إشارة <span dir="ltr">f'(x)</span> على <span dir="ltr">R</span>، ثم استنتج اتجاه تغير الدالة f.</li>
+            <li>شكل جدول تغيرات الدالة f.</li>
+        </ul>
 
-    <div class="note">
-        <p><strong>توضيح التطبيق المعياري لملء الجدول :</strong> حساب القيمة 0 جاء بتعويض x = 1 في الدالة الأصلية f(1) = (1)³ - 6(1)² + 9(1) - 4 = 0، وحساب القيمة -4 جاء بتعويض x = 3 في الدالة الأصلية f(3) = (3)³ - 6(3)² + 9(3) - 4 = -4.</p>
-        <p>الرابط بينهما هو أن الرقم 3 الذي وجدناه في الخطوة الأولى كمحلل (قيمة تنعدم عندها المشتقة) هو نفسه الذي نقوم بتعويضه في الدالة الأصلية f(x) لكي نجد القيمة العددية الموجودة في قاع جدول التغيرات (أي القيمة -4).</p>
-        <p><strong>باختصار:</strong> القيمة الأولى (3) هي "أين" توجد النقطة أفقياً في الجدول، والنتيجة الثانية (-4) هي "كم" تساوي الدالة عمودياً في ذلك المكان.</p>
+        <h3>📝 الحل النموذجي المفصل خطوة بخطوة:</h3>
+        <p><strong>1. كيف حصلنا على المشتقة وتحققنا من العبارة؟</strong></p>
+        <p>نقوم باشتقاق الدالة الأصلية حدًا بحد:</p>
+        <ul>
+            <li>مشتقة <span dir="ltr">x³</span> هي <span dir="ltr">3x²</span>.</li>
+            <li>مشتقة <span dir="ltr">-6x²</span> هي <span dir="ltr">-12x</span>.</li>
+            <li>مشتقة <span dir="ltr">+9x</span> هي <span dir="ltr">+9</span>.</li>
+            <li>مشتقة العدد الثابت <span dir="ltr">-4</span> هي 0.</li>
+        </ul>
+        <p>نجد إذن: <span dir="ltr">f'(x) = 3x² - 12x + 9</span>. بإخراج العدد 3 كعامل مشترك وتحليل العبارة نجد تماماً: <span dir="ltr">f'(x) = 3(x-1)(x-3)</span>.</p>
+        
+        <p><strong>2. دراسة إشارة <span dir="ltr">f'(x)</span> واتجاه التغير:</strong></p>
+        <p>تنعدم المشتقة عند القيمة <span dir="ltr">x = 1</span> وعند القيمة <span dir="ltr">x = 3</span>.</p>
+        <ul>
+            <li>بين الجذرين (في المجال <span dir="ltr">]1, 3[</span>): الإشارة سالبة (<span dir="ltr">-</span>)، إذن الدالة f متناقصة تماماً.</li>
+            <li>خارج الجذرين (في المجالين <span dir="ltr">]-∞, 1[</span> و <span dir="ltr">]3, +∞[</span>): الإشارة موجبة (<span dir="ltr">+</span>)، إذن الدالة f متزايدة تماماً.</li>
+        </ul>
+
+        <p><strong>3. جدول التغيرات النهائي:</strong></p>
+        <table>
+            <tr>
+                <th>x</th>
+                <td dir="ltr">-∞</td>
+                <td dir="ltr">1</td>
+                <td dir="ltr">3</td>
+                <td dir="ltr">+∞</td>
+            </tr>
+            <tr>
+                <th>f'(x) إشارة</th>
+                <td></td>
+                <td>+</td>
+                <td>0</td>
+                <td>-</td>
+                <td>0</td>
+                <td>+</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>f(x) تغيرات</th>
+                <td dir="ltr">-∞</td>
+                <td><span dir="ltr">↗</span></td>
+                <td dir="ltr">f(1) = 0</td>
+                <td><span dir="ltr">↘</span></td>
+                <td dir="ltr">f(3) = -4</td>
+                <td><span dir="ltr">↗</span></td>
+                <td dir="ltr">+∞</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <p><strong>توضيح التطبيق المعياري لملء الجدول:</strong></p>
+            <p>حساب القيمة <span dir="ltr">0</span> جاء بتعويض <span dir="ltr">x = 1</span> في الدالة الأصلية <span dir="ltr">f(1) = (1)³ - 6(1)² + 9(1) - 4 = 0</span>.</p>
+            <p>وحساب القيمة <span dir="ltr">-4</span> جاء بتعويض <span dir="ltr">x = 3</span> في الدالة الأصلية <span dir="ltr">f(3) = (3)³ - 6(3)² + 9(3) - 4 = -4</span>.</p>
+            <p class="mb-0"><strong>باختصار:</strong> القيمة الأولى (الجذر) هي "أين" توجد النقطة أفقياً في الجدول، والنتيجة الثانية هي "كم" تساوي الدالة عمودياً في ذلك المكان.</p>
+        </div>
+
+        <!-- تمارين مقترحة إضافية مع زر لإظهار/إخفاء الحل -->
+        <h2>📚 تمارين مقترحة إضافية مستوحاة من مواضيع البكالوريا الرسمية</h2>
+
+        <!-- التمرين الأول -->
+        <div class="exercise-box">
+            <h3>التمرين الأول: (دالة كثير حدود من الدرجة الثانية)</h3>
+            <p>لتكن الدالة العددية <span dir="ltr">f</span> المعرفة على <span dir="ltr">R</span> بـ: <br><span dir="ltr">f(x) = -x² + 6x - 5</span></p>
+            <ol>
+                <li>احسب المشتقة <span dir="ltr">f'(x)</span> من أجل كل عدد حقيقي <span dir="ltr">x</span>.</li>
+                <li>ادرس إشارة <span dir="ltr">f'(x)</span>، ثم استنتج اتجاه تغير الدالة <span dir="ltr">f</span>.</li>
+                <li>شكل جدول تغيرات الدالة <span dir="ltr">f</span>.</li>
+            </ol>
+
+            <button class="btn btn-warning btn-sm" onclick="toggleSolution('sol1', this)">
+                👁️ عرض الحل / Afficher la solution
+            </button>
+
+            <div id="sol1" class="solution-content">
+                <p><strong>💡 الحل النموذجي:</strong></p>
+                <ol>
+                    <li><strong>حساب المشتقة:</strong><br>
+                        مشتقة <span dir="ltr">-x²</span> هي <span dir="ltr">-2x</span>.<br>
+                        مشتقة <span dir="ltr">+6x</span> هي <span dir="ltr">+6</span>.<br>
+                        إذن: <span dir="ltr">f'(x) = -2x + 6</span>.
+                    </li>
+                    <li><strong>دراسة الإشارة واتجاه التغير:</strong><br>
+                        نبحث عن أين تنعدم المشتقة: <span dir="ltr">-2x + 6 = 0 ⟹ 2x = 6 ⟹ x = 3</span>.<br>
+                        بما أن معامل <span dir="ltr">x</span> سالباً (<span dir="ltr">-2</span>)، تكون إشارة المشتقة موجبة (<span dir="ltr">+</span>) قبل 3 وسالبة (<span dir="ltr">-</span>) بعده.<br>
+                        * من أجل <span dir="ltr">x < 3</span>: الدالة متزايدة تماماً (<span dir="ltr">↗</span>).<br>
+                        * من أجل <span dir="ltr">x > 3</span>: الدالة متناقصة تماماً (<span dir="ltr">↘</span>).
+                    </li>
+                    <li><strong>جدول التغيرات:</strong><br>
+                        (نحسب القيمة الحدية بتعويض 3 في الدالة: <span dir="ltr">f(3) = -(3)² + 6(3) - 5 = -9 + 18 - 5 = 4</span>).
+                    </li>
+                </ol>
+                <table>
+                    <tr>
+                        <th>x</th>
+                        <td dir="ltr">-∞</td>
+                        <td dir="ltr">3</td>
+                        <td dir="ltr">+∞</td>
+                    </tr>
+                    <tr>
+                        <th>f'(x) إشارة</th>
+                        <td>+</td>
+                        <td>0</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <th>f(x) تغيرات</th>
+                        <td><span dir="ltr">-∞ ↗</span></td>
+                        <td dir="ltr">4</td>
+                        <td><span dir="ltr">↘ -∞</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- التمرين الثاني -->
+        <div class="exercise-box">
+            <h3>التمرين الثاني: (من بكالوريا رسمية - دالة من الدرجة الثالثة)</h3>
+            <p>لتكن الدالة العددية <span dir="ltr">f</span> المعرفة على <span dir="ltr">R</span> بـ: <br><span dir="ltr">f(x) = 2x³ - 3x² - 12x + 5</span></p>
+            <ol>
+                <li>تحقق أنه من أجل كل عدد حقيقي <span dir="ltr">x</span>، فإن: <span dir="ltr">f'(x) = 6(x + 1)(x - 2)</span></li>
+                <li>ادرس إشارة <span dir="ltr">f'(x)</span> على <span dir="ltr">R</span>، ثم استنتج اتجاه تغير الدالة <span dir="ltr">f</span>.</li>
+                <li>شكل جدول تغيرات الدالة <span dir="ltr">f</span>.</li>
+            </ol>
+
+            <button class="btn btn-warning btn-sm" onclick="toggleSolution('sol2', this)">
+                👁️ عرض الحل / Afficher la solution
+            </button>
+
+            <div id="sol2" class="solution-content">
+                <p><strong>💡 الحل النموذجي:</strong></p>
+                <ol>
+                    <li><strong>حساب المشتقة والتحقق من العبارة:</strong><br>
+                        نشتق الدالة الأصلية حدًا بحد: <span dir="ltr">f'(x) = 2(3x²) - 3(2x) - 12(1) + 0 = 6x² - 6x - 12</span>.<br>
+                        باخراج 6 كعامل مشترك: <span dir="ltr">6(x² - x - 2)</span>.<br>
+                        وبعد تحليل العبارة داخل القوسين نجد تماماً: <span dir="ltr">6(x + 1)(x - 2)</span> وهو المطلوب.
+                    </li>
+                    <li><strong>دراسة الإشارة واتجاه التغير:</strong><br>
+                        تنعدم المشتقة عند <span dir="ltr">x = -1</span> وعند <span dir="ltr">x = 2</span>.<br>
+                        * بين الجذرين في المجال <span dir="ltr">]-1, 2[</span>: الإشارة سالبة (<span dir="ltr">-</span>)، إذن الدالة متناقصة تماماً.<br>
+                        * خارج المجالين <span dir="ltr">]-∞, -1[</span> و <span dir="ltr">]2, +∞[</span>: الإشارة موجبة (<span dir="ltr">+</span>)، إذن الدالة متزايدة تماماً.
+                    </li>
+                    <li><strong>جدول التغيرات:</strong><br>
+                        (نحسب القيم الحدية بالتعويض في الدالة الأصلية: <span dir="ltr">f(-1) = 12</span> و <span dir="ltr">f(2) = -15</span>).
+                    </li>
+                </ol>
+                <table>
+                    <tr>
+                        <th>x</th>
+                        <td dir="ltr">-∞</td>
+                        <td dir="ltr">-1</td>
+                        <td dir="ltr">2</td>
+                        <td dir="ltr">+∞</td>
+                    </tr>
+                    <tr>
+                        <th>f'(x) إشارة</th>
+                        <td></td>
+                        <td>+</td>
+                        <td>0</td>
+                        <td>-</td>
+                        <td>0</td>
+                        <td>+</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>f(x) تغيرات</th>
+                        <td dir="ltr">-∞</td>
+                        <td><span dir="ltr">↗</span></td>
+                        <td dir="ltr">12</td>
+                        <td><span dir="ltr">↘</span></td>
+                        <td dir="ltr">-15</td>
+                        <td><span dir="ltr">↗</span></td>
+                        <td dir="ltr">+∞</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
     </div>
 </div>
+
+<!-- Accès au autres cours-->
+     <nav class="nav-projects">
+    <a href="cours1_division_euclidienne.html" class="current"> القسمة الإقليدية في Z</a>
+    <a href="cours2_suites_numeriques.html"> المتتاليات العددية</a>
+    <a href="cours3_direction_chang_fonction.html"> اتجاه تغير دالة </a>
+    <a href="cours4_fonctions_polynomiales.html"> الدوال كثيرات الحدود</a>
+    <a href="cours5_fonctions_analogiques.html"> الدوال التناظرية </a>
+    <a href="cours6_statistiques_probabilités.html">  الإحصاء والاحتمالات</a>
+  </nav>
+
+<!-- JavaScript pour afficher / masquer les solutions -->
+<script>
+    function toggleSolution(id, btn) {
+        var content = document.getElementById(id);
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            btn.textContent = "🙈 إخفاء الحل";
+            btn.classList.remove("btn-warning");
+            btn.classList.add("btn-secondary");
+        } else {
+            content.style.display = "none";
+            btn.textContent = "👁️ عرض الحل";
+            btn.classList.remove("btn-secondary");
+            btn.classList.add("btn-warning");
+        }
+    }
+</script>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

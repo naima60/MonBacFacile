@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الباب الرابع: الدوال كثيرات الحدود</title>
+
+<!--Lien css-->
+<link rel="stylesheet" href="../../style_pages/btnRetour_footerNav.css">
+
+<style>
+  :root{
+    --accent:#2b5f8a;
+    --accent-light:#eaf2f8;
+    --green:#2f7d4f;
+    --green-light:#eaf7ee;
+    --orange:#b5651d;
+    --orange-light:#fdf1e6;
+    --purple:#6a4c93;
+    --purple-light:#f3eefb;
+    --text:#222;
+    --muted:#555;
+    --border:#dfe3e8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI","Tahoma","Arial",sans-serif;
+    background:#f6f7f9;
+    color:var(--text);
+    line-height:1.9;
+    margin:0;
+    padding:0;
+    font-size:17px;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:20px 22px 70px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--accent),#173c56);
+    color:#fff;
+    padding:34px 22px;
+    border-radius:14px;
+    margin:18px 0 26px;
+    text-align:center;
+  }
+  header.hero h1{margin:0 0 8px;font-size:26px;}
+  header.hero p{margin:4px 0;opacity:.9;font-size:15px;}
+  nav.toc{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:16px 20px;
+    margin-bottom:28px;
+  }
+  nav.toc h2{margin:0 0 10px;font-size:16px;color:var(--accent);}
+  nav.toc ol{margin:0;padding-inline-start:22px;}
+  nav.toc li{margin:4px 0;}
+  nav.toc a{color:var(--text);text-decoration:none;}
+  nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+
+  section{margin-bottom:34px;}
+  h2.section-title{
+    background:var(--accent);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:10px;
+    font-size:19px;
+    margin:0 0 16px;
+  }
+  h3{color:var(--accent);font-size:17px;margin:20px 0 8px;}
+
+  .box{
+    border-radius:10px;
+    padding:14px 18px;
+    margin:14px 0;
+    border:1px solid var(--border);
+  }
+  .definition{background:var(--accent-light);border-color:#c9dcea;}
+  .definition .tag{color:var(--accent);font-weight:bold;}
+  .example{background:var(--green-light);border-color:#c9e6d3;}
+  .example .tag{color:var(--green);font-weight:bold;}
+  .warning{background:var(--orange-light);border-color:#f0d3b0;}
+  .warning .tag{color:var(--orange);font-weight:bold;}
+  .formula{
+    background:#fff;
+    border:2px dashed var(--accent);
+    border-radius:10px;
+    padding:12px 18px;
+    margin:14px 0;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:var(--accent);
+  }
+  .exercise{
+    background:var(--purple-light);
+    border:1px solid #ddceef;
+    border-radius:10px;
+    padding:16px 20px;
+    margin:18px 0;
+  }
+  .exercise .tag{color:var(--purple);font-weight:bold;}
+
+  table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff;}
+  th,td{border:1px solid var(--border);padding:8px 10px;text-align:center;font-size:15.5px;}
+  th{background:var(--accent-light);color:var(--accent);}
+  .var-table td.sign-pos{color:var(--green);font-weight:bold;}
+  .var-table td.sign-neg{color:#c0392b;font-weight:bold;}
+  .var-table td.arrow{font-size:20px;}
+
+  details{
+    background:#fff;
+    border:1px solid var(--purple);
+    border-radius:8px;
+    padding:10px 16px;
+    margin-top:10px;
+  }
+  details summary{
+    cursor:pointer;
+    font-weight:bold;
+    color:var(--purple);
+  }
+  details[open] summary{margin-bottom:8px;}
+
+  .step{margin:6px 0;padding-inline-start:6px;}
+  .step b{color:var(--accent);}
+
+  .svg-box{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    text-align:center;
+    margin:14px 0;
+  }
+  .center{text-align:center;}
+  ul.tips li{margin:6px 0;}
+  .badge{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    border-radius:20px;
+    padding:2px 12px;
+    font-size:13px;
+    margin-inline-end:6px;
+  }
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:40px;
+  }
+
+     
+</style>
+</head>
+<body>
+
+<!-- Bouton de retour à l'accueil -->
+        <div class="mb-4">
+            <a href="../../Home/home.html" class="btn btn-retour shadow-sm">
+                ← Page d'Accueil / الصفحة الرئيسية 
+            </a>
+        </div> 
+
+
+<div class="wrap">
+
+<header class="hero">
+  <h1>الباب الرابع: الدوال كثيرات الحدود</h1>
+  <p>السنة النهائية – شعبة اللغات الأجنبية</p>
+  <p>كورس مبسّط + مثال محلول خطوة بخطوة + تمارين للتدريب</p>
+</header>
+
+<nav class="toc">
+  <h2>محتوى الدرس</h2>
+  <ol>
+    <li><a href="#s1">تذكير: ما هي الدالة كثيرة الحدود؟</a></li>
+    <li><a href="#s2">حساب النهايات عند ∞- و∞+</a></li>
+    <li><a href="#s3">المشتقة واتجاه التغير</a></li>
+    <li><a href="#s4">نقطة الانعطاف</a></li>
+    <li><a href="#s5">معادلة المماس</a></li>
+    <li><a href="#s6">التحقق من الصورة المحلَّلة وحل f(x) = 0</a></li>
+    <li><a href="#s7">دراسة إشارة f(x)</a></li>
+    <li><a href="#s8">رسم المنحنى</a></li>
+    <li><a href="#s9">جدول تلخيصي للمنهجية</a></li>
+    <li><a href="#s10">نصائح لتجنّب الأخطاء الشائعة</a></li>
+    <li><a href="#s11">تمارين للتدريب (مع الحل)</a></li>
+  </ol>
+</nav>
+
+<!-- ============ SECTION 1 ============ -->
+<section id="s1">
+  <h2 class="section-title">1. تذكير: ما هي الدالة كثيرة الحدود؟</h2>
+
+  <div class="box definition">
+    <span class="tag">تعريف:</span>
+    الدالة كثيرة الحدود هي دالة معرّفة على المجموعة ℝ (كل الأعداد الحقيقية) على الشكل:
+  </div>
+  <div class="formula">f(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ... + a₂x² + a₁x + a₀</div>
+  <p>حيث المعاملات أعداد حقيقية، و n عدد طبيعي يسمى <b>درجة الدالة</b>.</p>
+
+  <p>في برنامج شعبة اللغات الأجنبية، سنهتم بشكل أساسي بـ <b>الدوال كثيرات الحدود من الدرجة الثالثة</b>:</p>
+  <div class="formula">f(x) = ax³ + bx² + cx + d &nbsp; (مع a ≠ 0)</div>
+
+  <div class="box example">
+    <span class="tag">أمثلة:</span>
+    <ul>
+      <li>f(x) = x³ − 3x² + 4</li>
+      <li>g(x) = (1/6)x³ − x²</li>
+      <li>h(x) = 2x³ − 9x² + 12x − 5</li>
+    </ul>
+  </div>
+
+  <div class="box warning">
+    <span class="tag">⚠️ مهم:</span>
+    مجال تعريف أي دالة كثيرة حدود هو <b>ℝ دائماً</b> (لا يوجد أي قيمة ممنوعة، لأنه لا يوجد مقام ولا جذر). هذه أول نقطة يجب كتابتها في أي تمرين.
+  </div>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section id="s2">
+  <h2 class="section-title">2. حساب النهايات عند ∞- و∞+</h2>
+
+  <div class="box definition">
+    <span class="tag">القاعدة الذهبية:</span>
+    نهاية دالة كثيرة حدود عند ∞- أو عند ∞+ تساوي <b>نهاية حدّها ذي الدرجة الأعلى فقط</b> (الحدّ المهيمن)، ونهمل باقي الحدود.
+  </div>
+
+  <p>السبب: نضع x المشتركة بالقوة الأعلى بين قوسين، فتؤول باقي الحدود داخل القوس إلى 0 عندما يؤول x إلى ∞± ، فيبقى فقط الحدّ الأعلى.</p>
+
+  <div class="box example">
+    <span class="tag">تطبيق على مثالنا:</span> f(x) = x³ − 3x² + 4
+    <div class="step">الحدّ ذو الدرجة الأعلى هو <b>x³</b>، إذن:</div>
+    <div class="formula">lim (x→−∞) f(x) = lim (x→−∞) x³ = −∞</div>
+    <div class="formula">lim (x→+∞) f(x) = lim (x→+∞) x³ = +∞</div>
+  </div>
+
+  <div class="box warning">
+    <span class="tag">⚠️ انتبه:</span> إذا كان المعامل a (معامل x³) <b>سالبًا</b>، فإن النتيجة تنعكس: تصبح النهاية عند ∞- هي +∞ وعند ∞+ هي −∞.
+  </div>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<section id="s3">
+  <h2 class="section-title">3. المشتقة f′(x) واتجاه تغيّر الدالة</h2>
+
+  <h3>أ) قواعد الاشتقاق الأساسية (تذكير)</h3>
+  <table>
+    <tr><th>الدالة</th><th>مشتقتها</th></tr>
+    <tr><td>k (ثابت)</td><td>0</td></tr>
+    <tr><td>x</td><td>1</td></tr>
+    <tr><td>xⁿ</td><td>n·xⁿ⁻¹</td></tr>
+    <tr><td>k·u(x)</td><td>k·u′(x)</td></tr>
+    <tr><td>u(x) + v(x)</td><td>u′(x) + v′(x)</td></tr>
+  </table>
+
+  <h3>ب) تطبيق على مثالنا</h3>
+  <div class="box example">
+    <span class="tag">مثال:</span> f(x) = x³ − 3x² + 4
+    <div class="step"><b>الخطوة 1:</b> نشتق كل حدّ على حدة:</div>
+    <div class="step">مشتقة x³ هي 3x²</div>
+    <div class="step">مشتقة −3x² هي −6x</div>
+    <div class="step">مشتقة 4 (ثابت) هي 0</div>
+    <div class="formula">f′(x) = 3x² − 6x</div>
+    <div class="step"><b>الخطوة 2:</b> نضع x عاملاً مشتركاً لتسهيل دراسة الإشارة لاحقاً:</div>
+    <div class="formula">f′(x) = 3x(x − 2)</div>
+  </div>
+
+  <h3>ج) اتجاه التغيّر</h3>
+  <div class="box definition">
+    <span class="tag">القاعدة:</span>
+    إذا كانت f′(x) > 0 على مجال، فإن f <b>متزايدة تماماً</b> على هذا المجال.<br>
+    إذا كانت f′(x) < 0 على مجال، فإن f <b>متناقصة تماماً</b> على هذا المجال.
+  </div>
+
+  <p>نحلّ f′(x) = 0 لإيجاد القيم الحدّية: 3x(x−2) = 0 ⟺ x = 0 أو x = 2.</p>
+  <p>ندرس إشارة الجداء 3x(x−2) بجدول إشارة:</p>
+
+  <table class="var-table">
+    <tr><th>x</th><td>−∞</td><td></td><td>0</td><td></td><td>2</td><td></td><td>+∞</td></tr>
+    <tr><th>3x</th><td class="sign-neg">−</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td class="sign-pos">+</td><td class="sign-pos">+</td><td class="sign-pos">+</td></tr>
+    <tr><th>x−2</th><td class="sign-neg">−</td><td class="sign-neg">−</td><td class="sign-neg">−</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td class="sign-pos">+</td></tr>
+    <tr><th>f′(x)</th><td class="sign-pos">+</td><td class="sign-pos">+</td><td>0</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td class="sign-pos">+</td></tr>
+  </table>
+
+  <p>نحسب القيم عند القيم الحدّية: f(0) = 4 &nbsp;&nbsp; f(2) = 8 − 12 + 4 = 0</p>
+
+  <h3>د) جدول التغيرات</h3>
+  <table class="var-table">
+    <tr><th>x</th><td>−∞</td><td></td><td>0</td><td></td><td>2</td><td></td><td>+∞</td></tr>
+    <tr><th>f′(x)</th><td></td><td class="sign-pos">+</td><td>0</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td></td></tr>
+    <tr><th>f(x)</th><td>−∞</td><td class="arrow">↗</td><td>4</td><td class="arrow">↘</td><td>0</td><td class="arrow">↗</td><td>+∞</td></tr>
+  </table>
+
+  <div class="box warning">
+    <span class="tag">⚠️ خطأ شائع:</span> عند اشتقاق −3x²، كثير من التلاميذ ينسون ضرب المعامل، فيكتبون −3x بدل −6x. تأكد دائماً من تطبيق القاعدة n·xⁿ⁻¹ بدقة.
+  </div>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section id="s4">
+  <h2 class="section-title">4. نقطة الانعطاف (المشتقة الثانية)</h2>
+
+  <div class="box definition">
+    <span class="tag">تعريف:</span>
+    نقطة الانعطاف هي النقطة التي يغيّر عندها منحنى الدالة تقعّره (تنتقل من محدّبة إلى مقعّرة أو العكس). نجدها بحساب المشتقة الثانية f″(x)، وحل f″(x) = 0، مع التأكد من أن f″ تغيّر إشارتها عند هذه القيمة.
+  </div>
+
+  <div class="box example">
+    <span class="tag">مثال:</span> نشتق f′(x) = 3x² − 6x مرة أخرى:
+    <div class="formula">f″(x) = 6x − 6 = 6(x − 1)</div>
+    <div class="step">f″(x) = 0 ⟺ x = 1</div>
+    <div class="step">f″(x) سالبة قبل 1 وموجبة بعده ⟹ تغيّرت الإشارة ⟹ x = 1 هي فعلاً نقطة انعطاف.</div>
+    <div class="step">نحسب f(1) = 1 − 3 + 4 = 2</div>
+    <div class="formula">النقطة I(1 ؛ 2) هي نقطة انعطاف المنحنى (C_f)</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section id="s5">
+  <h2 class="section-title">5. معادلة المماس عند نقطة</h2>
+
+  <div class="box definition">
+    <span class="tag">الصيغة العامة:</span>
+    معادلة المماس (T) لمنحنى f عند النقطة التي فاصلتها a هي:
+  </div>
+  <div class="formula">(T): y = f′(a) × (x − a) + f(a)</div>
+
+  <div class="box example">
+    <span class="tag">مثال:</span> نكتب معادلة المماس عند نقطة الانعطاف (a = 1):
+    <div class="step">f′(1) = 3(1)² − 6(1) = 3 − 6 = −3</div>
+    <div class="step">f(1) = 2</div>
+    <div class="step">نعوّض في الصيغة: y = −3(x − 1) + 2</div>
+    <div class="formula">(T): y = −3x + 5</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 ============ -->
+<section id="s6">
+  <h2 class="section-title">6. التحقق من الصورة المحلَّلة وحل المعادلة f(x) = 0</h2>
+
+  <p>في أغلب مواضيع البكالوريا، يُطلب منك التحقق من أن f(x) يمكن كتابتها على صورة جداء عوامل (صورة محلَّلة)، ثم استعمال هذه الصورة لحل المعادلة f(x) = 0 بسهولة (بدل محاولة حل معادلة من الدرجة 3 مباشرة، وهو أمر صعب).</p>
+
+  <div class="box example">
+    <span class="tag">مثال:</span> تحقق من أن: f(x) = (x + 1)(x − 2)²
+    <div class="step"><b>الطريقة:</b> ننشر الصورة المحلَّلة ونقارنها مع f(x) الأصلية.</div>
+    <div class="step">(x − 2)² = x² − 4x + 4</div>
+    <div class="step">(x + 1)(x² − 4x + 4) = x³ − 4x² + 4x + x² − 4x + 4 = x³ − 3x² + 4</div>
+    <div class="step">وهذا يطابق تماماً f(x) = x³ − 3x² + 4 ✓ إذن التحقق صحيح.</div>
+  </div>
+
+  <div class="box example">
+    <span class="tag">حل المعادلة f(x) = 0:</span>
+    <div class="step">f(x) = 0 ⟺ (x + 1)(x − 2)² = 0</div>
+    <div class="step">جداء عدة عوامل يساوي 0 إذا وفقط إذا كان أحد هذه العوامل يساوي 0:</div>
+    <div class="step">x + 1 = 0 ⟺ x = −1 &nbsp;&nbsp;&nbsp; أو &nbsp;&nbsp;&nbsp; (x − 2)² = 0 ⟺ x = 2</div>
+    <div class="formula">مجموعة الحلول: S = {−1 ؛ 2}</div>
+    <p>وبالتالي فإن (C_f) يقطع محور الفواصل في النقطتين (−1 ؛ 0) و (2 ؛ 0). ولأن (x−2) مرفوعة للقوة 2 (جذر مضاعف)، فإن المنحنى <b>يلامس</b> محور الفواصل عند x = 2 بدل أن يقطعه (وهذا متوافق مع جدول التغيرات: القيمة الحدّية الصغرى عند x=2 تساوي بالضبط 0).</p>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 ============ -->
+<section id="s7">
+  <h2 class="section-title">7. دراسة إشارة f(x)</h2>
+
+  <div class="box definition">
+    <span class="tag">فكرة الطريقة:</span>
+    بما أن (x − 2)² دائماً موجبة أو منعدمة (مربّع كامل)، فإن إشارة الجداء f(x) = (x + 1)(x − 2)² تساوي إشارة العامل (x + 1) فقط (إلا عند x = 2 حيث تنعدم f(x)).
+  </div>
+
+  <table class="var-table">
+    <tr><th>x</th><td>−∞</td><td></td><td>−1</td><td></td><td>2</td><td></td><td>+∞</td></tr>
+    <tr><th>(x+1)</th><td class="sign-neg">−</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td class="sign-pos">+</td><td class="sign-pos">+</td><td class="sign-pos">+</td></tr>
+    <tr><th>(x−2)²</th><td class="sign-pos">+</td><td class="sign-pos">+</td><td class="sign-pos">+</td><td class="sign-pos">+</td><td>0</td><td class="sign-pos">+</td><td class="sign-pos">+</td></tr>
+    <tr><th>f(x)</th><td class="sign-neg">−</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td>0</td><td class="sign-pos">+</td><td class="sign-pos">+</td></tr>
+  </table>
+
+  <p>الخلاصة: f(x) &lt; 0 على المجال ]−∞ ؛ −1[، وf(x) &gt; 0 على المجال ]−1 ؛ +∞[ ما عدا عند x = 2 حيث f(x) = 0.</p>
+</section>
+
+<!-- ============ SECTION 8 ============ -->
+<section id="s8">
+  <h2 class="section-title">8. رسم المنحنى (C_f)</h2>
+
+  <div class="box definition">
+    <span class="tag">خطوات الرسم:</span>
+    <ol>
+      <li>ارسم معلماً متعامداً ومتجانساً (O ; i ، j)</li>
+      <li>ضع النقاط المهمة: القيم الحدّية (0 ؛ 4) و (2 ؛ 0)، نقطة الانعطاف (1 ؛ 2)، ونقاط تقاطع مع محور الفواصل</li>
+      <li>ارسم المماس (T) عند نقطة الانعطاف كخط مستقيم مساعد (y = −3x + 5)</li>
+      <li>احترم اتجاه التغيّر (تزايد ⟶ تناقص ⟶ تزايد) واربط النقاط بمنحنى ملساء (بدون زوايا حادة)</li>
+    </ol>
+  </div>
+
+  <div class="svg-box">
+    <svg viewBox="0 0 500 300" width="100%" height="300" xmlns="http://www.w3.org/2000/svg">
+      <!-- axes -->
+      <line x1="20" y1="91" x2="480" y2="91" stroke="#999" stroke-width="1"/>
+      <line x1="124" y1="10" x2="124" y2="290" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="40" y1="10" x2="40" y2="290" stroke="#bbb" stroke-width="1.5"/>
+      <text x="470" y="85" font-size="12" fill="#666">x</text>
+      <text x="45" y="20" font-size="12" fill="#666">y</text>
+
+      <!-- curve (C_f) -->
+      <path d="M40,280 C70,220 90,140 124,91 C150,55 180,44 208,44 C230,44 260,50 292,67 C320,82 350,91 376,91 C400,91 430,60 460,44"
+            fill="none" stroke="#2b5f8a" stroke-width="2.5"/>
+
+      <!-- tangent (T) at inflection point, y=-3x+5 (illustrative slope) -->
+      <line x1="230" y1="10" x2="360" y2="130" stroke="#b5651d" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+      <!-- key points -->
+      <circle cx="124" cy="91" r="4" fill="#c0392b"/>
+      <text x="105" y="112" font-size="12" fill="#c0392b">(−1;0)</text>
+
+      <circle cx="208" cy="44" r="4" fill="#2f7d4f"/>
+      <text x="185" y="32" font-size="12" fill="#2f7d4f">(0;4) أعظمي</text>
+
+      <circle cx="292" cy="67" r="4" fill="#6a4c93"/>
+      <text x="298" y="60" font-size="12" fill="#6a4c93">(1;2) انعطاف</text>
+
+      <circle cx="376" cy="91" r="4" fill="#c0392b"/>
+      <text x="360" y="112" font-size="12" fill="#c0392b">(2;0) أصغري</text>
+    </svg>
+    <p style="font-size:13px;color:#777;">تمثيل تقريبي (غير مرسوم بمقياس دقيق) يوضّح شكل المنحنى انطلاقاً من جدول التغيرات.</p>
+  </div>
+</section>
+
+<!-- ============ SECTION 9 ============ -->
+<section id="s9">
+  <h2 class="section-title">9. جدول تلخيصي للمنهجية الكاملة</h2>
+  <table>
+    <tr><th>الخطوة</th><th>ماذا نفعل</th><th>الأداة / الصيغة</th></tr>
+    <tr><td>1</td><td>مجال التعريف</td><td>ℝ دائماً</td></tr>
+    <tr><td>2</td><td>النهايات عند ∞±</td><td>نهاية الحدّ ذي الدرجة الأعلى</td></tr>
+    <tr><td>3</td><td>حساب f′(x)</td><td>(xⁿ)′ = n·xⁿ⁻¹</td></tr>
+    <tr><td>4</td><td>إشارة f′(x) واتجاه التغيّر</td><td>جدول إشارة + جدول تغيرات</td></tr>
+    <tr><td>5</td><td>نقطة الانعطاف</td><td>f″(x) = 0 مع تغيّر الإشارة</td></tr>
+    <tr><td>6</td><td>معادلة المماس</td><td>y = f′(a)(x−a) + f(a)</td></tr>
+    <tr><td>7</td><td>حل f(x) = 0</td><td>التحقق من صورة محلَّلة ثم جداء منعدم</td></tr>
+    <tr><td>8</td><td>إشارة f(x)</td><td>جدول إشارة انطلاقاً من الصورة المحلَّلة</td></tr>
+    <tr><td>9</td><td>الرسم</td><td>جدول التغيرات + النقاط المميزة + المماس</td></tr>
+  </table>
+</section>
+
+<!-- ============ SECTION 10 ============ -->
+<section id="s10">
+  <h2 class="section-title">10. نصائح لتجنّب الأخطاء الشائعة في البكالوريا</h2>
+  <ul class="tips">
+    <li>لا تنسَ كتابة <b>مجال التعريف ℝ</b> حتى لو لم يُطلب صراحة، فهو غالباً جزء من النقاط.</li>
+    <li>عند حساب f′(x)، تحقّق من كل حدّ على حدة، وراجع خصوصاً معاملات x² وx.</li>
+    <li>في جدول الإشارة، لا تخلط بين إشارة عامل واحد وإشارة الجداء الكلي — اضرب الإشارات سطراً سطراً.</li>
+    <li>لا تخلط بين <b>القيمة الحدّية</b> (Extremum، حيث f′ تنعدم وتغيّر إشارتها) و<b>نقطة الانعطاف</b> (حيث f″ تنعدم وتغيّر إشارتها). هما مفهومان مختلفان تماماً.</li>
+    <li>عند التحقق من صورة محلَّلة، لا تكتفِ بالنظر إليها؛ يجب أن <b>تنشرها فعلياً</b> وتقارنها حدّاً بحدّ مع f(x) الأصلية.</li>
+    <li>معادلة المماس: لا تنسَ أن f′(a) هو <b>معامل x</b> (الميل)، وليس القيمة التي تُضاف مباشرة.</li>
+    <li>عند حل جداء عوامل = 0، تذكّر أن (x−k)² = 0 يعطي حلاً واحداً فقط (k) وليس حلّين.</li>
+  </ul>
+</section>
+
+<!-- ============ SECTION 11 : EXERCISES ============ -->
+<section id="s11">
+  <h2 class="section-title">11. تمارين للتدريب</h2>
+  <p>حاول حلّ كل تمرين بنفسك أولاً باتّباع المنهجية أعلاه، ثم اضغط على "إظهار الحل" للتحقق من إجابتك.</p>
+
+  <!-- EXERCISE A -->
+  <div class="exercise">
+    <span class="tag">التمرين الأول <span class="badge">تطبيق مباشر</span></span>
+    <p>لتكن الدالة العددية f المعرّفة على ℝ بـ: f(x) = x³ − 3x + 2</p>
+    <ol>
+      <li>احسب نهاية f عند −∞ وعند +∞.</li>
+      <li>بيّن أنّه من أجل كل عدد حقيقي x: f′(x) = 3(x − 1)(x + 1). ثم ادرس إشارتها واستنتج اتجاه تغيّر f، وشكّل جدول التغيرات.</li>
+      <li>بيّن أن النقطة I(0 ؛ 2) هي نقطة انعطاف لمنحنى f.</li>
+      <li>اكتب معادلة المماس (T) للمنحنى عند النقطة I.</li>
+      <li>تحقّق من أنّه من أجل كل عدد حقيقي x: f(x) = (x − 1)²(x + 2). ثم حل في ℝ المعادلة f(x) = 0، واستنتج نقط تقاطع المنحنى مع محور الفواصل.</li>
+      <li>ادرس إشارة f(x) حسب قيم x.</li>
+    </ol>
+
+    <details>
+      <summary>إظهار الحل</summary>
+      <div class="step"><b>1) النهايات:</b> الحدّ الأعلى درجة هو x³، إذن lim(x→−∞) f(x) = −∞ و lim(x→+∞) f(x) = +∞.</div>
+      <div class="step"><b>2) المشتقة:</b> f′(x) = 3x² − 3 = 3(x² − 1) = 3(x − 1)(x + 1). الجذور: x = −1 و x = 1.</div>
+      <table class="var-table">
+        <tr><th>x</th><td>−∞</td><td></td><td>−1</td><td></td><td>1</td><td></td><td>+∞</td></tr>
+        <tr><th>f′(x)</th><td></td><td class="sign-pos">+</td><td>0</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td></td></tr>
+        <tr><th>f(x)</th><td>−∞</td><td class="arrow">↗</td><td>4</td><td class="arrow">↘</td><td>0</td><td class="arrow">↗</td><td>+∞</td></tr>
+      </table>
+      <div class="step">(f(−1) = −1+3+2 = 4 قيمة عظمى، f(1) = 1−3+2 = 0 قيمة صغرى)</div>
+      <div class="step"><b>3) نقطة الانعطاف:</b> f″(x) = 6x، تنعدم وتغيّر إشارتها عند x = 0. f(0) = 2. إذن I(0 ؛ 2) نقطة انعطاف.</div>
+      <div class="step"><b>4) المماس عند I:</b> f′(0) = −3. المعادلة: y = −3(x−0) + 2 = −3x + 2.</div>
+      <div class="step"><b>5) التحقق:</b> (x−1)²(x+2) = (x²−2x+1)(x+2) = x³+2x²−2x²−4x+x+2 = x³−3x+2 = f(x) ✓</div>
+      <div class="step">f(x) = 0 ⟺ x = 1 (جذر مضاعف) أو x = −2. نقط التقاطع: (1 ؛ 0) و (−2 ؛ 0).</div>
+      <div class="step"><b>6) الإشارة:</b> بما أن (x−1)² ≥ 0 دائماً، فإشارة f(x) هي إشارة (x+2): سالبة قبل −2، منعدمة عند −2، موجبة بعدها (مع انعدام أيضاً عند x=1 دون تغيّر إشارة).</div>
+    </details>
+  </div>
+
+  <!-- EXERCISE B -->
+  <div class="exercise">
+    <span class="tag">التمرين الثاني <span class="badge">معامل سالب</span></span>
+    <p>لتكن الدالة العددية g المعرّفة على ℝ بـ: g(x) = −x³ + 3x² + 1</p>
+    <ol>
+      <li>احسب نهاية g عند −∞ وعند +∞.</li>
+      <li>بيّن أن g′(x) = −3x(x − 2). ادرس إشارتها، واستنتج اتجاه تغيّر g، وشكّل جدول التغيرات.</li>
+      <li>بيّن أن النقطة I(1 ؛ 3) هي نقطة انعطاف لمنحنى g.</li>
+      <li>اكتب معادلة المماس عند النقطة I.</li>
+    </ol>
+
+    <details>
+      <summary>إظهار الحل</summary>
+      <div class="step"><b>1) النهايات:</b> معامل x³ هنا هو −1 (سالب)، لذا تنعكس النتيجة المعتادة: lim(x→−∞) g(x) = +∞ و lim(x→+∞) g(x) = −∞.</div>
+      <div class="step"><b>2) المشتقة:</b> g′(x) = −3x² + 6x = −3x(x−2). الجذور: x = 0 و x = 2.</div>
+      <table class="var-table">
+        <tr><th>x</th><td>−∞</td><td></td><td>0</td><td></td><td>2</td><td></td><td>+∞</td></tr>
+        <tr><th>g′(x)</th><td></td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td>0</td><td class="sign-neg">−</td><td></td></tr>
+        <tr><th>g(x)</th><td>+∞</td><td class="arrow">↘</td><td>1</td><td class="arrow">↗</td><td>5</td><td class="arrow">↘</td><td>−∞</td></tr>
+      </table>
+      <div class="step">(g(0) = 1 قيمة صغرى، g(2) = −8+12+1 = 5 قيمة عظمى — لاحظ الانعكاس بسبب المعامل السالب)</div>
+      <div class="step"><b>3) نقطة الانعطاف:</b> g″(x) = −6x + 6 = −6(x−1)، تنعدم وتغيّر إشارتها عند x = 1. g(1) = −1+3+1 = 3. إذن I(1 ؛ 3).</div>
+      <div class="step"><b>4) المماس:</b> g′(1) = −3(1)(1−2) = 3. المعادلة: y = 3(x−1) + 3 = 3x. أي (T): y = 3x.</div>
+    </details>
+  </div>
+
+  <!-- EXERCISE C -->
+  <div class="exercise">
+    <span class="tag">التمرين الثالث <span class="badge">معاملات كسرية — مستوى الامتحان</span></span>
+    <p>لتكن الدالة العددية h المعرّفة على ℝ بـ: h(x) = (1/3)x³ − x²</p>
+    <ol>
+      <li>احسب نهاية h عند −∞ وعند +∞.</li>
+      <li>بيّن أن h′(x) = x(x − 2). ادرس إشارتها، واستنتج اتجاه تغيّر h، وشكّل جدول التغيرات.</li>
+      <li>بيّن أن النقطة I(1 ؛ −2/3) هي نقطة انعطاف لمنحنى h.</li>
+      <li>اكتب معادلة المماس عند النقطة I.</li>
+      <li>تحقّق من أنّه من أجل كل عدد حقيقي x: h(x) = (1/3)x²(x − 3). ثم حل المعادلة h(x) = 0.</li>
+      <li>ادرس إشارة h(x) حسب قيم x.</li>
+    </ol>
+
+    <details>
+      <summary>إظهار الحل</summary>
+      <div class="step"><b>1) النهايات:</b> الحدّ الأعلى درجة هو (1/3)x³، ومعاملها موجب، فالنتيجة المعتادة: lim(x→−∞) h(x) = −∞ و lim(x→+∞) h(x) = +∞.</div>
+      <div class="step"><b>2) المشتقة:</b> h′(x) = x² − 2x = x(x−2). الجذور: x = 0 و x = 2.</div>
+      <table class="var-table">
+        <tr><th>x</th><td>−∞</td><td></td><td>0</td><td></td><td>2</td><td></td><td>+∞</td></tr>
+        <tr><th>h′(x)</th><td></td><td class="sign-pos">+</td><td>0</td><td class="sign-neg">−</td><td>0</td><td class="sign-pos">+</td><td></td></tr>
+        <tr><th>h(x)</th><td>−∞</td><td class="arrow">↗</td><td>0</td><td class="arrow">↘</td><td>−4/3</td><td class="arrow">↗</td><td>+∞</td></tr>
+      </table>
+      <div class="step">(h(0) = 0، h(2) = 8/3 − 4 = −4/3)</div>
+      <div class="step"><b>3) نقطة الانعطاف:</b> h″(x) = 2x − 2 = 2(x−1)، تنعدم وتغيّر إشارتها عند x = 1. h(1) = 1/3 − 1 = −2/3. إذن I(1 ؛ −2/3).</div>
+      <div class="step"><b>4) المماس:</b> h′(1) = 1 − 2 = −1. المعادلة: y = −1(x−1) + (−2/3) = −x + 1/3.</div>
+      <div class="step"><b>5) التحقق:</b> (1/3)x²(x−3) = (1/3)x³ − x² = h(x) ✓. حل h(x)=0 ⟺ x² = 0 أو x−3 = 0 ⟺ x = 0 (مضاعف) أو x = 3.</div>
+      <div class="step"><b>6) الإشارة:</b> بما أن (1/3)x² ≥ 0 دائماً، فإشارة h(x) هي إشارة (x−3): سالبة قبل 3 (وعند x=0 تنعدم فقط دون تغيّر إشارة)، منعدمة عند x=3، موجبة بعدها.</div>
+    </details>
+  </div>
+
+</section>
+
+<!-- Accès au autres cours-->
+     <nav class="nav-projects">
+    <a href="cours1_division_euclidienne.html" class="current"> القسمة الإقليدية في Z</a>
+    <a href="cours2_suites_numeriques.html"> المتتاليات العددية</a>
+    <a href="cours3_direction_chang_fonction.html"> اتجاه تغير دالة </a>
+    <a href="cours4_fonctions_polynomiales.html"> الدوال كثيرات الحدود</a>
+    <a href="cours5_fonctions_analogiques.html"> الدوال التناظرية </a>
+    <a href="cours6_statistiques_probabilités.html">  الإحصاء والاحتمالات</a>
+  </nav>
+
+
+<footer>
+  إعداد كورس داعم لمادة الرياضيات — الباب 4: الدوال كثيرات الحدود — شعبة اللغات الأجنبية
+</footer>
+
+</div>
+</body>
+</html>
