@@ -1,0 +1,128 @@
+.compta-body {
+  background-color: #f2f5f7;
+  color: #1f2937;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.compta-navbar {
+  background-color: #264653;
+}
+
+.compta-hero {
+  background: linear-gradient(135deg, #264653 0%, #2a9d8f 100%);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(38, 70, 83, 0.14);
+}
+
+.compta-hero .fr-term {
+  color: #fde68a;
+}
+
+.compta-card {
+  background-color: #ffffff;
+  border: 1px solid #dce4e8;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(38, 70, 83, 0.06);
+  scroll-margin-top: 80px;
+}
+
+.compta-title {
+  color: #264653;
+}
+
+.compta-context {
+  background-color: #fffbeb;
+  border-right: 4px solid #f59e0b;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.compta-formula {
+  background-color: #eef7f6;
+  border-right: 4px solid #2a9d8f;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 10px 0;
+}
+
+.compta-example {
+  background-color: #f8fafb;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.compta-list {
+  padding-right: 1.25rem;
+}
+
+.compta-list li {
+  margin-bottom: 0.55rem;
+  line-height: 1.7;
+}
+
+.compta-list li:last-child {
+  margin-bottom: 0;
+}
+
+.compta-pill-btn {
+  background-color: #eef7f6;
+  color: #264653;
+  border: 1px solid #2a9d8f;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+}
+
+.compta-pill-btn:hover,
+.compta-pill-btn.active-pill {
+  background-color: #2a9d8f;
+  color: #ffffff;
+}
+
+.compta-action-btn {
+  background-color: #e76f51;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.35rem 0.85rem;
+  text-decoration: none;
+}
+
+.compta-action-btn:hover {
+  background-color: #d65a3b;
+  color: #ffffff;
+}
+
+.fr-term {
+  color: #1d4ed8;
+  font-weight: 600;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+.hide-fr-terms .fr-term {
+  display: none;
+}
+
+.compta-card .table thead th {
+  background-color: #264653;
+  color: #ffffff;
+  vertical-align: middle;
+}
+
+/* style cours 1_1_amortissement */
+
+.num-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+.calc-line {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}

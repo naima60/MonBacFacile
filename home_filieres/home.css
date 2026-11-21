@@ -20,14 +20,6 @@ html[lang="fr"] body { text-align: left; }
 .navbar-custom .nav-link { color: #ffffff !important; font-weight: bold; }
 .navbar-custom .nav-link:hover { color: #e9c46a !important; } /* Le survol passe au jaune */
 
-/* Style pour la photo de profil */
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #e9c46a;
-}
 
 /* Section Héros */
 .hero-section {
@@ -62,26 +54,15 @@ html[lang="fr"] body { text-align: left; }
 .dropdown-item { color: #264653; }
 .dropdown-item:hover { background-color: #f0f0f0; }
 
-/* Style du carrousel réajusté pour une taille idéale */
-.hero-carousel {
-  max-width: 500px; /* On augmente un peu la largeur maximale */
-  margin: 0 auto;
-  border-radius: 0.85rem;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  border: 3px solid #e9c46a;
-  background-color: #0f172a;
+
+/* --- Correction pour faire tenir tous les onglets de la navbar --- */
+.navbar-custom .nav-link {
+    font-size: 0.82rem !important; /* Réduit légèrement la taille du texte des matières */
+    padding-left: 0.35rem !important; /* Réduit l'espace horizontal entre les onglets */
+    padding-right: 0.35rem !important;
+    white-space: nowrap; /* Empêche le texte de se couper sur deux lignes */
 }
 
-.hero-carousel img, 
-.hero-carousel video {
-  height: 390px; /* On augmente la hauteur pour qu'il soit plus immersif et bien proportionné */
-  object-fit: contain;
-  width: 100%;
-  background-color: #0f172a;
-}
-
-/* Masquer les tirets indicateurs en bas du carrousel */
-.carousel-indicators {
-  display: none !important;
+.navbar-custom .navbar-brand {
+    font-size: 1rem !important; /* Ajuste la taille du logo pour gagner de la place */
 }

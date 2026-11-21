@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 02 : استهلاك القروض العادية بدفعات ثابتة | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="3_0_presentation_fin_inverst.html">
+              المجال 03 : التمويل والاستثمار
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 03">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 03 :</span>
+          <a href="3_0_presentation_fin_inverst.html" class="btn btn-sm compta-pill-btn">00. تقديم المجال</a>
+          <a href="3_1_financement_investissement.html" class="btn btn-sm compta-pill-btn">01. التمويل والاستثمار</a>
+          <a href="3_2_emprunt.html" class="btn btn-sm compta-pill-btn active-pill">02. استهلاك القروض</a>
+          <a href="3_3_choix_des_projets.html" class="btn btn-sm compta-pill-btn">03. اختيار المشاريع</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 03 : تمويل واختيار المشاريع الاستثمارية
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 02 : استهلاك القروض العادية بدفعات ثابتة <span class="fr-term">(Emprunt indivis à annuités constantes)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          إتقان قوانين الدفعة الثابتة، الفائدة، الاستهلاك، رصيد القرض المتبقي، والقيود المحاسبية.
+        </p>
+      </section>
+
+      <!-- 1. السياق -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">أولاً : السياق والهدف</h2>
+        <div class="compta-context mb-0">
+          <p class="mb-0">
+            عندما تقترض مؤسسة مبلغاً <span class="num-ltr">V₀</span> من البنك لتمويل استثمار، فإنها تسدده غالباً على شكل <strong>دفعات سنوية ثابتة</strong> <span class="fr-term">(Annuités constantes)</span> <span class="num-ltr">a</span>. كل دفعة تتكون من <strong>فائدة</strong> <span class="num-ltr">Iₖ</span> (تتناقص سنة بعد سنة لأن رصيد القرض ينخفض) و<strong>استهلاك للقرض</strong> <span class="num-ltr">Aₖ</span> (يتزايد سنة بعد سنة).
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. القوانين -->
+      <!-- 2. القوانين -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">ثانياً : القوانين الأساسية لجدول الاستهلاك</h2>
+        <div class="compta-formula">
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">الدفعة الثابتة <span class="fr-term">(Annuité constante)</span></div>
+            <div class="fw-bold mb-2">
+              الدفعة الثابتة = مبلغ القرض × $\frac{i}{1 - (1 + i)^{-n}}$
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $a = V_0 \times \frac{i}{1 - (1 + i)^{-n}}$
+            </div>
+          </div>
+
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">فائدة السنة <span class="num-ltr">k</span> <span class="fr-term">(Intérêt de la période k)</span></div>
+            <div class="fw-bold mb-2">
+              فائدة السنة $k$ = رأس المال المتبقي في بداية السنة $k$ × معدل الفائدة
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $I_k = V_{k-1} \times i$
+            </div>
+          </div>
+
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">استهلاك القرض للسنة <span class="num-ltr">k</span> <span class="fr-term">(Amortissement de la période k)</span></div>
+            <div class="fw-bold mb-2">
+              استهلاك السنة $k$ = الدفعة الثابتة - فائدة السنة $k$
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $A_k = a - I_k$
+            </div>
+          </div>
+
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">الرصيد المتبقي في نهاية السنة <span class="num-ltr">k</span> <span class="fr-term">(Capital restant dû)</span></div>
+            <div class="fw-bold mb-2">
+              الرصيد المتبقي في نهاية السنة $k$ = الرصيد المتبقي السابق - استهلاك السنة $k$
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $V_k = V_{k-1} - A_k$
+            </div>
+          </div>
+
+          <div class="p-3 rounded-3 bg-white border">
+            <div class="fw-bold text-primary mb-2">علاقات تكميلية مهمة</div>
+            <div class="fw-bold mb-2">
+              <div class="mb-1">استهلاك السنة $k$ = الاستهلاك الأول × $(1 + i)^{k-1}$</div>
+              <div>في آخر سطر : الرصيد المتبقي الأخير $V_n = 0$ ، والرصيد قبل الأخير $V_{n-1} = A_n$</div>
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $A_k = A_1 \times (1 + i)^{k-1} \quad ; \quad V_n = 0 \quad ; \quad V_{n-1} = A_n$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. مثال تطبيقي -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">ثالثاً : مثال تطبيقي بسيط وواضح</h2>
+        <div class="compta-example">
+          <p class="mb-3">
+            اقترضت مؤسسة <strong class="num-ltr">500 000</strong> <strong>دج</strong> بمعدل فائدة <strong class="num-ltr">10%</strong> تسدد على <strong class="num-ltr">3</strong> دفعات ثابتة.
+          </p>
+
+          <p class="fw-bold mb-2">1. حساب الدفعة الثابتة (<span class="num-ltr">a</span>) :</p>
+          <ul class="small mb-3">
+            <li class="mb-1"><span class="num-ltr"><bdi dir="ltr">(1,10)⁻³ = 0,751315</bdi></span></li>
+            <li class="mb-1"><span class="num-ltr"><bdi dir="ltr">1 - 0,751315 = 0,248685</bdi></span></li>
+            <li class="mb-1"><span class="num-ltr"><bdi dir="ltr">0,10 ÷ 0,248685 = 0,402115</bdi></span></li>
+            <li>
+              <div class="p-2 mt-1 rounded bg-white border fw-bold" dir="ltr">
+                a = 500 000 × 0,402115 = 201 057,50 DA
+              </div>
+            </li>
+          </ul>
+
+          <p class="fw-bold mb-2">2. السطر الأول (السنة 1) :</p>
+          <ul class="small mb-0">
+            <li class="mb-1">
+              <div class="p-2 rounded bg-white border" dir="ltr">
+                I₁ = 500 000 × 0,10 = 50 000 DA
+              </div>
+            </li>
+            <li class="mb-1">
+              <div class="p-2 rounded bg-white border" dir="ltr">
+                A₁ = 201 057,50 - 50 000 = 151 057,50 DA
+              </div>
+            </li>
+            <li>
+              <div class="p-2 rounded bg-white border fw-bold" dir="ltr">
+                V₁ = 500 000 - 151 057,50 = 348 942,50 DA
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. أربعة تمارين تدريجية -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">رابعاً : أربعة تمارين تدريجية (من البسيط إلى المعقد)</h2>
+
+        <!-- تمرين 1 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 1 (بسيط) : استخراج عناصر السطر الأول</h3>
+          <p class="small mb-2">
+            قرض <strong class="num-ltr">400 000</strong> <strong>دج</strong>، معدل الفائدة <strong class="num-ltr">5%</strong>، والدفعة الثابتة <strong class="num-ltr">146 804,76</strong> <strong>دج</strong>. احسب <span class="num-ltr">I₁</span>، <span class="num-ltr">A₁</span> و <span class="num-ltr">V₁</span>.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_2_1">إظهار الحل</button>
+          <div id="sol3_2_1" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              I₁ = 400 000 × 0,05 = 20 000 DA
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              A₁ = 146 804,76 - 20 000 = 126 804,76 DA
+            </div>
+            <div class="p-2 rounded bg-white border small fw-bold" dir="ltr">
+              V₁ = 400 000 - 126 804,76 = 273 195,24 DA
+            </div>
+          </div>
+        </div>
+
+        <!-- تمرين 2 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 2 (متوسط — مستوحى من بكالوريا 2015)</h3>
+          <p class="small mb-2">
+            قرض <strong class="num-ltr">800 000</strong> <strong>دج</strong> على <strong class="num-ltr">5</strong> دفعات ثابتة بمعدل <strong class="num-ltr">8%</strong> (علماً أن <span class="num-ltr">1,08⁻⁵ = 0,680583</span>). احسب <span class="num-ltr">a</span> والسطر الأول.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_2_2">إظهار الحل</button>
+          <div id="sol3_2_2" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small fw-bold" dir="ltr">
+              a = 800 000 × [ 0,08 / (1 - 0,680583) ] = 800 000 × 0,250456 = 200 364,80 DA
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              I₁ = 800 000 × 0,08 = 64 000 DA
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              A₁ = 200 364,80 - 64 000 = 136 364,80 DA
+            </div>
+            <div class="p-2 rounded bg-white border small fw-bold" dir="ltr">
+              V₁ = 800 000 - 136 364,80 = 663 635,20 DA
+            </div>
+          </div>
+        </div>
+
+        <!-- تمرين 3 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 3 (فوق المتوسط — مستوحى من بكالوريا 2026)</h3>
+          <p class="small mb-2">
+            قرض <strong class="num-ltr">900 000</strong> <strong>دج</strong> على <strong class="num-ltr">4</strong> دفعات ثابتة، وفائدة السنة الأولى <strong class="num-ltr">I₁ = 45 000</strong> <strong>دج</strong>. احسب المعدل <span class="num-ltr">i</span>، الاستهلاك الأول <span class="num-ltr">A₁</span>، الدفعة <span class="num-ltr">a</span>، وسجّل قيد تسديد الدفعة الأولى.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_2_3">إظهار الحل</button>
+          <div id="sol3_2_3" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              i = 45 000 / 900 000 = 0,05 (5%)<br />
+              900 000 = A₁ × [ ((1,05)⁴ - 1) / 0,05 ] = A₁ × 4,310125 → <strong>A₁ = 208 810,64 DA</strong><br />
+              <strong>a = 45 000 + 208 810,64 = 253 810,64 DA</strong>
+            </div>
+            <p class="small fw-bold mb-1">قيد تسديد الدفعة الأولى :</p>
+            <div class="p-2 rounded bg-white border small">
+              من حـ/ <span class="num-ltr">164</span> (<span class="num-ltr">208 810,64</span>) وحـ/ <span class="num-ltr">661</span> (<span class="num-ltr">45 000</span>) إلى حـ/ <span class="num-ltr">512</span> (<span class="num-ltr">253 810,64</span>)
+            </div>
+          </div>
+        </div>
+
+        <!-- تمرين 4 -->
+        <div class="p-3 rounded-3 border bg-light">
+          <h3 class="h6 fw-bold text-primary">التمرين 4 (معقد — مستوحى من بكالوريا 2025)</h3>
+          <p class="small mb-2">
+            قرض على <strong class="num-ltr">5</strong> دفعات ثابتة بمعدل <strong class="num-ltr">6%</strong>، وعُلم أن الاستهلاك الأخير <span class="num-ltr">A₅ = 223 958,87</span> <strong>دج</strong>، ومصاريف إصدار القرض <strong class="num-ltr">1 500</strong> <strong>دج</strong>. احسب <span class="num-ltr">a</span> و <span class="num-ltr">V₀</span>، وأنجز السطر الأخير، وسجّل قيد استلام القرض.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_2_4">إظهار الحل</button>
+          <div id="sol3_2_4" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              a = A₅ × (1 + i) = 223 958,87 × 1,06 = <strong>237 396,40 DA</strong><br />
+              V₄ = A₅ = 223 958,87 DA &nbsp;|&nbsp; I₅ = 237 396,40 - 223 958,87 = 13 437,53 DA &nbsp;|&nbsp; V₅ = 0<br />
+              V₀ = 237 396,40 × [ (1 - (1,06)⁻⁵) / 0,06 ] = 237 396,40 × 4,212364 = <strong>1 000 000 DA</strong>
+            </div>
+            <p class="small fw-bold mb-1">قيد استلام القرض :</p>
+            <div class="p-2 rounded bg-white border small">
+              حـ/ <span class="num-ltr">512</span> مدين بـ <span class="num-ltr">998 500</span> وحـ/ <span class="num-ltr">627</span> مدين بـ <span class="num-ltr">1 500</span> مقابل حـ/ <span class="num-ltr">164</span> دائن بـ <span class="num-ltr">1 000 000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المجال 01 : أعمال نهاية السنة | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل: كتلة واحدة ثابتة (تفادي تداخل شريطين ثابتين على الهاتف) -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_compta.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 01"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_amortissements.html" class="btn btn-sm compta-pill-btn"
+            >01. الاهتلاك والتنازل</a
+          >
+          <a href="1_2_perte_valeur.html" class="btn btn-sm compta-pill-btn"
+            >02. خسارة القيمة</a
+          >
+          <a href="1_3_regul_stock.html" class="btn btn-sm compta-pill-btn"
+            >03. تسوية المخزونات</a
+          >
+          <a href="1_4_autres_actifs.html" class="btn btn-sm compta-pill-btn"
+            >04. أصول أخرى والتقارب البنكي</a
+          >
+          <a href="1_5_provisions.html" class="btn btn-sm compta-pill-btn"
+            >05. المؤونات</a
+          >
+          <a
+            href="1_6_regul_charges_produits.html"
+            class="btn btn-sm compta-pill-btn"
+            >06. الأعباء والمنتوجات</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة المجال 01 -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span
+          class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2"
+        >
+          المجال 01 : أعمال نهاية السنة
+          <span class="fr-term">(Travaux de fin d'exercice)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          أعمال نهاية السنة
+          <span class="fr-term">(Travaux de fin d'exercice)</span> — تقديم عام
+          ومحاور المجال
+        </h1>
+        <p class="mb-0 opacity-90">
+          المدخل الأساسي لفهم <span class="fr-term">(Inventaire)</span> الجرد
+          وتسجيل <span class="fr-term">(Écritures de régularisation)</span> قيود
+          التسوية قبل إعداد
+          <span class="fr-term">(États financiers)</span> الكشوف المالية.
+        </p>
+      </section>
+
+      <!-- السياق -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق المحاسبي والعملي للمجال
+        </h2>
+        <div class="compta-context mb-3">
+          <p class="mb-0">
+            في نهاية كل دورة محاسبية بتاريخ <strong>31/12</strong>، لا تعبر
+            الأرصدة الظاهرة في
+            <span class="fr-term">(Balance avant inventaire)</span>
+            <strong>ميزان المراجعة قبل الجرد</strong> دائماً عن الوضعية الفعلية
+            للمؤسسة؛ لأن بعض التثبيتات تهتلك أو تفقد من قيمتها، وبعض المخزونات
+            أو الحسابات البنكية أو الديون أو الأعباء والمنتوجات تحتاج إلى ضبط
+            وتحيين.
+          </p>
+        </div>
+        <p class="mb-0">
+          تأتي أعمال نهاية السنة لتطبيق
+          <span class="fr-term">(Principe d'indépendance des exercices)</span>
+          <strong>مبدأ استقلالية الدورات</strong> و<span class="fr-term"
+            >(Principe de prudence)</span
+          >
+          <strong>مبدأ الحيطة والحذر</strong>، وضمان تقديم
+          <span class="fr-term">(Image fidèle)</span>
+          <strong>صورة صادقة</strong> للذمة المالية والنتيجة قبل إعداد
+          <span class="fr-term">(États financiers)</span>
+          <strong>الكشوف المالية</strong> وفق
+          <span class="fr-term">(Système Comptable Financier - SCF)</span>
+          <strong>النظام المحاسبي المالي</strong>.
+        </p>
+      </section>
+
+      <!-- الأهداف -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">ثانياً : أهداف المجال 01</h2>
+        <ul class="compta-list mb-0">
+          <li>
+            فهم الدور التنظيمي والقانوني لـ
+            <span class="fr-term">(Inventaire)</span> <strong>الجرد</strong> في
+            نهاية السنة المالية.
+          </li>
+          <li>
+            إتقان حساب ومعالجة <span class="fr-term">(Amortissement)</span>
+            <strong>الاهتلاك</strong> و<span class="fr-term"
+              >(Perte de valeur)</span
+            >
+            <strong>خسارة القيمة</strong> و<span class="fr-term"
+              >(Cession)</span
+            >
+            <strong>التنازل عن التثبيتات</strong>.
+          </li>
+          <li>
+            ضبط <span class="fr-term">(Régularisation des stocks)</span>
+            <strong>تسوية المخزونات</strong>،
+            <span class="fr-term">(État de rapprochement bancaire)</span>
+            <strong>التقارب البنكي</strong>، تسوية أصول أخرى،
+            <span class="fr-term">(Provisions pour risques et charges)</span>
+            <strong>المؤونات</strong>، والأعباء والمنتوجات.
+          </li>
+          <li>
+            التمكن من تسجيل مختلف
+            <span class="fr-term">(Écritures de régularisation)</span>
+            <strong>قيود التسوية</strong> بدقة في
+            <span class="fr-term">(Journal)</span>
+            <strong>دفتر اليومية</strong>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- حضور المحاور في البكالوريا -->
+      <section class="compta-card p-4 mb-4" id="bac">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : ماذا تقول مواضيع البكالوريا؟
+        </h2>
+        <p class="mb-3">
+          خُصص لأعمال نهاية السنة بين <strong>4 و8 نقاط من 20</strong>، وكانت
+          <strong>8 نقاط</strong> في ستة مواضيع من أصل ثمانية في المواضيع التي
+          راجعناها. وهذا هو حضور كل محور:
+        </p>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-2">
+            <thead>
+              <tr>
+                <th scope="col" class="text-start">المحور</th>
+                <th scope="col">2010 *</th>
+                <th scope="col">2015</th>
+                <th scope="col">2025</th>
+                <th scope="col">2026</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_1_amortissements.html"
+                    >الاهتلاك والتنازل عن التثبيتات</a
+                  >
+                </th>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_2_perte_valeur.html">خسارة القيمة على التثبيتات</a>
+                </th>
+                <td>—</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_3_regul_stock.html">تسوية المخزونات</a>
+                </th>
+                <td>✔</td>
+                <td>—</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_4_autres_actifs.html"
+                    >حسابات الزبائن (المشكوك فيهم)</a
+                  >
+                </th>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_4_autres_actifs.html">سندات المساهمة الأخرى</a>
+                </th>
+                <td>—</td>
+                <td>—</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_4_autres_actifs.html">التقارب البنكي</a>
+                </th>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_5_provisions.html">المؤونات</a>
+                </th>
+                <td>✔</td>
+                <td>—</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start fw-normal">
+                  <a href="1_6_regul_charges_produits.html"
+                    >تسوية الأعباء والمنتوجات</a
+                  >
+                </th>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small text-secondary mb-0">
+          ✔ : حاضر في أحد موضوعي السنة على الأقل &nbsp;|&nbsp; — : غائب. * موضوع
+          2010 يعتمد المخطط المحاسبي الوطني القديم، فلا تنقل منه أرقام الحسابات.
+        </p>
+      </section>
+
+      <!-- فهرس دروس المجال 01 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">رابعاً : دروس المجال 01</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div
+              class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h3 class="h6 fw-bold compta-title">
+                  01. اهتلاك التثبيتات والتنازل عنها
+                  <span class="fr-term">(Amortissement et cession)</span>
+                </h3>
+                <p class="small text-secondary mb-3">
+                  الاهتلاك الخطي والمتناقص، مخطط الاهتلاك، حساب القسط بالأشهر،
+                  و<span class="fr-term">(Cession)</span> التنازل ونتيجته.
+                </p>
+              </div>
+              <a
+                href="1_1_amortissements.html"
+                class="btn btn-sm compta-action-btn align-self-start"
+                >فتح الدرس 01</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h3 class="h6 fw-bold compta-title">
+                  02. خسارة القيمة
+                  <span class="fr-term">(Perte de valeur)</span>
+                </h3>
+                <p class="small text-secondary mb-3">
+                  اختبار خسارة القيمة، تعديل مخطط الاهتلاك بعدها، واسترجاع
+                  الخسارة.
+                </p>
+              </div>
+              <a
+                href="1_2_perte_valeur.html"
+                class="btn btn-sm compta-action-btn align-self-start"
+                >فتح الدرس 02</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h3 class="h6 fw-bold compta-title">
+                  03. تسوية المخزونات
+                  <span class="fr-term">(Régularisation des stocks)</span>
+                </h3>
+                <p class="small text-secondary mb-3">
+                  الجرد الدائم والمتناوب، فروقات الجرد، وخسائر القيمة على
+                  المخزونات.
+                </p>
+              </div>
+              <a
+                href="1_3_regul_stock.html"
+                class="btn btn-sm compta-action-btn align-self-start"
+                >فتح الدرس 03</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h3 class="h6 fw-bold compta-title">
+                  04. تسوية عناصر أصول أخرى والتقارب البنكي
+                </h3>
+                <p class="small text-secondary mb-3">
+                  حسابات الزبائن، سندات المساهمة، وقيم التوظيف، و<span
+                    class="fr-term"
+                    >(État de rapprochement bancaire)</span
+                  >
+                  حالة التقارب البنكي مع ح/ 512.
+                </p>
+              </div>
+              <a
+                href="1_4_autres_actifs.html"
+                class="btn btn-sm compta-action-btn align-self-start"
+                >فتح الدرس 04</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h3 class="h6 fw-bold compta-title">
+                  05. مؤونات الخصوم غير الجارية
+                  <span class="fr-term">(Provisions)</span>
+                </h3>
+                <p class="small text-secondary mb-3">
+                  تكوين وتعديل واسترجاع المؤونات للأخطار والأعباء.
+                </p>
+              </div>
+              <a
+                href="1_5_provisions.html"
+                class="btn btn-sm compta-action-btn align-self-start"
+                >فتح الدرس 05</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h3 class="h6 fw-bold compta-title">
+                  06. تسوية الأعباء والمنتوجات
+                </h3>
+                <p class="small text-secondary mb-3">
+                  الأعباء والمنتوجات المعاينة مسبقاً، والأعباء الواجبة الدفع
+                  والمنتوجات المستحقة، ومبدأ استقلالية الدورات.
+                </p>
+              </div>
+              <a
+                href="1_6_regul_charges_produits.html"
+                class="btn btn-sm compta-action-btn align-self-start"
+                >فتح الدرس 06</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- منهجية الإجابة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          خامساً : كيف تُجيب في ورقة البكالوريا؟
+        </h2>
+        <div class="compta-formula">
+          <strong>1. الحساب أولاً :</strong> احسب المبلغ
+          <u>مع إظهار العملية الحسابية</u>، فتصحيح البكالوريا يمنح نقاطاً على
+          الحساب قبل القيد.
+        </div>
+        <div class="compta-formula">
+          <strong>2. القيد بكامل عناصره :</strong> التاريخ، رقم كل حساب واسمه،
+          المبلغ في خانة المدين أو الدائن، ثم البيان. تنص ملاحظات التصحيح على أن
+          القيد يُعتبر صحيحاً بكتابته الكاملة.
+        </div>
+        <div class="compta-formula">
+          <strong>3. التاريخ :</strong> قيود التسوية تُسجل بتاريخ
+          <strong>31/12</strong>، إلا إذا ذكر التمرين تاريخاً آخر (مثل تاريخ
+          التنازل).
+        </div>
+      </section>
+
+      <!-- الكفاءات المكتسبة في نهاية المجال -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          سادساً : الكفاءات التي ستكتسبها في نهاية هذا المجال
+        </h2>
+        <ul class="compta-list mb-3">
+          <li>
+            قراءة معطيات <span class="fr-term">(Balance avant inventaire)</span>
+            <strong>ميزان المراجعة قبل الجرد</strong> واستخراج الفروقات أو
+            الأخطاء الواجب تسويتها.
+          </li>
+          <li>
+            حساب المبالغ والاهتلاكات وخسائر القيمة والمؤونات بدقة ومنهجية تتماشى
+            مع تمارين البكالوريا.
+          </li>
+          <li>
+            تحرير <span class="fr-term">(Écritures de régularisation)</span>
+            <strong>قيود التسوية</strong> في
+            <span class="fr-term">(Journal)</span>
+            <strong>دفتر اليومية</strong> مع احترام أرقام وتسميات الحسابات.
+          </li>
+        </ul>
+        <a href="1_1_amortissements.html" class="btn compta-action-btn"
+          >ابدأ بالدرس 01 : الاهتلاك والتنازل</a
+        >
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

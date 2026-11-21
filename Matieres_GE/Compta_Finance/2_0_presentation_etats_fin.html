@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المجال 02 : إعداد الكشوف المالية وتحليلها | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 02 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 02">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 02 :</span>
+          <a href="2_1_compte_resultat_bilan.html" class="btn btn-sm compta-pill-btn">01. حساب النتائج والميزانية</a>
+          <a href="2_2_resultats_par_nature.html" class="btn btn-sm compta-pill-btn">02. النتائج حسب الطبيعة</a>
+          <a href="2_3_resultat_par_fonction.html" class="btn btn-sm compta-pill-btn">03. النتائج حسب الوظيفة</a>
+          <a href="2_4_bilan_fonctionnel.html" class="btn btn-sm compta-pill-btn">04. الميزانية الوظيفية</a>
+          <a href="2_5_ratios_commentaire.html" class="btn btn-sm compta-pill-btn">05. النسب والتعليق المالي</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة المجال 02 -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 02 : إعداد الكشوف المالية وتحليلها <span class="fr-term">(États financiers et analyse)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          إعداد الكشوف المالية وتحليلها <span class="fr-term">(États financiers et analyse)</span> — تقديم عام ومحاور المجال
+        </h1>
+        <p class="mb-0 opacity-90">
+          الانتقال من الأرصدة الختامية بعد الجرد إلى بناء الجداول الختامية وتقييم الأداء والتوازن المالي للمؤسسة.
+        </p>
+      </section>
+
+      <!-- 1. السياق -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق المحاسبي والتحليلي للمجال
+        </h2>
+        <div class="compta-context mb-3">
+          <p class="mb-0">
+            بعد الانتهاء من أعمال نهاية السنة وتسجيل قيود التسوية في <bdi dir="ltr">31/12</bdi>، لا يكفي أن تبقى الأرقام متفرقة في الحسابات؛ بل يجب تلخيصها في <span class="fr-term">(États financiers)</span> <strong>الكشوف المالية</strong>، ثم قراءتها وتحليلها لمعرفة هل تحقق المؤسسة ربحاً كافياً، وهل تستطيع تمويل استثماراتها والوفاء بالتزاماتها في آجالها.
+          </p>
+        </div>
+        <p class="mb-0">
+          يجمع هذا المجال بين الجانب التقني لإعداد <span class="fr-term">(Compte de résultat)</span> <strong>حساب النتائج</strong> و<span class="fr-term">(Bilan)</span> <strong>الميزانية الختامية</strong> و<span class="fr-term">(Bilan fonctionnel)</span> <strong>الميزانية الوظيفية</strong>، والجانب التحليلي لحساب المؤشرات والنسب المالية وصياغة تعليق مالي واضح ومعلّل وفق <span class="fr-term">(Système Comptable Financier - SCF)</span> <strong>النظام المحاسبي المالي</strong>.
+        </p>
+      </section>
+
+      <!-- 2. الأهداف -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : أهداف المجال 02
+        </h2>
+        <ul class="compta-list mb-0">
+          <li>إعداد <span class="fr-term">(Compte de résultat)</span> <strong>حساب النتائج</strong> و<span class="fr-term">(Bilan)</span> <strong>الميزانية الختامية</strong> انطلاقاً من الأرصدة بعد الجرد.</li>
+          <li>تحليل النتائج حسب الطبيعة وحساب <span class="fr-term">(Valeur ajoutée - VA)</span> <strong>القيمة المضافة</strong> و<span class="fr-term">(Excédent Brut d'Exploitation - EBE)</span> <strong>الفائض الإجمالي للاستغلال</strong> و<span class="fr-term">(Capacité d'Autofinancement - CAF)</span> <strong>القدرة على التمويل الذاتي</strong>.</li>
+          <li>تحليل النتائج حسب الوظيفة وتوزيع الأعباء على الوظائف الأساسية للمؤسسة.</li>
+          <li>إعداد <span class="fr-term">(Bilan fonctionnel)</span> <strong>الميزانية الوظيفية</strong> وحساب مؤشرات التوازن المالي (<span class="fr-term">(FRNG)</span>، <span class="fr-term">(BFR)</span>، <span class="fr-term">(Trésorerie nette)</span>) والنسب المالية مع التعليق المالي.</li>
+        </ul>
+      </section>
+
+      <!-- 3. دروس المجال 02 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : دروس المجال 02 (5 محاور)
+        </h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h3 class="h6 fw-bold compta-title">01. إعداد حساب النتائج والميزانية الختامية</h3>
+                <p class="small text-secondary mb-3">ترتيب العناصر حسب <span class="fr-term">(SCF)</span>، فصل الأصول والخصوم الجارية وغير الجارية، واستخراج النتيجة الصافية.</p>
+              </div>
+              <a href="2_1_compte_resultat_bilan.html" class="btn btn-sm compta-action-btn align-self-start">فتح الدرس 01</a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h3 class="h6 fw-bold compta-title">02. تحليل النتائج حسب الطبيعة</h3>
+                <p class="small text-secondary mb-3">حساب <span class="fr-term">(VA)</span>، <span class="fr-term">(EBE)</span>، النتيجة العملياتية، <span class="fr-term">(CAF)</span>، والتمويل الذاتي <span class="fr-term">(Autofinancement)</span>.</p>
+              </div>
+              <a href="2_2_resultats_par_nature.html" class="btn btn-sm compta-action-btn align-self-start">فتح الدرس 02</a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h3 class="h6 fw-bold compta-title">03. تحليل النتائج حسب الوظيفة</h3>
+                <p class="small text-secondary mb-3">توزيع الأعباء حسب الوظائف، حساب هامش الربح الإجمالي، والنتيجة العملياتية.</p>
+              </div>
+              <a href="2_3_resultat_par_fonction.html" class="btn btn-sm compta-action-btn align-self-start">فتح الدرس 03</a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h3 class="h6 fw-bold compta-title">04. إعداد وتحليل الميزانية الوظيفية <span class="fr-term">(Bilan fonctionnel)</span></h3>
+                <p class="small text-secondary mb-3">الموارد الثابتة، الاستخدامات الثابتة، حساب <span class="fr-term">(FRNG)</span>، <span class="fr-term">(BFR)</span>، و<span class="fr-term">(Trésorerie nette)</span>.</p>
+              </div>
+              <a href="2_4_bilan_fonctionnel.html" class="btn btn-sm compta-action-btn align-self-start">فتح الدرس 04</a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h3 class="h6 fw-bold compta-title">05. النسب المالية والتعليق المالي</h3>
+                <p class="small text-secondary mb-3">نسب التوازن المالي، نسب الهيكلة والمردودية، ومنهجية صياغة تعليق مالي دقيق.</p>
+              </div>
+              <a href="2_5_ratios_commentaire.html" class="btn btn-sm compta-action-btn align-self-start">فتح الدرس 05</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. الكفاءات المكتسبة في نهاية المجال -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : الكفاءات التي ستكتسبها في نهاية هذا المجال
+        </h2>
+        <ul class="compta-list mb-3">
+          <li>التمييز الدقيق بين حسابات التسيير (صنف <strong class="num-ltr">6</strong> و<strong class="num-ltr">7</strong>) وحسابات الميزانية (أصناف <strong class="num-ltr">1</strong> إلى <strong class="num-ltr">5</strong>).</li>
+          <li>حساب المؤشرات المالية الأساسية مع إظهار القوانين والعمليات الحسابية بوضوح.</li>
+          <li>ربط الأرقام المحسوبة بالوضعية المالية للمؤسسة لتقديم تعليق مالي منطقي في البكالوريا.</li>
+        </ul>
+        <a href="2_1_compte_resultat_bilan.html" class="btn compta-action-btn">ابدأ بالدرس 01 : حساب النتائج والميزانية</a>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

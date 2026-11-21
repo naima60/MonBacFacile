@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 06 : تسوية الأعباء والمنتوجات | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="1_0_presentation_trav_fin_ex.html"
+            >
+              المجال 01 : أعمال نهاية السنة
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_compta.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 01"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_amortissements.html" class="btn btn-sm compta-pill-btn"
+            >01. الاهتلاك والتنازل</a
+          >
+          <a href="1_2_perte_valeur.html" class="btn btn-sm compta-pill-btn"
+            >02. خسارة القيمة</a
+          >
+          <a href="1_3_regul_stock.html" class="btn btn-sm compta-pill-btn"
+            >03. تسوية المخزونات</a
+          >
+          <a href="1_4_autres_actifs.html" class="btn btn-sm compta-pill-btn"
+            >04. أصول أخرى والتقارب البنكي</a
+          >
+          <a href="1_5_provisions.html" class="btn btn-sm compta-pill-btn"
+            >05. المؤونات</a
+          >
+          <a
+            href="1_6_regul_charges_produits.html"
+            class="btn btn-sm compta-pill-btn active-pill"
+            >06. الأعباء والمنتوجات</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span
+          class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2"
+        >
+          المجال 01 : أعمال نهاية السنة
+          <span class="fr-term">(Travaux de fin d'exercice)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 06 : تسوية الأعباء والمنتوجات
+          <span class="fr-term">(Régularisation des charges et produits)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          تطبيق مبدأ استقلالية الدورات في <bdi dir="ltr">31/12</bdi> مع أمثلة
+          وتطبيقات من مستوى البكالوريا.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أنك دفعت في <strong class="num-ltr">01/10/2025</strong> اشتراك
+            إنترنت أو تأميناً لمدة سنة كاملة (<strong class="num-ltr"
+              >12</strong
+            >
+            شهراً) بمبلغ <strong class="num-ltr">120 000</strong>
+            <strong>دج</strong>. عند وصول نهاية السنة بتاريخ
+            <strong class="num-ltr">31/12/2025</strong>، تكون قد استهلكت
+            <strong class="num-ltr">3</strong> أشهر فقط (أكتوبر، نوفمبر، ديسمبر)
+            بقيمة <strong class="num-ltr">30 000</strong> <strong>دج</strong>،
+            بينما تعود الأشهر التسعة الباقية (<strong class="num-ltr"
+              >90 000</strong
+            >
+            <strong>دج</strong>) إلى السنة القادمة
+            <strong class="num-ltr">2026</strong>. من غير المنطقي تحميل سنة
+            <strong class="num-ltr">2025</strong> بمصاريف تخص سنة
+            <strong class="num-ltr">2026</strong>!
+          </p>
+        </div>
+
+        <p>
+          في المحاسبة، تفرض
+          <span class="fr-term">(Principe d'indépendance des exercices)</span>
+          <strong>مبدأ استقلالية الدورات</strong> أن تتحمل كل دورة محاسبية
+          أعباءها الخاصة بها فقط، وتستفيد من منتوجاتها الخاصة بها فقط، مهما كان
+          تاريخ الدفع أو التحصيل أو تحرير الفاتورة. لذلك تقوم المؤسسة في
+          <strong class="num-ltr">31/12</strong> بتسجيل قيود
+          <span class="fr-term">(Régularisation des charges et produits)</span>
+          <strong>تسوية الأعباء والمنتوجات</strong> قبل إعداد
+          <span class="fr-term">(États financiers)</span>
+          <strong>الكشوف المالية</strong>.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من فصل الأعباء والمنتوجات الخاصة بالدورة الحالية عن تلك
+                الخاصة بالدورات اللاحقة أو السابقة، وحساب مبالغ التسوية بالأشهر
+                بدقة، وتسجيل قيودها في <span class="fr-term">(Journal)</span>
+                <strong>دفتر اليومية</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">
+                ماذا ستتعلم في هذا الدرس؟
+              </h3>
+              <ul class="small mb-0 compta-list">
+                <li>
+                  الفرق بين الأعباء والمنتوجات
+                  <strong>المعاينة مسبقاً</strong> (ح/
+                  <span class="num-ltr">486</span> وح/
+                  <span class="num-ltr">487</span>).
+                </li>
+                <li>
+                  الفرق بين الأعباء <strong>واجبة الدفع</strong> والمنتوجات
+                  <strong>المستحقة</strong> المرتبطة بالدورة الحالية.
+                </li>
+                <li>
+                  حساب المبلغ المراد تسويته حسب عدد الأشهر المتبقية أو المستحقة.
+                </li>
+                <li>
+                  تسجيل قيود التسوية في <span class="fr-term">(Journal)</span>
+                  <strong>دفتر اليومية</strong> في <bdi dir="ltr">31/12</bdi>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق لتسوية الأعباء والمنتوجات في
+          <bdi dir="ltr">31/12</bdi>
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">
+          1. الأعباء والمنتوجات المعاينة مسبقاً
+        </h3>
+        <p>
+          تُستعمل عندما يُسجَّل عبء أو منتوج خلال السنة الحالية، لكن جزءاً منه
+          يخص <strong>الدورة القادمة</strong> :
+        </p>
+        <div class="compta-formula">
+          <div>
+            <strong
+              >أعباء معاينة مسبقاً
+              <span class="fr-term"
+                >(Charges constatées d'avance - ح/
+                <strong class="num-ltr">486</strong>)</span
+              >
+              :</strong
+            >
+            عبء سُجّل في الدورة الحالية لكنه يخص الدورة الموالية &rarr; نُخرجه
+            من العبء (دائن ح/ <strong class="num-ltr">6...</strong>) ونضعه في
+            المدين ح/ <strong class="num-ltr">486</strong>.
+          </div>
+          <div>
+            <strong
+              >منتوجات معاينة مسبقاً
+              <span class="fr-term"
+                >(Produits constatés d'avance - ح/
+                <strong class="num-ltr">487</strong>)</span
+              >
+              :</strong
+            >
+            منتوج سُجّل في الدورة الحالية لكنه يخص الدورة الموالية &rarr; نُخرجه
+            من المنتوج (مدين ح/ <strong class="num-ltr">7...</strong>) ونضعه في
+            الدائن ح/ <strong class="num-ltr">487</strong>.
+          </div>
+          <div>
+            <strong>قاعدة حساب المبلغ :</strong>
+            <span class="num-ltr"
+              >المبلغ المعاين مسبقاً = المبلغ الكلي &times; (عدد أشهر الدورة
+              القادمة &divide; 12)</span
+            >
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">
+          2. الأعباء واجبة الدفع والمنتوجات المستحقة
+        </h3>
+        <p>
+          تُستعمل عندما يخص عبء أو منتوج <strong>الدورة الحالية</strong> ولم
+          تُحرّر فاتورته أو لم يُسجّل في حسابه الأصلي بعد بتاريخ
+          <bdi dir="ltr">31/12</bdi> :
+        </p>
+        <div class="compta-formula">
+          <div>
+            <strong
+              >أعباء واجبة الدفع
+              <span class="fr-term">(Charges à payer)</span> :</strong
+            >
+            عبء يخص الدورة الحالية ولم تُسجل فاتورته بعد (مثل فواتير كهرباء أو
+            إيجار أو فوائد قروض تخص الفترة المنتهية في
+            <bdi dir="ltr">31/12</bdi>) &rarr; نُسجله في المدين ح/
+            <strong class="num-ltr">6...</strong> وفي الدائن في حساب مرتبط (مثل
+            ح/ <strong class="num-ltr">408</strong> موردو الفواتير التي لم تصل
+            إلى أصحابها، أو ح/ <strong class="num-ltr">1688</strong> /
+            <strong class="num-ltr">5188</strong> للفوائد المستحقة).
+          </div>
+          <div>
+            <strong
+              >منتوجات مستحقة
+              <span class="fr-term">(Produits à recevoir)</span> :</strong
+            >
+            منتوج يخص الدورة الحالية ولم تُحرّر فاتورته أو يُقبض بعد &rarr;
+            نُسجله في المدين في حساب مرتبط (مثل ح/
+            <strong class="num-ltr">418</strong> الزبائن - المنتوجات التي لم
+            تعدّ فواتيرها بعد) وفي الدائن ح/
+            <strong class="num-ltr">7...</strong>.
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">
+          3. القيود المحاسبية الأساسية في
+          <span class="fr-term">(Journal)</span> دفتر اليومية
+        </h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>العملية</th>
+                <th>التاريخ</th>
+                <th>رقم الحساب</th>
+                <th>البيان المحاسبي</th>
+                <th>مدين <span class="fr-term">(Débit)</span></th>
+                <th>دائن <span class="fr-term">(Crédit)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">
+                  <strong>عبء معاين مسبقاً</strong><br /><small
+                    >(مثال : إيجار أو تأمين)</small
+                  >
+                </td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">486</strong></td>
+                <td>أعباء معاينة مسبقاً</td>
+                <td>المبلغ</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <strong class="num-ltr">613</strong> أو
+                  <strong class="num-ltr">616</strong>
+                </td>
+                <td>إيجارات أو أقساط التأمينات</td>
+                <td></td>
+                <td>المبلغ</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>منتوج معاين مسبقاً</strong></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">706</strong></td>
+                <td>تقديم خدمات أخرى</td>
+                <td>المبلغ</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">487</strong></td>
+                <td>منتوجات معاينة مسبقاً</td>
+                <td></td>
+                <td>المبلغ</td>
+              </tr>
+              <tr>
+                <td rowspan="2">
+                  <strong>عبء واجب الدفع</strong><br /><small
+                    >(مثال : فاتورة لم تصل بعد)</small
+                  >
+                </td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">6...</strong></td>
+                <td>
+                  حساب العبء المعني (خارج الرسم <span class="num-ltr">HT</span>)
+                </td>
+                <td>المبلغ <span class="num-ltr">HT</span></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">408</strong></td>
+                <td>الموردون - الفواتير التي لم تصل إلى أصحابها</td>
+                <td></td>
+                <td>المبلغ <span class="num-ltr">HT</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2">
+                  <strong>منتوج مستحق</strong><br /><small
+                    >(مثال : خدمات مؤداة دون فاتورة)</small
+                  >
+                </td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">418</strong></td>
+                <td>الزبائن - المنتوجات التي لم تعدّ فواتيرها بعد</td>
+                <td>المبلغ <span class="num-ltr">HT</span></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">706</strong></td>
+                <td>تقديم خدمات أخرى</td>
+                <td></td>
+                <td>المبلغ <span class="num-ltr">HT</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            بتاريخ <strong class="num-ltr">31/12/2025</strong>، تضمنت معلومات
+            الجرد لمؤسسة "الضياء" المعطيات التالية لتطبيق مبدأ استقلالية الدورات
+            :
+          </p>
+          <ul class="mb-3">
+            <li>
+              بتاريخ <strong class="num-ltr">01/11/2025</strong>، دفعت المؤسسة
+              وسجلت في ح/ <strong class="num-ltr">616</strong> (أقساط التأمينات)
+              مبلغ <strong class="num-ltr">240 000</strong>
+              <strong>دج</strong> يمثل قسط تأمين سنوي لمدة
+              <strong class="num-ltr">12</strong> شهراً (من
+              <bdi dir="ltr">01/11/2025</bdi> إلى
+              <bdi dir="ltr">31/10/2026</bdi>).
+            </li>
+            <li>
+              في نهاية ديسمبر <bdi dir="ltr">2025</bdi>، استهلكت المؤسسة كهرباء
+              وغازاً خلال شهري نوفمبر وديسمبر <bdi dir="ltr">2025</bdi> تُقدّر
+              بـ <strong class="num-ltr">36 000</strong> <strong>دج</strong>،
+              ولم تصل الفاتورة بعد بتاريخ <bdi dir="ltr">31/12/2025</bdi>.
+            </li>
+            <li>
+              قبضت المؤسسة مسبقاً بتاريخ
+              <strong class="num-ltr">01/12/2025</strong> وسجلت في ح/
+              <strong class="num-ltr">706</strong> مبلغ
+              <strong class="num-ltr">90 000</strong> <strong>دج</strong> مقابل
+              خدمة كراء أو إيجار تمتد لـ <strong class="num-ltr">3</strong> أشهر
+              (من <bdi dir="ltr">01/12/2025</bdi> إلى
+              <bdi dir="ltr">28/02/2026</bdi>).
+            </li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>
+              احسب مبلغ التسوية لكل عملية بتاريخ
+              <bdi dir="ltr">31/12/2025</bdi>.
+            </li>
+            <li>
+              سجل قيود التسوية في <span class="fr-term">(Journal)</span>
+              <strong>دفتر اليومية</strong>.
+            </li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">
+            شرح الحسابات خطوة بخطوة :
+          </h3>
+
+          <p class="mb-1">
+            <strong
+              >الخطوة 1 — تسوية قسط التأمين (عبء معاين مسبقاً — ح/
+              <strong class="num-ltr">486</strong>) :</strong
+            >
+          </p>
+          <ul class="mb-3">
+            <li>
+              الفترة الممتدة من <bdi dir="ltr">01/11/2025</bdi> إلى
+              <bdi dir="ltr">31/10/2026</bdi> تضم
+              <strong class="num-ltr"><bdi dir="ltr">2</bdi> شهرين</strong> في
+              سنة <bdi dir="ltr">2025</bdi> (نوفمبر وديسمبر) و<strong
+                class="num-ltr"
+                ><bdi dir="ltr">10</bdi> أشهر</strong
+              >
+              في سنة <bdi dir="ltr">2026</bdi>.
+            </li>
+            <li>
+              نحسب الجزء الذي يخص سنة <bdi dir="ltr">2026</bdi> (المعاين مسبقاً)
+              :
+              <div class="my-2">
+                <strong
+                  >العبء المعاين مسبقاً =
+                  <bdi dir="ltr">240 000 &times; 10 &divide; 12 = 200 000</bdi>
+                  دج</strong
+                >
+              </div>
+            </li>
+            <li>
+              نُسجله في المدين ح/ <strong class="num-ltr">486</strong> وفي
+              الدائن ح/ <strong class="num-ltr">616</strong>.
+            </li>
+          </ul>
+
+          <p class="mb-1">
+            <strong
+              >الخطوة 2 — تسوية استهلاك الكهرباء والغاز (عبء واجب الدفع — ح/
+              <strong class="num-ltr">408</strong>) :</strong
+            >
+          </p>
+          <ul class="mb-3">
+            <li>
+              الـ
+              <strong class="num-ltr"><bdi dir="ltr">36 000</bdi> دج</strong>
+              تخص استهلاكاً فعلياً في شهري نوفمبر وديسمبر
+              <bdi dir="ltr">2025</bdi>، لذا فهي عبء يخص دورة
+              <bdi dir="ltr">2025</bdi> ويجب إثباته في المدين ح/
+              <strong class="num-ltr">607</strong> (أو
+              <strong class="num-ltr">6061</strong> حسب التسمية المعتمدة) وفي
+              الدائن ح/ <strong class="num-ltr">408</strong>.
+            </li>
+          </ul>
+
+          <p class="mb-1">
+            <strong
+              >الخطوة 3 — تسوية المنتوج المقبوض مسبقاً (منتوج معاين مسبقاً — ح/
+              <strong class="num-ltr">487</strong>) :</strong
+            >
+          </p>
+          <ul class="mb-3">
+            <li>
+              الفترة من <bdi dir="ltr">01/12/2025</bdi> إلى
+              <bdi dir="ltr">28/02/2026</bdi> هي
+              <strong class="num-ltr"><bdi dir="ltr">3</bdi> أشهر</strong> : شهر
+              واحد (<bdi dir="ltr">1</bdi> شهر) يخص
+              <bdi dir="ltr">2025</bdi> (ديسمبر) وشهران (<bdi dir="ltr">2</bdi>
+              شهر) يخصان <bdi dir="ltr">2026</bdi> (جانفي وفيفري).
+            </li>
+            <li>
+              نحسب الجزء الذي يخص سنة <bdi dir="ltr">2026</bdi> :
+              <div class="my-2">
+                <strong
+                  >المنتوج المعاين مسبقاً =
+                  <bdi dir="ltr">90 000 &times; 2 &divide; 3 = 60 000</bdi>
+                  دج</strong
+                >
+              </div>
+            </li>
+            <li>
+              نُسجله في المدين ح/ <strong class="num-ltr">706</strong> وفي
+              الدائن ح/ <strong class="num-ltr">487</strong>.
+            </li>
+          </ul>
+
+          <div class="table-responsive mb-0">
+            <table
+              class="table table-bordered align-middle text-center mb-0 bg-white"
+            >
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">486</strong></td>
+                  <td>أعباء معاينة مسبقاً</td>
+                  <td><span class="num-ltr">200 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">616</strong></td>
+                  <td>أقساط التأمينات</td>
+                  <td></td>
+                  <td><span class="num-ltr">200 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">607</strong></td>
+                  <td>المشتريات غير المخزنة من المواد والتوريدات</td>
+                  <td><span class="num-ltr">36 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">408</strong></td>
+                  <td>الموردون - الفواتير التي لم تصل إلى أصحابها</td>
+                  <td></td>
+                  <td><span class="num-ltr">36 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">706</strong></td>
+                  <td>تقديم خدمات أخرى</td>
+                  <td><span class="num-ltr">60 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">487</strong></td>
+                  <td>منتوجات معاينة مسبقاً</td>
+                  <td></td>
+                  <td><span class="num-ltr">60 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          بتاريخ <strong class="num-ltr">31/12/2025</strong>، لاحظ محاسب مؤسسة
+          "المستقبل" أن المؤسسة قدّمت خدمة صيانة لزبون خلال شهر ديسمبر
+          <bdi dir="ltr">2025</bdi> بمبلغ
+          <strong class="num-ltr">75 000</strong> <strong>دج</strong>، ولم
+          تُحرّر الفاتورة ولم يُقبض المبلغ بعد بتاريخ
+          <bdi dir="ltr">31/12/2025</bdi>.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : هل يتعلق الأمر بمنتوج معاين مسبقاً (ح/
+          <strong class="num-ltr">487</strong>) أم بمنتوج مستحق (ح/
+          <strong class="num-ltr">418</strong>)؟ وما هو القيد المحاسبي بتاريخ
+          <bdi dir="ltr">31/12/2025</bdi>؟
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution1_6"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution1_6" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">
+            الحل النموذجي لتمرين التفكير :
+          </h3>
+          <p class="mb-2">
+            <strong>1. التحديد المحاسبي :</strong><br />
+            الخدمة أُدّيت فعلياً في شهر ديسمبر <bdi dir="ltr">2025</bdi>، أي
+            أنها تخص <strong>دورة <bdi dir="ltr">2025</bdi></strong
+            >، لكن فاتورتها لم تُحرّر بعد؛ إذن يتعلق الأمر بـ
+            <strong>منتوج مستحق</strong>
+            <span class="fr-term">(Produit à recevoir)</span> يُسجل في المدين في
+            الحساب <strong class="num-ltr">418</strong> (الزبائن - المنتوجات
+            التي لم تعدّ فواتيرها بعد) وفي الدائن في الحساب
+            <strong class="num-ltr">706</strong> (تقديم خدمات أخرى) بمبلغ
+            <strong class="num-ltr"><bdi dir="ltr">75 000</bdi> دج</strong>.
+          </p>
+          <div class="compta-context my-3">
+            <strong>تنبيه منهجي للبكالوريا :</strong>
+            نستعمل ح/ <strong class="num-ltr">487</strong> عندما يكون المنتوج قد
+            سُجّل أصلاً في <bdi dir="ltr">7...</bdi> ويتضمن جزءاً يخص السنة
+            القادمة؛ أما عندما يكون المنتوج قد تحقق في السنة الحالية ولم يُسجل
+            بعد لعدم تحرير الفاتورة، فنستعمل ح/
+            <strong class="num-ltr">418</strong>.
+          </div>
+          <div class="table-responsive mb-0">
+            <table
+              class="table table-bordered align-middle text-center mb-0 bg-white"
+            >
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">418</strong></td>
+                  <td>الزبائن - المنتوجات التي لم تعدّ فواتيرها بعد</td>
+                  <td><span class="num-ltr">75 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">706</strong></td>
+                  <td>تقديم خدمات أخرى</td>
+                  <td></td>
+                  <td><span class="num-ltr">75 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

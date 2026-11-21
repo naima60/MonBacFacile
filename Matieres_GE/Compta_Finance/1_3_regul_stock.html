@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 03 : تسوية المخزونات | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="1_0_presentation_trav_fin_ex.html"
+            >
+              المجال 01 : أعمال نهاية السنة
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_compta.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 01"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_amortissements.html" class="btn btn-sm compta-pill-btn"
+            >01. الاهتلاك والتنازل</a
+          >
+          <a href="1_2_perte_valeur.html" class="btn btn-sm compta-pill-btn"
+            >02. خسارة القيمة</a
+          >
+          <a
+            href="1_3_regul_stock.html"
+            class="btn btn-sm compta-pill-btn active-pill"
+            >03. تسوية المخزونات</a
+          >
+          <a href="1_4_autres_actifs.html" class="btn btn-sm compta-pill-btn"
+            >04. أصول أخرى والتقارب البنكي</a
+          >
+          <a href="1_5_provisions.html" class="btn btn-sm compta-pill-btn"
+            >05. المؤونات</a
+          >
+          <a
+            href="1_6_regul_charges_produits.html"
+            class="btn btn-sm compta-pill-btn"
+            >06. الأعباء والمنتوجات</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span
+          class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2"
+        >
+          المجال 01 : أعمال نهاية السنة
+          <span class="fr-term">(Travaux de fin d'exercice)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 03 : تسوية المخزونات
+          <span class="fr-term">(Régularisation des stocks)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          الجرد المتناوب والجرد الدائم، فروقات الجرد، وخسائر القيمة على
+          المخزونات وفق <span class="fr-term">(SCF)</span>.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أنك تدير مكتبة صغيرة وتظن حسب دفاترك أن لديك
+            <strong class="num-ltr">120</strong> كتاباً من مرجع معين. عند عدّ
+            الرفوف فعلياً في نهاية السنة تجد
+            <strong class="num-ltr">115</strong> كتاباً فقط (بسبب تلف أو ضياع)،
+            كما أن بعض الكتب القديمة أصبحت لا تُباع إلا بسعر أقل من تكلفتها
+            الأصلية. هنا لا يمكنك الإبقاء على الأرقام القديمة دون تصحيح أو أخذ
+            انخفاض قيمتها بعين الاعتبار.
+          </p>
+        </div>
+
+        <p>
+          في المؤسسة الاقتصادية، تخضع <span class="fr-term">(Stocks)</span>
+          <strong>المخزونات</strong> (البضائع، المواد الأولية، المنتجات
+          المصنعة...) لـ <span class="fr-term">(Inventaire physique)</span>
+          <strong>الجرد المادي</strong> في <bdi dir="ltr">31/12</bdi> لضبط
+          الكميات الفعلية وتقييمها وفق
+          <span class="fr-term">(Principe de prudence)</span>
+          <strong>مبدأ الحيطة والحذر</strong> و<span class="fr-term"
+            >(Principe d'indépendance des exercices)</span
+          >
+          <strong>مبدأ استقلالية الدورات</strong>.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من تسجيل قيود
+                <span class="fr-term">(Régularisation des stocks)</span>
+                <strong>تسوية المخزونات</strong> في نهاية السنة، ومعالجة
+                <span class="fr-term">(Écarts d'inventaire)</span>
+                <strong>فروقات الجرد</strong> وحساب
+                <span class="fr-term">(Perte de valeur sur stocks)</span>
+                <strong>خسارة القيمة</strong> بدقة في
+                <span class="fr-term">(Journal)</span>
+                <strong>دفتر اليومية</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">
+                ماذا ستتعلم في هذا الدرس؟
+              </h3>
+              <ul class="small mb-0 compta-list">
+                <li>
+                  الفرق بين
+                  <span class="fr-term">(Inventaire intermittent)</span>
+                  <strong>الجرد المتناوب</strong> و<span class="fr-term"
+                    >(Inventaire permanent)</span
+                  >
+                  <strong>الجرد الدائم</strong>.
+                </li>
+                <li>
+                  إلغاء مخزون أول المدة (<span class="num-ltr">SI</span>) وإثبات
+                  مخزون آخر المدة (<span class="num-ltr">SF</span>).
+                </li>
+                <li>
+                  حساب ومعالجة
+                  <span class="fr-term">(Écarts d'inventaire)</span>
+                  <strong>فروقات الجرد</strong> (مبررة وغير مبررة).
+                </li>
+                <li>
+                  حساب وتعديل <span class="fr-term">(Perte de valeur)</span>
+                  <strong>خسارة القيمة</strong> على المخزونات (ح/
+                  <span class="num-ltr">39</span>، ح/
+                  <span class="num-ltr">685</span>، ح/
+                  <span class="num-ltr">785</span>).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق لتسوية المخزونات
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">
+          1. تسوية المخزونات في ظل الجرد المتناوب
+          <span class="fr-term">(Inventaire intermittent)</span>
+        </h3>
+        <p>
+          في معظم تمارين البكالوريا، تطبق المؤسسة
+          <span class="fr-term">(Inventaire intermittent)</span>
+          <strong>الجرد المتناوب</strong>، فتقوم في
+          <bdi dir="ltr">31/12</bdi> بـ :
+        </p>
+        <div class="compta-formula">
+          <div>
+            <strong
+              >1) إلغاء مخزون أول المدة (<span class="num-ltr">SI</span>)
+              :</strong
+            >
+            يُجعل حساب المخزون (<strong class="num-ltr">30</strong> أو
+            <strong class="num-ltr">31</strong> أو
+            <strong class="num-ltr">355</strong>) <strong>دائناً</strong> بـ
+            <span class="num-ltr">SI</span>، ويُجعل الحساب المقابل
+            <strong>مديناً</strong> (<strong class="num-ltr">6030</strong>
+            للبضائع، <strong class="num-ltr">6031</strong> للمواد الأولية، أو
+            <strong class="num-ltr">724</strong> للمنتجات المصنعة).
+          </div>
+          <div>
+            <strong
+              >2) إثبات مخزون آخر المدة (<span class="num-ltr">SF</span>)
+              :</strong
+            >
+            يُجعل حساب المخزون (<strong class="num-ltr">30</strong>،
+            <strong class="num-ltr">31</strong>، أو
+            <strong class="num-ltr">355</strong>) <strong>مديناً</strong> بـ
+            <span class="num-ltr">SF</span> المادي، ويُجعل الحساب المقابل
+            (<strong class="num-ltr">6030</strong>،
+            <strong class="num-ltr">6031</strong>، أو
+            <strong class="num-ltr">724</strong>) <strong>دائناً</strong>.
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">
+          2. فروقات الجرد <span class="fr-term">(Écarts d'inventaire)</span> في
+          الجرد الدائم
+        </h3>
+        <p>
+          عندما تستعمل المؤسسة
+          <span class="fr-term">(Inventaire permanent)</span>
+          <strong>الجرد الدائم</strong>، نقارن المخزون المحاسبي (<span
+            class="num-ltr"
+            >SM</span
+          >) بالمخزون المادي (<span class="num-ltr">SP</span>) :
+        </p>
+        <div class="compta-formula">
+          <div>
+            <strong>الفرق :</strong>
+            <span class="num-ltr"
+              >فرق الجرد = المخزون المادي (SP) &minus; المخزون المحاسبي
+              (SM)</span
+            >
+          </div>
+          <div>
+            <strong>فرق مبرر :</strong> يُعالج حسب سببه (مثلاً عجز عادي في
+            المواد أو البضائع يُدرج في التكلفة أو التسوية الملائمة، وفائض مبرر
+            يُثبت في المخزون).
+          </div>
+          <div>
+            <strong>فرق غير مبرر :</strong> إذا كان عجزاً غير مبرر (<span
+              class="num-ltr"
+              >SP &lt; SM</span
+            >) يُسجل غالباً في المدين ح/
+            <strong class="num-ltr">657</strong> (أعباء استثنائية للتسيير
+            الجاري)؛ وإذا كان فائضاً غير مبرر (<span class="num-ltr"
+              >SP &gt; SM</span
+            >) يُسجل في الدائن ح/ <strong class="num-ltr">757</strong> (منتوجات
+            استثنائية عن عمليات التسيير).
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">
+          3. خسارة القيمة على المخزونات
+          <span class="fr-term">(Perte de valeur sur stocks - ح/ 39)</span>
+        </h3>
+        <p>
+          إذا كانت قيمة المخزون في السوق (أو صافي القيمة القابلة للتحصيل) أقل من
+          تكلفته (<span class="num-ltr">SF</span>)، تُسجل أو تُعدّل خسارة القيمة
+          في <bdi dir="ltr">31/12</bdi> :
+        </p>
+        <div class="compta-formula">
+          <div>
+            <strong>حساب خسارة القيمة الجديدة :</strong>
+            <span class="num-ltr"
+              >PV<sub>جديدة</sub> = تكلفة المخزون (SF) &minus; القيمة السوقية
+              (أو سعر البيع الصافي)</span
+            >
+          </div>
+          <div>
+            <strong
+              >مقارنة <span class="num-ltr">PV<sub>جديدة</sub></span> بـ
+              <span class="num-ltr">PV<sub>سابقة</sub></span> (رصيد ح/
+              <strong class="num-ltr">39...</strong>) :</strong
+            >
+          </div>
+          <div>
+            &bull; إذا كانت
+            <span class="num-ltr"
+              >PV<sub>جديدة</sub> &gt; PV<sub>سابقة</sub></span
+            >
+            : نُسجل <strong>زيادة خسارة</strong> بالفرق (<span class="num-ltr"
+              >PV<sub>جديدة</sub> &minus; PV<sub>سابقة</sub></span
+            >) في المدين ح/ <strong class="num-ltr">685</strong> وفي الدائن ح/
+            <strong class="num-ltr">39...</strong>.
+          </div>
+          <div>
+            &bull; إذا كانت
+            <span class="num-ltr"
+              >PV<sub>جديدة</sub> &lt; PV<sub>سابقة</sub></span
+            >
+            : نُسجل <strong>تخفيضاً / استرجاعاً</strong> بالفرق (<span
+              class="num-ltr"
+              >PV<sub>سابقة</sub> &minus; PV<sub>جديدة</sub></span
+            >) في المدين ح/ <strong class="num-ltr">39...</strong> وفي الدائن ح/
+            <strong class="num-ltr">785</strong>.
+          </div>
+          <div>
+            &bull; إذا زال سبب الخسارة تماماً (<span class="num-ltr"
+              >PV<sub>جديدة</sub> = 0</span
+            >) : نُلغي كامل <span class="num-ltr">PV<sub>سابقة</sub></span> في
+            المدين ح/ <strong class="num-ltr">39...</strong> وفي الدائن ح/
+            <strong class="num-ltr">785</strong>.
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">
+          4. القيود المحاسبية الأساسية في
+          <span class="fr-term">(Journal)</span> دفتر اليومية
+        </h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>العملية</th>
+                <th>التاريخ</th>
+                <th>رقم الحساب</th>
+                <th>البيان المحاسبي</th>
+                <th>مدين <span class="fr-term">(Débit)</span></th>
+                <th>دائن <span class="fr-term">(Crédit)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">
+                  <strong
+                    >إلغاء مخزون أول المدة (<span class="num-ltr">SI</span
+                    >)</strong
+                  ><br /><small>(مثال : بضائع)</small>
+                </td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">6030</strong></td>
+                <td>تغيرات المخزونات من البضائع</td>
+                <td><span class="num-ltr">SI</span></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">30</strong></td>
+                <td>مخزونات البضائع</td>
+                <td></td>
+                <td><span class="num-ltr">SI</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2">
+                  <strong
+                    >إثبات مخزون آخر المدة (<span class="num-ltr">SF</span
+                    >)</strong
+                  ><br /><small>(مثال : بضائع)</small>
+                </td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">30</strong></td>
+                <td>مخزونات البضائع</td>
+                <td><span class="num-ltr">SF</span></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">6030</strong></td>
+                <td>تغيرات المخزونات من البضائع</td>
+                <td></td>
+                <td><span class="num-ltr">SF</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2">
+                  <strong>تكوين أو زيادة خسارة القيمة</strong>
+                </td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">685</strong></td>
+                <td>
+                  مخصصات الاهتلاكات والمؤونات وخسائر القيمة - الأصول الجارية
+                </td>
+                <td>مبلغ الزيادة</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">390</strong></td>
+                <td>خسائر القيمة عن مخزونات البضائع</td>
+                <td></td>
+                <td>مبلغ الزيادة</td>
+              </tr>
+              <tr>
+                <td rowspan="2">
+                  <strong>استرجاع أو إنقاص خسارة القيمة</strong>
+                </td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">390</strong></td>
+                <td>خسائر القيمة عن مخزونات البضائع</td>
+                <td>مبلغ الاسترجاع</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">785</strong></td>
+                <td>
+                  استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول الجارية
+                </td>
+                <td></td>
+                <td>مبلغ الاسترجاع</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            استخرجنا من ميزان المراجعة قبل الجرد
+            <span class="fr-term">(Balance avant inventaire)</span> لمؤسسة
+            "النور" بتاريخ <strong class="num-ltr">31/12/2025</strong> المعطيات
+            التالية الخاصة بمخزون البضائع
+            <span class="fr-term">(Marchandises - ح/ 30)</span> :
+          </p>
+          <ul class="mb-2">
+            <li>
+              <strong>ح/ <span class="num-ltr">30</span></strong> مخزونات
+              البضائع : <strong class="num-ltr">600 000</strong>
+              <strong>دج</strong> (مدين — يمثل مخزون أول المدة).
+            </li>
+            <li>
+              <strong>ح/ <span class="num-ltr">390</span></strong> خسائر القيمة
+              عن مخزونات البضائع : <strong class="num-ltr">50 000</strong>
+              <strong>دج</strong> (دائن).
+            </li>
+          </ul>
+          <p class="mb-3">
+            <strong
+              >معلومات الجرد بتاريخ <bdi dir="ltr">31/12/2025</bdi> :</strong
+            >
+            أظهر الجرد المادي أن مخزون البضائع في نهاية السنة (<span
+              class="num-ltr"
+              >SF</span
+            >) يساوي <strong class="num-ltr">750 000</strong>
+            <strong>دج</strong>، وأن سعر البيع الصافي المحتمل لهذا المخزون يقدر
+            بـ <strong class="num-ltr">680 000</strong> <strong>دج</strong>.
+          </p>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>
+              سجل قيود تسوية مخزون البضائع (<span class="num-ltr">SI</span>
+              و<span class="num-ltr">SF</span>) بتاريخ
+              <bdi dir="ltr">31/12/2025</bdi>.
+            </li>
+            <li>
+              احسب خسارة القيمة الجديدة بتاريخ
+              <bdi dir="ltr">31/12/2025</bdi> وقارنها بالخسارة السابقة.
+            </li>
+            <li>
+              سجل قيد تعديل خسارة القيمة في
+              <span class="fr-term">(Journal)</span>
+              <strong>دفتر اليومية</strong>.
+            </li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">
+            شرح الحسابات خطوة بخطوة :
+          </h3>
+
+          <p class="mb-1">
+            <strong
+              >الخطوة 1 — تسوية مخزون البضائع (<span class="num-ltr">SI</span>
+              و<span class="num-ltr">SF</span>) :</strong
+            >
+          </p>
+          <ul class="mb-3">
+            <li>
+              نُلغي مخزون أول المدة (<span class="num-ltr"
+                >SI = <bdi dir="ltr">600 000</bdi> دج</span
+              >) بجعل ح/ <strong class="num-ltr">6030</strong> مديناً وح/
+              <strong class="num-ltr">30</strong> دائناً.
+            </li>
+            <li>
+              نُثبت مخزون آخر المدة (<span class="num-ltr"
+                >SF = <bdi dir="ltr">750 000</bdi> دج</span
+              >) بجعل ح/ <strong class="num-ltr">30</strong> مديناً وح/
+              <strong class="num-ltr">6030</strong> دائناً.
+            </li>
+          </ul>
+
+          <p class="mb-1">
+            <strong
+              >الخطوة 2 — حساب وتعديل خسارة القيمة بتاريخ
+              <bdi dir="ltr">31/12/2025</bdi> :</strong
+            >
+          </p>
+          <ul class="mb-3">
+            <li>
+              نحسب خسارة القيمة الجديدة على أساس مخزون آخر المدة :
+              <div class="my-2">
+                <strong
+                  >PV<sub>جديدة</sub> =
+                  <bdi dir="ltr">750 000 &minus; 680 000 = 70 000</bdi>
+                  دج</strong
+                >
+              </div>
+            </li>
+            <li>
+              نقارنها بخسارة القيمة السابقة (رصيد ح/
+              <strong class="num-ltr">390</strong> وهو
+              <bdi dir="ltr">50 000</bdi> دج) :
+              <div class="my-2">
+                <strong
+                  >الفرق (زيادة خسارة) =
+                  <bdi dir="ltr">70 000 &minus; 50 000 = 20 000</bdi> دج</strong
+                >
+              </div>
+            </li>
+            <li>
+              بما أن
+              <span class="num-ltr"
+                >PV<sub>جديدة</sub> &gt; PV<sub>سابقة</sub></span
+              >، نسجل زيادة قدرها
+              <strong class="num-ltr"><bdi dir="ltr">20 000</bdi> دج</strong> في
+              المدين ح/ <strong class="num-ltr">685</strong> وفي الدائن ح/
+              <strong class="num-ltr">390</strong>.
+            </li>
+          </ul>
+
+          <div class="table-responsive mb-0">
+            <table
+              class="table table-bordered align-middle text-center mb-0 bg-white"
+            >
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">6030</strong></td>
+                  <td>تغيرات المخزونات من البضائع</td>
+                  <td><span class="num-ltr">600 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">30</strong></td>
+                  <td>مخزونات البضائع</td>
+                  <td></td>
+                  <td><span class="num-ltr">600 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">30</strong></td>
+                  <td>مخزونات البضائع</td>
+                  <td><span class="num-ltr">750 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">6030</strong></td>
+                  <td>تغيرات المخزونات من البضائع</td>
+                  <td></td>
+                  <td><span class="num-ltr">750 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">685</strong></td>
+                  <td>
+                    مخصصات الاهتلاكات والمؤونات وخسائر القيمة - الأصول الجارية
+                  </td>
+                  <td><span class="num-ltr">20 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">390</strong></td>
+                  <td>خسائر القيمة عن مخزونات البضائع</td>
+                  <td></td>
+                  <td><span class="num-ltr">20 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          في ميزان المراجعة قبل الجرد
+          <span class="fr-term">(Balance avant inventaire)</span> لمؤسسة صناعية
+          بتاريخ <strong class="num-ltr">31/12/2025</strong>، يظهر رصيد حساب
+          <strong>ح/ <span class="num-ltr">391</span></strong> (خسائر القيمة عن
+          المواد الأولية واللوازم) دائناً بمبلغ
+          <strong class="num-ltr">90 000</strong> <strong>دج</strong>.
+        </p>
+        <p class="mb-3">
+          وخلال الجرد في <bdi dir="ltr">31/12/2025</bdi>، تبيّن أن مخزون آخر
+          المدة من المواد الأولية (<span class="num-ltr">SF</span>) يساوي
+          <strong class="num-ltr">1 200 000</strong> <strong>دج</strong>، وأن
+          قيمته السوقية الحالية تساوي <strong class="num-ltr">1 250 000</strong>
+          <strong>دج</strong>.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : ما هي المعالجة المحاسبية الواجبة لخسارة القيمة بتاريخ
+          <bdi dir="ltr">31/12/2025</bdi>؟ وما هو القيد المحاسبي المناسب؟
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution1_3"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution1_3" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">
+            الحل النموذجي لتمرين التفكير :
+          </h3>
+          <p class="mb-2">
+            <strong>1. تحليل الوضعية :</strong><br />
+            القيمة السوقية (<bdi dir="ltr">1 250 000</bdi> دج) أكبر من تكلفة
+            مخزون آخر المدة (<bdi dir="ltr">1 200 000</bdi> دج)، إذن لا توجد
+            خسارة قيمة جديدة (<span class="num-ltr"
+              >PV<sub>جديدة</sub> = <bdi dir="ltr">0</bdi> دج</span
+            >).<br />
+            وبما أن هناك خسارة سابقة مسجلة في ح/
+            <strong class="num-ltr">391</strong> قدرها
+            <strong class="num-ltr"><bdi dir="ltr">90 000</bdi> دج</strong> وقد
+            زال سببها، فيجب
+            <strong
+              >استرجاع كامل الخسارة السابقة (<bdi dir="ltr">90 000</bdi>
+              دج)</strong
+            >
+            بجعل ح/ <strong class="num-ltr">391</strong> مديناً وح/
+            <strong class="num-ltr">785</strong> دائناً.
+          </p>
+          <div class="compta-context my-3">
+            <strong>تنبيه منهجي للبكالوريا :</strong>
+            لا نُقيّم المخزون بأعلى من تكلفته التاريخية تطبيقاً لمبدأ الحيطة
+            والحذر؛ فعندما ترتفع قيمة السوق فوق التكلفة، لا نسجل ربحاً
+            افتراضياً، بل نكتفي باسترجاع خسارة القيمة السابقة إن وُجدت.
+          </div>
+          <div class="table-responsive mb-0">
+            <table
+              class="table table-bordered align-middle text-center mb-0 bg-white"
+            >
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">391</strong></td>
+                  <td>خسائر القيمة عن المواد الأولية واللوازم</td>
+                  <td><span class="num-ltr">90 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">785</strong></td>
+                  <td>
+                    استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول
+                    الجارية
+                  </td>
+                  <td></td>
+                  <td><span class="num-ltr">90 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

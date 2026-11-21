@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 01 : اهتلاك التثبيتات والتنازل عنها | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="1_0_presentation_trav_fin_ex.html">
+              المجال 01 : أعمال نهاية السنة
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 01">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_amortissements.html" class="btn btn-sm compta-pill-btn active-pill">01. الاهتلاك والتنازل</a>
+          <a href="1_2_perte_valeur.html" class="btn btn-sm compta-pill-btn">02. خسارة القيمة</a>
+          <a href="1_3_regul_stock.html" class="btn btn-sm compta-pill-btn">03. تسوية المخزونات</a>
+          <a href="1_4_autres_actifs.html" class="btn btn-sm compta-pill-btn">04. أصول أخرى والتقارب البنكي</a>
+          <a href="1_5_provisions.html" class="btn btn-sm compta-pill-btn">05. المؤونات</a>
+          <a href="1_6_regul_charges_produits.html" class="btn btn-sm compta-pill-btn">06. الأعباء والمنتوجات</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 01 : أعمال نهاية السنة <span class="fr-term">(Travaux de fin d'exercice)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 01 : اهتلاك التثبيتات <span class="fr-term">(Amortissement des immobilisations)</span> والتنازل عنها <span class="fr-term">(Cession)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          شرح مفصل مع أمثلة وتطبيقات من مستوى البكالوريا لتثبيت الحسابات والقيود المحاسبية.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أنك اشتريت دراجة نارية أو حاسوباً في بداية السنة بمبلغ <strong class="num-ltr">400 000</strong> <strong>دج</strong>. بعد استعماله طوال السنة، إذا أردت تقدير قيمته الحقيقية في <strong class="num-ltr">31/12</strong>، فلا يمكنك اعتباره بنفس سعر الشراء الأول لأنه استُعمل وتآكل مع مرور الوقت، وإذا قررت بيعه خلال السنة التالية فستقارن ثمن البيع بقيمته المحاسبية لتعرف هل ربحت أم خسرت في هذه العملية.
+          </p>
+        </div>
+
+        <p>
+          في المؤسسة، تبقى <span class="fr-term">(Immobilisations corporelles)</span> <strong>التثبيتات العينية</strong> مثل المعدات الصناعية ومعدات النقل لعدة سنوات، وتتآكل تدريجياً بسبب الاستعمال أو التقادم أو مرور الزمن. لذلك تقوم المؤسسة في نهاية الدورة بتسجيل <span class="fr-term">(Dotations aux amortissements)</span> <strong>مخصصات الاهتلاك</strong> التزاماً بـ <span class="fr-term">(Principe d'indépendance des exercices)</span> <strong>مبدأ استقلالية الدورات</strong>، وتُعالج عملية <span class="fr-term">(Cession)</span> <strong>التنازل</strong> عند بيع التثبيت.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من حساب أقساط <span class="fr-term">(Amortissement)</span> <strong>الاهتلاك</strong> وإنجاز <span class="fr-term">(Plan d'amortissement)</span> <strong>مخطط الاهتلاك</strong> وحساب نتيجة <span class="fr-term">(Cession)</span> <strong>التنازل</strong> وتسجيل قيودها بدقة في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">ماذا ستتعلم في هذا الدرس؟</h3>
+              <ul class="small mb-0 compta-list">
+                <li>حساب <span class="fr-term">(Montant amortissable - MA)</span> <strong>المبلغ القابل للاهتلاك</strong> و<span class="fr-term">(Valeur nette comptable - VNC)</span> <strong>القيمة المحاسبية الصافية</strong>.</li>
+                <li>تطبيق <span class="fr-term">(Amortissement linéaire)</span> <strong>الاهتلاك الخطي</strong> و<span class="fr-term">(Amortissement dégressif)</span> <strong>الاهتلاك المتناقص</strong>.</li>
+                <li>حساب عدد الأشهر و<span class="fr-term">(Dotation complémentaire)</span> <strong>القسط المكمل</strong> عند التنازل خلال السنة.</li>
+                <li>تحديد <span class="fr-term">(Plus-value)</span> <strong>فائض القيمة</strong> أو <span class="fr-term">(Moins-value)</span> <strong>ناقص القيمة</strong> وتسجيل قيد التنازل.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق للاهتلاك والتنازل عن التثبيتات
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. الاهتلاك الخطي <span class="fr-term">(Amortissement linéaire)</span></h3>
+        <p>
+          يُوزع <span class="fr-term">(Montant amortissable - MA)</span> <strong>المبلغ القابل للاهتلاك</strong> بالتساوي على <span class="fr-term">(Durée d'utilité)</span> <strong>المدة النفعية</strong> (<strong class="num-ltr">N</strong>) بالسنوات.
+        </p>
+        <div class="compta-formula">
+          <div><strong>المبلغ القابل للاهتلاك :</strong> <span class="num-ltr">MA = V<sub>0</sub> &minus; VR</span> حيث <span class="num-ltr">VR</span> هي <span class="fr-term">(Valeur résiduelle)</span> <strong>القيمة المتبقية</strong> (وتساوي <strong class="num-ltr">0</strong> إذا لم تُذكر).</div>
+          <div><strong>المعدل الخطي :</strong> <span class="num-ltr">$t = \frac{100}{N}$</span></div>
+          <div><strong>القسط السنوي :</strong> <span class="num-ltr">$A = MA \times t = \frac{MA}{N}$</span></div>
+          <div><strong>الاهتلاك المتراكم :</strong> <span class="num-ltr">$\sum A = MA \times t \times \frac{m}{12}$</span> حيث <strong class="num-ltr">m</strong> عدد أشهر الاستعمال (يُحسب الشهر إذا كان الاقتناء بين <span class="num-ltr">01</span> و <span class="num-ltr">15</span>، ومن الشهر الموالي إذا كان بعد <span class="num-ltr">15</span>).</div>
+          <div><strong>القيمة المحاسبية الصافية :</strong> <span class="num-ltr">$VNC = MA - \sum A$</span> (في غياب خسارة القيمة).</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. الاهتلاك المتناقص <span class="fr-term">(Amortissement dégressif)</span></h3>
+        <p>
+          تكون الأقساط أكبر في السنوات الأولى ثم تقل، ويتم التحول إلى الاهتلاك الخطي عندما يصبح المعدل الخطي للسنوات المتبقية أكبر من أو يساوي المعدل المتناقص.
+        </p>
+        <div class="compta-formula">
+          <div><strong>المعدل المتناقص :</strong> <span class="num-ltr">t<sub>d</sub> = t<sub>خطي</sub> &times; المعامل الضريبي</span> حيث المعامل يساوي <strong class="num-ltr">1,5</strong> للمدة <strong class="num-ltr">3</strong> أو <strong class="num-ltr">4</strong> سنوات، و<strong class="num-ltr">2</strong> للمدة <strong class="num-ltr">5</strong> أو <strong class="num-ltr">6</strong> سنوات، و<strong class="num-ltr">2,5</strong> لأكثر من <strong class="num-ltr">6</strong> سنوات.</div>
+          <div><strong>التحول إلى الخطي :</strong> إذا كان <span class="num-ltr">100 &divide; عدد السنوات المتبقية &ge; t<sub>d</sub></span> ، نحسب القسط الخطي بقسمة <span class="num-ltr">VNC</span> السابقة على عدد السنوات المتبقية.</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">3. التنازل عن التثبيتات <span class="fr-term">(Cession d'immobilisations)</span></h3>
+        <p>
+          عند بيع تثبيت خلال السنة، نقوم أولاً بتسجيل <span class="fr-term">(Dotation complémentaire)</span> <strong>القسط المكمل</strong> من بداية السنة (<strong class="num-ltr">01/01</strong>) إلى تاريخ التنازل، ثم نحسب نتيجة التنازل ونسجل قيد التنازل في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.
+        </p>
+        <div class="compta-formula">
+          <div><strong>نتيجة التنازل :</strong> <span class="num-ltr">سعر التنازل + $\sum A$<sub>إلى تاريخ التنازل</sub> &minus; MA</span></div>
+          <div><strong>إذا كانت النتيجة موجبة (<strong class="num-ltr">+</strong>) :</strong> فهي <strong>فائض قيمة</strong> <span class="fr-term">(Plus-value)</span> وتُسجل في الدائن في الحساب <strong class="num-ltr">752</strong>.</div>
+          <div><strong>إذا كانت النتيجة سالبة (<strong class="num-ltr">&minus;</strong>) :</strong> فهي <strong>ناقص قيمة</strong> <span class="fr-term">(Moins-value)</span> وتُسجل في المدين في الحساب <strong class="num-ltr">652</strong>.</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">4. القيود المحاسبية الأساسية في <span class="fr-term">(Journal)</span> دفتر اليومية</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>العملية</th>
+                <th>التاريخ</th>
+                <th>رقم الحساب</th>
+                <th>البيان المحاسبي</th>
+                <th>مدين <span class="fr-term">(Débit)</span></th>
+                <th>دائن <span class="fr-term">(Crédit)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2"><strong>قسط الاهتلاك السنوي أو المكمل</strong></td>
+                <td><span class="num-ltr">31/12</span> أو تاريخ التنازل</td>
+                <td><strong class="num-ltr">681</strong></td>
+                <td>مخصصات للاهتلاكات والمؤونات وخسائر القيمة - أ غ ج</td>
+                <td><span class="num-ltr">$A$</span></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">281...</strong></td>
+                <td>اهتلاك التثبيت العيني المعني</td>
+                <td></td>
+                <td><span class="num-ltr">$A$</span></td>
+              </tr>
+              <tr>
+                <td rowspan="4"><strong>التنازل عن التثبيت</strong><br /><small>(مثال بفائض قيمة وبيع بشيك بنكي)</small></td>
+                <td>تاريخ التنازل</td>
+                <td><strong class="num-ltr">512</strong></td>
+                <td>البنوك الحسابات الجارية</td>
+                <td>سعر البيع</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">281...</strong></td>
+                <td>اهتلاك التثبيت العيني المعني</td>
+                <td><span class="num-ltr">$\sum A$</span></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">21...</strong></td>
+                <td>التثبيت العيني المعني</td>
+                <td></td>
+                <td><span class="num-ltr">$MA$</span></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">752</strong></td>
+                <td>فوائض القيمة عن خروج أصول مثبتة غير مالية</td>
+                <td></td>
+                <td>فائض القيمة</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            بتاريخ <strong class="num-ltr">01/04/2023</strong> اقتنت مؤسسة "النجاح" معدات نقل <span class="fr-term">(Matériel de transport - ح/ 2182)</span> بمبلغ <strong class="num-ltr">2 400 000</strong> <strong>دج</strong>، تهتلك بطريقة <span class="fr-term">(Amortissement linéaire)</span> <strong>الاهتلاك الخطي</strong> لمدة <strong class="num-ltr">5</strong> <strong>سنوات</strong>.
+          </p>
+          <p class="mb-3">
+            بتاريخ <strong class="num-ltr">30/06/2025</strong> قررت المؤسسة التنازل <span class="fr-term">(Cession)</span> عن هذه المعدات <strong>على الحساب</strong> بمبلغ <strong class="num-ltr">1 400 000</strong> <strong>دج</strong> (علماً أنه لم تُسجل أي خسارة قيمة).
+          </p>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>احسب المعدل الخطي والقسط السنوي وقسط سنة <span class="num-ltr">2023</span>.</li>
+            <li>احسب القسط المكمل لسنة <span class="num-ltr">2025</span> والاهتلاك المتراكم إلى غاية تاريخ التنازل.</li>
+            <li>احسب نتيجة التنازل وسجل قيود التسوية في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.</li>
+          </ol>
+
+          <hr class="my-4" />
+
+         <h3 class="h5 fw-bold text-primary mb-3">شرح الحسابات خطوة بخطوة :</h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب المعدل الخطي، القسط السنوي، وقسط <bdi dir="ltr">2023</bdi> :</strong></p>
+          <ul class="mb-3">
+            <li>نحسب المعدل : <bdi dir="ltr">$t = \frac{100}{5} = 20\%$</bdi>.</li>
+            <li>نحسب القسط السنوي الكامل (<bdi dir="ltr">12</bdi> شهراً) :
+              <div class="my-2">
+                <strong>A<sub>سنوي</sub> = <bdi dir="ltr">2 400 000 &times; 20% = 480 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>مدة الاستعمال في <bdi dir="ltr">2023</bdi> (من <bdi dir="ltr">01/04/2023</bdi> إلى <bdi dir="ltr">31/12/2023</bdi>) هي <strong><bdi dir="ltr">9</bdi> أشهر</strong>، إذن :
+              <div class="my-2">
+                <strong>A<sub>2023</sub> = <bdi dir="ltr">480 000 &times; $\frac{9}{12}$ = 360 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — حساب القسط المكمل لـ <bdi dir="ltr">2025</bdi> والاهتلاك المتراكم عند التنازل :</strong></p>
+          <ul class="mb-3">
+            <li>قسط سنة <bdi dir="ltr">2024</bdi> كاملة (<bdi dir="ltr">12</bdi> شهراً) هو : <strong>A<sub>2024</sub> = <bdi dir="ltr">480 000</bdi> دج</strong>.</li>
+            <li>مدة الاستعمال في <bdi dir="ltr">2025</bdi> (من <bdi dir="ltr">01/01/2025</bdi> إلى <bdi dir="ltr">30/06/2025</bdi>) هي <strong><bdi dir="ltr">6</bdi> أشهر</strong>، فيكون القسط المكمل :
+              <div class="my-2">
+                <strong>A<sub>مكمل 2025</sub> = <bdi dir="ltr">480 000 &times; $\frac{6}{12}$ = 240 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>مجموع الاهتلاكات المتراكمة إلى غاية <bdi dir="ltr">30/06/2025</bdi> :
+              <div class="my-2">
+                <strong>&Sigma;A = <bdi dir="ltr">360 000 + 480 000 + 240 000 = 1 080 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 3 — حساب نتيجة التنازل وتسجيل القيود :</strong></p>
+          <ul class="mb-3">
+            <li>نطبق قانون نتيجة التنازل :
+              <div class="my-2">
+                <strong>نتيجة التنازل = <bdi dir="ltr">1 400 000 + 1 080 000 &minus; 2 400 000 = +80 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>النتيجة موجبة (<strong><bdi dir="ltr">+</bdi></strong>) ، إذن هي <strong>فائض قيمة</strong> <span class="fr-term">(Plus-value)</span> قدره <strong><bdi dir="ltr">80 000</bdi> دج</strong> ويُسجل في الدائن ح/ <strong dir="ltr">752</strong>، والبيع على الحساب يُسجل في المدين ح/ <strong dir="ltr">462</strong>.</li>
+          </ul> 
+
+         
+          <div class="table-responsive mb-0">
+            <table class="table table-bordered align-middle text-center mb-0 bg-white">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">30/06/2025</span></td>
+                  <td><strong class="num-ltr">681</strong></td>
+                  <td>مخصصات للاهتلاكات والمؤونات وخسائر القيمة - أ غ ج</td>
+                  <td><span class="num-ltr">240 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">28182</strong></td>
+                  <td>اهتلاك معدات النقل</td>
+                  <td></td>
+                  <td><span class="num-ltr">240 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">30/06/2025</span></td>
+                  <td><strong class="num-ltr">462</strong></td>
+                  <td>الحسابات الدائنة عن عمليات التنازل عن التثبيتات</td>
+                  <td><span class="num-ltr">1 400 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">28182</strong></td>
+                  <td>اهتلاك معدات النقل</td>
+                  <td><span class="num-ltr">1 080 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">2182</strong></td>
+                  <td>معدات النقل</td>
+                  <td></td>
+                  <td><span class="num-ltr">2 400 000</span></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">752</strong></td>
+                  <td>فوائض القيمة عن خروج أصول مثبتة غير مالية</td>
+                  <td></td>
+                  <td><span class="num-ltr">80 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          في ميزان المراجعة قبل الجرد <span class="fr-term">(Balance avant inventaire)</span> لمؤسسة "الصفاء" بتاريخ <strong class="num-ltr">31/12/2025</strong>، نجد :
+        </p>
+        <ul class="mb-3">
+          <li><strong>ح/ <span class="num-ltr">215</span></strong> منشآت تقنية ومعدات وأدوات صناعية : <strong class="num-ltr">5 000 000</strong> <strong>دج</strong> (مدين).</li>
+          <li><strong>ح/ <span class="num-ltr">2815</span></strong> اهتلاك المنشآت التقنية والمعدات والأدوات الصناعية : <strong class="num-ltr">1 500 000</strong> <strong>دج</strong> (دائن).</li>
+        </ul>
+        <p class="fw-bold mb-3">
+          المطلوب : إذا علمت أن المعدات تهتلك خطياً بمعدل <strong class="num-ltr">20%</strong>، فما هو تاريخ اقتنائها؟ وما هو قيد قسط اهتلاك سنة <span class="num-ltr">2025</span>؟
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution1_1"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution1_1" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">الحل النموذجي لتمرين التفكير :</h3>
+          <p class="mb-2">
+            <strong>1. تحديد تاريخ الاقتناء :</strong><br />
+            الرصيد الدائن لحساب <strong>ح/ <span class="num-ltr">2815</span></strong> في <span class="num-ltr">31/12/2025</span> يمثل الاهتلاك المتراكم إلى غاية <strong class="num-ltr">31/12/2024</strong> : <span class="num-ltr">&Sigma;A<sub>2024</sub> = 1 500 000</span> <strong>دج</strong>.<br />
+            القسط السنوي : <span class="num-ltr">A = 5 000 000 &times; 20% = 1 000 000</span> <strong>دج</strong>.<br />
+            نطبق قانون الاهتلاك المتراكم :
+            <div class="calc-line">1 500 000 = 5 000 000 &times; 0,20 &times; (m / 12) &rArr; m = (1 500 000 &times; 12) / 1 000 000 = 18 شهراً</div>
+            الـ <strong class="num-ltr">18</strong> شهراً تساوي <strong class="num-ltr">12</strong> شهراً لسنة <span class="num-ltr">2024</span> كاملة + <strong class="num-ltr">6</strong> أشهر من سنة <span class="num-ltr">2023</span> (من جويلية إلى ديسمبر)، إذن تاريخ الاقتناء هو : <strong class="num-ltr">01/07/2023</strong>.
+          </p>
+          <p class="mb-2">
+            <strong>2. قيد قسط اهتلاك سنة <span class="num-ltr">2025</span> (<span class="num-ltr">12</span> شهراً = <strong class="num-ltr">1 000 000</strong> دج) :</strong>
+          </p>
+          <div class="table-responsive mb-0">
+            <table class="table table-bordered align-middle text-center mb-0 bg-white">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">681</strong></td>
+                  <td>مخصصات للاهتلاكات والمؤونات وخسائر القيمة - أ غ ج</td>
+                  <td><span class="num-ltr">1 000 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">2815</strong></td>
+                  <td>اهتلاك المنشآت التقنية والمعدات والأدوات الصناعية</td>
+                  <td></td>
+                  <td><span class="num-ltr">1 000 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Aide à la compréhension-->
+
+     
+            <div class="compta-context my-3">
+            <strong>تنبيه منهجي للبكالوريا (الفرق بين النظرية والواقع العملي) :</strong>
+            في الممارسة اليومية، قد تتابع المؤسسة عملياتها شهرياً، لكن في مواضيع البكالوريا فإن الرصيد الظاهر في <span class="fr-term">(Balance avant inventaire)</span> <strong>ميزان المراجعة قبل الجرد</strong> بتاريخ <bdi dir="ltr">31/12/2025</bdi> لا يشمل قسط <bdi dir="ltr">2025</bdi> بعد؛ لأنه لم يُسجل بعد. لذلك يمثل رصيد ح/ <strong dir="ltr">2815</strong> (<bdi dir="ltr">1 500 000</bdi> دج) الاهتلاك المتراكم إلى غاية <strong class="num-ltr">31/12/2024</strong> فقط، وقسط <bdi dir="ltr">2025</bdi> يُسجل في نهاية السنة عند الجرد.
+          </div>
+        
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

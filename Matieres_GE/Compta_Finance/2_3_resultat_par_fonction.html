@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 03 : تحليل النتائج حسب الوظيفة | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="2_0_presentation_etats_fin.html">
+              المجال 02 : الكشوف المالية والتحليل
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 02 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 02">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 02 :</span>
+          <a href="2_1_compte_resultat_bilan.html" class="btn btn-sm compta-pill-btn">01. حساب النتائج والميزانية</a>
+          <a href="2_2_resultats_par_nature.html" class="btn btn-sm compta-pill-btn">02. النتائج حسب الطبيعة</a>
+          <a href="2_3_resultat_par_fonction.html" class="btn btn-sm compta-pill-btn active-pill">03. النتائج حسب الوظيفة</a>
+          <a href="2_4_bilan_fonctionnel.html" class="btn btn-sm compta-pill-btn">04. الميزانية الوظيفية</a>
+          <a href="2_5_ratios_commentaire.html" class="btn btn-sm compta-pill-btn">05. النسب والتعليق المالي</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 02 : إعداد الكشوف المالية وتحليلها <span class="fr-term">(États financiers et analyse)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 03 : تحليل النتائج حسب الوظيفة <span class="fr-term">(Analyse des résultats par fonction)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          توزيع الأعباء حسب الوظائف الأساسية، حساب هامش الربح الإجمالي، والنتيجة العملياتية وفق <span class="fr-term">(SCF)</span>.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أنك تدير متجراً أو مصنعاً وتريد معرفة أين تذهب مصاريفك بدقة : هل يستهلك الإنتاج الجزء الأكبر من التكاليف؟ أم أن مصاريف البيع والتوزيع والإشهار مرتفعة؟ أم أن الإدارة العامة هي التي تثقل كاهل المؤسسة؟ تقسيم الأعباء حسب الوظائف يسمح لك بربط كل تكلفة بدورها العملي داخل المؤسسة.
+          </p>
+        </div>
+
+        <p>
+          إلى جانب الترتيب حسب الطبيعة، يتيح <span class="fr-term">(Système Comptable Financier - SCF)</span> <strong>النظام المحاسبي المالي</strong> إعداد <span class="fr-term">(Compte de résultat par fonction)</span> <strong>حساب النتائج حسب الوظيفة</strong> الذي يجمع الأعباء حسب وظائفها داخل المؤسسة (الشراء والإنتاج، التوزيع أو التسويق، الإدارة العامة...) لإبراز <strong>هامش الربح الإجمالي</strong> و<strong>النتيجة العملياتية</strong>.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من توزيع الأعباء حسب الوظائف، وحساب <strong>هامش الربح الإجمالي</strong> و<strong>النتيجة العملياتية</strong> والنتيجة الصافية، وفهم العلاقة بين التحليل حسب الطبيعة والتحليل حسب الوظيفة.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">ماذا ستتعلم في هذا الدرس؟</h3>
+              <ul class="small mb-0 compta-list">
+                <li>الوظائف الأساسية في حساب النتائج حسب الوظيفة : كلفة المبيعات، التكاليف التجارية، والأعباء الإدارية.</li>
+                <li>حساب <strong>هامش الربح الإجمالي</strong> <span class="fr-term">(Marge brute)</span>.</li>
+                <li>حساب <strong>النتيجة العملياتية</strong> <span class="fr-term">(Résultat opérationnel)</span> انطلاقاً من الهامش والأعباء الوظيفية.</li>
+                <li>التحقق من أن النتيجة الصافية النهائية متطابقة في كلا الطريقتين (حسب الطبيعة وحسب الوظيفة).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق لحساب النتائج حسب الوظيفة
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. القوانين الأساسية للنتائج حسب الوظيفة</h3>
+        <div class="compta-formula">
+          <div>
+            <strong>هامش الربح الإجمالي :</strong>
+            <bdi dir="ltr">=</bdi>
+            رقم الأعمال (ح/ <strong class="num-ltr"><bdi dir="ltr">70</bdi></strong>)
+            <bdi dir="ltr">&minus;</bdi>
+            كلفة المبيعات
+          </div>
+          <div>
+            <strong>النتيجة العملياتية :</strong>
+            <bdi dir="ltr">=</bdi>
+            هامش الربح الإجمالي
+            <bdi dir="ltr">+</bdi>
+            منتوجات أخرى عملياتية (ح/ <strong class="num-ltr"><bdi dir="ltr">75</bdi></strong>)
+            <bdi dir="ltr">&minus;</bdi>
+            التكاليف التجارية
+            <bdi dir="ltr">&minus;</bdi>
+            الأعباء الإدارية
+            <bdi dir="ltr">&minus;</bdi>
+            أعباء أخرى عملياتية (ح/ <strong class="num-ltr"><bdi dir="ltr">65</bdi></strong>)
+            <bdi dir="ltr">+</bdi>
+            استرجاعات عن خسائر القيمة والمؤونات (ح/ <strong class="num-ltr"><bdi dir="ltr">78</bdi></strong>)
+          </div>
+          <div>
+            <strong>قاعدة تطابق النتائج :</strong> النتيجة الصافية للسنة المالية في حساب النتائج حسب الوظيفة هي نفسها النتيجة الصافية في حساب النتائج حسب الطبيعة.
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. جدول مبسط لتوزيع الوظائف في المؤسسة</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>العنصر الوظيفي</th>
+                <th>الدور داخل المؤسسة</th>
+                <th>أمثلة عن الأنشطة المرتبطة به</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>كلفة المبيعات</strong></td>
+                <td>تكلفة السلع أو الخدمات المباعة</td>
+                <td>مشتريات مستهلكة، تغيرات المخزون، مصاريف الإنتاج المباشرة</td>
+              </tr>
+              <tr>
+                <td><strong>التكاليف التجارية</strong></td>
+                <td>التسويق والبيع والتوزيع</td>
+                <td>الإشهار، النقل التجاري، عمولات البيع، أجور قسم التسويق</td>
+              </tr>
+              <tr>
+                <td><strong>الأعباء الإدارية</strong></td>
+                <td>التسيير العام والإدارة</td>
+                <td>الإدارة العامة، المحاسبة، الشؤون القانونية، مصاريف المكتب</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            إليك المعطيات التالية المستخرجة من حساب النتائج حسب الوظيفة لمؤسسة بتاريخ <strong class="num-ltr">31/12/2025</strong> (المبالغ بالدينار الجزائري) :
+          </p>
+          <ul class="mb-3">
+            <li>رقم الأعمال (ح/ <strong class="num-ltr">70</strong>) : <strong class="num-ltr">1 800 000</strong>.</li>
+            <li>كلفة المبيعات : <strong class="num-ltr">1 050 000</strong>.</li>
+            <li>التكاليف التجارية : <strong class="num-ltr">190 000</strong> ، والأعباء الإدارية : <strong class="num-ltr">160 000</strong>.</li>
+            <li>منتوجات أخرى عملياتية (ح/ <strong class="num-ltr">75</strong>) : <strong class="num-ltr">40 000</strong> ، وأعباء أخرى عملياتية (ح/ <strong class="num-ltr">65</strong>) : <strong class="num-ltr">20 000</strong> (دون استرجاعات).</li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>احسب <strong>هامش الربح الإجمالي</strong>.</li>
+            <li>احسب <strong>النتيجة العملياتية</strong> لسنة <bdi dir="ltr">2025</bdi>.</li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">شرح الحسابات خطوة بخطوة :</h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب هامش الربح الإجمالي :</strong></p>
+          <ul class="mb-3">
+            <li>نطرح كلفة المبيعات من رقم الأعمال :
+              <div class="my-2">
+                <strong>هامش الربح الإجمالي = <bdi dir="ltr">1 800 000 &minus; 1 050 000 = 750 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — حساب النتيجة العملياتية :</strong></p>
+          <ul class="mb-0">
+            <li>ننطلق من الهامش الإجمالي ونضيف/نطرح العناصر العملياتية :
+              <div class="my-2">
+                <strong>النتيجة العملياتية = <bdi dir="ltr">750 000 + 40 000 &minus; 190 000 &minus; 160 000 &minus; 20 000 = 420 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          إذا كان هامش الربح الإجمالي لمؤسسة يساوي <strong class="num-ltr">900 000</strong> <strong>دج</strong>، وبلغت التكاليف التجارية <strong class="num-ltr">250 000</strong> <strong>دج</strong> والأعباء الإدارية <strong class="num-ltr">200 000</strong> <strong>دج</strong> (بدون عناصر أخرى)، ثم ارتفعت التكاليف التجارية في السنة الموالية بـ <strong class="num-ltr">50 000</strong> <strong>دج</strong> مع بقاء الهامش والأعباء الأخرى ثابتة.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : احسب النتيجة العملياتية في الحالتين وبيّن أثر ارتفاع التكاليف التجارية عليها.
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution2_3"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution2_3" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">الحل النموذجي لتمرين التفكير :</h3>
+          <p class="mb-0">
+            <strong>1. الحالة الأولى :</strong> <bdi dir="ltr">900 000 &minus; 250 000 &minus; 200 000 = 450 000</bdi> دج.<br />
+            <strong>2. الحالة الثانية (بعد ارتفاع التكاليف التجارية إلى <bdi dir="ltr">300 000</bdi> دج) :</strong> <bdi dir="ltr">900 000 &minus; 300 000 &minus; 200 000 = 400 000</bdi> دج.<br />
+            <strong>الأثر :</strong> انخفضت النتيجة العملياتية بنفس مقدار ارتفاع التكاليف التجارية (<strong class="num-ltr"><bdi dir="ltr">50 000</bdi> دج</strong>)، مما يبيّن أهمية التحكم في مصاريف التسويق والتوزيع للحفاظ على الربحية التشغيلية.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

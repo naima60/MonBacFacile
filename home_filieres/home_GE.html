@@ -14,29 +14,13 @@
     <link href="home.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- BARRE DE NAVIGATION -->
+    <!-- BARRE DE NAVIGATION (Modifiée avec container-fluid et des espacements optimisés) -->
     <nav
       class="navbar navbar-expand-lg navbar-custom sticky-top shadow-sm"
       id="main-nav"
     >
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">🎓 BacApp</a>
-
-        <!-- Profil et Sélecteur de langue -->
-        <div class="d-flex order-lg-last ms-3 me-3 align-items-center gap-2">
-          <!-- Emplacement photo de l'étudiante -->
-          <img
-            src="/assets/0_images/naima_photo_profil.png"
-            alt="Photo Étudiante"
-            class="profile-pic"
-            title="Profil de l'étudiante"
-          />
-
-          <span class="lang-btn fr-text" onclick="setLanguage('ar')"
-            >🇩🇿 العربية</span
-          >
-        </div>
-
+      <div class="container-fluid px-3">
+        <a class="navbar-brand fw-bold me-2" href="../index.html">🎓 BacApp-dz</a>
         <button
           class="navbar-toggler bg-light"
           type="button"
@@ -48,11 +32,303 @@
         </button>
 
         <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav mx-auto align-items-center">
+          <ul class="navbar-nav mx-auto align-items-center gap-1">
+           
+            <!-- le module Compta_Finance -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-bold px-2"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <span class="ar-text">المحاسبة و المالية</span>
+                <span class="fr-text">Compta &amp; Finance</span>
+              </a>
+              <ul
+                class="dropdown-menu shadow border-0 text-center text-lg-end"
+                dir="rtl"
+              >
+                <!-- programmes -->
+                <li>
+                  <a
+                    class="dropdown-item py-1 text-center fw-bold text-primary"
+                    href="../Matieres_GE/Compta_Finance/sommaire_compta.html"
+                  >
+                    <span class="ar-text">البرنامج السنوي</span>
+                    <span class="fr-text">Programme</span>
+                  </a>
+                </li>
+                
+                <!-- Séparateur horizontal -->
+                <li><hr class="dropdown-divider my-2" /></li>
+               
+                <!-- Liste des cours -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres_GE/Compta_Finance/1_0_presentation_trav_fin_ex.html"
+                  >
+                    <b>المجال 01 :</b> أعمال نهاية السنة
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres_GE/Compta_Finance/2_0_presentation_etats_fin.html"
+                  >
+                    <b>المجال 02 :</b> إعداد الكشوف المالية وتحليل
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres_GE/Compta_Finance/3_0_presentation_fin_inverst.html"
+                  >
+                    <b>المجال 03 :</b> تمويل واختيار المشاريع الاستثمارية
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres_GE/Compta_Finance/4_0_presentation_cout_complet.html"
+                  >
+                    <b>المجال 04 :</b> حساب وتحليل التكاليف الكلية
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres_GE/Compta_Finance/5_0_presentation_cout_partiel.html"
+                  >
+                    <b>المجال 05 :</b> التكاليف الجزئية
+                  </a>
+                </li>
+
+                 <!-- Séparateur horizontal -->
+                <li><hr class="dropdown-divider my-2" /></li>
+                
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres_GE/Compta_Finance/0_cours_general_comptabilite.html"
+                  >
+                    <b>المجال 06 :</b> مراجعة اجمالية لمبادئ المحاسبة
+                  </a>
+                </li>
+              
+        
+
+                
+              </ul>
+            </li>
+
+                    
+
+            <!-- Droit -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-bold px-2"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <span class="ar-text">القانون </span
+                ><span class="fr-text">Droit</span>
+              </a>
+              <ul
+                class="dropdown-menu shadow border-0 text-center text-lg-start"
+              >
+                <!-- programmes -->
+                <li>
+                  <a
+                    class="dropdown-item py-1 text-center fw-bold text-primary"
+                    href="../Matieres_GE/Droit/"
+                  >
+                    Programa
+                  </a>
+                </li>
+                <!-- Séparateur horizontal -->
+                <li><hr class="dropdown-divider my-2" /></li>
+                <!--Liste des cours-->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres_GE/espagnol/ambito_1.html"
+                    ><b>Ambito 1 :</b> Ámbito personal
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/espagnol/ambito_2.html"
+                    ><b>Ambito 2 :</b> Ámbito educativo
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/espagnol/ambito_3.html"
+                    ><b>Ambito 3 :</b> Ámbito científico y tecnológico</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/espagnol/ambito_4.html"
+                    ><b>Ambito 4 :</b> Ámbito laboral</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/espagnol/ambito_5.html"
+                    ><b>Ambito 5 :</b> Páginas eternas</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- Economie & management -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-bold px-2"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <span class="ar-text"> الاقتصاد و التسيير </span
+                ><span class="fr-text">Économie</span>
+              </a>
+              <ul
+                class="dropdown-menu shadow border-0 text-center text-lg-start"
+              >
+                <!-- programmes -->
+                <li>
+                  <a
+                    class="dropdown-item py-1 text-center fw-bold text-primary"
+                    href="../filière_gestion_economie/Matieres/Economie_Management"
+                  >
+                    Programa
+                  </a>
+                </li>
+                <!-- Séparateur horizontal -->
+                <li><hr class="dropdown-divider my-2" /></li>
+                <!--Liste des cours-->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../filière_gestion_economie/Matieres/Economie_Management/cours_geo_1.html"
+                    ><b>Ambito 1 :</b> Ámbito personal
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/espagnol/ambito_2.html"
+                    ><b>Ambito 2 :</b> Ámbito educativo
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../filière_gestion_economie/Matieres/Economie_Management/cours_geo_2.html"
+                    ><b>Ambito 3 :</b> Ámbito científico y tecnológico</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/espagnol/ambito_4.html"
+                    ><b>Ambito 4 :</b> Ámbito laboral</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/espagnol/ambito_5.html"
+                    ><b>Ambito 5 :</b> Páginas eternas</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- Mathématiques -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-bold px-2"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <span class="ar-text">الرياضيات</span
+                ><span class="fr-text">Maths</span>
+              </a>
+
+              <ul
+                class="dropdown-menu shadow border-0 text-center text-lg-end p-3"
+                style="
+                  direction: rtl;
+                  right: 0;
+                  left: auto;
+                  transform: translateX(60px);
+                "
+              >
+                <!-- programmes -->
+                <li>
+                  <a
+                    class="dropdown-item py-1 text-center fw-bold text-primary"
+                    href="../filière_gestion_economie/Matieres/maths/"
+                    >برنامج الرياضيات</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider my-2" /></li>
+                <!--Liste des cours-->
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0 text-end"
+                    href="../Matieres/maths/cours1_division_euclidienne.html"
+                    ><b>الباب 1:</b> القسمة الإقليدية</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0 text-end"
+                    href="../Matieres/maths/cours2_suites_numeriques.html"
+                    ><b>الباب 2:</b> المتتاليات العددية</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0 text-end"
+                    href="../Matieres/maths/cours3_direction_chang_fonction.html"
+                    ><b>الباب 3:</b> اتجاه تغير دالة</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0 text-end"
+                    href="../Matieres/maths/cours4_fonctions_polynomiales.html"
+                    ><b>الباب 4:</b> الدوال كثيرات الحدود</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0 text-end"
+                    href="../Matieres/maths/cours5_fonctions_analogiques.html"
+                    ><b>الباب 5:</b> الدوال التناظرية</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0 text-end"
+                    href="../Matieres/maths/cours6_statistiques_probabilités.html"
+                    ><b>الباب 6:</b> الإحصاء والاحتمالات</a
+                  >
+                </li>
+              </ul>
+            </li>
+
             <!-- Arabe -->
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-bold text-center"
+                class="nav-link dropdown-toggle fw-bold text-center px-2"
                 href="#"
                 data-bs-toggle="dropdown"
               >
@@ -73,10 +349,11 @@
                 <li>
                   <a
                     class="dropdown-item py-1 text-center fw-bold text-primary"
-                    href="../Matieres/arabe/sommaire_ar.html"
+                    href="../filière_gestion_economie/Matieres/arabe"
                     >برنامج اللغة العربية</a
                   >
                 </li>
+
                 <li><hr class="dropdown-divider my-2" /></li>
 
                 <!-- Grille alignée par lignes et colonnes fixes -->
@@ -162,20 +439,135 @@
                   >
                 </div>
               </ul>
-
-              <!-- philosophie -->
             </li>
 
+            <!-- Français -->
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-bold"
+                class="nav-link dropdown-toggle fw-bold px-2"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <span class="ar-text">الفرنسية</span
+                ><span class="fr-text">Français</span>
+              </a>
+              <ul
+                class="dropdown-menu shadow border-0 text-center text-lg-start"
+              >
+                <!-- programmes -->
+                <li>
+                  <a
+                    class="dropdown-item py-1 text-center fw-bold text-primary"
+                    href="../filière_gestion_economie/Matieres/français/"
+                    >Programme de Français</a
+                  >
+                </li>
+                <!-- Séparateur horizontal -->
+                <li><hr class="dropdown-divider my-2" /></li>
+                <!-- Liste des cours-->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/français/projet1_doc_text_histoire.html"
+                  >
+                    <b>PROJET 1 — </b> Réaliser une recherche documentaire,faire
+                    une synthèse</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/français/projet2_debat_idee.html"
+                  >
+                    <b>PROJET 2 — </b> Organiser un débat, en faire un
+                    compte-rendu</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/français/projet3_appel_mobilisation.html"
+                  >
+                    <b>PROJET 3 — </b> lancer un appel cause humanitaire</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Matieres/français/projet4_rediger_une_nouvelle.html"
+                  >
+                    <b>PROJET 4 — </b> Régider une nouvelle fantastique</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- Anglais -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-bold px-2"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <span class="ar-text">الإنجليزية</span
+                ><span class="fr-text">Anglais</span>
+              </a>
+              <ul class="dropdown-menu shadow border-0 text-start" dir="ltr">
+                <!-- programmes -->
+                <li>
+                  <a
+                    class="dropdown-item py-1 text-center fw-bold text-primary"
+                    href="../filière_gestion_economie/Matieres/anglais/"
+                    >Syllabus Units</a
+                  >
+                </li>
+                <!-- Séparateur horizontal -->
+                <li><hr class="dropdown-divider my-2" /></li>
+                <!--Liste des cours-->
+                <li>
+                  <a class="dropdown-item" href="../Matieres/anglais/unit1.html"
+                    ><b>Unit 1 :</b>Exploring the past</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../Matieres/anglais/unit2.html"
+                    ><b>Unit 2 :</b> Ill-gotten gains never prosper</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../Matieres/anglais/unit3.html"
+                    ><b>Unit 3 :</b> Schools - different and alike</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../Matieres/anglais/unit4.html"
+                    ><b>Unit 4 :</b> Safety first</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../Matieres/anglais/unit5.html"
+                    ><b>Unit 5 :</b> Are we alone?</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../Matieres/anglais/unit6.html"
+                    ><b>Unit 6 :</b> We are a family!</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- philosophie -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle fw-bold px-2"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 <span class="ar-text">الفلسفة</span>
-                <span class="fr-text">philosophie</span>
+                <span class="fr-text">Philo</span>
               </a>
               <ul
                 class="dropdown-menu shadow border-0 p-0"
@@ -190,7 +582,9 @@
                     >الملخص / البرنامج</a
                   >
                 </li>
+
                 <li><hr class="dropdown-divider my-2" /></li>
+
                 <!-- Liste des leçons -->
                 <li>
                   <a
@@ -239,195 +633,17 @@
               </ul>
             </li>
 
-            <!-- Français -->
+            <!-- Histoire- Géo -->
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-bold"
+                class="nav-link dropdown-toggle fw-bold text-nowrap d-flex align-items-center justify-content-end gap-1 px-2"
                 href="#"
                 data-bs-toggle="dropdown"
               >
-                <span class="ar-text">الفرنسية</span
-                ><span class="fr-text">Français</span>
-              </a>
-              <ul
-                class="dropdown-menu shadow border-0 text-center text-lg-start"
-              >
-                <!-- programmes -->
-                <li>
-                  <a
-                    class="dropdown-item py-1 text-center fw-bold text-primary"
-                    href="../Matieres/français/p0_sommaire_fr.html"
-                    >Programme de Français</a
-                  >
-                </li>
-                <!-- Séparateur horizontal -->
-                <li><hr class="dropdown-divider my-2" /></li>
-                <!-- Liste des cours-->
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/français/projet1_doc_text_histoire.html"
-                  >
-                    <b>PROJET 1 — </b> Réaliser une recherche documentaire,
-                    faire une synthèse</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/français/projet2_debat_idee.html"
-                  >
-                    <b>PROJET 2 — </b> Organiser un débat, en faire un
-                    compte-rendu</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/français/projet3_appel_mobilisation.html"
-                  >
-                    <b>PROJET 3 — </b> lancer un appel cause humanitaire</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/français/projet4_rediger_une_nouvelle.html"
-                  >
-                    <b>PROJET 4 — </b> Régider une nouvelle fantastique</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <!-- Anglais -->
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle fw-bold"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <span class="ar-text">الإنجليزية</span
-                ><span class="fr-text">Anglais</span>
-              </a>
-              <ul class="dropdown-menu shadow border-0 text-start" dir="ltr">
-                <!-- programmes -->
-                <li>
-                  <a
-                    class="dropdown-item py-1 text-center fw-bold text-primary"
-                    href="../Matieres/anglais/sommaire_an.html"
-                    >Syllabus Units</a
-                  >
-                </li>
-                <!-- Séparateur horizontal -->
-                <li><hr class="dropdown-divider my-2" /></li>
-                <!--Liste des cours-->
-                <li>
-                  <a class="dropdown-item" href="../Matieres/anglais/unit1.html"
-                    ><b>Unit 1 :</b>Exploring the past</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../Matieres/anglais/unit2.html"
-                    ><b>Unit 2 :</b> Ill-gotten gains never prosper</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../Matieres/anglais/unit3.html"
-                    ><b>Unit 3 :</b> Schools - different and alike</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../Matieres/anglais/unit4.html"
-                    ><b>Unit 4 :</b> Safety first</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../Matieres/anglais/unit5.html"
-                    ><b>Unit 5 :</b> Are we alone?</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../Matieres/anglais/unit6.html"
-                    ><b>Unit 6 :</b> We are a family!</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <!-- Espagnol -->
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle fw-bold"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <span class="ar-text">الإسبانية</span
-                ><span class="fr-text">Espagnol</span>
-              </a>
-              <ul
-                class="dropdown-menu shadow border-0 text-center text-lg-start"
-              >
-                <!-- programmes -->
-                <li>
-                  <a
-                    class="dropdown-item py-1 text-center fw-bold text-primary"
-                    href="../Matieres/espagnol/sommaire_es.html"
-                  >
-                    Programa
-                  </a>
-                </li>
-                <!-- Séparateur horizontal -->
-                <li><hr class="dropdown-divider my-2" /></li>
-                <!--Liste des cours-->
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/espagnol/ambito_1.html"
-                    ><b>Ambito 1 :</b> Ámbito personal
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/espagnol/ambito_2.html"
-                    ><b>Ambito 2 :</b> Ámbito educativo
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/espagnol/ambito_3.html"
-                    ><b>Ambito 3 :</b> Ámbito científico y tecnológico</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/espagnol/ambito_4.html"
-                    ><b>Ambito 4 :</b> Ámbito laboral</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../Matieres/espagnol/ambito_5.html"
-                    ><b>Ambito 5 :</b> Páginas eternas</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <!-- Histoire -->
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle fw-bold"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <span class="ar-text">التاريخ</span>
+                <span class="ar-text">التاريخ والجغرافيا</span>
                 <span class="fr-text">Hist-Géo</span>
               </a>
+
               <ul
                 class="dropdown-menu dropdown-menu-end shadow border-0 text-end"
               >
@@ -439,47 +655,38 @@
                     >برنامج التاريخ</a
                   >
                 </li>
+                <!-- saut-->
                 <li><hr class="dropdown-divider" /></li>
+
                 <!--Liste des cours-->
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
                     href="../Matieres/histoire/cours_hist_1.html"
-                    ><b>الدرس الأول :</b> تطور العالم في ظل القطبية الثنائية
-                    (1945-1989)</a
                   >
+                    <b>الدرس الأول :</b> تطور العالم في ظل القطبية الثنائية
+                    (1945-1989)
+                  </a>
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
                     href="../Matieres/histoire/cours_hist_2.html"
-                    ><b>الدرس الثاني :</b> الجزائر بين (1945 - 1989)</a
                   >
+                    <b>الدرس الثاني :</b> الجزائر بين (1945 - 1989)
+                  </a>
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
                     href="../Matieres/histoire/cours_hist_3.html"
-                    ><b>الدرس الثالث :</b> تطور العالم الثالث (1945-1989)</a
                   >
+                    <b>الدرس الثالث :</b> تطور العالم الثالث (1945-1989)
+                  </a>
                 </li>
-              </ul>
-            </li>
 
-            <!--Géo -->
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle fw-bold"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <span class="ar-text">الجغرافيا</span>
-                <span class="fr-text">Hist-Géo</span>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end shadow border-0 text-end"
-              >
-                <!-- programmes -->
+                <!-- saut-->
+                <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a
                     class="dropdown-item py-1 text-center fw-bold text-primary"
@@ -487,28 +694,31 @@
                     >برنامج الجغرافيا</a
                   >
                 </li>
-                <li><hr class="dropdown-divider" /></li>
-                <!--Liste des cours-->
+
+                <!-- programmes géographie -->
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
                     href="../Matieres/geo/cours_geo_1.html"
-                    ><b>الدرس الأول :</b> واقع الاقتصاد العالمي</a
                   >
+                    <b>الدرس الأول :</b> واقع الاقتصاد العالمي
+                  </a>
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
                     href="../Matieres/geo/cours_geo_2.html"
-                    ><b>الدرس الثاني :</b> القوى الاقتصادية الكبرى في العالم</a
                   >
+                    <b>الدرس الثاني :</b> القوى الاقتصادية الكبرى في العالم
+                  </a>
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
                     href="../Matieres/geo/cours_geo_3.html"
-                    ><b>الدرس الثالث :</b> الاقتصاد والتنمية في دول الجنوب</a
                   >
+                    <b>الدرس الثالث :</b> الاقتصاد والتنمية في دول الجنوب
+                  </a>
                 </li>
               </ul>
             </li>
@@ -516,19 +726,19 @@
             <!-- Éducation Islamique -->
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-bold"
+                class="nav-link dropdown-toggle fw-bold px-2"
                 href="#"
                 data-bs-toggle="dropdown"
               >
                 <span class="ar-text">التربية الإسلامية</span
-                ><span class="fr-text">Ed. Islamique</span>
+                ><span class="fr-text">Islam</span>
               </a>
               <ul class="dropdown-menu shadow border-0 text-end">
                 <!-- programmes -->
                 <li>
                   <a
                     class="dropdown-item py-1 text-center fw-bold text-primary"
-                    href="../Matieres/education_islamique/sommaire_ei.html"
+                    href="../education_isalamique/sommaire_ei.html"
                     >برنامج التربية الإسلامية</a
                   >
                 </li>
@@ -538,125 +748,50 @@
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
-                    href="../Matieres/education_islamique/cours_ei_1.html"
+                    href="../education_islamique/cours_ei_1.html"
                     ><b>الملف الأول:</b> من هدي القرآن الكريم</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
-                    href="../Matieres/education_islamique/cours_ei_2.html"
+                    href="../education_islamique/cours_ei_2.html"
                     ><b>الملف الثاني:</b> من هدي السنة النبوية</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
-                    href="../Matieres/education_islamique/cours_ei_3.html"
+                    href="../education_islamique/cours_ei_3.html"
                     ><b>الملف الثالث:</b> القيم الإيمانية والتعبدية</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
-                    href="../Matieres/education_islamique/cours_ei_4.html"
+                    href="../education_islamique/cours_ei_4.html"
                     ><b>الملف الرابع:</b> القيم الحقوقية</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
-                    href="../Matieres/education_islamique/cours_ei_5.html"
+                    href="../education_islamique/cours_ei_5.html"
                     ><b>الملف الخامس:</b> القيم الاجتماعية والأسرية</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
-                    href="../Matieres/education_islamique/cours_ei_6.html"
+                    href="../education_islamique/cours_ei_6.html"
                     ><b>الملف السادس:</b> القيم الإعلامية والتواصلية</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item text-end py-2"
-                    href="../Matieres/education_islamique/cours_ei_7.html"
+                    href="../education_islamique/cours_ei_7.html"
                     ><b>الملف السابع:</b> القيم المالية والاقتصادية</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <!-- Mathématiques -->
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle fw-bold"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <span class="ar-text">الرياضيات</span
-                ><span class="fr-text">Maths</span>
-              </a>
-
-              <ul
-                class="dropdown-menu shadow border-0 text-center text-lg-end p-3"
-                style="
-                  direction: rtl;
-                  right: 0;
-                  left: auto;
-                  transform: translateX(60px);
-                "
-              >
-                <!-- programmes -->
-                <li>
-                  <a
-                    class="dropdown-item py-1 text-center fw-bold text-primary"
-                    href="../Matieres/maths/cours0_sommaire_math.html"
-                    >برنامج الرياضيات</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider my-2" /></li>
-                <!--Liste des cours-->
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0 text-end"
-                    href="../Matieres/maths/cours1_division_euclidienne.html"
-                    ><b>الباب 1:</b> القسمة الإقليدية</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0 text-end"
-                    href="../Matieres/maths/cours2_suites_numeriques.html"
-                    ><b>الباب 2:</b> المتتاليات العددية</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0 text-end"
-                    href="../Matieres/maths/cours3_direction_chang_fonction.html"
-                    ><b>الباب 3:</b> اتجاه تغير دالة</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0 text-end"
-                    href="../Matieres/maths/cours4_fonctions_polynomiales.html"
-                    ><b>الباب 4:</b> الدوال كثيرات الحدود</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0 text-end"
-                    href="../Matieres/maths/cours5_fonctions_analogiques.html"
-                    ><b>الباب 5:</b> الدوال التناظرية</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0 text-end"
-                    href="../Matieres/maths/cours6_statistiques_probabilités.html"
-                    ><b>الباب 6:</b> الإحصاء والاحتمالات</a
                   >
                 </li>
               </ul>
@@ -665,12 +800,12 @@
             <!-- Sujet de Bac -->
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle fw-bold"
+                class="nav-link dropdown-toggle fw-bold px-2"
                 href="#"
                 data-bs-toggle="dropdown"
               >
                 <span class="ar-text">مواضيع البكالوريا</span
-                ><span class="fr-text">Sujets Bac</span>
+                ><span class="fr-text">Sujets</span>
               </a>
               <ul
                 class="dropdown-menu shadow border-0 text-center text-lg-end p-3"
@@ -692,6 +827,149 @@
                 </li>
                 <li><hr class="dropdown-divider my-2" /></li>
 
+              <!-- compta & finance -->
+                <li>
+                  <span class="dropdown-item-text fw-bold text-primary"
+                    > 💰المحاسبة و المالية</span
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Compta_Finance/bac_compta_fin_GE_2010.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2010</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Compta_Finance/bac_compta_fin_GE_2015.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2015</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Compta_Finance/bac_compta_fin_GE_2020.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2020</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Compta_Finance/bac_compta_fin_GE_2025.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2025</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Compta_Finance/bac_compta_fin_GE_2026.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2026</a
+                  >
+                </li>
+
+
+                <!-- Droit -->
+                <li>
+                  <span class="dropdown-item-text fw-bold text-primary"
+                    > القانون</span
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Droit/bac_droit_GE_2010.pdf agnol/bac_es_2010.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2010</a 
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Droit/bac_droit_GE_2015.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2015</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Droit/bac_droit_GE_2020.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2020</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Droit/bac_droit_GE_2025.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2025</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Droit/bac_droit_GE_2026.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2026</a
+                  >
+                </li>
+
+                <!-- Economie_gestion -->
+                <li>
+                  <span class="dropdown-item-text fw-bold text-primary"
+                    > اقتصاد و تسيير</span
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Economie_Management/bac_eco_manag_GE_2010.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2010</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Economie_Management/bac_eco_manag_GE_2015.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2015</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Economie_Management/bac_eco_manag_GE_2020.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2020</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Economie_Management/bac_eco_manag_GE_2025.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2025</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item py-1 m-0"
+                    href="../Sujets_bac_GE/Economie_Management/bac_eco_manag_GE_2026.pdf"
+                    target="_blank"
+                    >📄 بكالوريا 2026</a
+                  >
+                </li>
+
+
                 <!-- 📖 اللغة العربية (Arabe) - Exemple pour une autre matière -->
                 <li>
                   <span class="dropdown-item-text fw-bold text-primary"
@@ -701,7 +979,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/arabe/bac_ar_2010.pdf"
+                    href="../Sujets_bac_GE/Arabe/bac_arabe_GE_2010.pdf"
                     target="_blank"
                     >📄 بكالوريا 2010</a
                   >
@@ -709,7 +987,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/arabe/bac_ar_2015.pdf"
+                    href="../Sujets_bac_GE/Arabe/bac_arabe_GE_2015.pdf"
                     target="_blank"
                     >📄 بكالوريا 2015</a
                   >
@@ -717,7 +995,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/arabe/bac_ar_2020.pdf"
+                    href="../Sujets_bac_GE/Arabe/bac_arabe_GE_2020.pdf"
                     target="_blank"
                     >📄 بكالوريا 2020</a
                   >
@@ -725,7 +1003,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/arabe/bac_ar_2025.pdf"
+                    href="../Sujets_bac_GE/Arabe/bac_arabe_GE_2025.pdf"
                     target="_blank"
                     >📄 بكالوريا 2025</a
                   >
@@ -733,22 +1011,22 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/arabe/bac_ar_2026.pdf"
+                    href="../Sujets_bac_GE/Arabe/bac_arabe_GE_2026.pdf"
                     target="_blank"
                     >📄 بكالوريا 2026</a
                   >
                 </li>
 
-            <!-- philosophie -->
+                <!-- philosophie -->
                 <li>
                   <span class="dropdown-item-text fw-bold text-primary"
-                    >📖 الفلسفة </span
-                  >
+                    >📖 الفلسفة
+                  </span>
                 </li>
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/philosophie/philo_2010.pdf"
+                    href="../Sujets_bac_GE/Philosophie/bac_philo_GE_2010.pdf"
                     target="_blank"
                     >📄 بكالوريا 2010</a
                   >
@@ -756,7 +1034,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/philosophie/philo_2015.pdf"
+                    href="../Sujets_bac_GE/Philosophie/bac_philo_GE_2015.pdf"
                     target="_blank"
                     >📄 بكالوريا 2015</a
                   >
@@ -764,7 +1042,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/philosophie/philo_2020.pdf"
+                    href="../Sujets_bac_GE/Philosophie/bac_philo_GE_2020.pdf"
                     target="_blank"
                     >📄 بكالوريا 2020</a
                   >
@@ -772,7 +1050,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/philosophie/philo_2025.pdf"
+                    href="../Sujets_bac_GE/Philosophie/bac_philo_GE_2025.pdf"
                     target="_blank"
                     >📄 بكالوريا 2025</a
                   >
@@ -780,14 +1058,11 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/philosophie/philo_2026.pdf"
+                    href="../Sujets_bac_GE/Philosophie/bac_philo_GE_2026.pdf"
                     target="_blank"
                     >📄 بكالوريا 2026</a
                   >
                 </li>
-
-
-
 
                 <!-- 🇫🇷 الفرنسية (Français) -->
                 <li>
@@ -806,7 +1081,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/français/bac_fr_2015.pdf"
+                    href="../Sujets_bac_GE/Français/bac_fr_GE_2015.pdf"
                     target="_blank"
                     >📄 بكالوريا 2015</a
                   >
@@ -814,7 +1089,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/français/bac_fr_2020.pdf"
+                    href="../Sujets_bac_GE/Français/bac_fr_GE_2020.pdf"
                     target="_blank"
                     >📄 بكالوريا 2020</a
                   >
@@ -822,7 +1097,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/français/bac_fr_2025.pdf"
+                    href="../Sujets_bac_GE/Français/bac_fr_GE_2025.pdf"
                     target="_blank"
                     >📄 بكالوريا 2025</a
                   >
@@ -830,7 +1105,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/français/bac_fr_2026.pdf"
+                    href="../Sujets_bac_GE/Français/bac_fr_GE_2026.pdf"
                     target="_blank"
                     >📄 بكالوريا 2026</a
                   >
@@ -845,7 +1120,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/anglais/bac_an_2010.pdf"
+                    href="../Sujets_bac_GE/Anglais/bac_an_GE_2010.pdf"
                     target="_blank"
                     >📄 بكالوريا 2010</a
                   >
@@ -853,7 +1128,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/anglais/bac_an_2015.pdf"
+                    href="../Sujets_bac_GE/Anglais/bac_an_GE_2015.pdf"
                     target="_blank"
                     >📄 بكالوريا 2015</a
                   >
@@ -861,7 +1136,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/anglais/bac_an_2020.pdf"
+                    href="../Sujets_bac_GE/Anglais/bac_an_GE_2020.pdf"
                     target="_blank"
                     >📄 بكالوريا 2020</a
                   >
@@ -869,7 +1144,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/anglais/bac_an_2025.pdf"
+                    href="../Sujets_bac_GE/Anglais/bac_an_GE_2025.pdf"
                     target="_blank"
                     >📄 بكالوريا 2025</a
                   >
@@ -877,54 +1152,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/anglais/bac_an_2026.pdf"
-                    target="_blank"
-                    >📄 بكالوريا 2026</a
-                  >
-                </li>
-
-                <!-- 🇪🇸 الإسبانية (Espagnol) -->
-                <li>
-                  <span class="dropdown-item-text fw-bold text-primary"
-                    >🇪🇸 الإسبانية</span
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/espagnol/bac_es_2010.pdf"
-                    target="_blank"
-                    >📄 بكالوريا 2010</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/espagnol/bac_es_2015.pdf"
-                    target="_blank"
-                    >📄 بكالوريا 2015</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/espagnol/bac_es_2020.pdf"
-                    target="_blank"
-                    >📄 بكالوريا 2020</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/espagnol/bac_es_2025.pdf"
-                    target="_blank"
-                    >📄 بكالوريا 2025</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/espagnol/bac_es_2026.pdf"
+                    href="../Sujets_bac_GE/Anglais/bac_an_GE_2026.pdf"
                     target="_blank"
                     >📄 بكالوريا 2026</a
                   >
@@ -939,7 +1167,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/histoire_geo/bac_hist_geo_2010.pdf"
+                    href="../Sujets_bac_GE/Histoire_Geo/bac_hist_geo_GE_2010.pdf"
                     target="_blank"
                     >📄 بكالوريا 2010</a
                   >
@@ -947,7 +1175,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/histoire_geo/bac_hist_geo_2015.pdf"
+                    href="../Sujets_bac_GE/Histoire_Geo/bac_hist_geo_GE_2015.pdf"
                     target="_blank"
                     >📄 بكالوريا 2015</a
                   >
@@ -955,7 +1183,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/histoire_geo/bac_hist_geo_2020.pdf"
+                    href="../Sujets_bac_GE/Histoire_Geo/bac_hist_geo_GE_2020.pdf"
                     target="_blank"
                     >📄 بكالوريا 2020</a
                   >
@@ -963,7 +1191,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/histoire_geo/bac_hist_geo_2025.pdf"
+                    href="../Sujets_bac_GE/Histoire_Geo/bac_hist_geo_GE_2025.pdf"
                     target="_blank"
                     >📄 بكالوريا 2025</a
                   >
@@ -971,7 +1199,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/histoire_geo/bac_hist_geo_2026.pdf"
+                    href="../Sujets_bac_GE/Histoire_Geo/bac_hist_geo_GE_2026.pdf"
                     target="_blank"
                     >📄 بكالوريا 2026</a
                   >
@@ -980,13 +1208,13 @@
                 <!-- ☪️ التربية الإسلامية (Éducation Islamique) -->
                 <li>
                   <span class="dropdown-item-text fw-bold text-primary"
-                    >☪️ التربيةلإسلامية</span
+                    >☪️ التربية الإسلامية</span
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/education_islamique/bac_educ_islam_2010.pdf"
+                    href="../Sujets_bac_LE/education_islamique/bac_educ_islam_2010.pdf"
                     target="_blank"
                     >📄 بكالوريا 2010</a
                   >
@@ -994,7 +1222,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/education_islamique/bac_educ_islam_2015.pdf"
+                    href="../Sujets_bac_LE/education_islamique/bac_educ_islam_2015.pdf"
                     target="_blank"
                     >📄 بكالوريا 2015</a
                   >
@@ -1002,7 +1230,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/education_islamique/bac_educ_islam_2020.pdf"
+                    href="../Sujets_bac_LE/education_islamique/bac_educ_islam_2020.pdf"
                     target="_blank"
                     >📄 بكالوريا 2020</a
                   >
@@ -1010,7 +1238,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/education_islamique/bac_educ_islam_2025.pdf"
+                    href="../Sujets_bac_LE/education_islamique/bac_educ_islam_2025.pdf"
                     target="_blank"
                     >📄 بكالوريا 2025</a
                   >
@@ -1018,7 +1246,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/education_islamique/bac_educ_islam_2026.pdf"
+                    href="../Sujets_bac_LE/education_islamique/bac_educ_islam_2026.pdf"
                     target="_blank"
                     >📄 بكالوريا 2026</a
                   >
@@ -1033,7 +1261,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/Maths/bac_maths_2010.pdf"
+                    href="../Sujets_bac_GE/Maths/bac_math_GE_2010.pdf"
                     target="_blank"
                     >📄 بكالوريا 2010</a
                   >
@@ -1041,7 +1269,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/Maths/bac_maths_2015.pdf"
+                    href="../Sujets_bac_GE/Maths/bac_math_GE_2015.pdf"
                     target="_blank"
                     >📄 بكالوريا 2015</a
                   >
@@ -1049,7 +1277,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/Maths/bac_maths_2020.pdf"
+                    href="../Sujets_bac_GE/Maths/bac_math_GE_2020.pdf"
                     target="_blank"
                     >📄 بكالوريا 2020</a
                   >
@@ -1057,7 +1285,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/Maths/bac_maths_2025.pdf"
+                    href="../Sujets_bac_GE/Maths/bac_math_GE_2025.pdf"
                     target="_blank"
                     >📄 بكالوريا 2025</a
                   >
@@ -1065,7 +1293,7 @@
                 <li>
                   <a
                     class="dropdown-item py-1 m-0"
-                    href="../Sujets_bac/Maths/bac_maths_2026.pdf"
+                    href="../Sujets_bac_GE/Maths/bac_math_GE_2026.pdf"
                     target="_blank"
                     >📄 بكالوريا 2026</a
                   >
@@ -1078,105 +1306,63 @@
     </nav>
 
     <!-- SECTION HÉROS PERSONNALISÉE -->
-    <header class="hero-section mb-5">
+    <header class="hero-section py-5 mb-4">
       <div class="container">
-        <div class="row align-items-center justify-content-between g-5">
-          <!-- COLONNE DROITE : Texte principal harmonisé -->
-          <div class="col-lg-7 text-center text-lg-start">
-            <!-- Session en grand caractère (alignement harmonisé) -->
-            <div
-              class="display-5 fw-bold text-warning mb-2 text-center text-lg-start"
-            >
-              <span class="ar-text">دورة 2026 / 2027</span>
-              <span class="fr-text">Session 2026 / 2027</span>
+        <div class="row align-items-center justify-content-center">
+          <!-- COLONNE CENTRÉE : Occupe l'espace de manière harmonieuse -->
+          <div class="col-lg-10 text-center">
+            <!-- Session en grand caractère -->
+            <div class="display-5 fw-bold text-warning mb-3">
+              <span class="ar-text">دورة 2027</span>
+              <span class="fr-text">Session 2027</span>
             </div>
 
-            <!-- Filière (alignement harmonisé) -->
-            <h3
-              class="h4 text-light fw-semibold mb-4 opacity-90 text-center text-lg-start"
-            >
-              <span class="ar-text">شعبة لغات أجنبية - بوابتك نحو الجامعة</span>
+            <!-- Filière -->
+            <h3 class="h4 text-light fw-semibold mb-4 opacity-90">
+              <span class="ar-text"
+                >شعبة تسيير و اقتصاد - بوابتك نحو الجامعة</span
+              >
               <span class="fr-text"
-                >Filière Langues Étrangères - Ta passerelle vers
+                >Filière Gestion & Économie - Ta passerelle vers
                 l'Université</span
               >
             </h3>
 
             <!-- Titre fort -->
             <h1 class="display-6 fw-bold mb-3 ar-text">
-              البكالوريا بين يديك، اصنعي مستقبلك
+              البكالوريا بين يديك، اصنع مستقبلك
             </h1>
             <h1 class="display-6 fw-bold mb-3 fr-text">
-              Ton Bac à portée de main, Naïma, construis ton avenir
+              Ton Bac à portée de main, construis ton avenir
             </h1>
 
-            <!-- Phrases et citations inspirantes -->
-            <p class="lead opacity-90 mb-4 ar-text" style="line-height: 1.8">
+            <!-- Phrases et citations inspirantes avec largeur contrôlée pour la lisibilité -->
+            <p
+              class="lead opacity-90 mb-4 ar-text mx-auto"
+              style="max-width: 850px; line-height: 1.8"
+            >
               هذه الخطوة ليست مجرد امتحان، بل هي بداية حياة جديدة ومرحلة جامعية
-              حافلة بالآفاق الواسعة. ثقي بقدراتك، استمري في الاجتهاد، فكل لحظة
+              حافلة بالآفاق الواسعة. ثق بقدراتك، استمر في الاجتهاد، فكل لحظة
               مراجعة تقربك أكثر من حلمك الكبير.
             </p>
-            <p class="lead opacity-90 mb-4 fr-text" style="line-height: 1.8">
+            <p
+              class="lead opacity-90 mb-4 fr-text mx-auto"
+              style="max-width: 850px; line-height: 1.8"
+            >
               Cette étape n'est pas qu'un simple examen, c'est le tremplin vers
               une nouvelle vie et une autonomie épanouissante à l'université.
               Crois en toi, chaque effort d'aujourd'hui ouvre les portes de ton
               succès de demain.
             </p>
 
-            <div class="text-center text-lg-start">
+            <!-- Bouton d'action centré -->
+            <div class="text-center">
               <a
-                href="#contenu-app"
                 class="btn btn-custom btn-lg px-5 py-3 rounded-pill shadow-sm fw-bold"
               >
-                <span class="ar-text">ابدأ المراجعة الآن</span
-                ><span class="fr-text">Commencer les révisions</span>
+                <span class="ar-text">ابدأ المراجعة الآن</span>
+                <span class="fr-text">Commencer les révisions</span>
               </a>
-            </div>
-          </div>
-
-          <!-- COLONNE GAUCHE : Carrousel secondaire (Encouragements discrets) -->
-          <div class="col-lg-5 text-center">
-            <p class="small text-warning mb-2 fw-semibold">
-              <span class="ar-text">✨ محطات وذكريات </span
-              ><span class="fr-text">✨ Souvenirs & Motivations</span>
-            </p>
-
-            <div
-              id="studentCarousel"
-              class="carousel slide hero-carousel"
-              data-bs-ride="carousel"
-            >
-              <!-- Indicateurs générés par JS -->
-              <div class="carousel-indicators" id="carouselIndicators"></div>
-
-              <!-- Éléments du carrousel générés par JS -->
-              <div class="carousel-inner" id="carouselInner"></div>
-
-              <!-- Contrôles -->
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#studentCarousel"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#studentCarousel"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
             </div>
           </div>
         </div>
@@ -1278,9 +1464,9 @@
       <div class="container">
         <p class="mb-1 small opacity-75">
           <span class="ar-text"
-            >© 2026/2027 - تطبيق البكالوريا لغات أجنبية</span
+            >© 2026/2027 - تطبيق البكالوريا تسيير واقتصاد</span
           >
-          <span class="fr-text">© 2026/2027 - BacApp Langues Étrangères</span>
+          <span class="fr-text">© 2026/2027 - BacApp Gestion & Économie</span>
         </p>
         <p class="mb-0 extra-small opacity-50">
           تم التصميم خصيصاً للمساعدة في النجاح

@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 05 : مؤونات الخصوم غير الجارية | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="1_0_presentation_trav_fin_ex.html"
+            >
+              المجال 01 : أعمال نهاية السنة
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_compta.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 01"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_amortissements.html" class="btn btn-sm compta-pill-btn"
+            >01. الاهتلاك والتنازل</a
+          >
+          <a href="1_2_perte_valeur.html" class="btn btn-sm compta-pill-btn"
+            >02. خسارة القيمة</a
+          >
+          <a href="1_3_regul_stock.html" class="btn btn-sm compta-pill-btn"
+            >03. تسوية المخزونات</a
+          >
+          <a href="1_4_autres_actifs.html" class="btn btn-sm compta-pill-btn"
+            >04. أصول أخرى والتقارب البنكي</a
+          >
+          <a
+            href="1_5_provisions.html"
+            class="btn btn-sm compta-pill-btn active-pill"
+            >05. المؤونات</a
+          >
+          <a
+            href="1_6_regul_charges_produits.html"
+            class="btn btn-sm compta-pill-btn"
+            >06. الأعباء والمنتوجات</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span
+          class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2"
+        >
+          المجال 01 : أعمال نهاية السنة
+          <span class="fr-term">(Travaux de fin d'exercice)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 05 : مؤونات الخصوم غير الجارية
+          <span class="fr-term"
+            >(Provisions pour risques et charges - ح/ 15)</span
+          >
+        </h1>
+        <p class="mb-0 opacity-90">
+          تكوين المؤونات، تعديلها بالزيادة أو النقصان، واسترجاعها مع تطبيقات من
+          مستوى البكالوريا.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أن هناك نزاعاً قضائياً جارياً مع عامل أو مورد، وتُشير تقديرات
+            المحامي إلى أنك قد تضطر لدفع تعويض يقدّر بـ
+            <strong class="num-ltr">180 000</strong> <strong>دج</strong> خلال
+            السنة القادمة. المبلغ لم يُدفع بعد، لكن الخطر محتمل ومحدد القيمة،
+            فمن الحكمة أن تضع هذا المبلغ في حسابك منذ الآن حتى لا تفاجئك النتيجة
+            مستقبلاً.
+          </p>
+        </div>
+
+        <p>
+          في المؤسسة، تُمثل
+          <span class="fr-term"
+            >(Provisions pour risques et charges - ح/ 15)</span
+          >
+          <strong>مؤونات الخصوم غير الجارية</strong> التزامات أو أعباء أو مخاطر
+          محتملة ذات قيمة محددة بدقة أو قابلة للتقدير، متوقعة الحدوث في دورات
+          مستقبلية نتيجة أحداث وقعت قبل <bdi dir="ltr">31/12</bdi>، وذلك تطبيقاً
+          لـ <span class="fr-term">(Principe de prudence)</span>
+          <strong>مبدأ الحيطة والحذر</strong> و<span class="fr-term"
+            >(Principe d'indépendance des exercices)</span
+          >
+          <strong>مبدأ استقلالية الدورات</strong>.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من التمييز بين تكوين
+                <span class="fr-term">(Provision)</span>
+                <strong>المؤونة</strong> وتعديلها واسترجاعها، وحساب مبلغ التسوية
+                ومقارنة المؤونة الجديدة بالسابقة وتسجيل القيود في
+                <span class="fr-term">(Journal)</span>
+                <strong>دفتر اليومية</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">
+                ماذا ستتعلم في هذا الدرس؟
+              </h3>
+              <ul class="small mb-0 compta-list">
+                <li>
+                  مفهوم المؤونات في حساب
+                  <strong class="num-ltr">15</strong> (مؤونات الأخطار ح/
+                  <span class="num-ltr">151</span>، مؤونات الأعباء ح/
+                  <span class="num-ltr">158</span>).
+                </li>
+                <li>
+                  تكوين مؤونة جديدة في <bdi dir="ltr">31/12</bdi> (ح/
+                  <span class="num-ltr">681</span> إلى ح/
+                  <span class="num-ltr">15...</span>).
+                </li>
+                <li>
+                  تعديل المؤونة بالزيادة (ح/ <span class="num-ltr">681</span>)
+                  أو بالنقصان / الاسترجاع (ح/ <span class="num-ltr">781</span>).
+                </li>
+                <li>إلغاء المؤونة عند زوال الخطر أو تحقق العبء.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق لمؤونات الخصوم غير الجارية
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">
+          1. حالات تعديل المؤونة في <bdi dir="ltr">31/12</bdi>
+        </h3>
+        <p>
+          عند وجود مؤونة سابقة مسجلة في حساب
+          <strong class="num-ltr">15...</strong> (مثل ح/
+          <strong class="num-ltr">151</strong> مؤونات الأخطار أو ح/
+          <strong class="num-ltr">158</strong> مؤونات الأعباء)، نقارن
+          <span class="num-ltr">P<sub>جديدة</sub></span> بـ
+          <span class="num-ltr">P<sub>سابقة</sub></span> :
+        </p>
+        <div class="compta-formula">
+          <div>
+            <strong
+              >1) زيادة المؤونة (<span class="num-ltr"
+                >P<sub>جديدة</sub> &gt; P<sub>سابقة</sub></span
+              >) :</strong
+            >
+            نسجل الفرق (<span class="num-ltr"
+              >P<sub>جديدة</sub> &minus; P<sub>سابقة</sub></span
+            >) في المدين ح/ <strong class="num-ltr">681</strong> وفي الدائن ح/
+            <strong class="num-ltr">15...</strong>.
+          </div>
+          <div>
+            <strong
+              >2) إنقاص المؤونة جزئياً (<span class="num-ltr"
+                >P<sub>جديدة</sub> &lt; P<sub>سابقة</sub></span
+              >
+              و<span class="num-ltr">P<sub>جديدة</sub> &gt; 0</span>) :</strong
+            >
+            نسجل الفرق (<span class="num-ltr"
+              >P<sub>سابقة</sub> &minus; P<sub>جديدة</sub></span
+            >) في المدين ح/ <strong class="num-ltr">15...</strong> وفي الدائن ح/
+            <strong class="num-ltr">781</strong>.
+          </div>
+          <div>
+            <strong
+              >3) إلغاء / استرجاع كلي (<span class="num-ltr"
+                >P<sub>جديدة</sub> = 0</span
+              >
+              أو زوال الخطر) :</strong
+            >
+            نُلغي كامل <span class="num-ltr">P<sub>سابقة</sub></span> في المدين
+            ح/ <strong class="num-ltr">15...</strong> وفي الدائن ح/
+            <strong class="num-ltr">781</strong>.
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">
+          2. القيود المحاسبية الأساسية في
+          <span class="fr-term">(Journal)</span> دفتر اليومية
+        </h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>العملية</th>
+                <th>التاريخ</th>
+                <th>رقم الحساب</th>
+                <th>البيان المحاسبي</th>
+                <th>مدين <span class="fr-term">(Débit)</span></th>
+                <th>دائن <span class="fr-term">(Crédit)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2"><strong>تكوين أو زيادة المؤونة</strong></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">681</strong></td>
+                <td>
+                  مخصصات للاهتلاكات والمؤونات وخسائر القيمة - الأصول غير الجارية
+                </td>
+                <td>مبلغ التكوين أو الزيادة</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">151</strong></td>
+                <td>مؤونات الأخطار</td>
+                <td></td>
+                <td>مبلغ التكوين أو الزيادة</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>إنقاص أو استرجاع المؤونة</strong></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">151</strong></td>
+                <td>مؤونات الأخطار</td>
+                <td>مبلغ الاسترجاع</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">781</strong></td>
+                <td>
+                  استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول غير
+                  الجارية
+                </td>
+                <td></td>
+                <td>مبلغ الاسترجاع</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            بتاريخ <strong class="num-ltr">31/12/2025</strong>، تضمنت معلومات
+            الجرد لمؤسسة "الرشاد" الحالتين التاليتين المتعلقتين بمؤونات الخصوم
+            غير الجارية (ح/ <strong class="num-ltr">15</strong>) :
+          </p>
+          <ul class="mb-3">
+            <li>
+              <strong>نزاع قضائي مع أحد العمال :</strong> كانت المؤونة المسجلة
+              سابقاً في ح/ <strong class="num-ltr">151</strong> تساوي
+              <strong class="num-ltr">250 000</strong> <strong>دج</strong>، وفي
+              <bdi dir="ltr">31/12/2025</bdi> قدّر الخبير القانوني التعويض
+              المحتمل بـ <strong class="num-ltr">310 000</strong>
+              <strong>دج</strong>.
+            </li>
+            <li>
+              <strong
+                >مؤونة أعباء كبيرة (ح/ <strong class="num-ltr">158</strong>)
+                :</strong
+              >
+              كانت المؤونة المسجلة سابقاً تساوي
+              <strong class="num-ltr">140 000</strong> <strong>دج</strong>، وفي
+              <bdi dir="ltr">31/12/2025</bdi> أصبحت التقديرات الجديدة تساوي
+              <strong class="num-ltr">95 000</strong> <strong>دج</strong>.
+            </li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>
+              احسب مبلغ التعديل لكل مؤونة بتاريخ
+              <bdi dir="ltr">31/12/2025</bdi> وحدد طبيعته (زيادة أو إنقاص).
+            </li>
+            <li>
+              سجل قيود التسوية اللازمة في <span class="fr-term">(Journal)</span>
+              <strong>دفتر اليومية</strong>.
+            </li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">
+            شرح الحسابات خطوة بخطوة :
+          </h3>
+
+          <p class="mb-1">
+            <strong
+              >الخطوة 1 — تعديل مؤونة الأخطار (ح/
+              <strong class="num-ltr">151</strong>) :</strong
+            >
+          </p>
+          <ul class="mb-3">
+            <li>
+              المؤونة الجديدة (<bdi dir="ltr">310 000</bdi> دج) أكبر من السابقة
+              (<bdi dir="ltr">250 000</bdi> دج)، إذن هناك
+              <strong>زيادة</strong> :
+              <div class="my-2">
+                <strong
+                  >الزيادة =
+                  <bdi dir="ltr">310 000 &minus; 250 000 = 60 000</bdi>
+                  دج</strong
+                >
+              </div>
+            </li>
+            <li>
+              تُسجل في المدين ح/ <strong class="num-ltr">681</strong> وفي الدائن
+              ح/ <strong class="num-ltr">151</strong>.
+            </li>
+          </ul>
+
+          <p class="mb-1">
+            <strong
+              >الخطوة 2 — تعديل مؤونة الأعباء (ح/
+              <strong class="num-ltr">158</strong>) :</strong
+            >
+          </p>
+          <ul class="mb-3">
+            <li>
+              المؤونة الجديدة (<bdi dir="ltr">95 000</bdi> دج) أقل من السابقة
+              (<bdi dir="ltr">140 000</bdi> دج)، إذن هناك
+              <strong>إنقاص / استرجاع</strong> :
+              <div class="my-2">
+                <strong
+                  >الاسترجاع =
+                  <bdi dir="ltr">140 000 &minus; 95 000 = 45 000</bdi>
+                  دج</strong
+                >
+              </div>
+            </li>
+            <li>
+              يُسجل في المدين ح/ <strong class="num-ltr">158</strong> وفي الدائن
+              ح/ <strong class="num-ltr">781</strong>.
+            </li>
+          </ul>
+
+          <div class="table-responsive mb-0">
+            <table
+              class="table table-bordered align-middle text-center mb-0 bg-white"
+            >
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">681</strong></td>
+                  <td>
+                    مخصصات للاهتلاكات والمؤونات وخسائر القيمة - الأصول غير
+                    الجارية
+                  </td>
+                  <td><span class="num-ltr">60 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">151</strong></td>
+                  <td>مؤونات الأخطار</td>
+                  <td></td>
+                  <td><span class="num-ltr">60 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">158</strong></td>
+                  <td>مؤونات الأعباء الأخرى - الخصوم غير الجارية</td>
+                  <td><span class="num-ltr">45 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">781</strong></td>
+                  <td>
+                    استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول غير
+                    الجارية
+                  </td>
+                  <td></td>
+                  <td><span class="num-ltr">45 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          كانت مؤسسة "البدر" قد كوّنت مؤونة للأخطار (ح/
+          <strong class="num-ltr">151</strong>) بمبلغ
+          <strong class="num-ltr">200 000</strong> <strong>دج</strong> بتاريخ
+          <bdi dir="ltr">31/12/2024</bdi> تحسباً لقضية مرفوعة ضدها.
+        </p>
+        <p class="mb-3">
+          بتاريخ <strong class="num-ltr">31/12/2025</strong>، صدر حكم نهائي
+          لصالح المؤسسة وأُسقطت الدعوى دون أي تعويض.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : ما هو الإجراء المحاسبي الواجب بتاريخ
+          <bdi dir="ltr">31/12/2025</bdi>؟ وسجل القيد المناسب في
+          <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution1_5"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution1_5" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">
+            الحل النموذجي لتمرين التفكير :
+          </h3>
+          <p class="mb-2">
+            <strong>1. تحليل الوضعية :</strong><br />
+            بما أن الحكم صدر لصالح المؤسسة وزال الخطر نهائياً (<span
+              class="num-ltr"
+              >P<sub>جديدة</sub> = <bdi dir="ltr">0</bdi> دج</span
+            >)، أصبحت المؤونة السابقة (<strong class="num-ltr"
+              ><bdi dir="ltr">200 000</bdi> دج</strong
+            >) بلا مبرر، فيجب <strong>استرجاعها بالكامل</strong> بجعل ح/
+            <strong class="num-ltr">151</strong> مديناً وح/
+            <strong class="num-ltr">781</strong> دائناً.
+          </p>
+          <div class="table-responsive mb-0">
+            <table
+              class="table table-bordered align-middle text-center mb-0 bg-white"
+            >
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">151</strong></td>
+                  <td>مؤونات الأخطار</td>
+                  <td><span class="num-ltr">200 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">781</strong></td>
+                  <td>
+                    استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول غير
+                    الجارية
+                  </td>
+                  <td></td>
+                  <td><span class="num-ltr">200 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

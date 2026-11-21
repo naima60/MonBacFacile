@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 01 : التمويل والاستثمار | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="3_0_presentation_fin_inverst.html">
+              المجال 03 : التمويل والاستثمار
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 03">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 03 :</span>
+          <a href="3_0_presentation_fin_inverst.html" class="btn btn-sm compta-pill-btn">00. تقديم المجال</a>
+          <a href="3_1_financement_investissement.html" class="btn btn-sm compta-pill-btn active-pill">01. التمويل والاستثمار</a>
+          <a href="3_2_emprunt.html" class="btn btn-sm compta-pill-btn">02. استهلاك القروض</a>
+          <a href="3_3_choix_des_projets.html" class="btn btn-sm compta-pill-btn">03. اختيار المشاريع</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 03 : تمويل واختيار المشاريع الاستثمارية
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 01 : التمويل والاستثمار <span class="fr-term">(Financement et investissement)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          فهم أنواع الاستثمار ومصادر التمويل، وحساب قدرة التمويل الذاتي <span class="num-ltr">CAF</span> والتمويل الذاتي <span class="num-ltr">AF</span> خطوة بخطوة.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">أولاً : السياق والهدف من الدرس</h2>
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">مثال واقعي بسيط :</h3>
+          <p class="mb-0">
+            تريد مخبزة أو ورشة خياطة شراء آلة جديدة بقيمة <strong class="num-ltr">600 000</strong> <strong>دج</strong>. اقتناء الآلة هو <strong>استثمار</strong> <span class="fr-term">(Investissement)</span> لأنه يدرّ منافع لعدة سنوات، والبحث عن المال لدفع ثمنها هو <strong>التمويل</strong> <span class="fr-term">(Financement)</span> : إما من موارد المؤسسة نفسها (التمويل الذاتي) أو عبر قرض بنكي أو زيادة رأس المال.
+          </p>
+        </div>
+        <p class="mb-0">
+          في البكالوريا، يركّز هذا المحور على <strong>قدرة التمويل الذاتي</strong> <span class="fr-term">(Capacité d'Autofinancement — CAF)</span> التي تمثل المورد المالي الداخلي المتولد من نشاط المؤسسة، ثم <strong>التمويل الذاتي</strong> <span class="fr-term">(Autofinancement — AF)</span> بعد طرح الأرباح الموزعة على الشركاء.
+        </p>
+      </section>
+
+      <!-- 2. الشرح المعمق -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">ثانياً : الشرح المعمق والقوانين الأساسية</h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. أنواع الاستثمار ومصادر التمويل</h3>
+        <ul class="compta-list">
+          <li><strong>أنواع الاستثمار :</strong> استثمار التجديد (تعويض تثبيت قديم)، استثمار التوسع (زيادة الطاقة الإنتاجية)، واستثمار الإنتاجية/التحديث (تحسين الفعالية وخفض التكاليف).</li>
+          <li><strong>مصادر التمويل :</strong> تمويل داخلي (التمويل الذاتي <span class="num-ltr">AF</span>) وتمويل خارجي (قروض بنكية، زيادة رأس المال، إعانات).</li>
+        </ul>
+
+  <h3 class="h5 fw-bold mt-4 mb-3">2. طرق حساب قدرة التمويل الذاتي (CAF) والتمويل الذاتي (AF)</h3>
+        <div class="compta-formula">
+          <!-- الطريقة 1 -->
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">الطريقة الأولى : انطلاقاً من النتيجة الصافية للسنة المالية</div>
+
+            <div class="p-3 rounded bg-light border mb-2 lh-lg">
+              <div class="fw-bold">قدرة التمويل الذاتي (<span class="num-ltr">CAF</span>) = النتيجة الصافية للسنة المالية</div>
+              <div>+ مخصصات الاهتلاكات والمؤونات وخسائر القيمة (حـ/ <span class="num-ltr">68</span>)</div>
+              <div>- الاسترجاعات عن خسائر القيمة والمؤونات (حـ/ <span class="num-ltr">78</span>)</div>
+              <div>+ نواقص القيمة عن خروج أصول مثبتة غير مالية (حـ/ <span class="num-ltr">652</span>)</div>
+              <div>- فوائض القيمة عن خروج أصول مثبتة غير مالية (حـ/ <span class="num-ltr">752</span>)</div>
+              <div>+ فارق التقييم عن أصول مالية — نواقص قيمة (حـ/ <span class="num-ltr">665</span>)</div>
+              <div>+ الخسائر الصافية عن عمليات التنازل عن أصول مالية (حـ/ <span class="num-ltr">667</span>)</div>
+              <div>- فارق التقييم عن أصول مالية — فوائض قيمة (حـ/ <span class="num-ltr">765</span>)</div>
+              <div>- الأرباح الصافية عن عمليات التنازل عن أصول مالية (حـ/ <span class="num-ltr">767</span>)</div>
+            </div>
+
+            <div class="fr-term p-3 rounded bg-light border text-muted small lh-lg" dir="ltr">
+              <div class="fw-bold">CAF = Résultat net</div>
+              <div>+ Dotations aux amortissements, provisions et pertes de valeur (68)</div>
+              <div>- Reprises sur pertes de valeur et provisions (78)</div>
+              <div>+ Moins-values / VNC sur sorties d'actifs non financiers (652)</div>
+              <div>- Plus-values / Produits de cession d'actifs non financiers (752)</div>
+              <div>+ Écart d'évaluation sur actifs financiers — moins-values (665)</div>
+              <div>+ Pertes nettes sur cessions d'actifs financiers (667)</div>
+              <div>- Écart d'évaluation sur actifs financiers — plus-values (765)</div>
+              <div>- Profits nets sur cessions d'actifs financiers (767)</div>
+            </div>
+          </div>
+
+          <!-- الطريقة 2 -->
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">الطريقة الثانية : انطلاقاً من إجمالي فائض الاستغلال (EBE)</div>
+
+            <div class="p-3 rounded bg-light border mb-2 lh-lg">
+              <div class="fw-bold">قدرة التمويل الذاتي (<span class="num-ltr">CAF</span>) = إجمالي فائض الاستغلال (<span class="num-ltr">EBE</span>)</div>
+              <div>+ المنتوجات العملياتية الأخرى (حـ/ <span class="num-ltr">75</span> ما عدا حـ/ <span class="num-ltr">752</span>)</div>
+              <div>- الأعباء العملياتية الأخرى (حـ/ <span class="num-ltr">65</span> ما عدا حـ/ <span class="num-ltr">652</span>)</div>
+              <div>+ المنتوجات المالية (حـ/ <span class="num-ltr">76</span> ما عدا حـ/ <span class="num-ltr">765</span> و حـ/ <span class="num-ltr">767</span>)</div>
+              <div>- الأعباء المالية (حـ/ <span class="num-ltr">66</span> ما عدا حـ/ <span class="num-ltr">665</span> و حـ/ <span class="num-ltr">667</span>)</div>
+              <div>- الضرائب الواجب دفعها عن النتائج العادية (حـ/ <span class="num-ltr">695</span>)</div>
+            </div>
+
+            <div class="fr-term p-3 rounded bg-light border text-muted small lh-lg" dir="ltr">
+              <div class="fw-bold">CAF = EBE</div>
+              <div>+ Autres produits opérationnels (75 hors 752)</div>
+              <div>- Autres charges opérationnelles (65 hors 652)</div>
+              <div>+ Produits financiers (76 hors 765 et 767)</div>
+              <div>- Charges financières (66 hors 665 et 667)</div>
+              <div>- Impôts exigibles sur les résultats ordinaires (695)</div>
+            </div>
+          </div>
+
+          <!-- التمويل الذاتي -->
+          <div class="p-3 rounded-3 bg-white border">
+            <div class="fw-bold text-primary mb-2">التمويل الذاتي <span class="fr-term">(Autofinancement)</span></div>
+
+            <div class="p-3 rounded bg-light border mb-2 lh-lg fw-bold">
+              التمويل الذاتي (<span class="num-ltr">AF</span>) = قدرة التمويل الذاتي (<span class="num-ltr">CAF</span>) - الأرباح الموزعة
+            </div>
+
+            <div class="fr-term p-3 rounded bg-light border text-muted small lh-lg" dir="ltr">
+              AF = CAF - Dividendes distribués
+            </div>
+          </div>
+        </div>
+
+
+      </section>
+
+      <!-- 3. مثال تطبيقي محلول خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">ثالثاً : مثال تطبيقي واقعي مع تفاصيل الحساب</h2>
+        <div class="compta-example">
+          <p class="mb-2">
+            حققت مؤسسة خلال السنة نتيجة صافية قدرها <strong class="num-ltr">400 000</strong> <strong>دج</strong>، وكانت لديها العناصر التالية : مخصصات الاهتلاك والمؤونات (حـ/ <span class="num-ltr">68</span>) = <strong class="num-ltr">120 000</strong> <strong>دج</strong>، فوائض القيمة عن خروج تثبيتات (حـ/ <span class="num-ltr">752</span>) = <strong class="num-ltr">20 000</strong> <strong>دج</strong>، نواقص القيمة (حـ/ <span class="num-ltr">652</span>) = <strong class="num-ltr">10 000</strong> <strong>دج</strong>، والأرباح الموزعة تمثل <strong class="num-ltr">25%</strong> من النتيجة الصافية.
+          </p>
+          <hr class="my-3" />
+          <p class="mb-2"><strong>الخطوة 1 — حساب قدرة التمويل الذاتي (<span class="num-ltr">CAF</span>) :</strong></p>
+          <ul class="mb-3">
+            <li class="mb-1">نبدأ بالنتيجة الصافية : <strong class="num-ltr">400 000</strong> <strong>دج</strong></li>
+            <li class="mb-1">نضيف الأعباء غير النقدية (حـ/ <span class="num-ltr">68</span>) : <strong class="num-ltr">+ 120 000</strong> <strong>دج</strong></li>
+            <li class="mb-1">نضيف نواقص القيمة (حـ/ <span class="num-ltr">652</span>) : <strong class="num-ltr">+ 10 000</strong> <strong>دج</strong>، ونطرح فوائض القيمة (حـ/ <span class="num-ltr">752</span>) : <strong class="num-ltr">- 20 000</strong> <strong>دج</strong></li>
+            <li class="mb-1">
+              النتيجة :
+              <div class="p-2 mt-1 rounded bg-white border fw-bold" dir="ltr">
+                CAF = 400 000 + 120 000 + 10 000 - 20 000 = 510 000 DA
+              </div>
+            </li>
+          </ul>
+          <p class="mb-2"><strong>الخطوة 2 — حساب الأرباح الموزعة ثم التمويل الذاتي (<span class="num-ltr">AF</span>) :</strong></p>
+          <ul class="mb-0">
+            <li class="mb-2">
+              الأرباح الموزعة :
+              <div class="p-2 mt-1 rounded bg-white border" dir="ltr">
+                Dividendes = 400 000 × 0,25 = 100 000 DA
+              </div>
+            </li>
+            <li>
+              التمويل الذاتي :
+              <div class="p-2 mt-1 rounded bg-white border fw-bold" dir="ltr">
+                AF = 510 000 - 100 000 = 410 000 DA
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. أربعة تمارين من البسيط إلى المعقد بحلول مخفية -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">رابعاً : أربعة تمارين تدريجية (من البسيط إلى المعقد)</h2>
+
+        <!-- تمرين 1 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 1 (بسيط) : حساب <span class="num-ltr">CAF</span> و <span class="num-ltr">AF</span> مباشرة</h3>
+          <p class="small mb-2">
+            نتيجة صافية = <strong class="num-ltr">250 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">68</span> = <strong class="num-ltr">90 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">78</span> = <strong class="num-ltr">15 000</strong> <strong>دج</strong>، والأرباح الموزعة = <strong class="num-ltr">50 000</strong> <strong>دج</strong>. احسب <span class="num-ltr">CAF</span> و <span class="num-ltr">AF</span>.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_1_1">إظهار الحل</button>
+          <div id="sol3_1_1" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small fw-bold" dir="ltr">
+              CAF = 250 000 + 90 000 - 15 000 = 325 000 DA
+            </div>
+            <div class="p-2 rounded bg-white border small fw-bold" dir="ltr">
+              AF = 325 000 - 50 000 = 275 000 DA
+            </div>
+          </div>
+        </div>
+
+        <!-- تمرين 2 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 2 (متوسط) : <span class="num-ltr">CAF</span> انطلاقاً من <span class="num-ltr">EBE</span></h3>
+          <p class="small mb-2">
+            <span class="num-ltr">EBE = 600 000</span> <strong>دج</strong>، حـ/ <span class="num-ltr">75</span> (عادي) = <strong class="num-ltr">40 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">65</span> (عادي) = <strong class="num-ltr">30 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">66</span> = <strong class="num-ltr">50 000</strong> <strong>دج</strong>، والضريبة على النتائج = <strong class="num-ltr">108 750</strong> <strong>دج</strong>. احسب <span class="num-ltr">CAF</span>.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_1_2">إظهار الحل</button>
+          <div id="sol3_1_2" class="d-none mt-3 compta-example">
+            <div class="p-2 rounded bg-white border small fw-bold" dir="ltr">
+              CAF = 600 000 + 40 000 - 30 000 - 50 000 - 108 750 = 451 250 DA
+            </div>
+          </div>
+        </div>
+
+        <!-- تمرين 3 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 3 (فوق المتوسط — مستوحى من بكالوريا 2026)</h3>
+          <p class="small mb-2">
+            النتيجة الصافية = <strong class="num-ltr">810 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">68</span> = <strong class="num-ltr">196 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">752</span> = <strong class="num-ltr">15 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">652</span> = <strong class="num-ltr">30 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">765</span> = <strong class="num-ltr">10 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">767</span> = <strong class="num-ltr">12 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">665</span> = <strong class="num-ltr">31 000</strong> <strong>دج</strong>، حـ/ <span class="num-ltr">667</span> = <strong class="num-ltr">28 000</strong> <strong>دج</strong>، والأرباح الموزعة <strong class="num-ltr">30%</strong>. احسب <span class="num-ltr">CAF</span> و <span class="num-ltr">AF</span>.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_1_3">إظهار الحل</button>
+          <div id="sol3_1_3" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small fw-bold" dir="ltr">
+              CAF = 810 000 + 196 000 + 30 000 - 15 000 + 31 000 + 28 000 - 10 000 - 12 000 = 1 058 000 DA
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              Dividendes = 810 000 × 0,30 = 243 000 DA
+            </div>
+            <div class="p-2 rounded bg-white border small fw-bold" dir="ltr">
+              AF = 1 058 000 - 243 000 = 815 000 DA
+            </div>
+          </div>
+        </div>
+
+        <!-- تمرين 4 -->
+        <div class="p-3 rounded-3 border bg-light">
+          <h3 class="h6 fw-bold text-primary">التمرين 4 (معقد — مستوحى من بكالوريا 2025)</h3>
+          <p class="small mb-2">
+            إنتاج السنة = <strong class="num-ltr">8 600 000</strong> <strong>دج</strong>، استهلاك السنة = <strong class="num-ltr">4 600 000</strong> <strong>دج</strong>، أعباء المستخدمين <strong class="num-ltr">30%</strong> من القيمة المضافة، الضرائب والرسوم <strong class="num-ltr">10%</strong> من القيمة المضافة. علماً أن حـ/ <span class="num-ltr">75</span> = <strong class="num-ltr">250 000</strong> (منها <span class="num-ltr">92 500</span> حـ/ <span class="num-ltr">752</span>)، حـ/ <span class="num-ltr">76</span> = <strong class="num-ltr">110 000</strong> (حـ/ <span class="num-ltr">765</span> = <strong class="num-ltr">40 000</strong>، حـ/ <span class="num-ltr">767</span> = <strong class="num-ltr">27 500</strong>)، حـ/ <span class="num-ltr">65</span> = <strong class="num-ltr">180 000</strong> (حـ/ <span class="num-ltr">652</span> = <strong class="num-ltr">50 000</strong>)، حـ/ <span class="num-ltr">66</span> = <strong class="num-ltr">300 000</strong> (حـ/ <span class="num-ltr">665</span> = <strong class="num-ltr">60 000</strong>، حـ/ <span class="num-ltr">667</span> = <strong class="num-ltr">30 000</strong>)، والضريبة = <strong class="num-ltr">380 000</strong> <strong>دج</strong>. احسب <span class="num-ltr">VA</span>، <span class="num-ltr">EBE</span>، ثم <span class="num-ltr">CAF</span>.
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_1_4">إظهار الحل</button>
+          <div id="sol3_1_4" class="d-none mt-3 compta-example">
+            <p class="small fw-bold mb-1">1. حساب القيمة المضافة (<span class="num-ltr">VA</span>) وإجمالي فائض الاستغلال (<span class="num-ltr">EBE</span>) :</p>
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              VA = 8 600 000 - 4 600 000 = 4 000 000 DA<br />
+              Charges de personnel = 4 000 000 × 30% = 1 200 000 DA<br />
+              Impôts et taxes = 4 000 000 × 10% = 400 000 DA<br />
+              <strong>EBE = 4 000 000 - 1 200 000 - 400 000 = 2 400 000 DA</strong>
+            </div>
+
+            <p class="small fw-bold mb-1">2. تحديد العناصر المأخوذة في الحسبان لـ <span class="num-ltr">CAF</span> :</p>
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              Compte 75 (hors 752) = 250 000 - 92 500 = +157 500 DA<br />
+              Compte 76 (hors 765, 767) = 110 000 - 40 000 - 27 500 = +42 500 DA<br />
+              Compte 65 (hors 652) = -(180 000 - 50 000) = -130 000 DA<br />
+              Compte 66 (hors 665, 667) = -(300 000 - 60 000 - 30 000) = -210 000 DA<br />
+              Impôts sur les résultats = -380 000 DA
+            </div>
+
+            <p class="small fw-bold mb-1">3. حساب قدرة التمويل الذاتي (<span class="num-ltr">CAF</span>) :</p>
+            <div class="p-2 rounded bg-white border small fw-bold" dir="ltr">
+              CAF = 2 400 000 + 157 500 + 42 500 - 130 000 - 210 000 - 380 000 = 1 880 000 DA
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

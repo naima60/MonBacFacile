@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 03 : اختيار المشاريع الاستثمارية | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="3_0_presentation_fin_inverst.html">
+              المجال 03 : التمويل والاستثمار
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 03">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 03 :</span>
+          <a href="3_0_presentation_fin_inverst.html" class="btn btn-sm compta-pill-btn">00. تقديم المجال</a>
+          <a href="3_1_financement_investissement.html" class="btn btn-sm compta-pill-btn">01. التمويل والاستثمار</a>
+          <a href="3_2_emprunt.html" class="btn btn-sm compta-pill-btn">02. استهلاك القروض</a>
+          <a href="3_3_choix_des_projets.html" class="btn btn-sm compta-pill-btn active-pill">03. اختيار المشاريع</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 03 : تمويل واختيار المشاريع الاستثمارية
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 03 : اختيار المشاريع الاستثمارية <span class="fr-term">(Choix des investissements)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          حساب التدفقات الصافية للخزينة <span class="num-ltr">CAF</span>، القيمة الحالية الصافية <span class="num-ltr">VAN</span>، وفترة الاسترداد <span class="num-ltr">DR</span> لاتخاذ قرار استثماري سليم
+        </p>
+      </section>
+
+      <!-- 1. السياق -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">أولاً : السياق والهدف</h2>
+        <div class="compta-context mb-0">
+          <p class="mb-0">
+            دينار اليوم يساوي أكثر من دينار الغد بسبب التضخم وتكلفة الفرصة؛ لذلك نستخدم <strong>التحيين (الخصم)</strong> بمعدل $i$ لإرجاع التدفقات المستقبلية إلى لحظة الاستثمار $0$، ثم نحكم على المشروع عبر معياري <span class="num-ltr">VAN</span> و <span class="num-ltr">DR</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. القوانين -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">ثانياً : معايير المفاضلة والقرار</h2>
+        <div class="compta-formula">
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">التدفق الصافي للخزينة لسنة $p$ <span class="fr-term">(Flux net de trésorerie)</span></div>
+            <div class="fw-bold mb-2">
+              التدفق الصافي للخزينة للسنة $p$ = النتيجة الصافية للسنة $p$ + مخصصات الاهتلاك للسنة $p$
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $CAF_p = \text{Résultat net}_p + \text{Dotation aux amortissements}_p$
+            </div>
+          </div>
+
+          <div class="p-3 rounded-3 bg-white border mb-3">
+            <div class="fw-bold text-primary mb-2">القيمة الحالية الصافية <span class="fr-term">(Valeur Actuelle Nette — VAN)</span></div>
+            <div class="fw-bold mb-2">
+              القيمة الحالية الصافية = مجموع التدفقات الصافية المحيّنة + القيمة المتبقية المحيّنة - تكلفة الاستثمار ($I_0$)
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $VAN = \sum_{p=1}^{n} CAF_p \times (1 + i)^{-p} + VR \times (1 + i)^{-n} - I_0$
+            </div>
+          </div>
+
+          <div class="p-3 rounded-3 bg-white border">
+            <div class="fw-bold text-primary mb-2">فترة الاسترداد المحيّنة <span class="fr-term">(Délai de récupération actualisé — DR)</span></div>
+            <div class="fw-bold mb-2">
+              المدة اللازمة ليصل مجموع التدفقات الصافية المحيّنة المتراكمة إلى تكلفة الاستثمار ($I_0$)
+            </div>
+            <div class="text-muted small fw-bold" dir="ltr">
+              $DR = \text{Année } k + \frac{I_0 - \text{Cumul } CAF \text{ actualisés}_k}{CAF \text{ actualisé}_{k+1}} \times 360\text{ jours}$
+            </div>
+          </div>
+        </div>
+
+        <ul class="compta-list mt-3 mb-0">
+          <li><strong>قاعدة <span class="num-ltr">VAN</span> :</strong> يكون المشروع مربحاً إذا كانت $VAN > 0$، ونختار المشروع ذا $VAN$ الأكبر (الموجبة)</li>
+          <li><strong>قاعدة <span class="num-ltr">DR</span> :</strong> نختار المشروع الذي يسترد تكلفته في أقصر مدة</li>
+        </ul>
+      </section>
+
+      <!-- 3. مثال تطبيقي -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">ثالثاً : مثال تطبيقي مبسّط (سنتان)</h2>
+        <div class="compta-example">
+          <p class="mb-3">
+            $I_0 = 200\,000\text{ DA}$ : تكلفة آلة على سنتين، $CAF_1 = 120\,000\text{ DA}$ و $CAF_2 = 132\,000\text{ DA}$، ومعدل الخصم <bdi dir="ltr">10%</bdi> ($VR = 0$)
+          </p>
+          <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+            $CAF_1\text{ actualisé} = 120\ 000 \times (1{,}10)^{-1} = 120\ 000 \times 0{,}909091 = 109\ 090{,}92\text{ DA}$
+          </div>
+          <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+            $CAF_2\text{ actualisé} = 132\ 000 \times (1{,}10)^{-2} = 132\ 000 \times 0{,}826446 = 109\ 090{,}87\text{ DA}$
+          </div>
+          <div class="p-2 mb-2 rounded bg-white border small fw-bold" dir="ltr">
+            $VAN = 109\ 090{,}92 + 109\ 090{,}87 - 200\ 000 = +18\ 181{,}79\text{ DA}$
+          </div>
+          <p class="small fw-bold text-success mb-0">
+            المشروع مربح ومقبول لأن $VAN > 0$
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. أربعة تمارين تدريجية -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">رابعاً : أربعة تمارين تدريجية (من البسيط إلى المعقد)</h2>
+
+        <!-- تمرين 1 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 1 (بسيط) : حساب <span class="num-ltr">CAF</span> و <span class="num-ltr">VAN</span></h3>
+          <p class="small mb-2">
+            $I_0 = 150\,000\text{ DA}$ : تكلفة آلة، مدة $2$ سنة، اهتلاك خطي، نتيجة صافية سنوية $30\,000\text{ DA}$، ومعدل الخصم <bdi dir="ltr">10%</bdi>، احسب $CAF$ و $VAN$
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_3_1">إظهار الحل</button>
+          <div id="sol3_3_1" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              $\text{Dotation} = 150\ 000 \div 2 = 75\ 000\text{ DA} \implies CAF = 30\ 000 + 75\ 000 = 105\ 000\text{ DA}$
+            </div>
+            <div class="p-2 rounded bg-white border small fw-bold" dir="ltr">
+              $VAN = 105\ 000 \times (0{,}909091 + 0{,}826446) - 150\ 000 = 182\ 231{,}39 - 150\ 000 = +32\ 231{,}39\text{ DA}$
+            </div>
+          </div>
+        </div>
+
+        <!-- تمرين 2 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 2 (متوسط — مستوحى من بكالوريا 2026)</h3>
+          <p class="small mb-2">
+            $I_0 = 900\,000\text{ DA}$ : تكلفة آلة $E$، ومعدل التحيين <bdi dir="ltr">8%</bdi>، و $CAF$ المتوقعة : $430\,000\text{ DA}$ (س1)، $520\,000\text{ DA}$ (س2)، $300\,000\text{ DA}$ (س3)، $350\,000\text{ DA}$ (س4)، احسب فترة الاسترداد $DR$
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_3_2">إظهار الحل</button>
+          <div id="sol3_3_2" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              $CAF_1\text{ act.} = 398\ 148{,}14\text{ DA}$<br />
+              $CAF_2\text{ act.} = 445\ 816{,}18\text{ DA} \quad (\text{Cumul} = 843\ 964{,}32\text{ DA})$<br />
+              $CAF_3\text{ act.} = 238\ 149{,}67\text{ DA} \quad (\text{Cumul} = 1\ 082\ 113{,}99\text{ DA})$
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small fw-bold" dir="ltr">
+              $DR = 2 + \frac{900\ 000 - 843\ 964{,}32}{238\ 149{,}67} \times 360 = 2\text{ ans et } 85\text{ jours}$
+            </div>
+            <p class="small fw-bold mb-0">
+              أي أن فترة الاسترداد هي : <strong>سنتان و 85 يوماً</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- تمرين 3 -->
+        <div class="p-3 rounded-3 border bg-light mb-3">
+          <h3 class="h6 fw-bold text-primary">التمرين 3 (فوق المتوسط — مستوحى من بكالوريا 2026)</h3>
+          <p class="small mb-2">
+            $I_0 = 600\,000\text{ DA}$ : تكلفة آلة "د"، $4$ سنوات خطياً، $VR = 0$، ضريبة <bdi dir="ltr">19%</bdi>، تحيين <bdi dir="ltr">10%</bdi>، النتيجة قبل الضريبة : $40\,000\text{ DA}$ (س1)، $0\text{ DA}$ (س2)، $100\,000\text{ DA}$ (س3)، $30\,000\text{ DA}$ (س4)، احسب $CAF$ و $VAN$ وقارنها بالآلة "ك" ($VAN = +131\,425{,}82\text{ DA}$)
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_3_3">إظهار الحل</button>
+          <div id="sol3_3_3" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              $\text{Dotation} = 600\ 000 \div 4 = 150\ 000\text{ DA}$<br />
+              $CAF_1 = 182\ 400\text{ DA} \quad ; \quad CAF_2 = 150\ 000\text{ DA} \quad ; \quad CAF_3 = 231\ 000\text{ DA} \quad ; \quad CAF_4 = 174\ 300\text{ DA}$
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small fw-bold" dir="ltr">
+              $VAN = 582\ 388{,}07 - 600\ 000 = -17\ 611{,}93\text{ DA}$
+            </div>
+            <p class="small fw-bold mb-0">
+              نختار الآلة "ك" لأنها ذات مردودية ($VAN > 0$) بينما الآلة "د" ذات $VAN$ سالبة
+            </p>
+          </div>
+        </div>
+
+        <!-- تمرين 4 -->
+        <div class="p-3 rounded-3 border bg-light">
+          <h3 class="h6 fw-bold text-primary">التمرين 4 (معقد — مستوحى من بكالوريا 2015)</h3>
+          <p class="small mb-2">
+            $I_0 = 1\,000\,000\text{ DA}$ : تكلفة آلة، $5$ سنوات خطياً، $VR = 0$، ضريبة <bdi dir="ltr">19%</bdi>، تحيين <bdi dir="ltr">10%</bdi>، الإيرادات : $690\,000\text{ DA}$ (س1) و $700\,000\text{ DA}$ (س2 إلى س5)، الأعباء المسددة : $380\,000\text{ DA}$ (س1)، $385\,000\text{ DA}$ (س2)، و $400\,000\text{ DA}$ (س3 إلى س5)، احسب $CAF$ للسنوات الخمس و $VAN$
+          </p>
+          <button type="button" class="btn btn-sm btn-warning fw-bold" data-toggle-solution="sol3_3_4">إظهار الحل</button>
+          <div id="sol3_3_4" class="d-none mt-3 compta-example">
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              $\text{Dotation} = 1\ 000\ 000 \div 5 = 200\ 000\text{ DA}$<br />
+              $CAF_1 = 289\ 100\text{ DA} \quad ; \quad CAF_2 = 293\ 150\text{ DA} \quad ; \quad CAF_3 = CAF_4 = CAF_5 = 281\ 000\text{ DA}$
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small" dir="ltr">
+              $\sum CAF\text{ act.} = 262\ 818{,}21 + 242\ 272{,}64 + 211\ 119{,}51 + 191\ 926{,}65 + 174\ 478{,}80 = 1\ 082\ 615{,}81\text{ DA}$
+            </div>
+            <div class="p-2 mb-2 rounded bg-white border small fw-bold" dir="ltr">
+              $VAN = 1\ 082\ 615{,}81 - 1\ 000\ 000 = +82\ 615{,}81\text{ DA}$
+            </div>
+            <p class="small fw-bold text-success mb-0">
+              الآلة ذات مردودية ومقبولة لأن $VAN > 0$
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

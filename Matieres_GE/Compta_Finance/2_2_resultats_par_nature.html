@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 02 : تحليل النتائج حسب الطبيعة | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="2_0_presentation_etats_fin.html">
+              المجال 02 : الكشوف المالية والتحليل
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 02 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 02">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 02 :</span>
+          <a href="2_1_compte_resultat_bilan.html" class="btn btn-sm compta-pill-btn">01. حساب النتائج والميزانية</a>
+          <a href="2_2_resultats_par_nature.html" class="btn btn-sm compta-pill-btn active-pill">02. النتائج حسب الطبيعة</a>
+          <a href="2_3_resultat_par_fonction.html" class="btn btn-sm compta-pill-btn">03. النتائج حسب الوظيفة</a>
+          <a href="2_4_bilan_fonctionnel.html" class="btn btn-sm compta-pill-btn">04. الميزانية الوظيفية</a>
+          <a href="2_5_ratios_commentaire.html" class="btn btn-sm compta-pill-btn">05. النسب والتعليق المالي</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 02 : إعداد الكشوف المالية وتحليلها <span class="fr-term">(États financiers et analyse)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 02 : تحليل النتائج حسب الطبيعة <span class="fr-term">(Analyse des résultats par nature)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          القيمة المضافة <span class="fr-term">(VA)</span>، الفائض الإجمالي للاستغلال <span class="fr-term">(EBE)</span>، النتيجة العملياتية، والقدرة على التمويل الذاتي <span class="fr-term">(CAF)</span>.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل نجاراً يشتري خشباً بمبلغ <strong class="num-ltr">100 000</strong> <strong>دج</strong> ويصنع منه أثاثاً يبيعه بـ <strong class="num-ltr">240 000</strong> <strong>دج</strong>. القيمة الجديدة التي أضافها النجار بعمله ومهارته هي <strong class="num-ltr">140 000</strong> <strong>دج</strong>؛ ومن هذا المبلغ يدفع أجور العمال والضرائب، ويحتفظ بالباقي لتطوير ورشته أو توزيع الأرباح. هذا تماماً ما يفعله تحليل النتائج حسب الطبيعة في المؤسسة.
+          </p>
+        </div>
+
+        <p>
+          في <span class="fr-term">(Système Comptable Financier - SCF)</span> <strong>النظام المحاسبي المالي</strong>، يُرتّب جدول <span class="fr-term">(Compte de résultat par nature)</span> <strong>حساب النتائج حسب الطبيعة</strong> الأعباء والمنتوجات حسب طبيعتها المحاسبية (مشتريات مستهلكة، خدمات خارجية، أعباء المستخدمين، ضرائب، اهتلاكات...) لاستخراج مؤشرات الأداء والتسيير الأساسية.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من حساب مؤشرات التسيير انطلاقاً من حساب النتائج حسب الطبيعة (<span class="fr-term">(VA)</span>، <span class="fr-term">(EBE)</span>، النتيجة العملياتية، النتيجة المالية، النتيجة الصافية) وحساب <span class="fr-term">(CAF)</span> <strong>القدرة على التمويل الذاتي</strong> والتمويل الذاتي.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">ماذا ستتعلم في هذا الدرس؟</h3>
+              <ul class="small mb-0 compta-list">
+                <li>حساب <span class="fr-term">(Production de l'exercice)</span> <strong>إنتاج السنة المالية</strong> و<span class="fr-term">(Consommation de l'exercice)</span> <strong>استهلاك السنة المالية</strong>.</li>
+                <li>حساب <span class="fr-term">(Valeur ajoutée - VA)</span> <strong>القيمة المضافة</strong> و<span class="fr-term">(Excédent Brut d'Exploitation - EBE)</span> <strong>الفائض الإجمالي للاستغلال</strong>.</li>
+                <li>حساب النتيجة العملياتية، النتيجة المالية، النتيجة قبل الضرائب، والنتيجة الصافية.</li>
+                <li>حساب <span class="fr-term">(Capacité d'Autofinancement - CAF)</span> <strong>القدرة على التمويل الذاتي</strong> و<span class="fr-term">(Autofinancement)</span> <strong>التمويل الذاتي</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : مؤشرات التحليل حسب الطبيعة والتمويل الذاتي
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. المؤشرات الأساسية لحساب النتائج حسب الطبيعة</h3>
+        <div class="compta-formula">
+          <div><strong>إنتاج السنة المالية :</strong> <span class="num-ltr">ح/ 70 (المبيعات والمنتوجات الملحقة) + ح/ 72 (تغيرات المخزونات من المنتجات) + ح/ 73 + ح/ 74</span></div>
+          <div><strong>استهلاك السنة المالية :</strong> <span class="num-ltr">ح/ 60 (المشتريات المستهلكة) + ح/ 61 (الخدمات الخارجية) + ح/ 62 (الخدمات الخارجية الأخرى)</span></div>
+          <div><strong>القيمة المضافة <span class="fr-term">(VA)</span> :</strong> <span class="num-ltr">VA = إنتاج السنة المالية &minus; استهلاك السنة المالية</span></div>
+          <div><strong>الفائض الإجمالي للاستغلال <span class="fr-term">(EBE)</span> :</strong> <span class="num-ltr">EBE = VA + ح/ 74 (إعانات الاستغلال) &minus; ح/ 63 (أعباء المستخدمين) &minus; ح/ 64 (الضرائب والرسوم والمدفوعات المشابهة)</span></div>
+          <div><strong>النتيجة العملياتية :</strong> <span class="num-ltr">EBE + ح/ 75 + ح/ 78 &minus; ح/ 65 &minus; ح/ 68</span></div>
+          <div><strong>النتيجة الصافية للسنة المالية :</strong> <span class="num-ltr">النتيجة قبل الضرائب &minus; الضرائب الواجب دفعها عن النتائج (ح/ 695)</span></div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. القدرة على التمويل الذاتي <span class="fr-term">(CAF)</span> والتمويل الذاتي <span class="fr-term">(Autofinancement)</span></h3>
+        <p>
+          تُعبّر <span class="fr-term">(Capacité d'Autofinancement - CAF)</span> <strong>القدرة على التمويل الذاتي</strong> عن الفائض المالي الذي تولده المؤسسة من نشاطها وتستطيع الاعتماد عليه في التمويل أو سداد الديون أو توزيع الأرباح :
+        </p>
+       
+        <div>
+            <strong>طريقة انطلاقاً من النتيجة الصافية :</strong>
+            <strong class="num-ltr">CAF</strong>
+            <bdi dir="ltr">=</bdi>
+            النتيجة الصافية
+            <bdi dir="ltr">+</bdi>
+            ح/ <strong class="num-ltr"><bdi dir="ltr">68</bdi></strong> (مخصصات الاهتلاكات والمؤونات وخسائر القيمة)
+            <bdi dir="ltr">&minus;</bdi>
+            ح/ <strong class="num-ltr"><bdi dir="ltr">78</bdi></strong> (الاسترجاعات عن خسائر القيمة والمؤونات)
+            <bdi dir="ltr">+</bdi>
+            ح/ <strong class="num-ltr"><bdi dir="ltr">652</bdi></strong> (نواقص القيمة)
+            <bdi dir="ltr">&minus;</bdi>
+            ح/ <strong class="num-ltr"><bdi dir="ltr">752</bdi></strong> (فوائض القيمة)
+          </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">3. جدول تلخيصي لأهم المؤشرات</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>المؤشر</th>
+                <th>الرمز</th>
+                <th>دلالته المالية الأساسية</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>القيمة المضافة</strong></td>
+                <td><strong class="num-ltr">VA</strong></td>
+                <td>الثروة الجديدة التي أنشأتها المؤسسة بوسائلها البشرية والمادية</td>
+              </tr>
+              <tr>
+                <td><strong>الفائض الإجمالي للاستغلال</strong></td>
+                <td><strong class="num-ltr">EBE</strong></td>
+                <td>الأداء الاقتصادي الحقيقي للاستغلال قبل السياسة المالية والاهتلاكات</td>
+              </tr>
+              <tr>
+                <td><strong>القدرة على التمويل الذاتي</strong></td>
+                <td><strong class="num-ltr">CAF</strong></td>
+                <td>المورد المالي الداخلي المتولد من نشاط الدورة</td>
+              </tr>
+              <tr>
+                <td><strong>التمويل الذاتي</strong></td>
+                <td><strong class="num-ltr">AF</strong></td>
+                <td>الجزء من <span class="num-ltr">CAF</span> الذي يبقى داخل المؤسسة بعد توزيع الأرباح</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            استخرجنا من حساب النتائج حسب الطبيعة لمؤسسة إنتاجية بتاريخ <strong class="num-ltr">31/12/2025</strong> المعطيات التالية (بالدينار الجزائري) :
+          </p>
+          <ul class="mb-3">
+            <li>إنتاج السنة المالية : <strong class="num-ltr">2 500 000</strong> ، واستهلاك السنة المالية : <strong class="num-ltr">1 100 000</strong>.</li>
+            <li>أعباء المستخدمين (ح/ <strong class="num-ltr">63</strong>) : <strong class="num-ltr">550 000</strong> ، والضرائب والرسوم (ح/ <strong class="num-ltr">64</strong>) : <strong class="num-ltr">90 000</strong> (لا توجد إعانات استغلال).</li>
+            <li>النتيجة الصافية للسنة المالية : <strong class="num-ltr">420 000</strong> ، مخصصات الاهتلاكات والمؤونات (ح/ <strong class="num-ltr">68</strong>) : <strong class="num-ltr">180 000</strong> ، والاسترجاعات (ح/ <strong class="num-ltr">78</strong>) : <strong class="num-ltr">30 000</strong> (دون فوائض أو نواقص قيمة).</li>
+            <li>الأرباح الموزعة خلال السنة : <strong class="num-ltr">120 000</strong>.</li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>احسب القيمة المضافة (<span class="num-ltr">VA</span>) والفائض الإجمالي للاستغلال (<span class="num-ltr">EBE</span>).</li>
+            <li>احسب القدرة على التمويل الذاتي (<span class="num-ltr">CAF</span>) والتمويل الذاتي (<span class="num-ltr">AF</span>).</li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">شرح الحسابات خطوة بخطوة :</h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب <span class="num-ltr">VA</span> و<span class="num-ltr">EBE</span> :</strong></p>
+          <ul class="mb-3">
+            <li>نحسب القيمة المضافة :
+              <div class="my-2">
+                <strong>VA = <bdi dir="ltr">2 500 000 &minus; 1 100 000 = 1 400 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>نحسب الفائض الإجمالي للاستغلال :
+              <div class="my-2">
+                <strong>EBE = <bdi dir="ltr">1 400 000 &minus; 550 000 &minus; 90 000 = 760 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — حساب <span class="num-ltr">CAF</span> والتمويل الذاتي (<span class="num-ltr">AF</span>) :</strong></p>
+          <ul class="mb-0">
+            <li>نطبق قانون <span class="num-ltr">CAF</span> انطلاقاً من النتيجة الصافية :
+              <div class="my-2">
+                <strong>CAF = <bdi dir="ltr">420 000 + 180 000 &minus; 30 000 = 570 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>نحسب التمويل الذاتي بطرح الأرباح الموزعة :
+              <div class="my-2">
+                <strong>AF = <bdi dir="ltr">570 000 &minus; 120 000 = 450 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          إذا كانت القدرة على التمويل الذاتي (<span class="num-ltr">CAF</span>) لمؤسسة تساوي <strong class="num-ltr">650 000</strong> <strong>دج</strong>، وقررت الجمعية العامة عدم توزيع أي أرباح خلال السنة (<strong class="num-ltr">0</strong> دج)، ثم في السنة الموالية تبيّن أن النتيجة الصافية تضمنت فائض قيمة عن تنازل عن تثبيت قدره <strong class="num-ltr">50 000</strong> <strong>دج</strong>.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : ما هو مبلغ التمويل الذاتي في الحالة الأولى؟ ولماذا يُطرح فائض القيمة عن التنازل عند حساب <span class="num-ltr">CAF</span> انطلاقاً من النتيجة الصافية؟
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution2_2"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution2_2" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">الحل النموذجي لتمرين التفكير :</h3>
+          <p class="mb-0">
+            <strong>1. التمويل الذاتي في الحالة الأولى :</strong> بما أن الأرباح الموزعة تساوي <strong class="num-ltr"><bdi dir="ltr">0</bdi></strong> دج، فإن <strong class="num-ltr">AF = CAF = <bdi dir="ltr">650 000</bdi> دج</strong>.<br />
+            <strong>2. سبب طرح فائض القيمة عن التنازل :</strong> لأن <span class="num-ltr">CAF</span> تقيس الموارد المتولدة من النشاط العادي والمستمر للمؤسسة، بينما فائض القيمة عن التنازل ناتج عن خروج تثبيت (عملية استثنائية/استثمارية) ولا يمثل تدفقاً نقدياً تشغيلياً عادياً، لذلك يُطرح من النتيجة الصافية (ويُضاف ناقص القيمة ح/ <strong class="num-ltr">652</strong>).
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

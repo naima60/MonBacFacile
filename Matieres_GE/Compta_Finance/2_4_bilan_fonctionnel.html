@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 04 : إعداد وتحليل الميزانية الوظيفية | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="2_0_presentation_etats_fin.html">
+              المجال 02 : الكشوف المالية والتحليل
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 02 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 02">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 02 :</span>
+          <a href="2_1_compte_resultat_bilan.html" class="btn btn-sm compta-pill-btn">01. حساب النتائج والميزانية</a>
+          <a href="2_2_resultats_par_nature.html" class="btn btn-sm compta-pill-btn">02. النتائج حسب الطبيعة</a>
+          <a href="2_3_resultat_par_fonction.html" class="btn btn-sm compta-pill-btn">03. النتائج حسب الوظيفة</a>
+          <a href="2_4_bilan_fonctionnel.html" class="btn btn-sm compta-pill-btn active-pill">04. الميزانية الوظيفية</a>
+          <a href="2_5_ratios_commentaire.html" class="btn btn-sm compta-pill-btn">05. النسب والتعليق المالي</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 02 : إعداد الكشوف المالية وتحليلها <span class="fr-term">(États financiers et analyse)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 04 : إعداد وتحليل الميزانية الوظيفية <span class="fr-term">(Bilan fonctionnel)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          الاستخدامات الثابتة والموارد الثابتة، وحساب <span class="fr-term">(FRNG)</span> و<span class="fr-term">(BFR)</span> والخزينة الصافية <span class="fr-term">(TN)</span>.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل عائلة اشترت منزلاً أو سيارة بمبلغ كبير على مدى سنوات؛ لكي يكون وضعها المالي مريحاً، يجب أن تكون مصادر التمويل طويلة الأجل كافية لتغطية الممتلكات طويلة الأجل، مع إبقاء هامش أمان لمواجهة مصاريف الحياة اليومية وتأخر بعض المبالغ المستحقة. هذا المنطق نفسه يُطبّق في <span class="fr-term">(Bilan fonctionnel)</span> <strong>الميزانية الوظيفية</strong> للمؤسسة.
+          </p>
+        </div>
+
+        <p>
+          تُنظّم <span class="fr-term">(Bilan fonctionnel)</span> <strong>الميزانية الوظيفية</strong> عناصر الميزانية حسب دوراتها الوظيفية الكبرى (الاستثمار، الاستغلال، والتمويل) وعلى أساس <strong>المبالغ الإجمالية (<span class="num-ltr">Brut</span>)</strong> مع إعادة إدماج الاهتلاكات وخسائر القيمة في الموارد الثابتة، وذلك لدراسة التوازن المالي للمؤسسة.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من إعداد <span class="fr-term">(Bilan fonctionnel)</span> <strong>الميزانية الوظيفية</strong> المختصرة، وحساب مؤشرات التوازن المالي (<span class="fr-term">(FRNG)</span>، <span class="fr-term">(BFR)</span>، و<span class="fr-term">(Trésorerie nette)</span>) والتحقق من العلاقة بينها.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">ماذا ستتعلم في هذا الدرس؟</h3>
+              <ul class="small mb-0 compta-list">
+                <li>التمييز بين <strong>الاستخدامات الثابتة (<span class="num-ltr">Emplois stables</span>)</strong> و<strong>الموارد الثابتة (<span class="num-ltr">Ressources stables</span>)</strong>.</li>
+                <li>التمييز بين أصول وخصوم الاستغلال (والخارج عن الاستغلال) وعناصر الخزينة.</li>
+                <li>حساب <span class="fr-term">(Fonds de Roulement Net Global - FRNG)</span> و<span class="fr-term">(Besoin en Fonds de Roulement - BFR)</span>.</li>
+                <li>حساب الخزينة الصافية <span class="fr-term">(Trésorerie nette - TN)</span> والتحقق من قاعدة <span class="num-ltr">TN = FRNG &minus; BFR</span>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق للميزانية الوظيفية ومؤشرات التوازن المالي
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. مؤشرات التوازن المالي الأساسية</h3>
+        <div class="compta-formula">
+          <div>
+            <strong>رأس المال العامل الصافي الإجمالي <span class="fr-term">(FRNG)</span> :</strong>
+            <bdi dir="ltr">=</bdi>
+            الموارد الثابتة
+            <bdi dir="ltr">&minus;</bdi>
+            الاستخدامات الثابتة
+          </div>
+          <div>
+            <strong>احتياج رأس المال العامل <span class="fr-term">(BFR)</span> :</strong>
+            <bdi dir="ltr">=</bdi>
+            الأصول الجارية للاستغلال (والخارج عن الاستغلال)
+            <bdi dir="ltr">&minus;</bdi>
+            الخصوم الجارية للاستغلال (والخارج عن الاستغلال)
+          </div>
+          <div>
+            <strong>الخزينة الصافية <span class="fr-term">(TN)</span> :</strong>
+            <bdi dir="ltr">=</bdi>
+            خزينة الأصول
+            <bdi dir="ltr">&minus;</bdi>
+            خزينة الخصوم
+          </div>
+          <div>
+            <strong>علاقة التوازن الأساسية :</strong>
+            <span class="num-ltr"><bdi dir="ltr">TN = FRNG &minus; BFR</bdi></span>
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. عناصر الميزانية الوظيفية المختصرة</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>الاستخدامات <span class="fr-term">(Emplois)</span></th>
+                <th>المحتوى الأساسي</th>
+                <th>الموارد <span class="fr-term">(Ressources)</span></th>
+                <th>المحتوى الأساسي</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>الاستخدامات الثابتة</strong></td>
+                <td>التثبيتات بالمبلغ الإجمالي (<span class="num-ltr">Brut</span>)</td>
+                <td><strong>الموارد الثابتة</strong></td>
+                <td>رؤوس الأموال الخاصة + الاهتلاكات وخسائر القيمة + المؤونات (ح/ <strong class="num-ltr">15</strong>) + الديون المالية</td>
+              </tr>
+              <tr>
+                <td><strong>أصول جارية للاستغلال</strong></td>
+                <td>المخزونات + الزبائن والحسابات الملحقة</td>
+                <td><strong>خصوم جارية للاستغلال</strong></td>
+                <td>الموردون والحسابات الملحقة + الديون الاجتماعية والجبائية المرتبطة بالاستغلال</td>
+              </tr>
+              <tr>
+                <td><strong>خزينة الأصول</strong></td>
+                <td>البنك (مدين) + الصندوق + قيم التوظيف</td>
+                <td><strong>خزينة الخصوم</strong></td>
+                <td>السحب على المكشوف / المساهمات البنكية الجارية (دائن)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            إليك المعطيات التالية المستخرجة من ميزانية وظيفية لمؤسسة بتاريخ <strong class="num-ltr">31/12/2025</strong> (المبالغ بالدينار الجزائري) :
+          </p>
+          <ul class="mb-3">
+            <li>الاستخدامات الثابتة : <strong class="num-ltr">1 600 000</strong> ، والموارد الثابتة : <strong class="num-ltr">2 000 000</strong>.</li>
+            <li>الأصول الجارية للاستغلال : <strong class="num-ltr">900 000</strong> ، والخصوم الجارية للاستغلال : <strong class="num-ltr">650 000</strong>.</li>
+            <li>خزينة الأصول : <strong class="num-ltr">210 000</strong> ، وخزينة الخصوم : <strong class="num-ltr">60 000</strong>.</li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>احسب رأس المال العامل الصافي الإجمالي (<span class="num-ltr">FRNG</span>).</li>
+            <li>احسب احتياج رأس المال العامل (<span class="num-ltr">BFR</span>) والخزينة الصافية (<span class="num-ltr">TN</span>) بطريقتين، ثم علّق باختصار على الوضعية المالية.</li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">شرح الحسابات خطوة بخطوة :</h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب <span class="num-ltr">FRNG</span> و<span class="num-ltr">BFR</span> :</strong></p>
+          <ul class="mb-3">
+            <li>نحسب <span class="num-ltr">FRNG</span> :
+              <div class="my-2">
+                <strong>FRNG = <bdi dir="ltr">2 000 000 &minus; 1 600 000 = +400 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>نحسب <span class="num-ltr">BFR</span> :
+              <div class="my-2">
+                <strong>BFR = <bdi dir="ltr">900 000 &minus; 650 000 = +250 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — حساب الخزينة الصافية (<span class="num-ltr">TN</span>) بطريقتين :</strong></p>
+          <ul class="mb-0">
+            <li>الطريقة الأولى (خزينة الأصول ناقص خزينة الخصوم) :
+              <div class="my-2">
+                <strong>TN = <bdi dir="ltr">210 000 &minus; 60 000 = +150 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>الطريقة الثانية (<span class="num-ltr">FRNG &minus; BFR</span>) :
+              <div class="my-2">
+                <strong>TN = <bdi dir="ltr">400 000 &minus; 250 000 = +150 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li><strong>التعليق :</strong> <span class="num-ltr">FRNG</span> موجب (<bdi dir="ltr">400 000</bdi> دج) ويغطي كامل احتياج الاستغلال (<span class="num-ltr">BFR = <bdi dir="ltr">250 000</bdi> دج</span>)، مما يترك خزينة صافية إيجابية ومريحة قدرها <strong class="num-ltr"><bdi dir="ltr">150 000</bdi> دج</strong>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          إذا كانت لمؤسسة <span class="num-ltr">FRNG = <bdi dir="ltr">300 000</bdi></span> <strong>دج</strong> و<span class="num-ltr">BFR = <bdi dir="ltr">420 000</bdi></span> <strong>دج</strong>، فما هي قيمة الخزينة الصافية (<span class="num-ltr">TN</span>) وما دلالة هذه الوضعية؟
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution2_4"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution2_4" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">الحل النموذجي لتمرين التفكير :</h3>
+          <p class="mb-0">
+            نطبق العلاقة :
+            <div class="my-2">
+              <strong>TN = FRNG &minus; BFR = <bdi dir="ltr">300 000 &minus; 420 000 = &minus;120 000</bdi> دج</strong>
+            </div>
+            <strong>الدلالة :</strong> الخزينة الصافية سالبة (<bdi dir="ltr">&minus;120 000</bdi> دج) لأن <span class="num-ltr">FRNG</span> لا يكفي لتغطية كامل <span class="num-ltr">BFR</span>، مما يعني أن المؤسسة اعتمدت على موارد خزينة قصيرة الأجل (مثل السحب على المكشوف) لسد الفارق.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

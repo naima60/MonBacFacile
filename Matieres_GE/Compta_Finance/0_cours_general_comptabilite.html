@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>درس عام في المحاسبة – السنة الثالثة ثانوي (تسيير واقتصاد) – باك 2027</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#1b2a3a;--muted:#5b6b7b;--main:#0f5c8c;--soft:#e4f0f8;--ok:#1b7a4b;--okbg:#e6f5ec;--warn:#9a5b00;--warnbg:#fff4de;--line:#d5dee8;--dr:#e8f1fb;--cr:#fdeeee}
+@media (prefers-color-scheme:dark){:root{--bg:#10161d;--card:#18212b;--ink:#e6edf4;--muted:#9fb0c1;--main:#6bb8ea;--soft:#1d2d3b;--ok:#6fd39c;--okbg:#17302450;--warn:#f0b45a;--warnbg:#3a2c12;--line:#2c3a48;--dr:#1b2c3f;--cr:#3a2024}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo','Amiri',Tahoma,Arial,sans-serif;line-height:1.95;font-size:17px}
+header{background:linear-gradient(135deg,#0f5c8c,#16a085);color:#fff;padding:2.2rem 1rem;text-align:center}
+header h1{margin:.2rem 0;font-size:1.9rem}
+header p{margin:.2rem 0;opacity:.92}
+main{max-width:980px;margin:0 auto;padding:1rem}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.4rem;margin:1rem 0}
+nav.toc ol{columns:2;margin:.3rem 0;padding-inline-start:1.4rem}
+nav.toc a{color:var(--main);text-decoration:none;font-weight:600}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.5rem;margin:1.2rem 0}
+h2{color:var(--main);border-bottom:3px solid var(--soft);padding-bottom:.3rem;margin-top:0}
+h3{color:var(--main);margin-bottom:.2rem}
+.fr{direction:ltr;unicode-bidi:embed;font-family:Arial,sans-serif;font-size:.92em;color:var(--muted)}
+.box{border-radius:10px;padding:.7rem 1rem;margin:.8rem 0;border-inline-start:6px solid}
+.def{background:var(--soft);border-color:var(--main)}
+.key{background:var(--okbg);border-color:var(--ok)}
+.warn{background:var(--warnbg);border-color:var(--warn)}
+.box b.t{display:block;margin-bottom:.1rem}
+table{border-collapse:collapse;width:100%;margin:.6rem 0;font-size:.95em}
+th,td{border:1px solid var(--line);padding:.35rem .6rem;text-align:right;vertical-align:top}
+th{background:var(--soft);color:var(--main)}
+.wrap{overflow-x:auto}
+.num{text-align:center;direction:ltr;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.je td.d,table.je th.d{background:var(--dr)}
+table.je td.c,table.je th.c{background:var(--cr)}
+table.je tr.cr td:nth-child(2){padding-inline-start:2.2rem}
+bdi.n,.ltr{direction:ltr;unicode-bidi:isolate;white-space:nowrap}.ltr{display:inline-block}
+table.je tr.tot td{font-weight:700;border-top:2px solid var(--main)}
+table.je tr.tot td:first-child{background:var(--okbg);color:var(--ok)}
+.ex{border:1px dashed var(--main);border-radius:10px;padding:.5rem 1rem;margin:1rem 0}
+.ex>p:first-child{margin-top:.2rem}
+.pill{display:inline-block;background:var(--main);color:#fff;border-radius:20px;padding:0 .7rem;font-size:.85em;margin-inline-end:.4rem}
+.formula{text-align:center;font-weight:700;font-size:1.1em;background:var(--soft);border-radius:10px;padding:.5rem}
+.tacc{display:inline-block;direction:rtl;border-collapse:collapse;min-width:260px}
+.tacc th{border-bottom:2px solid var(--main)}
+.tacc td:first-child,.tacc th:first-child{border-inline-start:0}
+details{background:var(--okbg);border-radius:8px;padding:.4rem .9rem;margin:.5rem 0}
+summary{cursor:pointer;font-weight:700;color:var(--ok)}
+footer{text-align:center;color:var(--muted);padding:1.5rem;font-size:.9em}
+@media(max-width:640px){nav.toc ol{columns:1}body{font-size:16px}section{padding:1rem}}
+@media print{header{background:#fff;color:#000}nav.toc{display:none}section{break-inside:avoid-page}}
+
+/* ===== القسم 21 : خريطة ذهنية ودائرة المحاسبة ===== */
+:root{--g1b:#e4f0f8;--g1s:#0f5c8c;--g2b:#e6f5ec;--g2s:#1b7a4b;--g3b:#fff4de;--g3s:#c27a00;--g4b:#f1e8fb;--g4s:#7a4bb3;--g5b:#e0f4f2;--g5s:#13867a}
+@media (prefers-color-scheme:dark){:root{--g1b:#1d2d3b;--g1s:#6bb8ea;--g2b:#173024;--g2s:#6fd39c;--g3b:#3a2c12;--g3s:#f0b45a;--g4b:#2b2140;--g4s:#b995e8;--g5b:#12302d;--g5s:#5fd3c6}}
+.ltr{direction:ltr;unicode-bidi:isolate;white-space:nowrap;display:inline-block}
+.lg{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.lg span{border-radius:20px;padding:0 .8rem;font-size:.85em;border:2px solid}
+.g1.lg,.lg .g1{background:var(--g1b);border-color:var(--g1s)}.lg .g2{background:var(--g2b);border-color:var(--g2s)}.lg .g3{background:var(--g3b);border-color:var(--g3s)}.lg .g4{background:var(--g4b);border-color:var(--g4s)}.lg .g5{background:var(--g5b);border-color:var(--g5s)}
+.mm-svg{width:100%;height:auto;display:block;margin:.5rem auto;max-width:980px}
+.mm-svg .ln{stroke-width:3;stroke-dasharray:6 5;opacity:.7}
+.mm-svg .ln.g1{stroke:var(--g1s)}.mm-svg .ln.g2{stroke:var(--g2s)}.mm-svg .ln.g3{stroke:var(--g3s)}.mm-svg .ln.g4{stroke:var(--g4s)}.mm-svg .ln.g5{stroke:var(--g5s)}
+.mm-svg .core{fill:var(--main);stroke:var(--card);stroke-width:5}
+.mm-svg .ct{fill:#fff;font-size:30px;font-weight:700;font-family:inherit}
+.mm-svg .cs2{fill:#fff;font-size:16px;font-family:Arial,sans-serif;opacity:.9}
+.mm-svg .nd rect{stroke-width:3}
+.mm-svg .nd.g1 rect{fill:var(--g1b);stroke:var(--g1s)}.mm-svg .nd.g2 rect{fill:var(--g2b);stroke:var(--g2s)}.mm-svg .nd.g3 rect{fill:var(--g3b);stroke:var(--g3s)}.mm-svg .nd.g4 rect{fill:var(--g4b);stroke:var(--g4s)}.mm-svg .nd.g5 rect{fill:var(--g5b);stroke:var(--g5s)}
+.mm-svg .nt{fill:var(--ink);font-size:20px;font-weight:700;font-family:inherit}
+.mm-svg .nl{fill:var(--ink);font-size:15.5px;font-family:inherit}
+.mm-svg a{cursor:pointer}.mm-svg a:hover rect{stroke-width:5}
+.mm-list{display:none;grid-template-columns:1fr 1fr;gap:.6rem}
+.mc{display:block;border-radius:12px;padding:.5rem .7rem;text-decoration:none;color:var(--ink);border:2px solid;line-height:1.6}
+.mc b{display:block}.mc span{display:block;font-size:.9em;color:var(--muted)}
+.mc.g1{background:var(--g1b);border-color:var(--g1s)}.mc.g2{background:var(--g2b);border-color:var(--g2s)}.mc.g3{background:var(--g3b);border-color:var(--g3s)}.mc.g4{background:var(--g4b);border-color:var(--g4s)}.mc.g5{background:var(--g5b);border-color:var(--g5s)}
+@media(max-width:720px){.mm-svg{display:none}.mm-list{display:grid}}
+.circuit{max-width:760px;margin:.6rem auto}
+.cstep{display:flex;gap:.8rem;align-items:flex-start;border:2px solid;border-radius:14px;padding:.6rem .9rem}
+.cstep.g1{background:var(--g1b);border-color:var(--g1s)}.cstep.g2{background:var(--g2b);border-color:var(--g2s)}.cstep.g3{background:var(--g3b);border-color:var(--g3s)}.cstep.g4{background:var(--g4b);border-color:var(--g4s)}.cstep.g5{background:var(--g5b);border-color:var(--g5s)}
+.cstep .bd{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--main);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-top:.2rem}
+.cstep .cb{flex:1}.cstep .cb a{color:var(--ink);text-decoration:none;font-size:1.1em}.cstep .cb p{margin:.1rem 0}
+.arw{text-align:center;font-size:1.3em;color:var(--main);font-weight:700;line-height:1.5;margin:.15rem 0}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.3rem 0}
+.chips span{background:var(--card);border:1px solid var(--g2s);border-radius:20px;padding:0 .7rem;font-size:.9em}
+.chips span.od{background:var(--g3b);border-color:var(--g3s);font-weight:700}
+.loop{background:var(--warnbg);border:2px dashed var(--warn);border-radius:12px;padding:.5rem .9rem;margin:.4rem 1.5rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.4rem 0}
+.sbox{border:2px solid;border-radius:10px;padding:.4rem .7rem;background:var(--card);border-color:var(--g5s)}
+.sbox b{display:block;color:var(--g5s)}.sbox span{display:block;font-size:.9em}.sbox .eq{font-weight:700;margin-top:.2rem}
+@media(max-width:560px){.split{grid-template-columns:1fr}.loop{margin:.4rem 0}}
+
+
+
+
+</style>
+</head>
+<body>
+<header>
+  <h1>📘 الدرس العام في المحاسبة</h1>
+  <p>السنة الثالثة ثانوي – شعبة تسيير واقتصاد – التحضير لبكالوريا <bdi class="n">2027</bdi></p>
+  <p class="fr">Cours général de comptabilité – rattrapage des bases (1AS / 2AS)</p>
+</header>
+
+<main>
+<div class="box warn"><b class="t">ملاحظة للتلميذ</b>
+الأمثلة في هذا الدرس مبسطة هدفها الفهم. أرقام الحسابات مأخوذة من المدونة الوطنية للحسابات في النظام المحاسبي المالي (<bdi class="n">SCF</bdi>)، ومعدل الرسم على القيمة المضافة المستعمل هو <bdi class="n">19%</bdi>. راجع دائماً مخطط الحسابات المرفق في امتحان الباك لأنه المرجع الذي تعتمد عليه.</div>
+
+<nav class="toc"><b>📑 محتويات الدرس</b>
+<ol>
+<li><a href="#s1">تعريف المحاسبة وأهدافها</a></li>
+<li><a href="#s2">المبادئ المحاسبية</a></li>
+<li><a href="#s3">الذمة المالية: الأصول والخصوم</a></li>
+<li><a href="#s4">الأعباء والمنتوجات والنتيجة</a></li>
+<li><a href="#s5">مدونة الحسابات (الأصناف <bdi class="n">1</bdi> إلى <bdi class="n">7</bdi>)</a></li>
+<li><a href="#s6">الحساب وقاعدة المدين والدائن</a></li>
+<li><a href="#s7">مبدأ القيد المزدوج</a></li>
+<li><a href="#s8">الرسم على القيمة المضافة <bdi class="n">TVA</bdi></a></li>
+<li><a href="#s9">عمليات الشراء</a></li>
+<li><a href="#s10">عمليات البيع</a></li>
+<li><a href="#s11">عمليات البنك</a></li>
+<li><a href="#s12">عمليات الصندوق</a></li>
+<li><a href="#s13">العمليات المختلفة <bdi class="n">OD</bdi></a></li>
+<li><a href="#s14">الاهتلاك</a></li>
+<li><a href="#s15">الأجور والاشتراكات</a></li>
+<li><a href="#s16">دفاتر ومراقبة القيود</a></li>
+<li><a href="#s17">مثال شامل متكامل</a></li>
+<li><a href="#s18">تمارين مع التصحيح</a></li>
+<li><a href="#s19">الأخطاء الشائعة وخلاصة الدرس</a></li>
+<li><a href="#s20">قاموس المصطلحات</a></li>
+</ol></nav>
+
+<!-- 1 -->
+<section id="s1">
+<h2><bdi class="n">1</bdi>. تعريف المحاسبة وأهدافها <span class="fr">La comptabilité</span></h2>
+<div class="box def"><b class="t">التعريف</b>
+المحاسبة هي نظام لتسجيل وتصنيف وتلخيص العمليات المالية للمؤسسة بطريقة منتظمة ومؤرخة ومدعمة بوثائق، من أجل إعطاء صورة صادقة عن ذمتها المالية ونتيجتها، وتوفير معلومات تساعد على اتخاذ القرار.</div>
+<h3>مراحل العمل المحاسبي</h3>
+<p>وثيقة مبررة (فاتورة، شيك، كشف بنكي…) ← <b>تسجيل</b> في الدفتر اليومي ← <b>ترحيل</b> إلى دفتر الأستاذ ← <b>ميزان المراجعة</b> ← <b>القوائم المالية</b> (الميزانية، جدول حسابات النتائج…).</p>
+<h3>من يستعمل المعلومة المحاسبية؟</h3>
+<table><tr><th>المستعمل</th><th>ما يريد معرفته</th></tr>
+<tr><td>المسير / المالك</td><td>هل المؤسسة تربح؟ كيف تسير أمورها؟</td></tr>
+<tr><td>البنك والدائنون</td><td>هل المؤسسة قادرة على السداد؟</td></tr>
+<tr><td>الإدارة الجبائية (الضرائب)</td><td>الأرباح والرسوم المستحقة</td></tr>
+<tr><td>المستثمرون والشركاء</td><td>مردودية مشاريعهم</td></tr>
+<tr><td>العمال</td><td>استقرار المؤسسة واستمراريتها</td></tr></table>
+<h3>أنواع المحاسبة</h3>
+<ul><li><b>المحاسبة العامة (المالية)</b> <span class="fr">Comptabilité générale</span>: تهتم بالعلاقة مع الغير (الزبائن، الموردون، البنك، الدولة…) وتنتج القوائم المالية. وهي موضوع هذا الدرس.</li>
+<li><b>المحاسبة التحليلية</b> <span class="fr">Comptabilité analytique</span>: تحسب تكاليف المنتجات ونتائجها داخل المؤسسة.</li></ul>
+<div class="box key"><b class="t">الإطار القانوني في الجزائر</b>
+القانون <bdi class="n">07-11</bdi> المؤرخ في <bdi class="n">25</bdi> نوفمبر <bdi class="n">2007</bdi> المتضمن النظام المحاسبي المالي (<bdi class="n">SCF</bdi>)، المطبق منذ <bdi class="n">1</bdi> جانفي <bdi class="n">2010</bdi>.</div>
+</section>
+
+<!-- 2 -->
+<section id="s2">
+<h2><bdi class="n">2</bdi>. المبادئ المحاسبية <span class="fr">Conventions comptables</span></h2>
+<table><tr><th>المبدأ</th><th>المعنى</th></tr>
+<tr><td>استمرارية الاستغلال <span class="fr">Continuité d'exploitation</span></td><td>نفترض أن المؤسسة ستواصل نشاطها مستقبلاً.</td></tr>
+<tr><td>استقلالية الدورات <span class="fr">Indépendance des exercices</span></td><td>كل عبء ومنتوج يُسجَّل في الدورة التي ينتمي إليها، لا في دورة دفعه أو قبضه.</td></tr>
+<tr><td>ثبات الطرق <span class="fr">Permanence des méthodes</span></td><td>نحافظ على نفس طرق التقييم من دورة لأخرى.</td></tr>
+<tr><td>التكلفة التاريخية <span class="fr">Coût historique</span></td><td>تُسجَّل الأصول بتكلفة اقتنائها لا بقيمتها في السوق.</td></tr>
+<tr><td>الحيطة والحذر <span class="fr">Prudence</span></td><td>نسجّل الخسائر المحتملة ولا نسجّل الأرباح المحتملة.</td></tr>
+<tr><td>الأهمية النسبية <span class="fr">Importance significative</span></td><td>نهتم بالمعلومة التي تؤثر على القرار.</td></tr>
+<tr><td>وحدة القياس <span class="fr">Unité monétaire</span></td><td>كل شيء يُقيَّم بالدينار الجزائري (دج).</td></tr>
+<tr><td>الصورة الصادقة <span class="fr">Image fidèle</span></td><td>الهدف النهائي: قوائم مالية تعكس الواقع بصدق ونزاهة.</td></tr></table>
+<p><b>الدورة المحاسبية</b> <span class="fr">Exercice comptable</span>: هي في العادة <bdi class="n">12</bdi> شهراً، وتنطلق غالباً من <bdi class="n">1</bdi> جانفي وتنتهي في <bdi class="n">31</bdi> ديسمبر.</p>
+</section>
+
+<!-- 3 -->
+<section id="s3">
+<h2><bdi class="n">3</bdi>. الذمة المالية: الأصول والخصوم <span class="fr">Patrimoine</span></h2>
+<div class="box def"><b class="t">الأصول <span class="fr">Actif</span></b>ما تملكه المؤسسة وما لها عند الغير: مبانٍ، آلات، سلع، حقوق على الزبائن، أموال في البنك والصندوق…</div>
+<div class="box def"><b class="t">الخصوم <span class="fr">Passif</span></b>مصادر تمويل هذه الأصول: أموال خاصة (رأس مال، احتياطات، نتيجة) وديون (قروض، موردون، ضرائب…).</div>
+<div class="formula">الأصول = الخصوم = الأموال الخاصة + الديون</div>
+<table><tr><th>الأصول</th><th>الخصوم</th></tr>
+<tr><td><b>أصول غير جارية</b>: تثبيتات (معنوية، عينية، مالية)<br><b>أصول جارية</b>: مخزونات، حقوق (زبائن…)، خزينة (بنك، صندوق)</td>
+<td><b>الأموال الخاصة</b>: رأس المال، احتياطات، النتيجة<br><b>خصوم غير جارية</b>: قروض طويلة الأجل<br><b>خصوم جارية</b>: موردون، أجور، ضرائب، سلفات بنكية</td></tr></table>
+<div class="ex"><p><span class="pill">مثال</span>مؤسسة تملك: مبنى <bdi class="n">3 000 000</bdi>، سلع <bdi class="n">500 000</bdi>، زبائن <bdi class="n">300 000</bdi>، بنك <bdi class="n">700 000</bdi>. وعليها: قرض <bdi class="n">1 500 000</bdi>، موردون <bdi class="n">400 000</bdi>.</p>
+<p>مجموع الأصول = <bdi class="n">4 500 000</bdi> ← الديون = <bdi class="n">1 900 000</bdi> ← الأموال الخاصة = <bdi class="n">4 500 000</bdi> − <bdi class="n">1 900 000</bdi> = <b><bdi class="n">2 600 000</bdi> دج</b>.</p></div>
+</section>
+
+<!-- 4 -->
+<section id="s4">
+<h2><bdi class="n">4</bdi>. الأعباء والمنتوجات والنتيجة <span class="fr">Charges, produits, résultat</span></h2>
+<ul><li><b>العبء</b> <span class="fr">Charge</span>: استهلاك موارد خلال الدورة (مشتريات، أجور، اهتلاك، فوائد…) ← <b>ينقص</b> الأموال الخاصة.</li>
+<li><b>المنتوج</b> <span class="fr">Produit</span>: مداخيل الدورة (مبيعات، خدمات، فوائد مقبوضة…) ← <b>يزيد</b> الأموال الخاصة.</li></ul>
+<div class="formula">النتيجة = المنتوجات − الأعباء</div>
+<p>إذا كانت المنتوجات أكبر: <b>ربح</b> (نتيجة صافية موجبة). وإذا كانت الأعباء أكبر: <b>خسارة</b>.</p>
+<div class="box warn"><b class="t">انتبه</b>الشراء ليس دائماً عبئاً: شراء آلة يُسجل <b>أصلاً</b> (تثبيت) وليس عبئاً، أما شراء مواد أو لوازم تُستهلك فهو <b>عبء</b>. كما أن دفع مبلغ ≠ عبء، وقبض مبلغ ≠ منتوج (مثلاً قبض مبلغ من زبون يسدد دَيناً سابقاً).</div>
+</section>
+
+<!-- 5 -->
+<section id="s5">
+<h2><bdi class="n">5</bdi>. مدونة الحسابات <span class="fr">Plan comptable</span></h2>
+<p>الحسابات مرتبة في <b><bdi class="n">7</bdi> أصناف</b> (الصنف <bdi class="n">8</bdi> و<bdi class="n">9</bdi> غير مستعملين في هذا الدرس):</p>
+<div class="wrap"><table><tr><th>الصنف</th><th>الاسم</th><th>أمثلة (الأرقام الأكثر استعمالاً)</th><th>طبيعته</th></tr>
+<tr><td class="num">1</td><td>حسابات رؤوس الأموال</td><td><bdi class="n">101</bdi> رأس المال، <bdi class="n">106</bdi> احتياطات، <bdi class="n">12</bdi> النتيجة، <bdi class="n">16</bdi> قروض</td><td>خصوم</td></tr>
+<tr><td class="num">2</td><td>حسابات التثبيتات</td><td><bdi class="n">213</bdi> مباني، <bdi class="n">215</bdi> معدات وأدوات صناعية، <bdi class="n">218</bdi> تثبيتات عينية أخرى، <bdi class="n">28x</bdi> اهتلاكات</td><td>أصول</td></tr>
+<tr><td class="num">3</td><td>حسابات المخزونات</td><td><bdi class="n">30</bdi> سلع، <bdi class="n">31</bdi> مواد أولية، <bdi class="n">35</bdi> منتجات تامة</td><td>أصول</td></tr>
+<tr><td class="num">4</td><td>حسابات الغير</td><td><bdi class="n">401</bdi> موردو المخزونات والخدمات، <bdi class="n">404</bdi> موردو التثبيتات، <bdi class="n">411</bdi> الزبائن، <bdi class="n">421</bdi> مستخدمون (أجور مستحقة)، <bdi class="n">431</bdi> الضمان الاجتماعي، <bdi class="n">4456</bdi> رسم قابل للاسترجاع (<bdi class="n">TVA d</bdi>é<bdi class="n">ductible</bdi>)، <bdi class="n">4457</bdi> رسم محصّل (<bdi class="n">TVA collect</bdi>é<bdi class="n">e</bdi>)</td><td>أصول أو خصوم</td></tr>
+<tr><td class="num">5</td><td>حسابات مالية</td><td><bdi class="n">512</bdi> البنك، <bdi class="n">53</bdi> الصندوق</td><td>أصول</td></tr>
+<tr><td class="num">6</td><td>حسابات الأعباء</td><td><bdi class="n">600</bdi> مشتريات سلع مباعة، <bdi class="n">601</bdi> مشتريات مواد أولية، <bdi class="n">606</bdi> مشتريات غير مخزنة (لوازم)، <bdi class="n">631</bdi> أجور، <bdi class="n">635</bdi> اشتراكات اجتماعية، <bdi class="n">681</bdi> مخصصات الاهتلاك</td><td>أعباء</td></tr>
+<tr><td class="num">7</td><td>حسابات المنتوجات</td><td><bdi class="n">700</bdi> مبيعات سلع، <bdi class="n">701</bdi> مبيعات منتجات تامة، <bdi class="n">706</bdi> تقديم خدمات</td><td>منتوجات</td></tr></table></div>
+<div class="box key"><b class="t">حيلة للحفظ</b>رقم الحساب يبدأ برقم صنفه: كل حساب يبدأ بـ <bdi class="n">2</bdi> فهو تثبيت، وبـ <bdi class="n">6</bdi> فهو عبء، وبـ <bdi class="n">7</bdi> فهو منتوج، وهكذا.</div>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+<h2><bdi class="n">6</bdi>. الحساب وقاعدة المدين والدائن <span class="fr">Débit / Crédit</span></h2>
+<p>الحساب شكله حرف <bdi class="n">T</bdi>: <b>الجهة اليمنى = مدين</b> (<bdi class="n">D</bdi>é<bdi class="n">bit</bdi>) و<b>الجهة اليسرى = دائن</b> (<bdi class="n">Cr</bdi>é<bdi class="n">dit</bdi>) في الكتابة العربية للجداول المحاسبية (احترم دائماً ترتيب ورقة الامتحان: عمود المدين ثم عمود الدائن).</p>
+<div style="text-align:center"><table class="tacc"><tr><th colspan="2">اسم الحساب (مثال: <bdi class="n">512</bdi> البنك)</th></tr><tr><th>مدين (<bdi class="n">D</bdi>é<bdi class="n">bit</bdi>)</th><th>دائن (<bdi class="n">Cr</bdi>é<bdi class="n">dit</bdi>)</th></tr><tr><td class="num">الزيادات</td><td class="num">النقصانات</td></tr></table></div>
+<div class="wrap"><table><tr><th>نوع الحساب</th><th>يزيد في</th><th>ينقص في</th><th>رصيده عادةً</th></tr>
+<tr><td>أصول (تثبيتات، مخزونات، زبائن، بنك، صندوق)</td><td>المدين</td><td>الدائن</td><td>مدين</td></tr>
+<tr><td>خصوم (رأس المال، قروض، موردون، ضمان اجتماعي)</td><td>الدائن</td><td>المدين</td><td>دائن</td></tr>
+<tr><td>أعباء (الصنف <bdi class="n">6</bdi>)</td><td>المدين</td><td>الدائن</td><td>مدين</td></tr>
+<tr><td>منتوجات (الصنف <bdi class="n">7</bdi>)</td><td>الدائن</td><td>المدين</td><td>دائن</td></tr></table></div>
+<div class="box key"><b class="t">قاعدة ذهبية</b>الأصول والأعباء تتصرف بنفس الطريقة (تزيد بالمدين). الخصوم والمنتوجات تتصرف بنفس الطريقة (تزيد بالدائن).</div>
+<p><b>الرصيد</b> <span class="fr">Solde</span> = مجموع الجهة الكبرى − مجموع الجهة الصغرى. إذا كان مجموع المدين أكبر فالرصيد <b>مدين</b>، وإلا فهو <b>دائن</b>.</p>
+</section>
+
+<!-- 7 -->
+<section id="s7">
+<h2><bdi class="n">7</bdi>. مبدأ القيد المزدوج <span class="fr">La partie double</span></h2>
+<div class="box def"><b class="t">المبدأ</b>كل عملية مالية تؤثر على حسابين على الأقل، ويكون <b>مجموع المبالغ المسجلة في المدين = مجموع المبالغ المسجلة في الدائن</b> دائماً.</div>
+<p>السبب: كل عملية لها <b>مصدر</b> (من أين جاءت القيمة؟ ← الدائن) و<b>استعمال</b> (أين ذهبت؟ ← المدين).</p>
+<h3>طريقة تحليل أي عملية في <bdi class="n">4</bdi> أسئلة</h3>
+<ol><li>ما هي الحسابات المعنية بالعملية؟</li>
+<li>ما طبيعة كل حساب (أصل، خصم، عبء، منتوج)؟</li>
+<li>هل هو في حالة <b>زيادة</b> أم <b>نقصان</b>؟</li>
+<li>بتطبيق القاعدة: مدين أم دائن؟ ثم التحقق من تساوي المجموعين.</li></ol>
+<div class="ex"><p><span class="pill">مثال</span><bdi class="n">15</bdi> جانفي: شراء سلع نقداً من الصندوق بقيمة <bdi class="n">50 000</bdi> دج (نهمل الرسم للتبسيط).</p>
+<p>الحسابات: <bdi class="n">600</bdi> (عبء، زاد ← مدين) و<bdi class="n">53</bdi> الصندوق (أصل، نقص ← دائن).</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">15/01</bdi></td><td class="num">600</td><td>مشتريات سلع مباعة</td><td class="num d">50 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">53</td><td>الصندوق</td><td class="d"></td><td class="num c">50 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">50 000</td><td class="num c">50 000</td></tr><tr><td colspan="5" class="fr" style="direction:rtl">شراء سلع نقداً</td></tr></table></div></div>
+<div class="box key"><b class="t">✔ عادة يجب أن تلازمك</b>كل قيد ينتهي بسطر <b>المجموع</b>: اجمع خانة المدين واجمع خانة الدائن وتأكد من تساويهما <u>قبل</u> الانتقال إلى القيد التالي. إذا لم يتساويا فالخطأ في هذا القيد وليس في غيره.</div>
+<p><b>أنواع القيود:</b> قيد بسيط (حسابان فقط) وقيد مركّب (أكثر من حسابين، مثل الشراء مع الرسم). والقاعدة تبقى واحدة: مجموع المدين = مجموع الدائن.</p>
+<div class="box warn"><b class="t">كتابة القيد</b>نكتب حسابات المدين أولاً، ثم حسابات الدائن مع إزاحتها نحو الداخل، ثم سطر البيان (شرح مختصر مع الإشارة إلى الوثيقة). لا نمزج الأمرين في سطر واحد.</div>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+<h2><bdi class="n">8</bdi>. الرسم على القيمة المضافة <span class="fr">TVA</span></h2>
+<p>الرسم على القيمة المضافة ضريبة غير مباشرة يدفعها المستهلك النهائي، والمؤسسة مجرد وسيط يحصّلها ويدفعها للخزينة. المعدل العادي: <b><bdi class="n">19%</bdi></b> (والمعدل المخفض <bdi class="n">9%</bdi>).</p>
+<div class="formula"><span class="ltr">TVA = HT × 19%</span><br><span class="ltr">TTC = HT + TVA = HT × 1.19</span></div>
+<p>أي: الرسم = المبلغ خارج الرسم × <bdi class="n">19%</bdi>، والمبلغ الشامل للرسم = المبلغ خارج الرسم + الرسم.</p>
+<ul><li>عند <b>الشراء</b>: الرسم <b>قابل للاسترجاع</b> ← حساب <b><bdi class="n">4456</bdi></b> (مدين) لأنه حق على الدولة.</li>
+<li>عند <b>البيع</b>: الرسم <b>محصَّل</b> من الزبون ← حساب <b><bdi class="n">4457</bdi></b> (دائن) لأنه دين علينا للدولة.</li>
+<li>الرسم المستحق للدفع = <bdi class="n">4457</bdi> − <bdi class="n">4456</bdi> (إن كان موجباً).</li></ul>
+<div class="box warn"><b class="t">تنبيه</b>الرسم لا يدخل في الأعباء ولا في المنتوجات، ولا يمس ثمن الشراء أو البيع خارج الرسم.<br>الفاتورة: <span class="ltr">HT 100 000 + TVA 19 000 = TTC 119 000</span></div>
+</section>
+
+<!-- 9 -->
+<section id="s9">
+<h2><bdi class="n">9</bdi>. عمليات الشراء <span class="fr">Les achats</span></h2>
+<p>في كل أمثلة الشراء الحساب الدائن هو حساب المورد (<bdi class="n">401</bdi> للسلع والخدمات و<bdi class="n">404</bdi> للتثبيتات) لأن الشراء تم <b>بالأجل</b>. وإذا تم الدفع فوراً نعوّض حساب المورد بالصندوق <bdi class="n">53</bdi> أو البنك <bdi class="n">512</bdi>.</p>
+
+<div class="ex"><p><span class="pill">أ</span><b>شراء سلع (<bdi class="n">marchandises</bdi>)</b> – فاتورة رقم <bdi class="n">120</bdi> بتاريخ <bdi class="n">03/02</bdi>: سلع بقيمة <bdi class="n">100 000 HT</bdi>، <bdi class="n">TVA 19%</bdi>.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">03/02</bdi></td><td class="num">600</td><td>مشتريات سلع مباعة</td><td class="num d">100 000</td><td class="c"></td></tr><tr><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">19 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">401</td><td>الموردون</td><td class="d"></td><td class="num c">119 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">119 000</td><td class="num c">119 000</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">ب</span><b>شراء مواد أولية</b> – <bdi class="n">05/02</bdi>: مواد أولية <bdi class="n">80 000 HT</bdi>، <bdi class="n">TVA 19%</bdi> بالأجل (حساب <bdi class="n">601</bdi>).</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">05/02</bdi></td><td class="num">601</td><td>مشتريات مواد أولية</td><td class="num d">80 000</td><td class="c"></td></tr><tr><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">15 200</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">401</td><td>الموردون</td><td class="d"></td><td class="num c">95 200</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">95 200</td><td class="num c">95 200</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">ج</span><b>شراء لوازم (<bdi class="n">fournitures</bdi>)</b> – <bdi class="n">08/02</bdi>: لوازم مكتب <bdi class="n">20 000 HT</bdi>، <bdi class="n">TVA 19%</bdi> بالأجل. اللوازم تُستهلك فوراً فهي عبء (<bdi class="n">606</bdi>).</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">08/02</bdi></td><td class="num">606</td><td>مشتريات غير مخزنة من المواد واللوازم</td><td class="num d">20 000</td><td class="c"></td></tr><tr><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">3 800</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">401</td><td>الموردون</td><td class="d"></td><td class="num c">23 800</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">23 800</td><td class="num c">23 800</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">د</span><b>شراء تثبيت (<bdi class="n">investissement</bdi>)</b> – <bdi class="n">10/02</bdi>: عتاد إعلام آلي <bdi class="n">200 000 HT</bdi>، <bdi class="n">TVA 19%</bdi>، بالأجل. هذا <b>أصل</b> يبقى عدة سنوات وليس عبئاً، ودائنه حساب <b><bdi class="n">404</bdi></b> (موردو التثبيتات).</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">10/02</bdi></td><td class="num">218</td><td>تثبيتات عينية أخرى (عتاد مكتب وإعلام آلي)</td><td class="num d">200 000</td><td class="c"></td></tr><tr><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">38 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">404</td><td>موردو التثبيتات</td><td class="d"></td><td class="num c">238 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">238 000</td><td class="num c">238 000</td></tr></table></div></div>
+<div class="box key"><b class="t">لتذكر</b>الشراء = مدين: (سلع، مواد، لوازم، أو تثبيت) + <bdi class="n">4456</bdi>. الدائن: المورد أو وسيلة الدفع.</div>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+<h2><bdi class="n">10</bdi>. عمليات البيع <span class="fr">Les ventes</span></h2>
+<div class="ex"><p><span class="pill">أ</span><b>بيع سلع</b> – <bdi class="n">12/03</bdi>: بيع سلع للزبون "س" بقيمة <bdi class="n">150 000 HT</bdi>، <bdi class="n">TVA 19%</bdi>، بالأجل.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">12/03</bdi></td><td class="num">411</td><td>الزبائن</td><td class="num d">178 500</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">700</td><td>مبيعات سلع</td><td class="d"></td><td class="num c">150 000</td></tr><tr class="cr"><td></td><td class="num">4457</td><td>الرسم المحصّل</td><td class="d"></td><td class="num c">28 500</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">178 500</td><td class="num c">178 500</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">ب</span><b>بيع منتجات تامة</b> – <bdi class="n">15/03</bdi>: بيع منتجات مصنّعة بقيمة <bdi class="n">300 000 HT</bdi>، <bdi class="n">TVA 19%</bdi>، بالأجل.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">15/03</bdi></td><td class="num">411</td><td>الزبائن</td><td class="num d">357 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">701</td><td>مبيعات منتجات تامة</td><td class="d"></td><td class="num c">300 000</td></tr><tr class="cr"><td></td><td class="num">4457</td><td>الرسم المحصّل</td><td class="d"></td><td class="num c">57 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">357 000</td><td class="num c">357 000</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">ج</span><b>تقديم خدمات</b> – <bdi class="n">20/03</bdi>: خدمة مقدمة بقيمة <bdi class="n">40 000 HT</bdi>، <bdi class="n">TVA 19%</bdi>، بالأجل.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">20/03</bdi></td><td class="num">411</td><td>الزبائن</td><td class="num d">47 600</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">706</td><td>تقديم خدمات</td><td class="d"></td><td class="num c">40 000</td></tr><tr class="cr"><td></td><td class="num">4457</td><td>الرسم المحصّل</td><td class="d"></td><td class="num c">7 600</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">47 600</td><td class="num c">47 600</td></tr></table></div></div>
+<div class="box key"><b class="t">لتذكر</b>البيع = مدين: الزبون (أو الصندوق/البنك) بالمبلغ <bdi class="n">TTC</bdi>. الدائن: المبيعات (<bdi class="n">HT</bdi>) + <bdi class="n">4457</bdi> (<bdi class="n">TVA</bdi>). يُسجَّل البيع عند إصدار الفاتورة وليس عند القبض.</div>
+</section>
+
+<!-- 11 -->
+<section id="s11">
+<h2><bdi class="n">11</bdi>. عمليات البنك <span class="fr">Opérations bancaires</span></h2>
+<p>حساب <b><bdi class="n">512</bdi></b> أصل: ما يدخل إلى البنك ← مدين، وما يخرج منه ← دائن. المرجع هو <b>الكشف البنكي</b> والشيكات والتحويلات.</p>
+<div class="ex"><p><span class="pill">تحصيل</span><bdi class="n">25/03</bdi>: الزبون "س" سدّد فاتورته (<bdi class="n">178 500</bdi>) بتحويل بنكي. زبون ← حقه نقص (دائن)، بنك ← زاد (مدين).</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">25/03</bdi></td><td class="num">512</td><td>البنوك – حسابات جارية</td><td class="num d">178 500</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">411</td><td>الزبائن</td><td class="d"></td><td class="num c">178 500</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">178 500</td><td class="num c">178 500</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">دفع</span><bdi class="n">28/03</bdi>: تسديد فاتورة المورد (<bdi class="n">119 000</bdi>) بشيك. مورد ← دينه نقص (مدين)، بنك ← نقص (دائن).</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">28/03</bdi></td><td class="num">401</td><td>الموردون</td><td class="num d">119 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">512</td><td>البنوك – حسابات جارية</td><td class="d"></td><td class="num c">119 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">119 000</td><td class="num c">119 000</td></tr></table></div></div>
+<div class="box warn"><b class="t">تنبيه</b>تحصيل دَين لا يُنشئ منتوجاً جديداً، فنحن لا نسجل أي حساب من الصنف <bdi class="n">7</bdi> عند قبض مبلغ سبق تسجيل بيعه. وكذلك دفع فاتورة مورد لا ينشئ عبئاً جديداً.</div>
+</section>
+
+<!-- 12 -->
+<section id="s12">
+<h2><bdi class="n">12</bdi>. عمليات الصندوق <span class="fr">Opérations de caisse</span></h2>
+<p>حساب <b><bdi class="n">53</bdi></b> أصل: القبض ← مدين، والدفع ← دائن. لا يمكن أن يكون رصيد الصندوق دائناً (لا يمكن دفع أكثر مما يوجد).</p>
+<div class="ex"><p><span class="pill">قبض</span><bdi class="n">02/04</bdi>: بيع سلع نقداً <bdi class="n">50 000 HT</bdi>، <bdi class="n">TVA 19%</bdi> ← قبض <bdi class="n">59 500</bdi> في الصندوق.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">02/04</bdi></td><td class="num">53</td><td>الصندوق</td><td class="num d">59 500</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">700</td><td>مبيعات سلع</td><td class="d"></td><td class="num c">50 000</td></tr><tr class="cr"><td></td><td class="num">4457</td><td>الرسم المحصّل</td><td class="d"></td><td class="num c">9 500</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">59 500</td><td class="num c">59 500</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">دفع</span><bdi class="n">05/04</bdi>: شراء وقود نقداً <bdi class="n">10 000 HT</bdi>، <bdi class="n">TVA 19%</bdi> ← دفع <bdi class="n">11 900</bdi> من الصندوق.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">05/04</bdi></td><td class="num">606</td><td>مشتريات غير مخزنة من المواد واللوازم</td><td class="num d">10 000</td><td class="c"></td></tr><tr><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">1 900</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">53</td><td>الصندوق</td><td class="d"></td><td class="num c">11 900</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">11 900</td><td class="num c">11 900</td></tr></table></div></div>
+
+<div class="ex"><p><span class="pill">تحويل داخلي</span><bdi class="n">10/04</bdi>: إيداع <bdi class="n">40 000</bdi> من الصندوق في البنك.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">10/04</bdi></td><td class="num">512</td><td>البنوك – حسابات جارية</td><td class="num d">40 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">53</td><td>الصندوق</td><td class="d"></td><td class="num c">40 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">40 000</td><td class="num c">40 000</td></tr></table></div></div>
+</section>
+
+<!-- 13 -->
+<section id="s13">
+<h2><bdi class="n">13</bdi>. العمليات المختلفة <span class="fr">Opérations diverses (OD)</span></h2>
+<div class="box def"><b class="t">التعريف</b>هي القيود التي لا تنتج عن وثيقة خارجية (فاتورة، شيك…) بل عن تقدير أو تصحيح تقوم به المؤسسة نفسها، ويُسجَّل أغلبها في اليومية الخاصة بالعمليات المختلفة.</div>
+<p><b>من أمثلتها:</b> القيد الافتتاحي (الترحيل من الدورة السابقة)، تسجيل مخصصات الاهتلاك والمؤونات، قيود نهاية السنة (تسوية المخزون…)، وتصحيح الأخطاء.</p>
+<div class="ex"><p><span class="pill">تصحيح خطأ</span>اكتشفنا أن لوازم المكتب (<bdi class="n">20 000 HT</bdi>) سُجلت بالخطأ في الحساب <bdi class="n">600</bdi> بدل <bdi class="n">606</bdi>. نصحح بقيد عكس الخطأ: نُلغي الخطأ ثم نسجل الصحيح، أو مباشرة:</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">30/04</bdi></td><td class="num">606</td><td>مشتريات غير مخزنة من المواد واللوازم</td><td class="num d">20 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">600</td><td>مشتريات سلع مباعة</td><td class="d"></td><td class="num c">20 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">20 000</td><td class="num c">20 000</td></tr><tr><td colspan="5" style="direction:rtl">تصحيح خطأ في التخصيص (<bdi class="n">OD</bdi>)</td></tr></table></div></div>
+<p>لا نمحو أي قيد في المحاسبة ولا نستعمل الممحاة: كل تصحيح يتم بقيد جديد واضح.</p>
+</section>
+
+<!-- 14 -->
+<section id="s14">
+<h2><bdi class="n">14</bdi>. الاهتلاك <span class="fr">L'amortissement</span></h2>
+<div class="box def"><b class="t">التعريف</b>الاهتلاك هو تسجيل النقص النهائي في قيمة تثبيت بسبب الاستعمال أو الزمن أو التقادم، وتوزيع تكلفة اقتنائه على سنوات استعماله.</div>
+<h3>الاهتلاك الخطي <span class="fr">Linéaire</span></h3>
+<div class="formula">القسط السنوي = القيمة القابلة للاهتلاك × معدل الاهتلاك = القيمة ÷ المدة (بالسنوات)</div>
+<p>القيمة القابلة للاهتلاك هي تكلفة الاقتناء خارج الرسم (<bdi class="n">HT</bdi>) لأن الرسم القابل للاسترجاع لا يدخل في تكلفة الأصل. معدل الاهتلاك = <bdi class="n">100</bdi> ÷ المدة. وإذا اقتُني الأصل في وسط السنة نحسب القسط الأول بنسبة المدة الفعلية <span class="fr">(prorata temporis)</span>.</p>
+<div class="ex"><p><span class="pill">مثال</span>عتاد الإعلام الآلي (<bdi class="n">200 000 HT</bdi>) اقتُني في <bdi class="n">01/01/2026</bdi>، المدة <bdi class="n">5</bdi> سنوات ← المعدل <bdi class="n">20%</bdi> ← القسط = <bdi class="n">40 000</bdi> دج في السنة (<bdi class="n">200 000</bdi> * <bdi class="n">20%</bdi> = <bdi class="n">40 000</bdi>).</p>
+<div class="wrap"><table><tr><th>السنة</th><th>القيمة الأصلية</th><th>القسط السنوي</th><th>مجموع الاهتلاكات</th><th>القيمة المحاسبية الصافية <bdi class="n">VNC</bdi></th></tr>
+<tr><td class="num">2026</td><td class="num">200 000</td><td class="num">40 000</td><td class="num">40 000</td><td class="num">160 000</td></tr>
+<tr><td class="num">2027</td><td class="num">200 000</td><td class="num">40 000</td><td class="num">80 000</td><td class="num">120 000</td></tr>
+<tr><td class="num">2028</td><td class="num">200 000</td><td class="num">40 000</td><td class="num">120 000</td><td class="num">80 000</td></tr>
+<tr><td class="num">2029</td><td class="num">200 000</td><td class="num">40 000</td><td class="num">160 000</td><td class="num">40 000</td></tr>
+<tr><td class="num">2030</td><td class="num">200 000</td><td class="num">40 000</td><td class="num">200 000</td><td class="num">0</td></tr></table></div>
+<p>قيد <bdi class="n">31/12/2026</bdi>: المدين <bdi class="n">681</bdi> مخصصات الاهتلاك (عبء)، والدائن <bdi class="n">2818</bdi> اهتلاك التثبيتات العينية الأخرى (حساب تصحيح لقيمة الأصل).</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">31/12</bdi></td><td class="num">681</td><td>مخصصات الاهتلاك والمؤونات وخسائر القيمة</td><td class="num d">40 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">2818</td><td>اهتلاك التثبيتات العينية الأخرى</td><td class="d"></td><td class="num c">40 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">40 000</td><td class="num c">40 000</td></tr></table></div></div>
+<div class="box key"><b class="t">لتذكر</b>الاهتلاك عبء غير نقدي: لا يخرج أي مبلغ من البنك أو الصندوق، ولا تُمسّ قيمة حساب التثبيت <bdi class="n">218</bdi> (يبقى بقيمته الأصلية)، بل يُسجَّل الاهتلاك في حساب مستقل <bdi class="n">28</bdi>. القيمة الصافية = القيمة الأصلية − مجموع الاهتلاكات.</div>
+</section>
+
+<!-- 15 -->
+<section id="s15">
+<h2><bdi class="n">15</bdi>. الأجور والاشتراكات الاجتماعية <span class="fr">Salaires et cotisations</span></h2>
+<ul><li><b>الأجر الإجمالي</b> (<bdi class="n">Brut</bdi>): ما يتحمله رب العمل كأجر قبل الاقتطاعات.</li>
+<li><b>الاقتطاعات</b>: اشتراكات الضمان الاجتماعي للعامل (<bdi class="n">9%</bdi>)، وضريبة الدخل الإجمالي <bdi class="n">IRG</bdi> (نهملها في هذا المثال للتبسيط).</li>
+<li><b>الأجر الصافي</b> (<bdi class="n">Net</bdi>) = الإجمالي − الاقتطاعات: ما يقبضه العامل فعلاً.</li>
+<li><b>اشتراكات رب العمل</b>: <bdi class="n">26%</bdi> من الأجر الإجمالي، وهي عبء إضافي على المؤسسة.</li></ul>
+<div class="ex"><p><span class="pill">مثال</span>أجر شهر أفريل لعامل: إجمالي <bdi class="n">60 000</bdi> دج.</p>
+<p>اقتطاع العامل: <bdi class="n">60 000 × 9% = 5 400</bdi> ← الصافي = <bdi class="n">54 600</bdi>. اشتراكات رب العمل: <bdi class="n">60 000 × 26% = 15 600</bdi>.</p>
+<div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td><bdi class="n">30/04</bdi></td><td class="num">631</td><td>أجور المستخدمين</td><td class="num d">60 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">421</td><td>المستخدمون – أجور مستحقة</td><td class="d"></td><td class="num c">54 600</td></tr><tr class="cr"><td></td><td class="num">431</td><td>الضمان الاجتماعي</td><td class="d"></td><td class="num c">5 400</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">60 000</td><td class="num c">60 000</td></tr><tr><td colspan="5" style="direction:rtl"><b>① ثبوت الأجر والاقتطاع</b></td></tr><tr><td><bdi class="n">30/04</bdi></td><td class="num">635</td><td>اشتراكات رب العمل في الضمان الاجتماعي</td><td class="num d">15 600</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">431</td><td>الضمان الاجتماعي</td><td class="d"></td><td class="num c">15 600</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">15 600</td><td class="num c">15 600</td></tr><tr><td colspan="5" style="direction:rtl"><b>② اشتراكات رب العمل</b></td></tr><tr><td><bdi class="n">30/04</bdi></td><td class="num">421</td><td>المستخدمون – أجور مستحقة</td><td class="num d">54 600</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">512</td><td>البنوك – حسابات جارية</td><td class="d"></td><td class="num c">54 600</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">54 600</td><td class="num c">54 600</td></tr><tr><td colspan="5" style="direction:rtl"><b>③ دفع الأجر الصافي للعامل</b></td></tr><tr><td><bdi class="n">15/05</bdi></td><td class="num">431</td><td>الضمان الاجتماعي</td><td class="num d">21 000</td><td class="c"></td></tr><tr class="cr"><td></td><td class="num">512</td><td>البنوك – حسابات جارية</td><td class="d"></td><td class="num c">21 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">21 000</td><td class="num c">21 000</td></tr><tr><td colspan="5" style="direction:rtl"><b>④ تسديد الاشتراكات (<bdi class="n">5 400 + 15 600</bdi>) لهيئة الضمان الاجتماعي</b></td></tr></table></div></div>
+<div class="box key"><b class="t">لتذكر</b>العبء الحقيقي للمؤسسة = الأجر الإجمالي + اشتراكات رب العمل = <bdi class="n">75 600</bdi> دج. أما الاقتطاعات (<bdi class="n">5 400</bdi>) فهي مجرد مبالغ تحتفظ بها المؤسسة لتدفعها للهيئة الاجتماعية.</div>
+</section>
+
+<!-- 16 -->
+<section id="s16">
+<h2><bdi class="n">16</bdi>. دفاتر ومراقبة القيود <span class="fr">Livres et états de contrôle</span></h2>
+<h3>أ) الدفتر اليومي <span class="fr">Le journal</span></h3>
+<p>دفتر ترتيبه <b>زمني</b>: تُسجَّل فيه العمليات يوماً بيوم بالقيد المزدوج (التاريخ، الحسابات، المبالغ، البيان، المرجع). هو الدفتر الإلزامي الأول ويُقال عنه إنه "دفتر الأصل".</p>
+<h3>ب) دفتر الأستاذ العام <span class="fr">Le grand livre (comptes généraux)</span></h3>
+<p>دفتر ترتيبه <b>حسب الحساب</b>: نرحّل إليه قيود اليومية فيجمع لكل حساب كل حركاته (مدين ودائن) ورصيده. اليومية تجيب عن سؤال "ماذا حدث ومتى؟"، ودفتر الأستاذ يجيب عن سؤال "ما وضع هذا الحساب الآن؟".</p>
+<h3>ج) دفتر الأستاذ المساعد للغير <span class="fr">Le grand livre auxiliaire (comptes de tiers)</span></h3>
+<p>الحسابات الجماعية (<bdi class="n">411</bdi> الزبائن، <bdi class="n">401</bdi> الموردون…) لا تكفي لمعرفة وضع كل زبون ومورد على حدة، لذلك نفتح لكل زبون أو مورد <b>حساباً فرعياً</b> (مثل <bdi class="n">411</bdi> زبون س، <bdi class="n">401</bdi> مورد أ) في دفتر مساعد. ومجموع أرصدة الحسابات الفرعية = رصيد الحساب الجماعي في الأستاذ العام (وهذه مراقبة مهمة).</p>
+<h3>د) ميزان المراجعة <span class="fr">La balance</span></h3>
+<p>جدول يضم كل الحسابات مع: مجموع المدين، مجموع الدائن، الرصيد المدين، الرصيد الدائن.</p>
+<div class="formula">مجموع المدين = مجموع الدائن  (في الحركات وفي الأرصدة)</div>
+<ul><li><b>ميزان الحسابات العامة</b> (<bdi class="n">Balance des comptes</bdi>): لكل حساب من الأستاذ العام.</li>
+<li><b>ميزان حسابات الغير</b> (<bdi class="n">Balance des tiers</bdi>): لكل زبون ومورد، ويجب أن يطابق مجموع أرصدته الحساب الجماعي المقابل.</li></ul>
+<div class="box warn"><b class="t">تنبيه</b>تساوي طرفي الميزان لا يثبت صحة المحاسبة مئة بالمئة. فقد يكون القيد في حساب خاطئ (خطأ في التخصيص) أو منسياً بالكامل (خطأ في النسيان) والميزان متوازن. أما عدم التوازن فدليل قاطع على وجود خطأ (مبلغ مختلف، ترحيل ناقص، ترحيل بجهة خاطئة…).</div>
+</section>
+
+<!-- 17 -->
+<section id="s17">
+<h2><bdi class="n">17</bdi>. مثال شامل متكامل <span class="fr">من الوثيقة إلى الميزان</span></h2>
+<p>مؤسسة "النور" تجارية. عملياتها خلال الدورة (كل المبالغ بالدينار، <bdi class="n">TVA 19%</bdi>):</p>
+<ol>
+<li><bdi class="n">01/01</bdi>: تأسيس برأس مال <bdi class="n">1 000 000</bdi> مودع في البنك.</li>
+<li><bdi class="n">05/01</bdi>: شراء سلع من المورد "أ" بقيمة <bdi class="n">100 000 HT</bdi> بالأجل.</li>
+<li><bdi class="n">10/01</bdi>: بيع سلع للزبون "س" بقيمة <bdi class="n">150 000 HT</bdi> بالأجل.</li>
+<li><bdi class="n">15/01</bdi>: تحصيل <bdi class="n">178 500</bdi> من الزبون "س" بتحويل بنكي.</li>
+<li><bdi class="n">20/01</bdi>: تسديد <bdi class="n">119 000</bdi> للمورد "أ" بشيك.</li>
+<li><bdi class="n">25/01</bdi>: شراء عتاد إعلام آلي من المورد "ب" بقيمة <bdi class="n">200 000 HT</bdi> بالأجل.</li>
+<li><bdi class="n">30/01</bdi>: بيع سلع نقداً بقيمة <bdi class="n">50 000 HT</bdi> (قبض في الصندوق).</li></ol>
+
+<h3>① الدفتر اليومي</h3>
+<div class="wrap"><table class="je"><tr><th>رقم القيد</th><th>التاريخ</th><th>رقم الحساب</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr>
+<tr><td class="num">1</td><td><bdi class="n">01/01</bdi></td><td class="num">512</td><td>البنوك</td><td class="num d">1 000 000</td><td class="c"></td></tr>
+<tr class="cr"><td></td><td></td><td class="num">101</td><td>رأس المال الصادر</td><td class="d"></td><td class="num c">1 000 000</td></tr>
+<tr><td class="num">2</td><td><bdi class="n">05/01</bdi></td><td class="num">600</td><td>مشتريات سلع مباعة</td><td class="num d">100 000</td><td class="c"></td></tr>
+<tr><td></td><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">19 000</td><td class="c"></td></tr>
+<tr class="cr"><td></td><td></td><td class="num">401</td><td>الموردون – "أ"</td><td class="d"></td><td class="num c">119 000</td></tr>
+<tr><td class="num">3</td><td><bdi class="n">10/01</bdi></td><td class="num">411</td><td>الزبائن – "س"</td><td class="num d">178 500</td><td class="c"></td></tr>
+<tr class="cr"><td></td><td></td><td class="num">700</td><td>مبيعات سلع</td><td class="d"></td><td class="num c">150 000</td></tr>
+<tr class="cr"><td></td><td></td><td class="num">4457</td><td>الرسم المحصّل</td><td class="d"></td><td class="num c">28 500</td></tr>
+<tr><td class="num">4</td><td><bdi class="n">15/01</bdi></td><td class="num">512</td><td>البنوك</td><td class="num d">178 500</td><td class="c"></td></tr>
+<tr class="cr"><td></td><td></td><td class="num">411</td><td>الزبائن – "س"</td><td class="d"></td><td class="num c">178 500</td></tr>
+<tr><td class="num">5</td><td><bdi class="n">20/01</bdi></td><td class="num">401</td><td>الموردون – "أ"</td><td class="num d">119 000</td><td class="c"></td></tr>
+<tr class="cr"><td></td><td></td><td class="num">512</td><td>البنوك</td><td class="d"></td><td class="num c">119 000</td></tr>
+<tr><td class="num">6</td><td><bdi class="n">25/01</bdi></td><td class="num">218</td><td>تثبيتات عينية أخرى</td><td class="num d">200 000</td><td class="c"></td></tr>
+<tr><td></td><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">38 000</td><td class="c"></td></tr>
+<tr class="cr"><td></td><td></td><td class="num">404</td><td>موردو التثبيتات – "ب"</td><td class="d"></td><td class="num c">238 000</td></tr>
+<tr><td class="num">7</td><td><bdi class="n">30/01</bdi></td><td class="num">53</td><td>الصندوق</td><td class="num d">59 500</td><td class="c"></td></tr>
+<tr class="cr"><td></td><td></td><td class="num">700</td><td>مبيعات سلع</td><td class="d"></td><td class="num c">50 000</td></tr>
+<tr class="cr"><td></td><td></td><td class="num">4457</td><td>الرسم المحصّل</td><td class="d"></td><td class="num c">9 500</td></tr>
+<tr><th colspan="4">المجموع</th><th class="num d">1 892 500</th><th class="num c">1 892 500</th></tr></table></div>
+
+<h3>② دفتر الأستاذ العام (حسابات <bdi class="n">T</bdi> مختصرة)</h3>
+<div class="wrap"><table><tr><th>الحساب</th><th>الحركات المدينة (رقم القيد)</th><th>الحركات الدائنة (رقم القيد)</th><th>الرصيد</th></tr>
+<tr><td><bdi class="n">512</bdi> البنوك</td><td class="num">1 000 000 (1) + 178 500 (4)</td><td class="num">119 000 (5)</td><td class="num">1 059 500 مدين</td></tr>
+<tr><td><bdi class="n">53</bdi> الصندوق</td><td class="num">59 500 (7)</td><td class="num">–</td><td class="num">59 500 مدين</td></tr>
+<tr><td><bdi class="n">218</bdi> تثبيتات عينية</td><td class="num">200 000 (6)</td><td class="num">–</td><td class="num">200 000 مدين</td></tr>
+<tr><td><bdi class="n">4456 TVA</bdi> قابلة للاسترجاع</td><td class="num">19 000 (2) + 38 000 (6)</td><td class="num">–</td><td class="num">57 000 مدين</td></tr>
+<tr><td><bdi class="n">600</bdi> مشتريات سلع</td><td class="num">100 000 (2)</td><td class="num">–</td><td class="num">100 000 مدين</td></tr>
+<tr><td><bdi class="n">401</bdi> الموردون</td><td class="num">119 000 (5)</td><td class="num">119 000 (2)</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">411</bdi> الزبائن</td><td class="num">178 500 (3)</td><td class="num">178 500 (4)</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">404</bdi> موردو التثبيتات</td><td class="num">–</td><td class="num">238 000 (6)</td><td class="num">238 000 دائن</td></tr>
+<tr><td><bdi class="n">101</bdi> رأس المال</td><td class="num">–</td><td class="num">1 000 000 (1)</td><td class="num">1 000 000 دائن</td></tr>
+<tr><td><bdi class="n">700</bdi> مبيعات سلع</td><td class="num">–</td><td class="num">150 000 (3) + 50 000 (7)</td><td class="num">200 000 دائن</td></tr>
+<tr><td><bdi class="n">4457 TVA</bdi> محصّلة</td><td class="num">–</td><td class="num">28 500 (3) + 9 500 (7)</td><td class="num">38 000 دائن</td></tr></table></div>
+
+<h3>③ ميزان الحسابات العامة</h3>
+<div class="wrap"><table><tr><th rowspan="2">الحساب</th><th colspan="2">الحركات</th><th colspan="2">الأرصدة</th></tr>
+<tr><th class="d">مدين</th><th class="c">دائن</th><th class="d">مدين</th><th class="c">دائن</th></tr>
+<tr><td><bdi class="n">101</bdi> رأس المال</td><td class="num">0</td><td class="num">1 000 000</td><td class="num">0</td><td class="num">1 000 000</td></tr>
+<tr><td><bdi class="n">218</bdi> تثبيتات عينية</td><td class="num">200 000</td><td class="num">0</td><td class="num">200 000</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">401</bdi> الموردون</td><td class="num">119 000</td><td class="num">119 000</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">404</bdi> موردو التثبيتات</td><td class="num">0</td><td class="num">238 000</td><td class="num">0</td><td class="num">238 000</td></tr>
+<tr><td><bdi class="n">411</bdi> الزبائن</td><td class="num">178 500</td><td class="num">178 500</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">4456 TVA</bdi> قابلة للاسترجاع</td><td class="num">57 000</td><td class="num">0</td><td class="num">57 000</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">4457 TVA</bdi> محصّلة</td><td class="num">0</td><td class="num">38 000</td><td class="num">0</td><td class="num">38 000</td></tr>
+<tr><td><bdi class="n">512</bdi> البنوك</td><td class="num">1 178 500</td><td class="num">119 000</td><td class="num">1 059 500</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">53</bdi> الصندوق</td><td class="num">59 500</td><td class="num">0</td><td class="num">59 500</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">600</bdi> مشتريات سلع</td><td class="num">100 000</td><td class="num">0</td><td class="num">100 000</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">700</bdi> مبيعات سلع</td><td class="num">0</td><td class="num">200 000</td><td class="num">0</td><td class="num">200 000</td></tr>
+<tr><th>المجموع</th><th class="num d">1 892 500</th><th class="num c">1 892 500</th><th class="num d">1 476 000</th><th class="num c">1 476 000</th></tr></table></div>
+<p>✅ الميزان متوازن: مجموع الحركات المدينة = الدائنة (<bdi class="n">1 892 500</bdi>) = مجموع اليومية، ومجموع الأرصدة المدينة = الدائنة (<bdi class="n">1 476 000</bdi>).</p>
+
+<h3>④ ميزان حسابات الغير</h3>
+<div class="wrap"><table><tr><th>الحساب الفرعي</th><th class="d">مدين</th><th class="c">دائن</th><th>الرصيد</th></tr>
+<tr><td><bdi class="n">411</bdi> – الزبون "س"</td><td class="num">178 500</td><td class="num">178 500</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">401</bdi> – المورد "أ"</td><td class="num">119 000</td><td class="num">119 000</td><td class="num">0</td></tr>
+<tr><td><bdi class="n">404</bdi> – المورد "ب"</td><td class="num">0</td><td class="num">238 000</td><td class="num">238 000 دائن</td></tr></table></div>
+<p>المطابقة: رصيد <bdi class="n">411</bdi> (<bdi class="n">0</bdi>) + رصيد <bdi class="n">401</bdi> (<bdi class="n">0</bdi>) + رصيد <bdi class="n">404</bdi> (<bdi class="n">238 000</bdi> دائن) يطابق تماماً ما في ميزان الحسابات العامة.</p>
+</section>
+
+<!-- 18 -->
+
+<style>
+/* ===== حسابات T وتصحيح التمارين ===== */
+.ex h4{margin:.9rem 0 .2rem;color:var(--main)}
+.calc{background:var(--soft);border-inline-start:5px solid var(--main);border-radius:8px;padding:.4rem .9rem;margin:.4rem 0}
+.calc>div{padding:.1rem 0}
+.ltr{direction:ltr;unicode-bidi:isolate;white-space:nowrap;display:inline-block}
+.tg{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:.6rem 0}
+table.t{width:auto;min-width:230px;max-width:100%;flex:1 1 230px;border-collapse:collapse;margin:0;background:var(--card)}
+table.t th{text-align:center}
+table.t thead tr:first-child th{background:var(--main);color:#fff;font-size:1em}
+table.t th.d{background:var(--dr)} table.t th.c{background:var(--cr)}
+table.t td{padding:.25rem .5rem;width:50%}
+table.t tbody td:first-child{border-inline-end:3px solid var(--main)}
+table.t td .dt{float:right;color:var(--muted);font-size:.85em}
+table.t td .am{float:left;direction:ltr;font-weight:600;font-variant-numeric:tabular-nums}
+table.t td::after{content:"";display:block;clear:both}
+table.t tr.tt td{border-top:2px solid var(--main);font-weight:700;background:var(--soft)}
+table.t tr.sd td{text-align:center;background:var(--okbg);color:var(--ok);font-weight:700}
+table.je tr.tot td{font-weight:700;border-top:2px solid var(--main)}
+table.je tr.tot td:first-child{background:var(--okbg);color:var(--ok)}
+</style>
+<!-- 18 -->
+<section id="s18">
+<h2>18. تمارين مع التصحيح <span class="fr">حاول أولاً ثم افتح الحل</span></h2>
+<div class="box warn"><b class="t">طريقة الحل</b>لكل تمرين: ① حلّل الحسابات ② احسب المبالغ ③ اكتب القيد وتحقق من المجموع ④ رحّل إلى حسابات T وتأكد من الأرصدة.</div>
+<div class="ex"><p><b>التمرين 1:</b> 12/05: شراء سلع بقيمة <span class="ltr">50 000 HT</span>، TVA 19%، مدفوعة بشيك. سجّل القيد.</p>
+<details><summary>الحل</summary>
+<h4><span class="pill">1</span>تحليل العملية (الأسئلة الأربعة)</h4><div class="wrap"><table><tr><th>الحساب</th><th>طبيعته</th><th>الحالة</th><th>الجهة</th></tr><tr><td>600 مشتريات سلع مباعة</td><td>عبء</td><td>زاد</td><td>مدين</td></tr><tr><td>4456 الرسم القابل للاسترجاع</td><td>أصل (حق على الدولة)</td><td>زاد</td><td>مدين</td></tr><tr><td>512 البنك</td><td>أصل</td><td>نقص (دفع بشيك)</td><td>دائن</td></tr></table></div><h4><span class="pill">2</span>تفصيل الحسابات</h4><div class="calc"><div>الرسم = <span class="ltr">50 000 × 19% = 9 500</span></div><div>المبلغ الشامل للرسم = <span class="ltr">50 000 + 9 500 = 59 500</span></div><div>المبلغ المخرج من البنك هو الشامل للرسم: <span class="ltr">59 500</span></div></div><h4><span class="pill">3</span>القيد المحاسبي</h4><div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td>12/05</td><td class="num">600</td><td>مشتريات سلع مباعة</td><td class="num d">50 000</td><td class="num c"></td></tr><tr><td></td><td class="num">4456</td><td>الرسم القابل للاسترجاع</td><td class="num d">9 500</td><td class="num c"></td></tr><tr class="cr"><td></td><td class="num">512</td><td>البنوك – حسابات جارية</td><td class="num d"></td><td class="num c">59 500</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">59 500</td><td class="num c">59 500</td></tr><tr><td colspan="5" style="direction:rtl">شراء سلع مدفوعة بشيك</td></tr></table></div><h4><span class="pill">4</span>الترحيل في حسابات T</h4><div class="tg"><table class="t"><thead><tr><th colspan="2">600 – مشتريات سلع مباعة</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">12/05</span><span class="am">50 000</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">50 000</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">50 000</b> مدين</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">4456 – الرسم القابل للاسترجاع</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">12/05</span><span class="am">9 500</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">9 500</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">9 500</b> مدين</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">512 – البنوك</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td></td><td><span class="dt">12/05</span><span class="am">59 500</span></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">0</span></td><td><span class="dt">المجموع</span><span class="am">59 500</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">59 500</b> دائن</td></tr></tbody></table></div>
+</details></div>
+<div class="ex"><p><b>التمرين 2:</b> 14/05: بيع منتجات تامة بقيمة <span class="ltr">80 000 HT</span>، TVA 19%، قُبض المبلغ نقداً في الصندوق.</p>
+<details><summary>الحل</summary>
+<h4><span class="pill">1</span>تحليل العملية</h4><div class="wrap"><table><tr><th>الحساب</th><th>طبيعته</th><th>الحالة</th><th>الجهة</th></tr><tr><td>53 الصندوق</td><td>أصل</td><td>زاد (قبض نقدي)</td><td>مدين</td></tr><tr><td>701 مبيعات منتجات تامة</td><td>منتوج</td><td>زاد</td><td>دائن</td></tr><tr><td>4457 الرسم المحصّل</td><td>خصم (دين للدولة)</td><td>زاد</td><td>دائن</td></tr></table></div><h4><span class="pill">2</span>تفصيل الحسابات</h4><div class="calc"><div>الرسم = <span class="ltr">80 000 × 19% = 15 200</span></div><div>المبلغ المقبوض (TTC) = <span class="ltr">80 000 + 15 200 = 95 200</span></div></div><h4><span class="pill">3</span>القيد المحاسبي</h4><div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td>14/05</td><td class="num">53</td><td>الصندوق</td><td class="num d">95 200</td><td class="num c"></td></tr><tr class="cr"><td></td><td class="num">701</td><td>مبيعات منتجات تامة</td><td class="num d"></td><td class="num c">80 000</td></tr><tr class="cr"><td></td><td class="num">4457</td><td>الرسم المحصّل</td><td class="num d"></td><td class="num c">15 200</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">95 200</td><td class="num c">95 200</td></tr><tr><td colspan="5" style="direction:rtl">بيع منتجات تامة نقداً</td></tr></table></div><h4><span class="pill">4</span>الترحيل في حسابات T</h4><div class="tg"><table class="t"><thead><tr><th colspan="2">53 – الصندوق</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">14/05</span><span class="am">95 200</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">95 200</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">95 200</b> مدين</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">701 – مبيعات منتجات تامة</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td></td><td><span class="dt">14/05</span><span class="am">80 000</span></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">0</span></td><td><span class="dt">المجموع</span><span class="am">80 000</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">80 000</b> دائن</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">4457 – الرسم المحصّل</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td></td><td><span class="dt">14/05</span><span class="am">15 200</span></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">0</span></td><td><span class="dt">المجموع</span><span class="am">15 200</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">15 200</b> دائن</td></tr></tbody></table></div>
+</details></div>
+<div class="ex"><p><b>التمرين 3:</b> عتاد نقل ثمنه <span class="ltr">1 000 000 HT</span> اقتُني في 01/01/2026 ويُهتلك خطياً على 4 سنوات. احسب القسط السنوي وسجل قيد 31/12/2026، ثم احسب VNC في نهاية 2027.</p>
+<details><summary>الحل</summary>
+<h4><span class="pill">1</span>تحليل العملية</h4><div class="wrap"><table><tr><th>الحساب</th><th>طبيعته</th><th>الحالة</th><th>الجهة</th></tr><tr><td>681 مخصصات الاهتلاك</td><td>عبء</td><td>زاد</td><td>مدين</td></tr><tr><td>2818 اهتلاك التثبيتات العينية الأخرى</td><td>حساب تصحيح لقيمة الأصل</td><td>زاد</td><td>دائن</td></tr><tr><td>218 التثبيت</td><td>أصل</td><td>لا يتغير (يبقى بقيمته الأصلية)</td><td>—</td></tr></table></div><h4><span class="pill">2</span>تفصيل الحسابات</h4><div class="calc"><div>معدل الاهتلاك = <span class="ltr">100 ÷ 4 = 25%</span></div><div>القسط السنوي = <span class="ltr">1 000 000 × 25% = 250 000</span> &nbsp;أو&nbsp; <span class="ltr">1 000 000 ÷ 4 = 250 000</span></div><div>نهاية 2026: مجموع الاهتلاكات = <span class="ltr">250 000</span> ← VNC = <span class="ltr">1 000 000 − 250 000 = 750 000</span></div><div>نهاية 2027: مجموع الاهتلاكات = <span class="ltr">250 000 + 250 000 = 500 000</span> ← VNC = <span class="ltr">1 000 000 − 500 000 = 500 000 دج</span></div></div><h4><span class="pill">3</span>القيد المحاسبي (31/12/2026)</h4><div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td>31/12</td><td class="num">681</td><td>مخصصات الاهتلاك والمؤونات وخسائر القيمة</td><td class="num d">250 000</td><td class="num c"></td></tr><tr class="cr"><td></td><td class="num">2818</td><td>اهتلاك التثبيتات العينية الأخرى</td><td class="num d"></td><td class="num c">250 000</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">250 000</td><td class="num c">250 000</td></tr><tr><td colspan="5" style="direction:rtl">تسجيل قسط اهتلاك سنة 2026 (OD)</td></tr></table></div><h4><span class="pill">4</span>الترحيل في حسابات T (نهاية 2027)</h4><div class="tg"><table class="t"><thead><tr><th colspan="2">218 – التثبيتات العينية الأخرى</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">01/01/26</span><span class="am">1 000 000</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">1 000 000</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">1 000 000</b> مدين</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">2818 – اهتلاك التثبيتات</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td></td><td><span class="dt">31/12/26</span><span class="am">250 000</span></td></tr><tr><td></td><td><span class="dt">31/12/27</span><span class="am">250 000</span></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">0</span></td><td><span class="dt">المجموع</span><span class="am">500 000</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">500 000</b> دائن</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">681 – مخصصات الاهتلاك (2026)</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">31/12/26</span><span class="am">250 000</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">250 000</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">250 000</b> مدين</td></tr></tbody></table></div><div class="box key"><b class="t">القيمة المحاسبية الصافية</b>VNC = رصيد 218 − رصيد 2818 = <span class="ltr">1 000 000 − 500 000 = 500 000</span> دج. لاحظ أن حساب 218 لم يُمَسّ.</div>
+</details></div>
+<div class="ex"><p><b>التمرين 4:</b> أجر عامل: <span class="ltr">80 000</span> إجمالي. احسب الاقتطاع 9% والصافي واشتراك رب العمل 26% ثم سجل قيد الأجر.</p>
+<details><summary>الحل</summary>
+<h4><span class="pill">1</span>تحليل العملية</h4><div class="wrap"><table><tr><th>الحساب</th><th>طبيعته</th><th>الحالة</th><th>الجهة</th></tr><tr><td>631 أجور المستخدمين</td><td>عبء</td><td>زاد</td><td>مدين</td></tr><tr><td>421 المستخدمون – أجور مستحقة</td><td>خصم (دين للعامل)</td><td>زاد</td><td>دائن</td></tr><tr><td>431 الضمان الاجتماعي</td><td>خصم (دين للهيئة)</td><td>زاد</td><td>دائن</td></tr><tr><td>635 اشتراكات رب العمل</td><td>عبء</td><td>زاد</td><td>مدين</td></tr></table></div><h4><span class="pill">2</span>تفصيل الحسابات</h4><div class="calc"><div>اقتطاع العامل (9%) = <span class="ltr">80 000 × 9% = 7 200</span></div><div>الأجر الصافي = <span class="ltr">80 000 − 7 200 = 72 800</span></div><div>اشتراك رب العمل (26%) = <span class="ltr">80 000 × 26% = 20 800</span></div><div>العبء الحقيقي للمؤسسة = <span class="ltr">80 000 + 20 800 = 100 800</span></div><div>المستحق للضمان الاجتماعي = <span class="ltr">7 200 + 20 800 = 28 000</span></div></div><h4><span class="pill">3</span>القيدان المحاسبيان</h4><p><b>① ثبوت الأجر والاقتطاع</b></p><div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td></td><td class="num">631</td><td>أجور المستخدمين</td><td class="num d">80 000</td><td class="num c"></td></tr><tr class="cr"><td></td><td class="num">421</td><td>المستخدمون – أجور مستحقة</td><td class="num d"></td><td class="num c">72 800</td></tr><tr class="cr"><td></td><td class="num">431</td><td>الضمان الاجتماعي</td><td class="num d"></td><td class="num c">7 200</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">80 000</td><td class="num c">80 000</td></tr><tr><td colspan="5" style="direction:rtl">قيد الأجر الإجمالي</td></tr></table></div><p><b>② اشتراكات رب العمل</b></p><div class="wrap"><table class="je"><tr><th>التاريخ</th><th>رقم</th><th>البيان</th><th class="d">مدين</th><th class="c">دائن</th></tr><tr><td></td><td class="num">635</td><td>اشتراكات رب العمل في الضمان الاجتماعي</td><td class="num d">20 800</td><td class="num c"></td></tr><tr class="cr"><td></td><td class="num">431</td><td>الضمان الاجتماعي</td><td class="num d"></td><td class="num c">20 800</td></tr><tr class="tot"><td colspan="3">المجموع ✔ مدين = دائن</td><td class="num d">20 800</td><td class="num c">20 800</td></tr><tr><td colspan="5" style="direction:rtl">اشتراكات رب العمل 26%</td></tr></table></div><h4><span class="pill">4</span>الترحيل في حسابات T</h4><div class="tg"><table class="t"><thead><tr><th colspan="2">631 – أجور المستخدمين</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">①</span><span class="am">80 000</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">80 000</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">80 000</b> مدين</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">635 – اشتراكات رب العمل</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">②</span><span class="am">20 800</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">20 800</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">20 800</b> مدين</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">421 – المستخدمون</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td></td><td><span class="dt">①</span><span class="am">72 800</span></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">0</span></td><td><span class="dt">المجموع</span><span class="am">72 800</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">72 800</b> دائن</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">431 – الضمان الاجتماعي</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td></td><td><span class="dt">①</span><span class="am">7 200</span></td></tr><tr><td></td><td><span class="dt">②</span><span class="am">20 800</span></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">0</span></td><td><span class="dt">المجموع</span><span class="am">28 000</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">28 000</b> دائن</td></tr></tbody></table></div>
+</details></div>
+<div class="ex"><p><b>التمرين 5 (فكر):</b> ميزان مراجعة وجدنا فيه مجموع المدين <span class="ltr">520 000</span> ومجموع الدائن <span class="ltr">510 000</span>. ما أنواع الأخطاء الممكنة؟</p>
+<details><summary>الحل</summary>
+<h4><span class="pill">1</span>الفارق</h4><div class="calc"><div>الفارق = <span class="ltr">520 000 − 510 000 = 10 000</span></div><div>مجموع المدين أكبر من مجموع الدائن بـ <span class="ltr">10 000</span> ← <b>يوجد خطأ حتماً</b>.</div></div><h4><span class="pill">2</span>مثال على خطأ ترحيل يُنتج هذا الفارق</h4><p>قيد مبلغه 10 000 رُحّل في جهة المدين ونُسي ترحيله في جهة الدائن:</p><div class="tg"><table class="t"><thead><tr><th colspan="2">حساب أ (ترحيل صحيح)</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr><td><span class="dt">قيد</span><span class="am">10 000</span></td><td></td></tr><tr class="tt"><td><span class="dt">المجموع</span><span class="am">10 000</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">10 000</b> مدين</td></tr></tbody></table><table class="t"><thead><tr><th colspan="2">حساب ب (النسيان)</th></tr><tr><th class="d">مدين</th><th class="c">دائن</th></tr></thead><tbody><tr class="tt"><td><span class="dt">المجموع</span><span class="am">0</span></td><td><span class="dt">المجموع</span><span class="am">0</span></td></tr><tr class="sd"><td colspan="2">الرصيد: <b class="ltr">0</b></td></tr></tbody></table></div><p>النتيجة: المدين أكبر بـ 10 000 من الدائن.</p><h4><span class="pill">3</span>طريقة البحث عن الخطأ</h4><div class="wrap"><table><tr><th>الخطوة</th><th>الخطأ المحتمل</th></tr><tr><td>إعادة جمع كل الأعمدة</td><td>خطأ في الجمع أو في حساب رصيد</td></tr><tr><td>البحث عن مبلغ يساوي الفارق (<span class="ltr">10 000</span>)</td><td>مبلغ رُحِّل مرة واحدة فقط (جهة واحدة) أو نُسي</td></tr><tr><td>البحث عن مبلغ يساوي نصف الفارق (<span class="ltr">5 000</span>)</td><td>مبلغ رُحِّل في الجهة الخاطئة (مدين بدل دائن أو العكس)</td></tr><tr><td>مراجعة كل قيد في اليومية</td><td>قيد غير متوازن أصلاً (المدين ≠ الدائن)</td></tr><tr><td>مقارنة المبالغ المرحّلة بالمبالغ في اليومية</td><td>مبلغ رُحِّل بقيمة مختلفة</td></tr></table></div>
+</details></div>
+</section>
+
+<!-- 19 -->
+<section id="s19">
+<h2><bdi class="n">19</bdi>. الأخطاء الشائعة وخلاصة الدرس</h2>
+<div class="box warn"><b class="t">أخطاء يقع فيها التلاميذ</b>
+<ul style="margin:.2rem 0">
+<li>اعتبار شراء تثبيت عبئاً (الصحيح: حساب من الصنف <bdi class="n">2</bdi>).</li>
+<li>نسيان الرسم <bdi class="n">4456</bdi> أو <bdi class="n">4457</bdi>، أو حسابه على <bdi class="n">TTC</bdi> بدل <bdi class="n">HT</bdi>.</li>
+<li>تسجيل التحصيل والدفع في حسابات الصنف <bdi class="n">6</bdi> أو <bdi class="n">7</bdi>.</li>
+<li>تسجيل الاهتلاك بإنقاص حساب التثبيت مباشرة (الصحيح: حساب <bdi class="n">28</bdi> مستقل).</li>
+<li>عكس المدين والدائن في حسابات الخصوم والمنتوجات.</li>
+<li>نسيان الاقتطاع أو اشتراكات رب العمل في قيد الأجور.</li>
+<li>كتابة قيد غير متوازن: دائماً تحقق من تساوي المجموعين.</li></ul></div>
+<div class="box key"><b class="t">الخلاصة</b>
+<ol style="margin:.2rem 0">
+<li>الأصول = الخصوم، والنتيجة = المنتوجات − الأعباء.</li>
+<li>الأصول والأعباء تزيد بالمدين. الخصوم والمنتوجات تزيد بالدائن.</li>
+<li>كل قيد: مجموع المدين = مجموع الدائن.</li>
+<li>الشراء: مدين (سلع/مواد/لوازم/تثبيت + <bdi class="n">4456</bdi>) ودائن مورد. البيع: مدين زبون ودائن (مبيعات + <bdi class="n">4457</bdi>).</li>
+<li>البنك والصندوق: القبض مدين والدفع دائن.</li>
+<li>الاهتلاك: مدين <bdi class="n">681</bdi> ودائن <bdi class="n">28x</bdi>. الأجور: مدين <bdi class="n">631</bdi> ودائن <bdi class="n">421</bdi> و<bdi class="n">431</bdi>، واشتراك رب العمل: مدين <bdi class="n">635</bdi> ودائن <bdi class="n">431</bdi>.</li>
+<li>اليومية = زمني، الأستاذ = حسب الحساب، الميزان = مراقبة التوازن.</li></ol></div>
+</section>
+
+<!-- 20 -->
+<section id="s20">
+<h2><bdi class="n">20</bdi>. قاموس المصطلحات عربي – فرنسي</h2>
+<div class="wrap"><table>
+<tr><th>العربي</th><th><bdi class="n">Fran</bdi>ç<bdi class="n">ais</bdi></th><th>العربي</th><th><bdi class="n">Fran</bdi>ç<bdi class="n">ais</bdi></th></tr>
+<tr><td>الأصول</td><td class="fr">Actif</td><td>الخصوم</td><td class="fr">Passif</td></tr>
+<tr><td>مدين</td><td class="fr">Débit</td><td>دائن</td><td class="fr">Crédit</td></tr>
+<tr><td>الأعباء</td><td class="fr">Charges</td><td>المنتوجات</td><td class="fr">Produits</td></tr>
+<tr><td>الأموال الخاصة</td><td class="fr">Capitaux propres</td><td>التثبيتات</td><td class="fr">Immobilisations</td></tr>
+<tr><td>المخزونات</td><td class="fr">Stocks</td><td>الزبائن</td><td class="fr">Clients</td></tr>
+<tr><td>الموردون</td><td class="fr">Fournisseurs</td><td>خارج الرسم</td><td class="fr">Hors taxe (HT)</td></tr>
+<tr><td>شامل الرسم</td><td class="fr">Toutes taxes comprises (TTC)</td><td>الاهتلاك</td><td class="fr">Amortissement</td></tr>
+<tr><td>القيمة المحاسبية الصافية</td><td class="fr">Valeur nette comptable (VNC)</td><td>الدفتر اليومي</td><td class="fr">Journal</td></tr>
+<tr><td>دفتر الأستاذ</td><td class="fr">Grand livre</td><td>ميزان المراجعة</td><td class="fr">Balance</td></tr>
+<tr><td>القيد المزدوج</td><td class="fr">Partie double</td><td>الرصيد</td><td class="fr">Solde</td></tr>
+<tr><td>الدورة المحاسبية</td><td class="fr">Exercice comptable</td><td>الأجر الإجمالي / الصافي</td><td class="fr">Salaire brut / net</td></tr>
+<tr><td>العمليات المختلفة</td><td class="fr">Opérations diverses (OD)</td><td>المؤونة</td><td class="fr">Provision</td></tr></table></div>
+</section>
+
+<!-- 21 -->
+<section id="s21">
+<h2>21. خريطة المراجعة: الخريطة الذهنية ودائرة المحاسبة <span class="fr">Carte mentale et circuit comptable</span></h2>
+<div class="lg"><span class="g1">أساسيات</span><span class="g2">عمليات جارية</span><span class="g3">OD ونهاية الدورة</span><span class="g4">رقابة وتحقق</span><span class="g5">قوائم مالية</span></div><h3>① الخريطة الذهنية <span class="fr">Carte mentale</span></h3><p>«المحاسبة» في المركز وحولها المحاور الثمانية للدرس. اضغط على أي مربع للعودة إلى القسم المقابل.</p><svg class="mm-svg" viewBox="0 0 1000 760" role="img" aria-label="خريطة ذهنية للمحاسبة" xmlns="http://www.w3.org/2000/svg"><line class="ln g1" x1="500" y1="370" x2="500" y2="90"/><line class="ln g1" x1="500" y1="370" x2="765" y2="172"/><line class="ln g1" x1="500" y1="370" x2="875" y2="370"/><line class="ln g2" x1="500" y1="370" x2="765" y2="568"/><line class="ln g2" x1="500" y1="370" x2="500" y2="650"/><line class="ln g3" x1="500" y1="370" x2="235" y2="568"/><line class="ln g4" x1="500" y1="370" x2="125" y2="370"/><line class="ln g5" x1="500" y1="370" x2="235" y2="172"/><ellipse class="core" cx="500" cy="370" rx="105" ry="68"/><text class="ct" x="500" y="366" text-anchor="middle">المحاسبة</text><text class="cs2" x="500" y="394" text-anchor="middle">Comptabilité</text><a href="#s1"><g class="nd g1"><rect x="380" y="35" width="240" height="110" rx="16"/><text class="nt" x="500" y="65" text-anchor="middle">التعريف والمبادئ</text><text class="nl" x="500" y="91" text-anchor="middle">الصورة الصادقة</text><text class="nl" x="500" y="112" text-anchor="middle">استمرارية الاستغلال</text><text class="nl" x="500" y="133" text-anchor="middle">الحيطة والحذر</text></g></a><a href="#s3"><g class="nd g1"><rect x="645" y="117" width="240" height="110" rx="16"/><text class="nt" x="765" y="147" text-anchor="middle">الذمة المالية والنتيجة</text><text class="nl" x="765" y="173" text-anchor="middle">أصول = خصوم</text><text class="nl" x="765" y="194" text-anchor="middle">أعباء ومنتوجات</text><text class="nl" x="765" y="215" text-anchor="middle">النتيجة = م − ع</text></g></a><a href="#s5"><g class="nd g1"><rect x="755" y="315" width="240" height="110" rx="16"/><text class="nt" x="875" y="345" text-anchor="middle">الحسابات والقيد المزدوج</text><text class="nl" x="875" y="371" text-anchor="middle">7 أصناف</text><text class="nl" x="875" y="392" text-anchor="middle">مدين / دائن</text><text class="nl" x="875" y="413" text-anchor="middle">مدين = دائن</text></g></a><a href="#s8"><g class="nd g2"><rect x="645" y="513" width="240" height="110" rx="16"/><text class="nt" x="765" y="543" text-anchor="middle">الرسم TVA</text><text class="nl" x="765" y="569" text-anchor="middle">المعدل 19%</text><text class="nl" x="765" y="590" text-anchor="middle">4456 قابل للاسترجاع</text><text class="nl" x="765" y="611" text-anchor="middle">4457 محصَّل</text></g></a><a href="#s9"><g class="nd g2"><rect x="380" y="595" width="240" height="110" rx="16"/><text class="nt" x="500" y="625" text-anchor="middle">العمليات الجارية</text><text class="nl" x="500" y="651" text-anchor="middle">شراء · بيع</text><text class="nl" x="500" y="672" text-anchor="middle">بنك · صندوق</text><text class="nl" x="500" y="693" text-anchor="middle">أجور</text></g></a><a href="#s13"><g class="nd g3"><rect x="115" y="513" width="240" height="110" rx="16"/><text class="nt" x="235" y="543" text-anchor="middle">OD والاهتلاك</text><text class="nl" x="235" y="569" text-anchor="middle">تصحيح الأخطاء</text><text class="nl" x="235" y="590" text-anchor="middle">681 ← 28x</text><text class="nl" x="235" y="611" text-anchor="middle">القيمة الصافية VNC</text></g></a><a href="#s16"><g class="nd g4"><rect x="5" y="315" width="240" height="110" rx="16"/><text class="nt" x="125" y="345" text-anchor="middle">دفاتر المراقبة</text><text class="nl" x="125" y="371" text-anchor="middle">اليومية · الأستاذ</text><text class="nl" x="125" y="392" text-anchor="middle">حسابات الغير</text><text class="nl" x="125" y="413" text-anchor="middle">الميزان: مدين = دائن</text></g></a><a href="#s4"><g class="nd g5"><rect x="115" y="117" width="240" height="110" rx="16"/><text class="nt" x="235" y="147" text-anchor="middle">القوائم المالية</text><text class="nl" x="235" y="173" text-anchor="middle">جدول حسابات النتائج</text><text class="nl" x="235" y="194" text-anchor="middle">الميزانية</text><text class="nl" x="235" y="215" text-anchor="middle">النتيجة (الحساب 12)</text></g></a></svg><div class="mm-list"><a class="mc g1" href="#s1"><b>التعريف والمبادئ</b><span>الصورة الصادقة</span><span>استمرارية الاستغلال</span><span>الحيطة والحذر</span></a><a class="mc g1" href="#s3"><b>الذمة المالية والنتيجة</b><span>أصول = خصوم</span><span>أعباء ومنتوجات</span><span>النتيجة = م − ع</span></a><a class="mc g1" href="#s5"><b>الحسابات والقيد المزدوج</b><span>7 أصناف</span><span>مدين / دائن</span><span>مدين = دائن</span></a><a class="mc g2" href="#s8"><b>الرسم TVA</b><span>المعدل 19%</span><span>4456 قابل للاسترجاع</span><span>4457 محصَّل</span></a><a class="mc g2" href="#s9"><b>العمليات الجارية</b><span>شراء · بيع</span><span>بنك · صندوق</span><span>أجور</span></a><a class="mc g3" href="#s13"><b>OD والاهتلاك</b><span>تصحيح الأخطاء</span><span>681 ← 28x</span><span>القيمة الصافية VNC</span></a><a class="mc g4" href="#s16"><b>دفاتر المراقبة</b><span>اليومية · الأستاذ</span><span>حسابات الغير</span><span>الميزان: مدين = دائن</span></a><a class="mc g5" href="#s4"><b>القوائم المالية</b><span>جدول حسابات النتائج</span><span>الميزانية</span><span>النتيجة (الحساب 12)</span></a></div><h3>② دائرة المحاسبة <span class="fr">Le circuit comptable</span></h3><p>من تأسيس المؤسسة إلى القوائم المالية: اتبع الأسهم من الأعلى إلى الأسفل.</p><div class="circuit"><div class="cstep g1"><div class="bd">1</div><div class="cb"><a href="#s3"><b>تأسيس المؤسسة</b></a><p>الشركاء يضعون رأس المال في البنك: مدين <span class="ltr">512</span> / دائن <span class="ltr">101</span>. من هنا تبدأ المعادلة: الأصول = الخصوم.</p></div></div><div class="arw">⬇</div><div class="cstep g1"><div class="bd">2</div><div class="cb"><a href="#s1"><b>جمع الوثائق المبررة</b></a><p>لا قيد بدون وثيقة: فاتورة، شيك، كشف بنكي، قسيمة أجر… (ما عدا العمليات المختلفة التي تستند إلى تقدير أو تصحيح).</p></div></div><div class="arw">⬇</div><div class="cstep g2"><div class="bd">3</div><div class="cb"><a href="#s9"><b>التسجيل في الدفتر اليومي</b></a><p>لكل عملية قيد مزدوج بالتاريخ والبيان، <b>ثم سطر المجموع: مدين = دائن</b>. تتوزع العمليات على 6 عائلات:</p><div class="chips"><span>شراء</span><span>بيع</span><span>بنك</span><span>صندوق</span><span>أجور</span><span class="od">OD عمليات مختلفة</span></div></div></div><div class="arw">⬇</div><div class="cstep g4"><div class="bd">4</div><div class="cb"><a href="#s16"><b>الترحيل إلى دفتر الأستاذ</b></a><p>نرحّل كل قيد إلى حساباته (حسابات T)، وبالنسبة للزبائن والموردين إلى الحسابات الفرعية في دفتر الغير.</p></div></div><div class="arw">⬇</div><div class="cstep g4"><div class="bd">5</div><div class="cb"><a href="#s16"><b>ميزان المراجعة</b></a><p>نجمع الحركات والأرصدة: <b>مجموع المدين = مجموع الدائن؟</b></p></div></div><div class="loop"><b>✗ إذا لم يتساوَ المجموعان:</b> نعود إلى الخطوتين 3 و4 للبحث عن الخطأ (ترحيل ناقص، جهة خاطئة، مبلغ مختلف…) ونصححه <u>بقيد جديد</u>، لا بالمحو.<br><b>✔ إذا تساويا:</b> نتابع، مع تذكّر أن التوازن لا يكشف أخطاء التخصيص والنسيان.</div><div class="arw">⬇</div><div class="cstep g3"><div class="bd">6</div><div class="cb"><a href="#s14"><b>أشغال نهاية الدورة (OD)</b></a><p>قيود التسوية: الاهتلاك (مدين <span class="ltr">681</span> / دائن <span class="ltr">28x</span>)، المؤونات، تسوية المخزون، تصحيح الأخطاء المكتشفة.</p></div></div><div class="arw">⬇</div><div class="cstep g4"><div class="bd">7</div><div class="cb"><a href="#s16"><b>ميزان المراجعة بعد الجرد</b></a><p>نتحقق مرة ثانية من التوازن بعد قيود التسوية.</p></div></div><div class="arw">⬇</div><div class="cstep g5"><div class="bd">8</div><div class="cb"><a href="#s4"><b>الإقفال وإعداد القوائم المالية</b></a><p>نُقفل حسابات التسيير ونعدّ القوائم الختامية:<div class="split"><div class="sbox g5"><b>جدول حسابات النتائج</b><span>الصنف 6 (أعباء) والصنف 7 (منتوجات)</span><span class="eq">النتيجة = المنتوجات − الأعباء</span></div><div class="sbox g5"><b>الميزانية</b><span>الأصناف 1 إلى 5 (أصول وخصوم)</span><span class="eq">الأصول = الخصوم</span></div></div><div class="arw">النتيجة (ربح أو خسارة) تنتقل إلى الخصوم: الحساب <span class="ltr">12</span> ⬇ فيتوازن الجانبان</div></p></div></div></div><div class="box key"><b class="t">للمراجعة السريعة</b>قبل الامتحان: ارسم الدائرة من الذاكرة، ثم تذكّر في كل خطوة <b>القيد الأساسي</b> و<b>الخطأ الذي يجب تجنبه</b>. وفي كل قيد وكل ميزان: <b>مدين = دائن</b>.</div>
+</section>
+
+
+</main>
+<footer>الدرس العام في المحاسبة – تحضير بكالوريا <bdi class="n">2027</bdi> – شعبة تسيير واقتصاد<br>بالتوفيق إن شاء الله 🌟</footer>
+</body>
+</html>

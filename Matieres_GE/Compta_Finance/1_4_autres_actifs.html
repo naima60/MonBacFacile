@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 04 : تسوية عناصر أصول أخرى والتقارب البنكي | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="1_0_presentation_trav_fin_ex.html">
+              المجال 01 : أعمال نهاية السنة
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 01">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_amortissements.html" class="btn btn-sm compta-pill-btn">01. الاهتلاك والتنازل</a>
+          <a href="1_2_perte_valeur.html" class="btn btn-sm compta-pill-btn">02. خسارة القيمة</a>
+          <a href="1_3_regul_stock.html" class="btn btn-sm compta-pill-btn">03. تسوية المخزونات</a>
+          <a href="1_4_autres_actifs.html" class="btn btn-sm compta-pill-btn active-pill">04. أصول أخرى والتقارب البنكي</a>
+          <a href="1_5_provisions.html" class="btn btn-sm compta-pill-btn">05. المؤونات</a>
+          <a href="1_6_regul_charges_produits.html" class="btn btn-sm compta-pill-btn">06. الأعباء والمنتوجات</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 01 : أعمال نهاية السنة <span class="fr-term">(Travaux de fin d'exercice)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 04 : تسوية عناصر أصول أخرى والتقارب البنكي <span class="fr-term">(État de rapprochement bancaire)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          الزبائن المشكوك فيهم، السندات، وحالة التقارب البنكي مع تسجيل قيود التسوية في <bdi dir="ltr">31/12</bdi>.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أن صديقاً يدين لك بمبلغ <strong class="num-ltr">20 000</strong> <strong>دج</strong>، ثم سمعت أنه يمر بضائقة مالية وقد لا يتمكن من إرجاع المبلغ كاملاً؛ وفي الوقت نفسه تراجع كشف حسابك البنكي فتجد أن البنك خصم عمولة صغيرة أو أضاف فائدة لم تسجلها في دفترك بعد. هنا تحتاج إلى تقييم وضعيتك بدقة قبل نهاية السنة حتى لا تعتمد على أرقام غير محيّنة.
+          </p>
+        </div>
+
+        <p>
+          في نهاية الدورة بتاريخ <strong class="num-ltr">31/12</strong>، تراجع المؤسسة <span class="fr-term">(Créances clients)</span> <strong>حسابات الزبائن</strong> (خاصة الزبائن المشكوك فيهم أو المفلسين)، و<span class="fr-term">(Titres)</span> <strong>السندات</strong> (سندات المساهمة الأخرى وقيم التوظيف)، وتُعدّ <span class="fr-term">(État de rapprochement bancaire)</span> <strong>حالة التقارب البنكي</strong> لمطابقة حساب البنك (<strong class="num-ltr">512</strong>) مع الكشف البنكي وفق <span class="fr-term">(Principe de prudence)</span> <strong>مبدأ الحيطة والحذر</strong> و<span class="fr-term">(Principe d'indépendance des exercices)</span> <strong>مبدأ استقلالية الدورات</strong>.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من تسوية ديون الزبائن، وتقييم السندات وحساب خسائر قيمتها أو فوائضها، وإعداد <span class="fr-term">(État de rapprochement bancaire)</span> <strong>حالة التقارب البنكي</strong> وتسجيل القيود الناتجة عنها في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">ماذا ستتعلم في هذا الدرس؟</h3>
+              <ul class="small mb-0 compta-list">
+                <li>معالجة الزبائن المشكوك فيهم (ح/ <span class="num-ltr">416</span>) والزبائن المفلسين (ح/ <span class="num-ltr">654</span>) وخسائر القيمة (ح/ <span class="num-ltr">491</span>، <span class="num-ltr">685</span>، <span class="num-ltr">785</span>).</li>
+                <li>تسوية سندات المساهمة الأخرى (ح/ <span class="num-ltr">265</span>) وقيم التوظيف (ح/ <span class="num-ltr">50</span>).</li>
+                <li>إعداد <span class="fr-term">(État de rapprochement bancaire)</span> <strong>حالة التقارب البنكي</strong> وتحديد الأرصدة المتساوية.</li>
+                <li>تسجيل قيود تسوية ح/ <strong class="num-ltr">512</strong> في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق لتسوية الأصول الأخرى والتقارب البنكي
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. تسوية حسابات الزبائن <span class="fr-term">(Créances clients)</span></h3>
+        <p>
+          تُحسب خسائر القيمة على الديون المتبقية خارج الرسم (<strong class="num-ltr">HT</strong>) لأن الرسم على القيمة المضافة (<strong class="num-ltr">TVA</strong>) يُسترجع أو يُسوّى حسب الحالة :
+        </p>
+        <div class="compta-formula">
+          <div><strong>الدين خارج الرسم :</strong> <span class="num-ltr">الدين HT = الدين TTC &divide; (1 + نسبة TVA)</span></div>
+          <div><strong>خسارة القيمة الجديدة :</strong> <span class="num-ltr">PV<sub>جديدة</sub> = الرصيد المتبقي HT &times; نسبة الخسارة المحتملة</span></div>
+          <div><strong>تعديل خسارة القيمة :</strong> نقارن <span class="num-ltr">PV<sub>جديدة</sub></span> بـ <span class="num-ltr">PV<sub>سابقة</sub></span> (رصيد ح/ <strong class="num-ltr">491</strong>) : زيادة في ح/ <strong class="num-ltr">685</strong> أو استرجاع في ح/ <strong class="num-ltr">785</strong>.</div>
+          <div><strong>إفلاس زبون نهائياً :</strong> يُلغى الدين المتبقي <span class="num-ltr">HT</span> في المدين ح/ <strong class="num-ltr">654</strong>، وتُسوى <span class="num-ltr">TVA</span> في المدين ح/ <strong class="num-ltr">4457</strong>، ويُرصّد الدين <span class="num-ltr">TTC</span> في الدائن ح/ <strong class="num-ltr">416</strong> (أو <strong class="num-ltr">411</strong>)، مع استرجاع <span class="num-ltr">PV<sub>سابقة</sub></span> بالكامل في ح/ <strong class="num-ltr">785</strong>.</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. تسوية السندات <span class="fr-term">(Titres)</span></h3>
+        <p>
+          تُقارن القيمة المحاسبية للسند بسعر السوق في <bdi dir="ltr">31/12</bdi> :
+        </p>
+        <div class="compta-formula">
+          <div><strong>سندات المساهمة الأخرى (ح/ <strong class="num-ltr">265</strong>) :</strong> إذا انخفض سعر السوق عن تكلفة الاقتناء تُسجل خسارة قيمة في المدين ح/ <strong class="num-ltr">686</strong> وفي الدائن ح/ <strong class="num-ltr">2965</strong> (وتُعدّل أو تُسترجع في ح/ <strong class="num-ltr">786</strong>).</div>
+          <div><strong>قيم التوظيف (ح/ <strong class="num-ltr">50</strong>) :</strong> تُسجل خسارة القيمة في المدين ح/ <strong class="num-ltr">686</strong> وفي الدائن ح/ <strong class="num-ltr">590</strong>، وعند التنازل عنها بفائض قيمة يُسجل الربح في ح/ <strong class="num-ltr">767</strong> وبناقص قيمة يُسجل في ح/ <strong class="num-ltr">667</strong>.</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">3. حالة التقارب البنكي <span class="fr-term">(État de rapprochement bancaire)</span></h3>
+        <p>
+          تُقارن المؤسسة في <bdi dir="ltr">31/12</bdi> بين <strong>حساب البنك في محاسبة المؤسسة (ح/ <strong class="num-ltr">512</strong>)</strong> و<strong>الكشف المرسل من البنك <span class="fr-term">(Relevé bancaire)</span></strong>، لأن الرصيدين غالباً ما يختلفان بسبب عمليات سجّلها أحد الطرفين دون الآخر (شيكات لم تُقدم للصرف، فوائد بنكية، عمولات...).
+        </p>
+        <div class="compta-formula">
+          <div><strong>قاعدة أساسية :</strong> لا نصحح أخطاء البنك في دفترنا، بل نُعدّل رصيد ح/ <strong class="num-ltr">512</strong> بالعمليات التي أظهرها الكشف البنكي ولم تُسجل في محاسبة المؤسسة بعد.</div>
+          <div><strong>في جدول التقارب :</strong> يجب أن يتساوى الرصيد المعدل لحساب <strong class="num-ltr">512</strong> مع الرصيد المعدل للكشف البنكي.</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">4. القيود المحاسبية الأساسية في <span class="fr-term">(Journal)</span> دفتر اليومية</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>العملية</th>
+                <th>التاريخ</th>
+                <th>رقم الحساب</th>
+                <th>البيان المحاسبي</th>
+                <th>مدين <span class="fr-term">(Débit)</span></th>
+                <th>دائن <span class="fr-term">(Crédit)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2"><strong>تكوين أو زيادة خسارة قيمة على الزبائن</strong></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">685</strong></td>
+                <td>مخصصات الاهتلاكات والمؤونات وخسائر القيمة - الأصول الجارية</td>
+                <td>مبلغ الزيادة</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">491</strong></td>
+                <td>خسائر القيمة عن حسابات الزبائن</td>
+                <td></td>
+                <td>مبلغ الزيادة</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>فوائد بنكية دائنة لصالح المؤسسة</strong><br /><small>(حسب حالة التقارب)</small></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">512</strong></td>
+                <td>البنوك الحسابات الجارية</td>
+                <td>الفائدة</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">768</strong></td>
+                <td>منتوجات مالية أخرى</td>
+                <td></td>
+                <td>الفائدة</td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>عمولات وخدمات مصرفية</strong><br /><small>(حسب حالة التقارب)</small></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">627</strong></td>
+                <td>الخدمات المصرفية وما شابهها</td>
+                <td>العمولة</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">512</strong></td>
+                <td>البنوك الحسابات الجارية</td>
+                <td></td>
+                <td>العمولة</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            بتاريخ <strong class="num-ltr">31/12/2025</strong>، أعدّت مؤسسة "الأمل" <span class="fr-term">(État de rapprochement bancaire)</span> <strong>حالة التقارب البنكي</strong> لحساب <strong class="num-ltr">512</strong> فكانت المعطيات كما يلي :
+          </p>
+          <ul class="mb-3">
+            <li>رصيد حساب <strong class="num-ltr">512</strong> في دفاتر المؤسسة قبل التقارب : <strong class="num-ltr">420 000</strong> <strong>دج</strong> (مدين).</li>
+            <li>رصيد الكشف البنكي بتاريخ <bdi dir="ltr">31/12/2025</bdi> : <strong class="num-ltr">455 000</strong> <strong>دج</strong> (دائن لصالح المؤسسة).</li>
+            <li>أظهر الكشف البنكي وجود <strong>فوائد بنكية لصالح المؤسسة</strong> بقيمة <strong class="num-ltr">12 000</strong> <strong>دج</strong>، و<strong>مصاريف وعمولات بنكية</strong> بقيمة <strong class="num-ltr">7 000</strong> <strong>دج</strong>، لم تُسجل في دفاتر المؤسسة بعد.</li>
+            <li>كما أصدرت المؤسسة شيكاً لفائدة مورد بقيمة <strong class="num-ltr">40 000</strong> <strong>دج</strong> لم يقدمه المورد للبنك بعد.</li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>أنجز <span class="fr-term">(État de rapprochement bancaire)</span> <strong>حالة التقارب البنكي</strong> بتاريخ <bdi dir="ltr">31/12/2025</bdi> وتأكد من تساوي الرصيدين المعدلين.</li>
+            <li>سجل قيود التسوية اللازمة في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.</li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">شرح الحسابات خطوة بخطوة :</h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب الرصيد المعدل لحساب <strong class="num-ltr">512</strong> (محاسبة المؤسسة) :</strong></p>
+          <ul class="mb-3">
+            <li>ننطلق من الرصيد المدين : <strong class="num-ltr"><bdi dir="ltr">420 000</bdi> دج</strong>.</li>
+            <li>نضيف الفوائد البنكية الدائنة (<strong class="num-ltr"><bdi dir="ltr">+12 000</bdi> دج</strong>) ونطرح العمولات البنكية (<strong class="num-ltr"><bdi dir="ltr">&minus;7 000</bdi> دج</strong>) :
+              <div class="my-2">
+                <strong>الرصيد المعدل لحـ/ <strong class="num-ltr">512</strong> = <bdi dir="ltr">420 000 + 12 000 &minus; 7 000 = 425 000</bdi> دج (مدين)</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — حساب الرصيد المعدل للكشف البنكي :</strong></p>
+          <ul class="mb-3">
+            <li>ننطلق من الرصيد الدائن للكشف : <strong class="num-ltr"><bdi dir="ltr">455 000</bdi> دج</strong>.</li>
+            <li>نطرح الشيك الصادر للمورد الذي لم يُصرف بعد (<strong class="num-ltr"><bdi dir="ltr">&minus;40 000</bdi> دج</strong>) :
+              <div class="my-2">
+                <strong>الرصيد المعدل للكشف البنكي = <bdi dir="ltr">455 000 &minus; 40 000 = 415 000</bdi> دج (دائن)</strong>
+              </div>
+            </li>
+          </ul>
+
+          <div class="compta-context my-3">
+            <strong>ملاحظة حول توازن جدول التقارب :</strong>
+            في التمرين أعلاه، الرصيد الدائن للكشف البنكي <strong class="num-ltr"><bdi dir="ltr">455 000</bdi> دج</strong> ناقص الشيك غير المصروف <strong class="num-ltr"><bdi dir="ltr">40 000</bdi> دج</strong> يساوي <strong class="num-ltr"><bdi dir="ltr">415 000</bdi> دج</strong>، بينما رصيد حـ/ <strong class="num-ltr">512</strong> المعدل هو <strong class="num-ltr"><bdi dir="ltr">425 000</bdi> دج</strong> (بفارق <strong class="num-ltr"><bdi dir="ltr">10 000</bdi> دج</strong> يمثل شيكاً محصلاً لم يظهر بعد أو فرقاً في الكشف)؛ وفي مواضيع البكالوريا يُعطى المعطى بحيث يتساوى الرصيدان تماماً عند إتمام كل بنود التسوية.
+          </div>
+
+          <div class="table-responsive mb-0">
+            <table class="table table-bordered align-middle text-center mb-0 bg-white">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">512</strong></td>
+                  <td>البنوك الحسابات الجارية</td>
+                  <td><span class="num-ltr">12 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">768</strong></td>
+                  <td>منتوجات مالية أخرى</td>
+                  <td></td>
+                  <td><span class="num-ltr">12 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">627</strong></td>
+                  <td>الخدمات المصرفية وما شابهها</td>
+                  <td><span class="num-ltr">7 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">512</strong></td>
+                  <td>البنوك الحسابات الجارية</td>
+                  <td></td>
+                  <td><span class="num-ltr">7 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          بتاريخ <strong class="num-ltr">31/12/2025</strong>، يظهر في ميزان المراجعة قبل الجرد <span class="fr-term">(Balance avant inventaire)</span> لمؤسسة "الوفاء" الزبون المشكوك فيه "كريم" بدين إجمالي <strong class="num-ltr">119 000</strong> <strong>دج</strong> (<strong class="num-ltr">TTC</strong>، نسبة <span class="num-ltr">TVA</span> هي <strong class="num-ltr">19%</strong>)، وخسارة قيمة سابقة في ح/ <strong class="num-ltr">491</strong> قدرها <strong class="num-ltr">30 000</strong> <strong>دج</strong>.
+        </p>
+        <p class="mb-3">
+          خلال السنة سدّد الزبون مبلغ <strong class="num-ltr">59 500</strong> <strong>دج</strong> (<strong class="num-ltr">TTC</strong>)، وفي نهاية السنة يُقدّر احتمال عدم تحصيل الباقي بـ <strong class="num-ltr">40%</strong>.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : احسب الرصيد المتبقي خارج الرسم (<strong class="num-ltr">HT</strong>)، وخسارة القيمة الجديدة، ومبلغ التعديل الواجب تسجيله في <bdi dir="ltr">31/12/2025</bdi>.
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution1_4"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution1_4" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">الحل النموذجي لتمرين التفكير :</h3>
+          <p class="mb-2">
+            <strong>1. حساب الدين المتبقي <span class="num-ltr">TTC</span> و<span class="num-ltr">HT</span> :</strong><br />
+            الدين المتبقي <span class="num-ltr">TTC</span> = <bdi dir="ltr">119 000 &minus; 59 500 = 59 500</bdi> دج.<br />
+            الدين المتبقي <span class="num-ltr">HT</span> = <bdi dir="ltr">59 500 &divide; 1,19 = 50 000</bdi> دج.
+          </p>
+          <p class="mb-2">
+            <strong>2. حساب خسارة القيمة الجديدة والتعديل :</strong><br />
+            <span class="num-ltr">PV<sub>جديدة</sub> = <bdi dir="ltr">50 000 &times; 40% = 20 000</bdi></span> دج.<br />
+            بما أن <span class="num-ltr">PV<sub>سابقة</sub> (<bdi dir="ltr">30 000</bdi> دج) &gt; PV<sub>جديدة</sub> (<bdi dir="ltr">20 000</bdi> دج)</span>، نسجل استرجاعاً قدره :
+            <div class="my-2">
+              <strong>الاسترجاع = <bdi dir="ltr">30 000 &minus; 20 000 = 10 000</bdi> دج</strong>
+            </div>
+          </p>
+          <div class="table-responsive mb-0">
+            <table class="table table-bordered align-middle text-center mb-0 bg-white">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2025</span></td>
+                  <td><strong class="num-ltr">491</strong></td>
+                  <td>خسائر القيمة عن حسابات الزبائن</td>
+                  <td><span class="num-ltr">10 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">785</strong></td>
+                  <td>استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول الجارية</td>
+                  <td></td>
+                  <td><span class="num-ltr">10 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

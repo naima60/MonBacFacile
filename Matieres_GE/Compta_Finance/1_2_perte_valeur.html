@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 02 : خسارة القيمة على التثبيتات | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="1_0_presentation_trav_fin_ex.html">
+              المجال 01 : أعمال نهاية السنة
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 01">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_amortissements.html" class="btn btn-sm compta-pill-btn">01. الاهتلاك والتنازل</a>
+          <a href="1_2_perte_valeur.html" class="btn btn-sm compta-pill-btn active-pill">02. خسارة القيمة</a>
+          <a href="1_3_regul_stock.html" class="btn btn-sm compta-pill-btn">03. تسوية المخزونات</a>
+          <a href="1_4_autres_actifs.html" class="btn btn-sm compta-pill-btn">04. أصول أخرى والتقارب البنكي</a>
+          <a href="1_5_provisions.html" class="btn btn-sm compta-pill-btn">05. المؤونات</a>
+          <a href="1_6_regul_charges_produits.html" class="btn btn-sm compta-pill-btn">06. الأعباء والمنتوجات</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 01 : أعمال نهاية السنة <span class="fr-term">(Travaux de fin d'exercice)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 02 : خسارة القيمة على التثبيتات <span class="fr-term">(Perte de valeur sur immobilisations)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          اختبار انخفاض القيمة، تعديل مخطط الاهتلاك، واسترجاع خسارة القيمة مع تطبيقات من مستوى البكالوريا.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أنك اشتريت هاتفاً ذكياً بمبلغ <strong class="num-ltr">150 000</strong> <strong>دج</strong>، وبعد استعماله مدة معينة أصبحت قيمته الحسابية في دفاترك <strong class="num-ltr">110 000</strong> <strong>دج</strong>. إذا قررت بيعه اليوم في السوق ولم يجلب لك سوى <strong class="num-ltr">85 000</strong> <strong>دج</strong> بسبب ظهور طراز أحدث أو تراجع الطلب عليه، فهناك انخفاض إضافي غير عادي في قيمته قدره <strong class="num-ltr">25 000</strong> <strong>دج</strong> يجب أخذه بعين الاعتبار حتى لا نبالغ في تقييم ممتلكاتنا.
+          </p>
+        </div>
+
+        <p>
+          في المحاسبة، قد تتعرض <span class="fr-term">(Immobilisations corporelles)</span> <strong>التثبيتات العينية</strong> لانخفاض مفاجئ أو غير عادي في قيمتها السوقية أو نفعيتها الاقتصادية (مثل التقدم التكنولوجي السريع، تغير السوق، أو تدهور ظروف الاستغلال). تطبيقاً لـ <span class="fr-term">(Principe de prudence)</span> <strong>مبدأ الحيطة والحذر</strong>، نقارن <span class="fr-term">(Valeur nette comptable - VNC)</span> <strong>القيمة المحاسبية الصافية</strong> بـ <span class="fr-term">(Prix de vente net)</span> <strong>سعر البيع الصافي</strong> (أو القيمة القابلة للتحصيل) في نهاية السنة.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من اكتشاف متى توجد <span class="fr-term">(Perte de valeur)</span> <strong>خسارة قيمة</strong>، وحساب مبلغها، وتعديل أقساط الاهتلاك للسنوات المتبقية، ومعالجة <span class="fr-term">(Reprise sur perte de valeur)</span> <strong>استرجاع خسارة القيمة</strong> إن زال سبب الانخفاض.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">ماذا ستتعلم في هذا الدرس؟</h3>
+              <ul class="small mb-0 compta-list">
+                <li>الفرق بين <span class="fr-term">(Amortissement)</span> <strong>الاهتلاك</strong> (تآكل منتظم) و<span class="fr-term">(Perte de valeur)</span> <strong>خسارة القيمة</strong> (انخفاض استثنائي).</li>
+                <li>حساب <span class="fr-term">(VNC)</span> قبل الاختبار ومقارنتها بـ <span class="fr-term">(Prix de vente net)</span> <strong>سعر البيع الصافي</strong>.</li>
+                <li>إعادة حساب <span class="fr-term">(Dotation ajustée)</span> <strong>القسط السنوي المعدل</strong> بعد تسجيل خسارة القيمة.</li>
+                <li>تسجيل قيود إثبات الخسارة واسترجاعها في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق لخسارة القيمة وتعديل الاهتلاك
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. شرط وحساب خسارة القيمة <span class="fr-term">(Perte de valeur - PV)</span></h3>
+        <p>
+          تُحسب <span class="fr-term">(Valeur nette comptable)</span> <strong>القيمة المحاسبية الصافية</strong> قبل تسجيل خسارة القيمة الجديدة، ثم تُقارن بـ <strong>سعر البيع الصافي</strong> <span class="fr-term">(Prix de vente net)</span> :
+        </p>
+        <div class="compta-formula">
+          <div><strong>القيمة المحاسبية الصافية قبل الخسارة :</strong> <span class="num-ltr">VNC = MA &minus; &Sigma;A &minus; PV<sub>سابقة</sub></span></div>
+          <div><strong>شرط وجود خسارة قيمة :</strong> إذا كان <span class="num-ltr">VNC &gt; سعر البيع الصافي</span> ، توجد خسارة قيمة.</div>
+          <div><strong>مبلغ خسارة القيمة :</strong> <span class="num-ltr">PV = VNC &minus; سعر البيع الصافي</span></div>
+          <div><strong>القيمة المحاسبية الصافية بعد الخسارة :</strong> <span class="num-ltr">VNC<sub>جديدة</sub> = سعر البيع الصافي</span></div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. تعديل قسط الاهتلاك بعد خسارة القيمة <span class="fr-term">(Ajustement de l'amortissement)</span></h3>
+        <p>
+          بعد إثبات خسارة القيمة في <bdi dir="ltr">31/12</bdi>، يصبح الأساس الجديد للاهتلاك هو <span class="num-ltr">VNC<sub>جديدة</sub></span> (بعد طرح الخسارة)، ويُوزع على <strong>المدة النفعية المتبقية</strong> ابتداءً من السنة الموالية :
+        </p>
+        <div class="compta-formula">
+          <div><strong>القسط السنوي المعدل :</strong> <span class="num-ltr">A<sub>جديد</sub> = VNC<sub>جديدة</sub> &divide; المدة المتبقية (بالسنوات)</span></div>
+          <div><strong>تنبيه مهم :</strong> القسط المعدل يُحسب على أساس <strong>المدة المتبقية</strong> وليس على المدة الكلية الأصلية.</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">3. استرجاع خسارة القيمة <span class="fr-term">(Reprise sur perte de valeur)</span></h3>
+        <p>
+          إذا تحسنت الوضعية أو زال سبب الانخفاض في سنة لاحقة وأصبح <span class="num-ltr">VNC<sub>نظرية بدون خسارة</sub></span> أكبر من القيمة الحالية، يمكن استرجاع جزء أو كل خسارة القيمة السابقة في الدائن ضمن الحساب <strong class="num-ltr">781</strong> (استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول غير الجارية).
+        </p>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">4. القيود المحاسبية الأساسية في <span class="fr-term">(Journal)</span> دفتر اليومية</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>العملية</th>
+                <th>التاريخ</th>
+                <th>رقم الحساب</th>
+                <th>البيان المحاسبي</th>
+                <th>مدين <span class="fr-term">(Débit)</span></th>
+                <th>دائن <span class="fr-term">(Crédit)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2"><strong>إثبات خسارة القيمة</strong></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">681</strong></td>
+                <td>مخصصات للاهتلاكات والمؤونات وخسائر القيمة - الأصول غير الجارية</td>
+                <td><span class="num-ltr">PV</span></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">291...</strong></td>
+                <td>خسائر القيمة عن التثبيتات العينية المعنية</td>
+                <td></td>
+                <td><span class="num-ltr">PV</span></td>
+              </tr>
+              <tr>
+                <td rowspan="2"><strong>استرجاع خسارة القيمة</strong></td>
+                <td><span class="num-ltr">31/12</span></td>
+                <td><strong class="num-ltr">291...</strong></td>
+                <td>خسائر القيمة عن التثبيتات العينية المعنية</td>
+                <td>استرجاع</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><strong class="num-ltr">781</strong></td>
+                <td>استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول غير الجارية</td>
+                <td></td>
+                <td>استرجاع</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            بتاريخ <strong class="num-ltr">01/01/2022</strong> اقتنت مؤسسة "البيان" منشآت تقنية ومعدات وأدوات صناعية <span class="fr-term">(Installations techniques, matériel et outillage industriels - ح/ 215)</span> بمبلغ <strong class="num-ltr">3 000 000</strong> <strong>دج</strong>، تهتلك خطياً لمدة <strong class="num-ltr">5</strong> <strong>سنوات</strong>.
+          </p>
+          <p class="mb-3">
+            بتاريخ <strong class="num-ltr">31/12/2023</strong> أظهر اختبار انخفاض القيمة أن <span class="fr-term">(Prix de vente net)</span> <strong>سعر البيع الصافي</strong> يساوي <strong class="num-ltr">1 500 000</strong> <strong>دج</strong>.
+          </p>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>احسب القسط السنوي الأصلي و<span class="fr-term">(VNC)</span> بتاريخ <bdi dir="ltr">31/12/2023</bdi> قبل اختبار القيمة.</li>
+            <li>احسب خسارة القيمة بتاريخ <bdi dir="ltr">31/12/2023</bdi> وسجل قيدها في <span class="fr-term">(Journal)</span> <strong>دفتر اليومية</strong>.</li>
+            <li>احسب القسط السنوي المعدل لسنة <bdi dir="ltr">2024</bdi> وسجل قيده في <bdi dir="ltr">31/12/2024</bdi>.</li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">شرح الحسابات خطوة بخطوة :</h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب القسط السنوي الأصلي و<span class="num-ltr">VNC</span> بتاريخ <bdi dir="ltr">31/12/2023</bdi> :</strong></p>
+          <ul class="mb-3">
+            <li>المعدل الخطي : <bdi dir="ltr">$t = \frac{100}{5} = 20\%$</bdi>.</li>
+            <li>القسط السنوي الأصلي :
+              <div class="my-2">
+                <strong>A<sub>أصلي</sub> = <bdi dir="ltr">3 000 000 &times; 20% = 600 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>من <bdi dir="ltr">01/01/2022</bdi> إلى <bdi dir="ltr">31/12/2023</bdi> مرت <strong>سنتان (<bdi dir="ltr">2</bdi> سنة)</strong>، إذن الاهتلاك المتراكم هو :
+              <div class="my-2">
+                <strong>&Sigma;A<sub>2023</sub> = <bdi dir="ltr">600 000 &times; 2 = 1 200 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>القيمة المحاسبية الصافية قبل الخسارة :
+              <div class="my-2">
+                <strong>VNC<sub>2023</sub> = <bdi dir="ltr">3 000 000 &minus; 1 200 000 = 1 800 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — حساب خسارة القيمة وتسجيل قيدها في <bdi dir="ltr">31/12/2023</bdi> :</strong></p>
+          <ul class="mb-3">
+            <li>بما أن <span class="num-ltr">VNC<sub>2023</sub> (<bdi dir="ltr">1 800 000</bdi> دج) &gt; سعر البيع الصافي (<bdi dir="ltr">1 500 000</bdi> دج)</span>، توجد خسارة قيمة :
+              <div class="my-2">
+                <strong>PV<sub>2023</sub> = <bdi dir="ltr">1 800 000 &minus; 1 500 000 = 300 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>تُسجل في المدين ح/ <strong class="num-ltr">681</strong> وفي الدائن ح/ <strong class="num-ltr">2915</strong>.</li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 3 — حساب القسط السنوي المعدل لسنة <bdi dir="ltr">2024</bdi> وتسجيل قيده :</strong></p>
+          <ul class="mb-3">
+            <li>المدة الكلية <bdi dir="ltr">5</bdi> سنوات وقد مضت منها سنتان (<bdi dir="ltr">2022</bdi> و<bdi dir="ltr">2023</bdi>)، فتبقى <strong><bdi dir="ltr">3</bdi> سنوات</strong> (<bdi dir="ltr">2024</bdi>، <bdi dir="ltr">2025</bdi>، <bdi dir="ltr">2026</bdi>).</li>
+            <li>تصبح <span class="num-ltr">VNC<sub>جديدة</sub></span> بعد الخسارة مساوية لـ <strong class="num-ltr"><bdi dir="ltr">1 500 000</bdi> دج</strong>، فيكون القسط المعدل :
+              <div class="my-2">
+                <strong>A<sub>2024</sub> = <bdi dir="ltr">1 500 000 &divide; 3 = 500 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <div class="table-responsive mb-0">
+            <table class="table table-bordered align-middle text-center mb-0 bg-white">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2023</span></td>
+                  <td><strong class="num-ltr">681</strong></td>
+                  <td>مخصصات للاهتلاكات والمؤونات وخسائر القيمة - الأصول غير الجارية</td>
+                  <td><span class="num-ltr">300 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">2915</strong></td>
+                  <td>خسائر القيمة عن المنشآت التقنية والمعدات والأدوات الصناعية</td>
+                  <td></td>
+                  <td><span class="num-ltr">300 000</span></td>
+                </tr>
+                <tr>
+                  <td><span class="num-ltr">31/12/2024</span></td>
+                  <td><strong class="num-ltr">681</strong></td>
+                  <td>مخصصات للاهتلاكات والمؤونات وخسائر القيمة - الأصول غير الجارية</td>
+                  <td><span class="num-ltr">500 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">2815</strong></td>
+                  <td>اهتلاك المنشآت التقنية والمعدات والأدوات الصناعية</td>
+                  <td></td>
+                  <td><span class="num-ltr">500 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          تملك مؤسسة "الوفاء" معدات نقل <span class="fr-term">(Matériel de transport - ح/ 2182)</span> مقتناة بتاريخ <strong class="num-ltr">01/01/2022</strong> بمبلغ <strong class="num-ltr">2 000 000</strong> <strong>دج</strong>، تهتلك خطياً على <strong class="num-ltr">4</strong> <strong>سنوات</strong>.
+        </p>
+        <p class="mb-2">
+          بتاريخ <strong class="num-ltr">31/12/2023</strong> سُجلت خسارة قيمة <span class="fr-term">(PV)</span> قدرها <strong class="num-ltr">200 000</strong> <strong>دج</strong>. أما في <strong class="num-ltr">31/12/2024</strong> فبيّن اختبار القيمة أن سعر البيع الصافي يساوي <strong class="num-ltr">500 000</strong> <strong>دج</strong>.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : هل تُسجل خسارة قيمة جديدة في <bdi dir="ltr">31/12/2024</bdi> أم استرجاعاً لخسارة القيمة؟ احسب المبلغ وسجل القيد المحاسبي.
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution1_2"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution1_2" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">الحل النموذجي لتمرين التفكير :</h3>
+          <p class="mb-2">
+            <strong>1. حساب <span class="num-ltr">VNC</span> بتاريخ <bdi dir="ltr">31/12/2023</bdi> بعد الخسارة :</strong><br />
+            القسط الأصلي : <bdi dir="ltr">2 000 000 &divide; 4 = 500 000</bdi> دج/سنة.<br />
+            الاهتلاك المتراكم في <bdi dir="ltr">31/12/2023</bdi> (سنتان) : <bdi dir="ltr">500 000 &times; 2 = 1 000 000</bdi> دج.<br />
+            <span class="num-ltr">VNC</span> قبل خسارة <bdi dir="ltr">2023</bdi> = <bdi dir="ltr">2 000 000 &minus; 1 000 000 = 1 000 000</bdi> دج.<br />
+            <span class="num-ltr">VNC</span> بعد خسارة <bdi dir="ltr">2023</bdi> (<bdi dir="ltr">200 000</bdi> دج) = <bdi dir="ltr">1 000 000 &minus; 200 000 = 800 000</bdi> دج.
+          </p>
+          <p class="mb-2">
+            <strong>2. حساب قسط سنة <bdi dir="ltr">2024</bdi> و<span class="num-ltr">VNC</span> قبل اختبار <bdi dir="ltr">31/12/2024</bdi> :</strong><br />
+            المدة المتبقية من بداية <bdi dir="ltr">2024</bdi> هي <strong class="num-ltr"><bdi dir="ltr">2</bdi> سنة</strong> (<bdi dir="ltr">2024</bdi> و<bdi dir="ltr">2025</bdi>)، إذن :
+            <div class="my-2">
+              <strong>A<sub>2024</sub> = <bdi dir="ltr">800 000 &divide; 2 = 400 000</bdi> دج</strong>
+            </div>
+            وتصبح <span class="num-ltr">VNC</span> في <bdi dir="ltr">31/12/2024</bdi> (قبل اختبار القيمة) :
+            <div class="my-2">
+              <strong>VNC<sub>2024</sub> = <bdi dir="ltr">800 000 &minus; 400 000 = 400 000</bdi> دج</strong>
+            </div>
+          </p>
+          <p class="mb-2">
+            <strong>3. مقارنة <span class="num-ltr">VNC<sub>2024</sub></span> بسعر البيع الصافي (<bdi dir="ltr">500 000</bdi> دج) :</strong><br />
+            نلاحظ أن <span class="num-ltr">VNC<sub>2024</sub> (<bdi dir="ltr">400 000</bdi> دج)</span> أقل من سعر البيع الصافي (<bdi dir="ltr">500 000</bdi> دج)، لكن <span class="num-ltr">VNC</span> النظرية لو لم تُسجل خسارة <bdi dir="ltr">2023</bdi> كانت ستكون <bdi dir="ltr">500 000</bdi> دج (<bdi dir="ltr">2 000 000 &minus; 1 500 000</bdi>). إذن يمكن استرجاع الفرق بين <bdi dir="ltr">500 000</bdi> و<bdi dir="ltr">400 000</bdi> وهو <strong class="num-ltr"><bdi dir="ltr">100 000</bdi> دج</strong> في حدود الخسارة المتبقية.
+          </p>
+          <div class="table-responsive mb-0">
+            <table class="table table-bordered align-middle text-center mb-0 bg-white">
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>رقم الحساب</th>
+                  <th>البيان</th>
+                  <th>مدين <span class="fr-term">(Débit)</span></th>
+                  <th>دائن <span class="fr-term">(Crédit)</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="num-ltr">31/12/2024</span></td>
+                  <td><strong class="num-ltr">29182</strong></td>
+                  <td>خسائر القيمة عن معدات النقل</td>
+                  <td><span class="num-ltr">100 000</span></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><strong class="num-ltr">781</strong></td>
+                  <td>استرجاعات الاستغلال عن خسائر القيمة والمؤونات - الأصول غير الجارية</td>
+                  <td></td>
+                  <td><span class="num-ltr">100 000</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

@@ -1,8 +1,405 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="ar" dir="rtl">
   <head>
-    <meta http-equiv="refresh" content="0; url=./Home/home.html" />
-    <title>Redirection...</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BacApp - اختيار الشعبة والمستقبل</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .hero-section {
+        background: linear-gradient(135deg, #264653 0%, #2a9d8f 100%);
+        color: white;
+        padding: 40px 0;
+        border-radius: 0 0 40px 40px;
+      }
+      .filiere-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 20px;
+      }
+      .filiere-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      }
+      .motivation-box {
+        background: white;
+        border-left: 5px solid #2a9d8f;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+
+      /* ضمان ظهور شريحة واحدة فقط وتوسيط محتواها بشكل سليم */
+  .carousel-item {
+    transition: transform 0.6s ease-in-out;
+  }
+  .carousel-item img {
+    height: 320px;
+    object-fit: cover;
+  }
+
+  .carousel-item {
+  display: none;
+}
+.carousel-item.active {
+  display: block;
+}
+
+
+    </style>
   </head>
-  <body></body>
+  <body>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #264653;">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="#">🎓 BacApp-dz</a>
+        <span class="text-warning fw-semibold">منصتك نحو التميز والنجاح</span>
+      </div>
+    </nav>
+   
+<!-- القسم الأخضر العلوي المتكامل -->
+<!-- القسم العلوي الأخضر (مع تعديل الكاروسيل والمسافات) -->
+    <section class="hero-section text-white py-5 mb-5" style="background-color: #1b4332; border-radius: 0 0 40px 40px;">
+      <div class="container">
+        <div class="row align-items-center justify-content-between g-5">
+          
+          <!-- الجهة اليمنى: النص التحفيزي والتفاصيل -->
+          <div class="col-lg-6 order-1 text-end">
+            <h2 class="fw-bold text-warning display-4 mb-2"> 🎓 بكالوريا دورة 2027</h2>
+            <h5 class="fw-bold display-6 mb-3">البكالوريا بين يديك، اصنع مستقبلك</h5>
+            
+            <p class="text-light opacity-90 mb-4" style="line-height: 1.8;">
+            نحن لا نجهزك فقط لاجتياز امتحان البكالوريا، بل نزرع فيك المفاهيم التي ستصنع منك قائداً، باحثاً، أو رجل أعمال في المستقبل!
+            </p>
+            
+            
+            <div>
+              <a href="#lessons" class="btn btn-warning text-dark fw-bold px-4 py-3 rounded-pill shadow-sm fs-6">
+                ابدأ المراجعة الآن
+              </a>
+            </div>
+            
+          </div>
+
+          <!-- الجهة اليسرى: الكاروسيل (مكبر قليلاً وبدون خطوط سفلية، والنص في المنتصف) -->
+          <div class="col-lg-6 order-2 d-flex justify-content-center">
+            <div id="motivationCarousel" class="carousel slide shadow rounded-4 overflow-hidden bg-dark w-100" data-bs-ride="carousel" style="max-width: 500px;">
+              
+              <!-- محتوى الشرائح (بدون مؤشرات، والنص في المنتصف text-center) -->
+              <div class="carousel-inner">
+                
+                <!-- الشريحة 1 -->
+                <div class="carousel-item active">
+                  <img src="assets/0_images/prof2_index.jpg" class="d-block w-100" alt="معلمة" style="height: 380px; object-fit: cover; object-position: top center;">
+                  <div class="carousel-caption d-block bg-dark bg-opacity-75 py-2 px-3 start-0 end-0 bottom-0 text-center">
+                    <h6 class="fw-bold mb-1 text-warning">شكراً لكل أستاذ ومعلم</h6>
+                    <p class="small mb-0 text-light">"نجاح التلميذ هو التجسيد الحقيقي لرسالة المعلم وإخلاصه."</p>
+                  </div>
+                </div>
+
+                <!-- الشريحة 2 -->
+                <div class="carousel-item">
+                  <img src="assets/0_images/reussite2_bac_index.jpg" class="d-block w-100" alt="طالبة متفوقة" style="height: 380px; object-fit: cover; object-position: top center;">
+                  <div class="carousel-caption d-block bg-dark bg-opacity-75 py-2 px-3 start-0 end-0 bottom-0 text-center">
+                    <h6 class="fw-bold mb-1 text-warning">حلمك بالتخرج يبدأ اليوم</h6>
+                    <p class="small mb-0 text-light">"اجعل هذه اللحظة هدفك، فالتعب يزول ويبقى أثر النجاح."</p>
+                  </div>
+                </div>
+
+                 <!-- الشريحة 2 -->
+                <div class="carousel-item">
+                  <img src="assets/0_images/certif_bac.jpg" class="d-block w-100" alt="طالبة متفوقة" style="height: 380px; object-fit: cover; object-position: top center;">
+                  <div class="carousel-caption d-block bg-dark bg-opacity-75 py-2 px-3 start-0 end-0 bottom-0 text-center">
+                    <h6 class="fw-bold mb-1 text-warning">هدفك اليوم</h6>
+                    <p class="small mb-0 text-light">بوابة الانتقال من الثانوي الى الجامعة </p>
+                  </div>
+                </div>
+
+                <!-- الشريحة 3 -->
+                <div class="carousel-item">
+                  <img src="assets/0_images/univ_Index.jpg" class="d-block w-100" alt="الجامعة" style="height: 380px; object-fit: cover; object-position: top center;">
+                  <div class="carousel-caption d-block bg-dark bg-opacity-75 py-2 px-3 start-0 end-0 bottom-0 text-center">
+                    <h6 class="fw-bold mb-1 text-warning">حلمك سيتحقق قريباً</h6>
+                    <p class="small mb-0 text-light">"ركز على هدفك لتنال فرصة الالتحاق بالجامعة."</p>
+                  </div>
+                </div>
+
+                <!-- الشريحة 4 -->
+                <div class="carousel-item">
+                  <div class="d-flex flex-column justify-content-center align-items-center text-center p-4 bg-white text-dark" style="height: 380px;">
+                    <div class="display-4 mb-2">🚀</div>
+                    <h5 class="fw-bold text-success mb-2">الفهم العميق يصنع النجاح</h5>
+                    <p class="text-muted small mb-0">التعلم ليس حفظاً مؤقتاً، بل بناء لعقلية قادرة على تحقيق المستحيل.</p>
+                  </div>
+                </div>
+
+                <!-- الشريحة 4 -->
+                <div class="carousel-item">
+                  <div class="d-flex flex-column justify-content-center align-items-center text-center p-4 bg-white text-dark" style="height: 380px;">
+                    <div class="display-4 mb-2">🌐</div>
+                    <h5 class="fw-bold text-success mb-2">اللغات والتواصل</h5>
+                    <p class="text-muted small mb-0">مفتاحك للانفتاح على العالم، عرض أفكارك، وبناء شبكة علاقات عالمية.</p>
+                  </div>
+                </div>
+
+                <!-- الشريحة 4 -->
+                <div class="carousel-item">
+                  <div class="d-flex flex-column justify-content-center align-items-center text-center p-4 bg-white text-dark" style="height: 380px;">
+                    <div class="display-4 mb-2">📈</div>
+                    <h5 class="fw-bold text-success mb-2">التفكير المالي والتحليلي</h5>
+                    <p class="text-muted small mb-0"> إدارة المشاريع، فهم الأسواق، واتخاذ القرارات الاقتصادية السليمة.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- أزرار التنقل (السهمين) -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#motivationCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#motivationCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+<!-- قسم لماذا ندرس هذه المواد؟ (4 بطاقات في كل سطر) -->
+    <section class="container mb-5">
+      <div class="text-center mb-4">
+        <span class="badge bg-success text-white px-3 py-2 rounded-pill fw-bold mb-2">فلسفة التعلّم والنجاح</span>
+        <h2 class="fw-bold text-dark">لماذا ندرُس هذه المواد في مسارنا؟</h2>
+        <p class="text-muted">فهمك لأهمية كل مادة يفتح عقلك، يسهل استيعابها، ويجعلك تقبل عليها بشغف</p>
+      </div>
+
+      <!-- استخدام col-lg-3 لجعلها 4 بطاقات في السطر الواحد -->
+      <div class="row g-3">
+
+         <!-- 8. النصيحة التحفيزية الختامية (من الكود الأول) -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-light border-success">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🌱</div>
+              <h5 class="card-title fw-bold text-success mb-2">السر الحقيقي للنجاح</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                عندما تدرس وأنت تعلم <strong>لماذا</strong> تدرس، يفرز عقلك طاقة إيجابية ويزول التوتر. تعلم لتستمتع بالمعرفة وتبني بها مستقبلك وأنت مرتاح البال!
+              </p>
+            </div>
+          </div>
+        </div>
+
+<!-- 1. اللغة العربية -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">📖</div>
+              <h5 class="card-title fw-bold text-success mb-2">اللغة العربية</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                لغتنا الأم وهوية هويتنا. لا ندرسها لنحفظ القواعد فحسب، بل لنمتلك ناصية البيان، وفهم بلاغة النصوص، والتعبير عن أفكارنا بعمق ورقي.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. اللغات الحية -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🗣️</div>
+              <h5 class="card-title fw-bold text-warning text-dark mb-2">اللغات الحية</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                الفرنسية، الإنجليزية والإسبانية... ليست مجرد مواد امتحان، بل مفاتيح تفتح لك أبواب المعرفة العالمية، التواصل الدولي، وسوق العمل الحديث.
+              </p>
+            </div>
+          </div>
+        </div>
+
+       <!-- 3. التربية الإسلامية -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">⚖️</div>
+              <h5 class="card-title fw-bold text-danger mb-2">التربية الإسلامية</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                تبني الوازع الأخلاقي والقيمي، وتوضح أحكام المعاملات (كالمال، الشركات، والبيوع)، لتكون مسيراً أو رجل أعمال نزيهاً يدرك الحلال والحرام.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. الفلسفة -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🧠</div>
+              <h5 class="card-title fw-bold text-success mb-2">الفلسفة والتفكير</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                أداة لتدريب عقلك على النقد والتحليل المنطقي. تعلمك كيف تطرح الأسئلة الصحيحة وتبني حججاً قوية تفيد في الجامعة وكل مجالات الحياة.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. الرياضيات -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🔢</div>
+              <h5 class="card-title fw-bold text-primary mb-2">الرياضيات</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                ممشى العقل ومنهج التفكير المنطقي السليم. تعلمك كيف تحلل المشكلات المعقدة وتصل إلى الحلول اليقينية بدقة متناهية في كل مجالات الحياة.
+              </p>
+            </div>
+          </div>
+        </div>
+
+          <!-- 8. الفيزياء والكيمياء -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">⚗️</div>
+              <h5 class="card-title fw-bold text-primary mb-2">الفيزياء والكيمياء</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                تفسر لك قوانين الطبيعة، الحركة، الطاقة، والتفاعلات الكيميائية التي تصنع التكنولوجيا والصناعات الحديثة في حياتنا.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. العلوم الطبيعية والحياة -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🧬</div>
+              <h5 class="card-title fw-bold text-success mb-2">العلوم الطبيعية</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                تكشف لك أسرار الكائنات الحية، البنيات الخلوية، والآليات الحيوية الدقيقة، لتفهم تفاعل جسمك والعالم البيولوجي من حولك.
+              </p>
+            </div>
+          </div>
+        </div>
+
+         <!-- 4. الاقتصاد والمناجم -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">📊</div>
+              <h5 class="card-title fw-bold text-info mb-2">الاقتصاد والمؤسسات</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                لفهم كيفية تسيير الأسواق، الشركات، وكيف تعمل الدول اقتصادياً. أساس متين لكل رجل أعمال ومسير ناجح في المستقبل.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 5. المحاسبة والمالية -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">📈</div>
+              <h5 class="card-title fw-bold text-dark mb-2">المحاسبة والمالية</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                لغة المال والأعمال الرقمية. تعلمك قراءة الميزانيات، ضبط الحسابات، واتخاذ القرارات الاستثمارية المالية السليمة بدقة.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 6. الضرائب والقانون -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">⚖️</div>
+              <h5 class="card-title fw-bold text-danger mb-2">الضرائب والقانون</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                تعرفك على الإطار القانوني والجبائي المنظم للمؤسسات، لتدرج في عالم الإدارة وأنت على علم بحقوقك وواجباتك الجبائية.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. التاريخ والجغرافيا -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 rounded-4 p-2 bg-white">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🌍</div>
+              <h5 class="card-title fw-bold text-primary mb-2">التاريخ والجغرافيا</h5>
+              <p class="card-text text-secondary extra-small" style="line-height: 1.6; font-size: 0.85rem;">
+                لا ندرسهما للحفظ الجاف، بل لنفهم الصراعات السياسية والاقتصادية العالمية، ونبني وعياً جوسياسياً يفسر لنا أسرار العلاقات الدولية والتحولات الكبرى.
+              </p>
+            </div>
+          </div>
+        </div>  
+
+      </div>
+    </section>
+
+
+      <!-- قسم اختيار الشعبة (البطاقتان) -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">اختر شعبتك الدراسية للانتقال إلى الدروس:</h2>
+        <p class="text-muted">حدد تخصصك لتستعرض البرامج والمواضيع الخاصة بك مباشرة</p>
+      </div>
+
+      <div class="row justify-content-center g-4" id="lessons">
+        <!-- بطاقة شعبة لغات أجنبية -->
+        <div class="col-md-5">
+          <div class="card filiere-card h-100 shadow-sm p-4 text-center bg-white">
+            <div class="card-body">
+              <div class="display-3 mb-3">🗣️</div>
+              <h3 class="card-title fw-bold text-primary mb-3">شعبة لغات أجنبية</h3>
+              <p class="card-text text-secondary mb-4 small">
+                تضم برامج اللغات الحية، الأدب، الفلسفة، والتاريخ المرتبط بالثقافات والاتصال.
+              </p>
+              <a href="./home_filieres/home_LE.html" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold fs-6">
+                الدخول لشعبة اللغات ⬅️
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- بطاقة شعبة تسيير واقتصاد -->
+        <div class="col-md-5">
+          <div class="card filiere-card h-100 shadow-sm p-4 text-center bg-white">
+            <div class="card-body">
+              <div class="display-3 mb-3">📊</div>
+              <h3 class="card-title fw-bold text-success mb-3">شعبة تسيير واقتصاد</h3>
+              <p class="card-text text-secondary mb-4 small">
+                تضم برامج التسيير المحاسبي والمالي، الاقتصاد، والمواد الأساسية الموجهة لعالم الأعمال.
+              </p>
+              <a href="./home_filieres/home_GE.html" class="btn btn-success btn-lg rounded-pill px-5 fw-bold fs-6">
+                الدخول لشعبة التسيير ⬅️
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="text-white text-center py-4 mt-auto" style="background-color: #264653;">
+      <div class="container">
+        <p class="mb-1 small opacity-75">© 2027 - منصة البكالوريا الجزائرية المبسطة</p>
+        <p class="mb-0 extra-small opacity-50">مصممة لمساعدتك على رؤية أبعد من الامتحان وخلق مستقبل مشرق</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (هذا السطر ضروري جداً لكي يعمل الكاروسيل) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

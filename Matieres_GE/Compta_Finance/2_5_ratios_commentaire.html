@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 05 : النسب المالية والتعليق المالي | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="2_0_presentation_etats_fin.html"
+            >
+              المجال 02 : الكشوف المالية والتحليل
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_compta.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 02 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 02"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 02 :</span>
+          <a
+            href="2_1_compte_resultat_bilan.html"
+            class="btn btn-sm compta-pill-btn"
+            >01. حساب النتائج والميزانية</a
+          >
+          <a
+            href="2_2_resultats_par_nature.html"
+            class="btn btn-sm compta-pill-btn"
+            >02. النتائج حسب الطبيعة</a
+          >
+          <a
+            href="2_3_resultat_par_fonction.html"
+            class="btn btn-sm compta-pill-btn"
+            >03. النتائج حسب الوظيفة</a
+          >
+          <a
+            href="2_4_bilan_fonctionnel.html"
+            class="btn btn-sm compta-pill-btn"
+            >04. الميزانية الوظيفية</a
+          >
+          <a
+            href="2_5_ratios_commentaire.html"
+            class="btn btn-sm compta-pill-btn active-pill"
+            >05. النسب والتعليق المالي</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span
+          class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2"
+        >
+          المجال 02 : إعداد الكشوف المالية وتحليلها
+          <span class="fr-term">(États financiers et analyse)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 05 : النسب المالية والتعليق المالي
+          <span class="fr-term">(Ratios financiers et commentaire)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          نسب التمويل والهيكلة والمردودية، ومنهجية كتابة تعليق مالي واضح ومنهجي
+          في البكالوريا.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أنك تقارن بين مشروعين : الأول حقق ربحاً صافياً قدره
+            <strong class="num-ltr">500 000</strong> <strong>دج</strong> برأس
+            مال كبير جداً، والثاني حقق ربحاً قدره
+            <strong class="num-ltr">300 000</strong> <strong>دج</strong> برأس
+            مال أصغر بكثير، أو أن أحدهما يعتمد كلياً على الديون بينما الآخر
+            يعتمد على موارده الخاصة. النسب المالية تحوّل الأرقام الخام إلى
+            مؤشرات نسبية تساعدنا على الفهم والمقارنة والحكم بدقة.
+          </p>
+        </div>
+
+        <p>
+          في التحليل المالي، تُستخدم
+          <span class="fr-term">(Ratios financiers)</span>
+          <strong>النسب المالية</strong> لقياس التوازن، واستقلالية التمويل،
+          والمردودية، ثم يأتي دور
+          <span class="fr-term">(Commentaire financier)</span>
+          <strong>التعليق المالي</strong> الذي يربط الأرقام بالوضعية الفعلية
+          للمؤسسة ويبرز نقاط القوة ومجالات التحسين.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من حساب أهم النسب المالية بدقة، وتفسير نتائجها، وصياغة
+                تعليق مالي منظم ومختصر يجمع بين المؤشر الرقمي ودلالته
+                الاقتصادية.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">
+                ماذا ستتعلم في هذا الدرس؟
+              </h3>
+              <ul class="small mb-0 compta-list">
+                <li>
+                  نسبة التمويل الدائم
+                  <span class="fr-term">(Ratio de financement permanent)</span>
+                  ونسبة تغطية الاستخدامات الثابتة.
+                </li>
+                <li>
+                  نسبة الاستقلالية المالية
+                  <span class="fr-term">(Ratio d'autonomie financière)</span>
+                  ونسب المديونية.
+                </li>
+                <li>نسب المردودية المالية والاقتصادية والربحية.</li>
+                <li>
+                  منهجية صياغة تعليق مالي سليم (ذكر القيمة + المقارنة بالمعيار
+                  أو السنة السابقة + الاستنتاج).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق للنسب المالية ومنهجية التعليق
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. أهم النسب المالية</h3>
+        <div class="compta-formula">
+          <div>
+            <strong>نسبة التمويل الدائم :</strong>
+            <bdi dir="ltr">=</bdi>
+            الموارد الثابتة
+            <bdi dir="ltr">&divide;</bdi>
+            الاستخدامات الثابتة
+          </div>
+          <div>
+            <strong>نسبة الاستقلالية المالية :</strong>
+            <bdi dir="ltr">=</bdi>
+            رؤوس الأموال الخاصة
+            <bdi dir="ltr">&divide;</bdi>
+            مجموع الخصوم (أو الديون المالية)
+          </div>
+          <div>
+            <strong>نسبة المردودية المالية :</strong>
+            <bdi dir="ltr">=</bdi>
+            النتيجة الصافية
+            <bdi dir="ltr">&divide;</bdi>
+            رؤوس الأموال الخاصة
+          </div>
+          <div>
+            <strong>نسبة الربحية الإجمالية :</strong>
+            <bdi dir="ltr">=</bdi>
+            هامش الربح الإجمالي
+            <bdi dir="ltr">&divide;</bdi>
+            رقم الأعمال (ح/
+            <strong class="num-ltr"><bdi dir="ltr">70</bdi></strong
+            >)
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. منهجية كتابة تعليق مالي ناجح</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>خطوة التعليق</th>
+                <th>ما يجب فعله</th>
+                <th>ما يجب تجنبه</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. قراءة المؤشر</strong></td>
+                <td>ذكر النتيجة المحسوبة بوضوح (موجبة/سالبة أو نسبة مئوية)</td>
+                <td>الاكتفاء بكتابة الرقم دون تفسير</td>
+              </tr>
+              <tr>
+                <td><strong>2. التفسير الاقتصادي</strong></td>
+                <td>
+                  ربط المؤشر بتغطية الاحتياجات، استقلالية القرار، أو فعالية
+                  النشاط
+                </td>
+                <td>إطلاق أحكام عامة غير مبنية على معطيات التمرين</td>
+              </tr>
+              <tr>
+                <td><strong>3. التوصية أو الخلاصة</strong></td>
+                <td>
+                  إبراز مواطن القوة أو ضرورة تحسين التمويل أو ضبط التكاليف
+                </td>
+                <td>الإطالة غير المفيدة أو تكرار القوانين دون تحليل</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            إليك المعطيات التالية المستخرجة من الكشوف المالية لمؤسسة بتاريخ
+            <strong class="num-ltr">31/12/2025</strong> (المبالغ بالدينار
+            الجزائري) :
+          </p>
+          <ul class="mb-3">
+            <li>
+              الموارد الثابتة : <strong class="num-ltr">2 400 000</strong> ،
+              والاستخدامات الثابتة : <strong class="num-ltr">2 000 000</strong>.
+            </li>
+            <li>
+              رؤوس الأموال الخاصة : <strong class="num-ltr">1 800 000</strong> ،
+              ومجموع الخصوم : <strong class="num-ltr">3 000 000</strong>.
+            </li>
+            <li>
+              النتيجة الصافية للسنة المالية :
+              <strong class="num-ltr">360 000</strong>.
+            </li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>
+              احسب نسبة التمويل الدائم، نسبة الاستقلالية المالية (مقارنة بمجموع
+              الخصوم)، ونسبة المردودية المالية.
+            </li>
+            <li>قدّم تعليقاً مالياً مختصراً حول الوضعية المالية للمؤسسة.</li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">
+            شرح الحسابات خطوة بخطوة :
+          </h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب النسب المالية :</strong></p>
+          <ul class="mb-3">
+            <li>
+              نسبة التمويل الدائم :
+              <div class="my-2">
+                <strong
+                  ><bdi dir="ltr">2 400 000 &divide; 2 000 000 = 1,20</bdi> (أي
+                  <strong class="num-ltr"><bdi dir="ltr">120%</bdi></strong
+                  >)</strong
+                >
+              </div>
+            </li>
+            <li>
+              نسبة الاستقلالية المالية :
+              <div class="my-2">
+                <strong
+                  ><bdi dir="ltr">1 800 000 &divide; 3 000 000 = 0,60</bdi> (أي
+                  <strong class="num-ltr"><bdi dir="ltr">60%</bdi></strong
+                  >)</strong
+                >
+              </div>
+            </li>
+            <li>
+              نسبة المردودية المالية :
+              <div class="my-2">
+                <strong
+                  ><bdi dir="ltr">360 000 &divide; 1 800 000 = 0,20</bdi> (أي
+                  <strong class="num-ltr"><bdi dir="ltr">20%</bdi></strong
+                  >)</strong
+                >
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — التعليق المالي :</strong></p>
+          <ul class="mb-0">
+            <li>
+              نسبة التمويل الدائم أكبر من
+              <strong class="num-ltr"><bdi dir="ltr">1</bdi></strong> (<strong
+                class="num-ltr"
+                ><bdi dir="ltr">1,20</bdi></strong
+              >)، مما يعني أن الموارد الثابتة تغطي كامل الاستخدامات الثابتة
+              وتترك فائضاً (<span class="num-ltr">FRNG</span> موجب).
+            </li>
+            <li>
+              رؤوس الأموال الخاصة تمثل
+              <strong class="num-ltr"><bdi dir="ltr">60%</bdi></strong> من مجموع
+              الخصوم، وهو مؤشر جيد على الاستقلالية المالية، كما حققت مردودية
+              مالية معتبرة قدرها
+              <strong class="num-ltr"><bdi dir="ltr">20%</bdi></strong
+              >.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          إذا كانت نسبة التمويل الدائم لمؤسسة تساوي
+          <strong class="num-ltr">0,85</strong> (أي
+          <strong class="num-ltr">85%</strong>)، فما دلالة ذلك على توازنها
+          المالي؟
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution2_5"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution2_5" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">
+            الحل النموذجي لتمرين التفكير :
+          </h3>
+          <p class="mb-0">
+            نسبة التمويل الدائم أقل من
+            <strong class="num-ltr"><bdi dir="ltr">1</bdi></strong> (<strong
+              class="num-ltr"
+              ><bdi dir="ltr">0,85</bdi></strong
+            >)، مما يعني أن الموارد الثابتة لا تغطي كامل الاستخدامات الثابتة
+            (<span class="num-ltr">FRNG</span> سالب)، وهو ما يدل على وجود اختلال
+            في التوازن المالي طويل الأجل واعتماد المؤسسة على موارد قصيرة الأجل
+            لتمويل جزء من أصولها الثابتة.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>

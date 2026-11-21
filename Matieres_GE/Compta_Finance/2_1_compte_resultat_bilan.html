@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الدرس 01 : إعداد حساب النتائج والميزانية الختامية | BacApp-dz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="compta.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="2_0_presentation_etats_fin.html">
+              المجال 02 : الكشوف المالية والتحليل
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_compta.html">
+              البرنامج السنوي
+            </a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 02 -->
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 02">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 02 :</span>
+          <a href="2_1_compte_resultat_bilan.html" class="btn btn-sm compta-pill-btn active-pill">01. حساب النتائج والميزانية</a>
+          <a href="2_2_resultats_par_nature.html" class="btn btn-sm compta-pill-btn">02. النتائج حسب الطبيعة</a>
+          <a href="2_3_resultat_par_fonction.html" class="btn btn-sm compta-pill-btn">03. النتائج حسب الوظيفة</a>
+          <a href="2_4_bilan_fonctionnel.html" class="btn btn-sm compta-pill-btn">04. الميزانية الوظيفية</a>
+          <a href="2_5_ratios_commentaire.html" class="btn btn-sm compta-pill-btn">05. النسب والتعليق المالي</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <!-- ترويسة الدرس -->
+      <section class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge compta-hero-badge fw-bold px-3 py-2 rounded-pill mb-2">
+          المجال 02 : إعداد الكشوف المالية وتحليلها <span class="fr-term">(États financiers et analyse)</span>
+        </span>
+        <h1 class="h2 fw-bold mb-2">
+          الدرس 01 : إعداد حساب النتائج <span class="fr-term">(Compte de résultat)</span> والميزانية الختامية <span class="fr-term">(Bilan)</span>
+        </h1>
+        <p class="mb-0 opacity-90">
+          تصنيف الأرصدة بعد الجرد، حساب النتيجة الصافية، وبناء الميزانية الختامية وفق <span class="fr-term">(SCF)</span>.
+        </p>
+      </section>
+
+      <!-- 1. السياق والهدف وماذا ستتعلم -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          أولاً : السياق، الهدف، وماذا ستتعلم في هذا الدرس؟
+        </h2>
+
+        <div class="compta-context mb-3">
+          <h3 class="h6 fw-bold mb-2">السياق من الحياة اليومية :</h3>
+          <p class="mb-0">
+            تخيل أنك تدير مشروعاً صغيراً طوال السنة وتحتفظ بكل فواتير المشتريات والمبيعات والمصاريف وقائمة ما تملكه وما عليك من ديون. في نهاية السنة تريد إجابتين واضحتين : أولاً، هل حقق المشروع ربحاً أم خسارة خلال السنة؟ وثانياً، ما هي ممتلكاته وديونه الحقيقية في <strong class="num-ltr">31/12</strong>؟ <span class="fr-term">(Compte de résultat)</span> <strong>حساب النتائج</strong> يجيب عن السؤال الأول، و<span class="fr-term">(Bilan)</span> <strong>الميزانية الختامية</strong> تجيب عن السؤال الثاني.
+          </p>
+        </div>
+
+        <p>
+          بعد تسجيل قيود الجرد والتسوية في <strong class="num-ltr">31/12</strong>، تُعدّ المؤسسة <span class="fr-term">(Compte de résultat)</span> <strong>حساب النتائج</strong> انطلاقاً من حسابات التسيير (الصنف <strong class="num-ltr">7</strong> للمنتوجات والصنف <strong class="num-ltr">6</strong> للأعباء)، ثم تُعدّ <span class="fr-term">(Bilan)</span> <strong>الميزانية الختامية</strong> انطلاقاً من حسابات الميزانية (الأصناف <strong class="num-ltr">1</strong> إلى <strong class="num-ltr">5</strong>) مع إدماج <span class="fr-term">(Résultat net de l'exercice)</span> <strong>النتيجة الصافية للسنة المالية</strong> وفق <span class="fr-term">(Système Comptable Financier - SCF)</span> <strong>النظام المحاسبي المالي</strong>.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-primary mb-2">الهدف من الدرس :</h3>
+              <p class="small mb-0">
+                تمكينك من فرز الأرصدة بعد الجرد بدقة، وحساب <strong>النتيجة الصافية</strong> في <span class="fr-term">(Compte de résultat)</span> <strong>حساب النتائج</strong>، وترتيب عناصر <span class="fr-term">(Actif)</span> <strong>الأصول</strong> و<span class="fr-term">(Passif)</span> <strong>الخصوم</strong> في <span class="fr-term">(Bilan)</span> <strong>الميزانية الختامية</strong> المتوازنة.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded-3 border bg-light h-100">
+              <h3 class="h6 fw-bold text-success mb-2">ماذا ستتعلم في هذا الدرس؟</h3>
+              <ul class="small mb-0 compta-list">
+                <li>التمييز بين حسابات الأعباء (صنف <strong class="num-ltr">6</strong>) والمنتوجات (صنف <strong class="num-ltr">7</strong>) وحسابات الميزانية (أصناف <strong class="num-ltr">1</strong> إلى <strong class="num-ltr">5</strong>).</li>
+                <li>حساب <span class="fr-term">(Résultat net)</span> <strong>النتيجة الصافية</strong> (ربح أو خسارة) وربطها بحساب <strong class="num-ltr">12</strong>.</li>
+                <li>تطبيق قاعدة المبالغ في الميزانية : <span class="num-ltr">القيمة المحاسبية الصافية (VNC) = المبلغ الإجمالي (Brut) &minus; الاهتلاكات وخسائر القيمة</span>.</li>
+                <li>التحقق من توازن الميزانية الختامية : <span class="num-ltr">مجموع الأصول = مجموع الخصوم</span>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. الشرح المعمق للدرس -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثانياً : الشرح المعمق لحساب النتائج والميزانية الختامية
+        </h2>
+
+        <h3 class="h5 fw-bold mt-3 mb-2">1. حساب النتائج <span class="fr-term">(Compte de résultat)</span> والنتيجة الصافية</h3>
+        <p>
+          يُبرز <span class="fr-term">(Compte de résultat)</span> <strong>حساب النتائج</strong> مجموع المنتوجات ومجموع الأعباء خلال الدورة المحاسبية لتحديد النتيجة الصافية :
+        </p>
+        <div class="compta-formula">
+          <div><strong>النتيجة الصافية :</strong> <span class="num-ltr">النتيجة الصافية = مجموع المنتوجات (صنف 7) &minus; مجموع الأعباء (صنف 6)</span></div>
+          <div><strong>إذا كانت النتيجة موجبة (<strong class="num-ltr">+</strong>) :</strong> فهي <strong>ربح صافٍ</strong> (حساب <strong class="num-ltr">120</strong> في الدائن).</div>
+          <div><strong>إذا كانت النتيجة سالبة (<strong class="num-ltr">&minus;</strong>) :</strong> فهي <strong>خسارة صافية</strong> (حساب <strong class="num-ltr">129</strong> في المدين).</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">2. بنية الميزانية الختامية <span class="fr-term">(Bilan de clôture)</span> حسب <span class="fr-term">(SCF)</span></h3>
+        <p>
+          تُرتّب عناصر <span class="fr-term">(Actif)</span> <strong>الأصول</strong> إلى <strong>أصول غير جارية</strong> (تثبيتات معنوية، عينية، مالية...) و<strong>أصول جارية</strong> (مخزونات، زبائن ومدينون آخرون، خزينة...)، وتُرتّب عناصر <span class="fr-term">(Passif)</span> <strong>الخصوم</strong> إلى <strong>رؤوس أموال خاصة</strong>، <strong>خصوم غير جارية</strong>، و<strong>خصوم جارية</strong> :
+        </p>
+        <div class="compta-formula">
+          <div><strong>في جدول الأصول :</strong> نجد أعمدة المبلغ الإجمالي (<span class="num-ltr">Brut</span>)، الاهتلاكات وخسائر القيمة (<span class="num-ltr">Amort. / Pertes</span>)، والمبلغ الصافي (<span class="num-ltr">Net = Brut &minus; Amort./Pertes</span>).</div>
+          <div><strong>شرط صحة الميزانية :</strong> <span class="num-ltr">مجموع الأصول الصافية = مجموع الخصوم</span>.</div>
+          <div><strong>تنبيه مهم :</strong> لا تُخلط أرصدة حسابات الصنف <strong class="num-ltr">6</strong> والصنف <strong class="num-ltr">7</strong> مع عناصر الميزانية؛ لأن أثرها يدخل في الميزانية عبر <strong>النتيجة الصافية</strong> فقط.</div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4 mb-2">3. ملخص تصنيف الحسابات عند إعداد الكشوف المالية</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-0">
+            <thead>
+              <tr>
+                <th>الصنف المحاسبي</th>
+                <th>طبيعة الحسابات</th>
+                <th>الكشف المالي المعني</th>
+                <th>ملاحظة منهجية</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong class="num-ltr">1</strong> إلى <strong class="num-ltr">5</strong></td>
+                <td>حسابات رؤوس الأموال، التثبيتات، المخزونات، الغير، والخزينة</td>
+                <td><strong>الميزانية الختامية <span class="fr-term">(Bilan)</span></strong></td>
+                <td>تُرتب حسب أصول غير جارية/جارية وخصوم</td>
+              </tr>
+              <tr>
+                <td><strong class="num-ltr">6</strong></td>
+                <td>الأعباء</td>
+                <td><strong>حساب النتائج <span class="fr-term">(Compte de résultat)</span></strong></td>
+                <td>تُطرح من المنتوجات لتحديد النتيجة</td>
+              </tr>
+              <tr>
+                <td><strong class="num-ltr">7</strong></td>
+                <td>المنتوجات</td>
+                <td><strong>حساب النتائج <span class="fr-term">(Compte de résultat)</span></strong></td>
+                <td>تُجمع لتحديد إجمالي المنتوجات</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. تمرين تطبيقي من مستوى البكالوريا مع شرح الحسابات خطوة بخطوة -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          ثالثاً : تمرين تطبيقي (مستوى بكالوريا) مع شرح الحسابات خطوة بخطوة
+        </h2>
+
+        <div class="compta-example">
+          <h3 class="h5 fw-bold mb-2">نص التمرين :</h3>
+          <p class="mb-2">
+            إليك الأرصدة الختامية بعد الجرد لمؤسسة "النور" بتاريخ <strong class="num-ltr">31/12/2025</strong> (المبالغ بالدينار الجزائري) :
+          </p>
+          <ul class="mb-3">
+            <li><strong>ح/ <span class="num-ltr">215</span></strong> منشآت تقنية ومعدات وأدوات صناعية : <strong class="num-ltr">1 200 000</strong> (مدين)، و<strong>ح/ <span class="num-ltr">2815</span></strong> : <strong class="num-ltr">300 000</strong> (دائن).</li>
+            <li><strong>ح/ <span class="num-ltr">30</span></strong> مخزونات البضائع : <strong class="num-ltr">250 000</strong> (مدين).</li>
+            <li><strong>ح/ <span class="num-ltr">411</span></strong> الزبائن : <strong class="num-ltr">180 000</strong> (مدين)، و<strong>ح/ <span class="num-ltr">512</span></strong> البنك : <strong class="num-ltr">220 000</strong> (مدين).</li>
+            <li><strong>ح/ <span class="num-ltr">101</span></strong> رأس المال : <strong class="num-ltr">1 100 000</strong> (دائن)، و<strong>ح/ <span class="num-ltr">401</span></strong> موردو المخزونات : <strong class="num-ltr">200 000</strong> (دائن).</li>
+            <li>مجموع المنتوجات (صنف <strong class="num-ltr">7</strong>) : <strong class="num-ltr">950 000</strong>، ومجموع الأعباء (صنف <strong class="num-ltr">6</strong>) : <strong class="num-ltr">800 000</strong>.</li>
+          </ul>
+          <p class="fw-bold mb-2">المطلوب :</p>
+          <ol class="mb-0">
+            <li>احسب <strong>النتيجة الصافية</strong> لسنة <bdi dir="ltr">2025</bdi>.</li>
+            <li>احسب المبالغ الصافية لعناصر الأصول، وتأكد من توازن الميزانية الختامية بتاريخ <bdi dir="ltr">31/12/2025</bdi>.</li>
+          </ol>
+
+          <hr class="my-4" />
+
+          <h3 class="h5 fw-bold text-primary mb-3">شرح الحسابات خطوة بخطوة :</h3>
+
+          <p class="mb-1"><strong>الخطوة 1 — حساب النتيجة الصافية :</strong></p>
+          <ul class="mb-3">
+            <li>نطرح مجموع الأعباء من مجموع المنتوجات :
+              <div class="my-2">
+                <strong>النتيجة الصافية = <bdi dir="ltr">950 000 &minus; 800 000 = +150 000</bdi> دج (ربح صافٍ)</strong>
+              </div>
+            </li>
+          </ul>
+
+          <p class="mb-1"><strong>الخطوة 2 — حساب مجموع الأصول الصافية ومجموع الخصوم :</strong></p>
+          <ul class="mb-3">
+            <li>المبلغ الصافي للمنشآت التقنية (ح/ <strong class="num-ltr">215</strong>) :
+              <div class="my-2">
+                <strong>صافي ح/ <strong class="num-ltr">215</strong> = <bdi dir="ltr">1 200 000 &minus; 300 000 = 900 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>مجموع الأصول الصافية :
+              <div class="my-2">
+                <strong>مجموع الأصول = <bdi dir="ltr">900 000 + 250 000 + 180 000 + 220 000 = 1 550 000</bdi> دج</strong>
+              </div>
+            </li>
+            <li>مجموع الخصوم (رأس المال + النتيجة الصافية + الموردون) :
+              <div class="my-2">
+                <strong>مجموع الخصوم = <bdi dir="ltr">1 100 000 + 150 000 + 200 000 = 1 450 000</bdi> دج</strong>
+              </div>
+            </li>
+          </ul>
+
+          <div class="compta-context my-3">
+            <strong>ملاحظة حول التمرين التعليمي :</strong>
+            في هذا المثال التوضيحي البسيط، نلاحظ أن مجموع الأصول الصافية (<strong class="num-ltr"><bdi dir="ltr">1 550 000</bdi> دج</strong>) يختلف عن مجموع الخصوم الظاهرة (<strong class="num-ltr"><bdi dir="ltr">1 450 000</bdi> دج</strong>) بفارق <strong class="num-ltr"><bdi dir="ltr">100 000</bdi> دج</strong> (يمثل في التمارين الكاملة بقية عناصر رؤوس الأموال أو الخصوم غير المذكورة في المستخرج)؛ أما في الميزانية الكاملة للبكالوريا فيجب أن يتساوى مجموع الأصول الصافية مع مجموع الخصوم تماماً.
+          </div>
+
+          <div class="table-responsive mb-0">
+            <table class="table table-bordered align-middle text-center mb-0 bg-white">
+              <thead>
+                <tr>
+                  <th>الأصول <span class="fr-term">(Actif)</span></th>
+                  <th>المبلغ الصافي</th>
+                  <th>الخصوم <span class="fr-term">(Passif)</span></th>
+                  <th>المبلغ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>أصول غير جارية (ح/ <strong class="num-ltr">215</strong> صافي)</td>
+                  <td><span class="num-ltr">900 000</span></td>
+                  <td>رأس المال (ح/ <strong class="num-ltr">101</strong>)</td>
+                  <td><span class="num-ltr">1 100 000</span></td>
+                </tr>
+                <tr>
+                  <td>مخزونات (ح/ <strong class="num-ltr">30</strong>)</td>
+                  <td><span class="num-ltr">250 000</span></td>
+                  <td>النتيجة الصافية للسنة (ربح)</td>
+                  <td><span class="num-ltr">150 000</span></td>
+                </tr>
+                <tr>
+                  <td>زبائن (ح/ <strong class="num-ltr">411</strong>)</td>
+                  <td><span class="num-ltr">180 000</span></td>
+                  <td>موردو المخزونات (ح/ <strong class="num-ltr">401</strong>)</td>
+                  <td><span class="num-ltr">200 000</span></td>
+                </tr>
+                <tr>
+                  <td>البنك (ح/ <strong class="num-ltr">512</strong>)</td>
+                  <td><span class="num-ltr">220 000</span></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. تمرين تفكير من مستوى البكالوريا مع حل مخفي عبر زر -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">
+          رابعاً : تمرين تفكير (مستوى بكالوريا)
+        </h2>
+
+        <p class="mb-2">
+          في ميزانية ختامية لمؤسسة بتاريخ <strong class="num-ltr">31/12/2025</strong>، يظهر حساب معدات النقل (ح/ <strong class="num-ltr">2182</strong>) بمبلغ إجمالي <strong class="num-ltr">800 000</strong> <strong>دج</strong>، واهتلاكه المتراكم (ح/ <strong class="num-ltr">28182</strong>) بمبلغ <strong class="num-ltr">240 000</strong> <strong>دج</strong>، وخسارة قيمة (ح/ <strong class="num-ltr">29182</strong>) بمبلغ <strong class="num-ltr">60 000</strong> <strong>دج</strong>.
+        </p>
+        <p class="fw-bold mb-3">
+          المطلوب : ما هو المبلغ الصافي (<span class="num-ltr">Net</span>) الذي سيظهر في عمود الأصول في الميزانية الختامية؟
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-warning fw-bold"
+          data-toggle-solution="reflexionSolution2_1"
+        >
+          إظهار الحل
+        </button>
+
+        <div id="reflexionSolution2_1" class="d-none mt-4 compta-example">
+          <h3 class="h6 fw-bold text-success mb-2">الحل النموذجي لتمرين التفكير :</h3>
+          <p class="mb-0">
+            نطرح الاهتلاك المتراكم وخسارة القيمة من المبلغ الإجمالي :
+            <div class="my-2">
+              <strong>المبلغ الصافي (<span class="num-ltr">Net</span>) = <bdi dir="ltr">800 000 &minus; 240 000 &minus; 60 000 = 500 000</bdi> دج</strong>
+            </div>
+            لذلك يظهر في الميزانية الختامية : المبلغ الإجمالي <strong class="num-ltr"><bdi dir="ltr">800 000</bdi> دج</strong>، الاهتلاكات وخسائر القيمة <strong class="num-ltr"><bdi dir="ltr">300 000</bdi> دج</strong>، والمبلغ الصافي <strong class="num-ltr"><bdi dir="ltr">500 000</bdi> دج</strong>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="compta.js"></script>
+  </body>
+</html>
