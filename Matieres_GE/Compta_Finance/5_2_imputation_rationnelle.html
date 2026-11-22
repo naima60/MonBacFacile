@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5.2 التحميل العقلاني للأعباء الثابتة</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --card: #fff;
+        --ink: #1b2a3a;
+        --muted: #5b6b7b;
+        --main: #0f5c8c;
+        --soft: #e4f0f8;
+        --ok: #1b7a4b;
+        --okbg: #e6f5ec;
+        --warn: #9a5b00;
+        --warnbg: #fff4de;
+        --line: #d5dee8;
+        --dr: #e8f1fb;
+        --cr: #fdeeee;
+        --g1b: #e4f0f8;
+        --g1s: #0f5c8c;
+        --g2b: #e6f5ec;
+        --g2s: #1b7a4b;
+        --g3b: #fff4de;
+        --g3s: #c27a00;
+        --g4b: #f1e8fb;
+        --g4s: #7a4bb3;
+        --g5b: #e0f4f2;
+        --g5s: #13867a;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10161d;
+          --card: #18212b;
+          --ink: #e6edf4;
+          --muted: #9fb0c1;
+          --main: #6bb8ea;
+          --soft: #1d2d3b;
+          --ok: #6fd39c;
+          --okbg: #17302450;
+          --warn: #f0b45a;
+          --warnbg: #3a2c12;
+          --line: #2c3a48;
+          --dr: #1b2c3f;
+          --cr: #3a2024;
+          --g1b: #1d2d3b;
+          --g1s: #6bb8ea;
+          --g2b: #173024;
+          --g2s: #6fd39c;
+          --g3b: #3a2c12;
+          --g3s: #f0b45a;
+          --g4b: #2b2140;
+          --g4s: #b995e8;
+          --g5b: #12302d;
+          --g5s: #5fd3c6;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Cairo", "Amiri", Tahoma, Arial, sans-serif;
+        line-height: 1.95;
+        font-size: 17px;
+      }
+
+      /* === Navbar inspirée de la capture d'écran === */
+      .site-topbar {
+        background: #1b2838;
+        color: #ffffff;
+        border-bottom: 1px solid #2b3c50;
+        padding: 0.55rem 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-topbar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .site-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .site-brand,
+      .site-nav-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.05);
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .site-brand:hover,
+      .site-nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+      }
+      .site-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-toggle-fr {
+        background: #ffc107;
+        color: #16202a;
+        border: none;
+        border-radius: 6px;
+        padding: 0.32rem 0.9rem;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: filter 0.15s ease;
+      }
+      .btn-toggle-fr:hover {
+        filter: brightness(1.05);
+      }
+
+      /* Barre secondaire des leçons */
+      .lessons-bar {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        padding: 0.55rem 1.2rem;
+      }
+      .lessons-bar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+      .lessons-label {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #1b2838;
+        margin-inline-end: 0.25rem;
+      }
+      .lesson-pill {
+        display: inline-block;
+        padding: 0.18rem 0.8rem;
+        border-radius: 999px;
+        border: 1.5px solid #2b6cb0;
+        color: #1a4971;
+        background: #f8fbff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .lesson-pill:hover {
+        background: #e4f0f8;
+        color: #0f5c8c;
+      }
+      .lesson-pill.active {
+        background: #e4f0f8;
+        border-color: #0f5c8c;
+        color: #0f5c8c;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .lessons-bar {
+          background: var(--card);
+        }
+        .lessons-label {
+          color: var(--ink);
+        }
+        .lesson-pill {
+          background: var(--soft);
+          color: var(--main);
+          border-color: var(--main);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .site-topbar {
+          padding: 0.4rem 0.6rem;
+        }
+        .site-brand,
+        .site-nav-links a,
+        .btn-toggle-fr {
+          font-size: 0.78rem;
+          padding: 0.22rem 0.55rem;
+        }
+        .lessons-bar {
+          padding: 0.45rem 0.6rem;
+        }
+        .lesson-pill {
+          font-size: 0.78rem;
+          padding: 0.14rem 0.55rem;
+        }
+        nav.toc ol {
+          columns: 1;
+        }
+        body {
+          font-size: 16px;
+        }
+        section {
+          padding: 1rem;
+        }
+      }
+
+      body.hide-fr .fr {
+        display: none;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0f5c8c, #16a085);
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0.2rem 0;
+        font-size: 1.8rem;
+      }
+      header p {
+        margin: 0.2rem 0;
+        opacity: 0.92;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .pn {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 980px;
+        margin: 0.8rem auto 0;
+        padding: 0 1rem;
+      }
+      .pn a {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 0 1rem;
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      nav.toc {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem 1.4rem;
+        margin: 1rem 0;
+      }
+      nav.toc ol {
+        columns: 2;
+        margin: 0.3rem 0;
+        padding-inline-start: 1.4rem;
+      }
+      nav.toc a {
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0;
+      }
+      h2 {
+        color: var(--main);
+        border-bottom: 3px solid var(--soft);
+        padding-bottom: 0.3rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--main);
+        margin-bottom: 0.2rem;
+      }
+      h4 {
+        margin: 1rem 0 0.2rem;
+        color: var(--main);
+      }
+      .fr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        font-family: Arial, sans-serif;
+        font-size: 0.9em;
+        color: var(--muted);
+      }
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      bdi.n {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+      }
+      .eq {
+        direction: rtl;
+        unicode-bidi: isolate;
+      }
+      .box {
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        margin: 0.8rem 0;
+        border-inline-start: 6px solid;
+      }
+      .def {
+        background: var(--soft);
+        border-color: var(--main);
+      }
+      .key {
+        background: var(--okbg);
+        border-color: var(--ok);
+      }
+      .warn {
+        background: var(--warnbg);
+        border-color: var(--warn);
+      }
+      .box b.t {
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.6rem 0;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 0.35rem 0.6rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      th {
+        background: var(--soft);
+        color: var(--main);
+      }
+      th.d {
+        background: var(--dr);
+      }
+      th.c {
+        background: var(--cr);
+      }
+      .wrap {
+        overflow-x: auto;
+      }
+      .num {
+        text-align: center;
+        direction: ltr;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      tr.tot td {
+        font-weight: 700;
+        border-top: 2px solid var(--main);
+        background: var(--soft);
+      }
+      table.inv tr.tot td {
+        background: var(--okbg);
+      }
+      .ex {
+        border: 1px dashed var(--main);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+      }
+      .pill {
+        display: inline-block;
+        background: var(--main);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        margin-inline-end: 0.4rem;
+      }
+      .lvl {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        border: 2px solid;
+      }
+      .l1 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .l2 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .l3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .l4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .formula {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.05em;
+        background: var(--soft);
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 0.6rem 0;
+      }
+      .calc {
+        background: var(--soft);
+        border-inline-start: 5px solid var(--main);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.4rem 0;
+      }
+      .calc > div {
+        padding: 0.1rem 0;
+      }
+      details {
+        background: var(--okbg);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.5rem 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ok);
+      }
+      .chain {
+        max-width: 680px;
+        margin: 0.6rem auto;
+      }
+      .cb2 {
+        border: 2px solid;
+        border-radius: 12px;
+        padding: 0.4rem 0.9rem;
+        text-align: center;
+      }
+      .cb2.g1 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .cb2.g2 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .cb2.g3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .cb2.g4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .cb2.g5 {
+        background: var(--g5b);
+        border-color: var(--g5s);
+      }
+      .cb2 small {
+        display: block;
+        color: var(--muted);
+      }
+      .ar {
+        text-align: center;
+        font-size: 1.3em;
+        color: var(--main);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1.5rem;
+        font-size: 0.9em;
+      }
+      @media print {
+        header,
+        .site-topbar,
+        .lessons-bar {
+          background: #fff;
+          color: #000;
+        }
+        nav.toc,
+        .pn {
+          display: none;
+        }
+        section {
+          break-inside: avoid-page;
+        }
+        details {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+    <body>
+    <nav class="site-topbar" aria-label="التنقل العام">
+      <div class="site-topbar-inner">
+        <div class="site-nav-right">
+          <a class="site-brand" href="sommaire_compta.html">البرنامج السنوي</a>
+          <div class="site-nav-links">
+            <a href="5_0_presentation_cout_partiel.html">شعبة تسيير واقتصاد</a>
+            <a href="5_1_cout_variable.html">المجال <bdi class="n">05</bdi></a>
+          </div>
+        </div>
+        <button type="button" class="btn-toggle-fr" onclick="document.body.classList.toggle('hide-fr')">
+          إخفاء / إظهار المصطلحات الفرنسية
+        </button>
+      </div>
+    </nav>
+    <div class="lessons-bar" aria-label="دروس المجال">
+      <div class="lessons-bar-inner">
+        <span class="lessons-label">دروس المجال <bdi class="n">05</bdi> :</span>
+        <a class="lesson-pill" href="5_0_presentation_cout_partiel.html"><bdi class="n">00</bdi>. تقديم عام</a>
+        <a class="lesson-pill" href="5_1_cout_variable.html"><bdi class="n">01</bdi>. التكلفة المتغيرة</a>
+        <a class="lesson-pill active" href="5_2_imputation_rationnelle.html"><bdi class="n">02</bdi>. التحميل العقلاني</a>
+      </div>
+    </div>
+    <header>
+      <h1>⚖️ <bdi class="n">5.2</bdi> – التحميل العقلاني للأعباء الثابتة (<bdi class="n">Imputation rationnelle</bdi>)</h1>
+      <p>السنة الثالثة ثانوي – شعبة تسيير واقتصاد – بكالوريا <bdi class="n">2027</bdi></p>
+    </header>
+    <main>
+      <nav class="toc">
+        <b>📑 محتويات الدرس</b>
+        <ol>
+          <li><a href="#s1">الفكرة: مشكلة تذبذب النشاط</a></li>
+          <li><a href="#s2">المصطلحات والصيغ</a></li>
+          <li><a href="#s3">خطوات الحل</a></li>
+          <li><a href="#s4">مثال متكامل: مصنع الأمل للحقائب</a></li>
+          <li><a href="#s5">المقارنة بين الطرق الثلاث</a></li>
+          <li><a href="#s6">الأخطاء الشائعة وخلاصة الدرس</a></li>
+          <li><a href="#s7">تمارين تطبيقية (<bdi class="n">4</bdi>)</a></li>
+        </ol>
+      </nav>
+      <section id="s1">
+        <h2><bdi class="n">1</bdi>. الفكرة: مشكلة تذبذب النشاط <span class="fr">Imputation rationnelle</span></h2>
+        <p>تخيل مخبزة تبيع في رمضان أضعاف ما تبيعه في الصيف. أعباؤها الثابتة (إيجار، أجور دائمة) هي نفسها في الشهرين. في الصيف تُقسم هذه الأعباء على عدد قليل من الأرغفة فتبدو تكلفة الرغيف مرتفعة جداً، وفي رمضان تبدو منخفضة. فهل تغيرت كفاءة المخبزة؟ <b>لا</b>، تغير فقط عدد الوحدات.</p>
+        <div class="box def"><b class="t">التحميل العقلاني</b>طريقة تحمّل المنتوج الأعباء المتغيرة كاملة، والأعباء الثابتة <b>بنسبة النشاط</b> فقط (معامل التحميل العقلاني). والجزء غير المحمّل (نقص النشاط) أو الزائد (ارتفاعه) لا يدخل في تكلفة المنتوج بل يُسجَّل بشكل منفصل في النتيجة.</div>
+        <div class="box key"><b class="t">النتيجة العملية</b>تبقى <b>تكلفة الوحدة مستقرة</b> مهما تغير النشاط، فنقارن الفترات ونحدد الأسعار بشكل أسلم.</div>
+      </section>
+      <section id="s2">
+        <h2><bdi class="n">2</bdi>. المصطلحات والصيغ <span class="fr">Termes et formules</span></h2>
+        <div class="wrap">
+          <table class="">
+            <tr><th>المصطلح</th><th>التعريف</th><th>Français</th></tr>
+            <tr><td>النشاط العادي</td><td>مستوى الإنتاج الذي تُبنى عليه الحسابات (يُعطى في النص)</td><td><bdi class="n">Activité normale</bdi></td></tr>
+            <tr><td>النشاط الفعلي</td><td>ما أُنتج فعلاً في الفترة</td><td><bdi class="n">Activité réelle</bdi></td></tr>
+            <tr><td>معامل التحميل العقلاني (<bdi class="n">K</bdi>)</td><td>النشاط الفعلي ÷ النشاط العادي</td><td><bdi class="n">Coefficient d’imputation</bdi></td></tr>
+            <tr><td>الأعباء الثابتة المحمّلة</td><td>الأعباء الثابتة × <bdi class="n">K</bdi></td><td><bdi class="n">Charges fixes imputées</bdi></td></tr>
+            <tr><td>تكلفة عدم النشاط</td><td>الثابتة − المحمّلة عندما <bdi class="n">K</bdi> أقل من <bdi class="n">1</bdi></td><td><bdi class="n">Mali de sous-activité</bdi></td></tr>
+            <tr><td>فائض النشاط</td><td>المحمّلة − الثابتة عندما <bdi class="n">K</bdi> أكبر من <bdi class="n">1</bdi></td><td><bdi class="n">Boni de sur-activité</bdi></td></tr>
+          </table>
+        </div>
+        <div class="formula"><bdi class="n">K</bdi> = النشاط الفعلي ÷ النشاط العادي</div>
+        <div class="formula">الأعباء الثابتة المحمّلة = الأعباء الثابتة × <bdi class="n">K</bdi></div>
+        <div class="formula">فرق النشاط = الأعباء الثابتة × (1 − <bdi class="n">K</bdi>)</div>
+        <div class="formula">تكلفة الإنتاج العقلانية = الأعباء المتغيرة + الأعباء الثابتة المحمّلة</div>
+        <div class="formula">النتيجة = رقم الأعمال − سعر التكلفة العقلاني − تكلفة عدم النشاط (+ فائض النشاط)</div>
+        <div class="wrap">
+          <table class="">
+            <tr><th>وضعية النشاط</th><th>معامل K</th><th>الأعباء الثابتة المحمّلة</th><th>فرق النشاط</th><th>أثره على النتيجة</th></tr>
+            <tr><td>أقل من العادي</td><td>أقل من <bdi class="n">1</bdi></td><td>أقل من الثابتة</td><td>تكلفة عدم النشاط</td><td>تُخصم (تخفض النتيجة)</td></tr>
+            <tr><td>العادي</td><td><bdi class="n">1</bdi></td><td>تساوي الثابتة</td><td>لا شيء</td><td>—</td></tr>
+            <tr><td>أكثر من العادي</td><td>أكبر من <bdi class="n">1</bdi></td><td>أكثر من الثابتة</td><td>فائض النشاط</td><td>يُضاف (يرفع النتيجة)</td></tr>
+          </table>
+        </div>
+      </section>
+      <section id="s3">
+        <h2><bdi class="n">3</bdi>. خطوات الحل <span class="fr">Méthode</span></h2>
+        <div class="chain">
+          <div class="cb2 g1"><b>فصل الأعباء إلى متغيرة وثابتة</b><small>لكل قسم (غالباً قسم الإنتاج)</small></div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g2"><b>حساب معامل التحميل</b><small>النشاط الفعلي ÷ النشاط العادي</small></div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g3"><b>الأعباء الثابتة المحمّلة وفرق النشاط</b><small>الثابتة × K ، ثم الثابتة − المحمّلة</small></div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g4"><b>تكلفة الإنتاج العقلانية</b><small>المتغيرة + الثابتة المحمّلة ← الجرد الدائم ← سعر التكلفة</small></div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g5"><b>النتيجة</b><small>نطرح أو نضيف فرق النشاط</small></div>
+        </div>
+        <div class="box warn"><b class="t">انتبه</b>نطبّق معامل التحميل على <b>الأعباء الثابتة فقط</b>. الأعباء المتغيرة تُحمَّل كاملة دائماً. وإذا ذُكر في النص قسمان أو أكثر لهما نشاط عادي مختلف، فلكل قسم معامله الخاص.</div>
+      </section>
+      <section id="s4">
+        <h2><bdi class="n">4</bdi>. مثال متكامل: مصنع الأمل للحقائب (ثلاثة أشهر) <span class="fr">Exemple complet</span></h2>
+        <p>أعباء قسم الإنتاج الثابتة <bdi class="n">50 000</bdi> دج شهرياً. التكلفة المتغيرة للوحدة: مواد <bdi class="n">120</bdi> + يد عاملة <bdi class="n">40</bdi> + أعباء متغيرة للقسم <bdi class="n">30</bdi> = <b><bdi class="n">190</bdi> دج</b>. النشاط العادي <b><bdi class="n">1 000</bdi> وحدة</b> شهرياً. سعر البيع <bdi class="n">300</bdi> دج. لا مخزون، الإنتاج = المبيعات.</p>
+        <div class="wrap">
+          <table class="">
+            <tr><th></th><th>مارس (ركود)</th><th>أفريل (عادي)</th><th>ماي (ذروة)</th></tr>
+            <tr><td>النشاط الفعلي</td><td><bdi class="n">800</bdi></td><td><bdi class="n">1 000</bdi></td><td><bdi class="n">1 250</bdi></td></tr>
+            <tr><td>معامل التحميل <bdi class="n">K</bdi></td><td><bdi class="n">0.8</bdi></td><td><bdi class="n">1</bdi></td><td><bdi class="n">1.25</bdi></td></tr>
+            <tr><td>الأعباء المتغيرة</td><td><bdi class="n">152 000</bdi></td><td><bdi class="n">190 000</bdi></td><td><bdi class="n">237 500</bdi></td></tr>
+            <tr><td>الأعباء الثابتة المحمّلة</td><td><bdi class="n">40 000</bdi></td><td><bdi class="n">50 000</bdi></td><td><bdi class="n">62 500</bdi></td></tr>
+            <tr><td>فرق النشاط</td><td><bdi class="n">10 000</bdi> تكلفة عدم نشاط</td><td><bdi class="n">0</bdi></td><td><bdi class="n">12 500</bdi> فائض نشاط</td></tr>
+            <tr><td>تكلفة الإنتاج العقلانية</td><td><bdi class="n">192 000</bdi></td><td><bdi class="n">240 000</bdi></td><td><bdi class="n">300 000</bdi></td></tr>
+            <tr><td><b>تكلفة الوحدة العقلانية</b></td><td><b><bdi class="n">240</bdi></b></td><td><b><bdi class="n">240</bdi></b></td><td><b><bdi class="n">240</bdi></b></td></tr>
+            <tr><td>تكلفة الوحدة بالتكلفة الكاملة</td><td><bdi class="n">252.5</bdi></td><td><bdi class="n">240</bdi></td><td><bdi class="n">230</bdi></td></tr>
+          </table>
+        </div>
+        <h4><span class="pill"><bdi class="n">1</bdi></span>مارس (K = 0.8)</h4>
+        <div class="calc">
+          <div>الأعباء المتغيرة = <span class="eq"><bdi class="n">800</bdi> × <bdi class="n">190</bdi> = <bdi class="n">152 000</bdi></span></div>
+          <div>الثابتة المحمّلة = <span class="eq"><bdi class="n">50 000</bdi> × <bdi class="n">0.8</bdi> = <bdi class="n">40 000</bdi></span>  ← تكلفة عدم النشاط = <span class="eq"><bdi class="n">50 000</bdi> − <bdi class="n">40 000</bdi> = <bdi class="n">10 000</bdi></span></div>
+          <div>تكلفة الإنتاج = <span class="eq"><bdi class="n">152 000</bdi> + <bdi class="n">40 000</bdi> = <bdi class="n">192 000</bdi></span> ← للوحدة <span class="eq"><bdi class="n">192 000</bdi> ÷ <bdi class="n">800</bdi> = <bdi class="n">240</bdi></span></div>
+          <div>رقم الأعمال = <span class="eq"><bdi class="n">800</bdi> × <bdi class="n">300</bdi> = <bdi class="n">240 000</bdi></span></div>
+          <div>النتيجة = <span class="eq"><bdi class="n">240 000</bdi> − <bdi class="n">192 000</bdi> − <bdi class="n">10 000</bdi> = <bdi class="n">38 000</bdi></span> دج</div>
+        </div>
+        <h4><span class="pill"><bdi class="n">2</bdi></span>ماي (K = 1.25)</h4>
+        <div class="calc">
+          <div>الأعباء المتغيرة = <span class="eq"><bdi class="n">1 250</bdi> × <bdi class="n">190</bdi> = <bdi class="n">237 500</bdi></span></div>
+          <div>الثابتة المحمّلة = <span class="eq"><bdi class="n">50 000</bdi> × <bdi class="n">1.25</bdi> = <bdi class="n">62 500</bdi></span> ← فائض النشاط = <span class="eq"><bdi class="n">62 500</bdi> − <bdi class="n">50 000</bdi> = <bdi class="n">12 500</bdi></span></div>
+          <div>تكلفة الإنتاج = <span class="eq"><bdi class="n">237 500</bdi> + <bdi class="n">62 500</bdi> = <bdi class="n">300 000</bdi></span> ← للوحدة <bdi class="n">240</bdi></div>
+          <div>رقم الأعمال = <span class="eq"><bdi class="n">1 250</bdi> × <bdi class="n">300</bdi> = <bdi class="n">375 000</bdi></span></div>
+          <div>النتيجة = <span class="eq"><bdi class="n">375 000</bdi> − <bdi class="n">300 000</bdi> + <bdi class="n">12 500</bdi> = <bdi class="n">87 500</bdi></span> دج</div>
+        </div>
+        <h4><span class="pill"><bdi class="n">3</bdi></span>التحقق مع التكلفة الكاملة</h4>
+        <div class="calc">
+          <div>مارس: <span class="eq"><bdi class="n">240 000</bdi> − (<bdi class="n">152 000</bdi> + <bdi class="n">50 000</bdi>) = <bdi class="n">38 000</bdi></span> ✔</div>
+          <div>ماي: <span class="eq"><bdi class="n">375 000</bdi> − (<bdi class="n">237 500</bdi> + <bdi class="n">50 000</bdi>) = <bdi class="n">87 500</bdi></span> ✔</div>
+        </div>
+        <div class="box key"><b class="t">الاستنتاج</b>تكلفة الوحدة العقلانية ثابتة (<bdi class="n">240</bdi> دج) في الأشهر الثلاثة، بينما تكلفة الوحدة الكاملة تذبذبت (<bdi class="n">252.5</bdi> ثم <bdi class="n">240</bdi> ثم <bdi class="n">230</bdi>). والنتيجة النهائية متساوية في الطريقتين عند انعدام المخزون: الفرق فقط في <b>طريقة العرض</b>، وهي التي تفصل الأداء الحقيقي (التكلفة) عن أثر النشاط (فرق النشاط).</div>
+      </section>
+      <section id="s5">
+        <h2><bdi class="n">5</bdi>. المقارنة بين الطرق الثلاث <span class="fr">Comparaison</span></h2>
+        <div class="wrap">
+          <table class="">
+            <tr><th></th><th>التكلفة الكاملة</th><th>التكلفة المتغيرة</th><th>التحميل العقلاني</th></tr>
+            <tr><td>الأعباء الثابتة المحمّلة</td><td>كلها</td><td>لا شيء</td><td>الثابتة × K</td></tr>
+            <tr><td>ما يُقيَّم به المخزون</td><td>التكلفة الكاملة</td><td>المتغيرة</td><td>المتغيرة + الثابتة المحمّلة</td></tr>
+            <tr><td>تأثر تكلفة الوحدة بالنشاط</td><td>كبير</td><td>لا يتأثر</td><td>لا يتأثر</td></tr>
+            <tr><td>الاستعمال الأمثل</td><td>تسعير طويل المدى</td><td>قرارات قصيرة، عتبة المردودية</td><td>مقارنة فترات مختلفة النشاط</td></tr>
+          </table>
+        </div>
+        <div class="box warn"><b class="t">عند وجود مخزون</b>تختلف النتيجة بين الطرق لأن المخزون لا يحمل نفس مقدار الأعباء الثابتة في كل طريقة (كامل، لا شيء، أو المحمّل فقط).</div>
+      </section>
+      <section id="s6">
+        <h2><bdi class="n">6</bdi>. الأخطاء الشائعة وخلاصة الدرس</h2>
+        <ul>
+          <li>تطبيق معامل التحميل على الأعباء المتغيرة أو على كل الأعباء.</li>
+          <li>قلب المعامل: النشاط العادي ÷ الفعلي بدل الفعلي ÷ العادي.</li>
+          <li>إدخال تكلفة عدم النشاط في تكلفة الإنتاج بدل خصمها من النتيجة.</li>
+          <li>نسيان إضافة فائض النشاط عندما يكون K أكبر من <bdi class="n">1</bdi>.</li>
+          <li>قسمة الأعباء المحمّلة على النشاط العادي بدل الفعلي عند حساب تكلفة الوحدة.</li>
+        </ul>
+        <div class="box key"><b class="t">الخلاصة</b><bdi class="n">1</bdi>) <bdi class="n">K</bdi> = الفعلي ÷ العادي. <bdi class="n">2</bdi>) المحمّلة = الثابتة × <bdi class="n">K</bdi>. <bdi class="n">3</bdi>) فرق النشاط = الثابتة − المحمّلة: تكلفة عدم نشاط (تُخصم) أو فائض (يُضاف). <bdi class="n">4</bdi>) تكلفة الوحدة العقلانية = المتغيرة + المحمّلة، وتبقى ثابتة مهما تغير النشاط.</div>
+      </section>
+      <section id="s7">
+        <h2><bdi class="n">7</bdi>. تمارين تطبيقية (<bdi class="n">4</bdi>)</h2>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">1</bdi></span><span class="lvl l1">سهل</span></p>
+        <p>ضع <b>صح</b> أو <b>خطأ</b> مع التصحيح:</p>
+        <ol>
+          <li>معامل التحميل العقلاني = النشاط العادي ÷ النشاط الفعلي.</li>
+          <li>إذا كان النشاط الفعلي أقل من العادي نحصل على تكلفة عدم النشاط.</li>
+          <li>نطبّق معامل التحميل على الأعباء المتغيرة أيضاً.</li>
+          <li>فائض النشاط يُضاف إلى النتيجة.</li>
+          <li>تكلفة عدم النشاط تُدخل في تكلفة الإنتاج.</li>
+        </ol>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <div class="wrap">
+          <table class="">
+            <tr><th></th><th>الحكم</th><th>التصحيح</th></tr>
+            <tr><td><bdi class="n">1</bdi></td><td>خطأ</td><td>العكس: الفعلي ÷ العادي</td></tr>
+            <tr><td><bdi class="n">2</bdi></td><td>صح</td><td>K أقل من <bdi class="n">1</bdi> فالمحمّل أقل من الثابت</td></tr>
+            <tr><td><bdi class="n">3</bdi></td><td>خطأ</td><td>المتغيرة تُحمَّل كاملة</td></tr>
+            <tr><td><bdi class="n">4</bdi></td><td>صح</td><td>يظهر عندما K أكبر من <bdi class="n">1</bdi></td></tr>
+            <tr><td><bdi class="n">5</bdi></td><td>خطأ</td><td>تُخصم من النتيجة ولا تدخل في التكلفة</td></tr>
+          </table>
+        </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">2</bdi></span><span class="lvl l2">سهل إلى متوسط</span></p>
+        <p>أعباء ثابتة <bdi class="n">120 000</bdi> دج، نشاط عادي <bdi class="n">6 000</bdi> وحدة. احسب <bdi class="n">K</bdi> والمحمّل وفرق النشاط في الحالتين: (أ) نشاط فعلي <bdi class="n">4 500</bdi> (ب) نشاط فعلي <bdi class="n">7 500</bdi>.</p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <div class="calc">
+          <div>(أ) K = <span class="eq"><bdi class="n">4 500</bdi> ÷ <bdi class="n">6 000</bdi> = <bdi class="n">0.75</bdi></span> ← المحمّل = <span class="eq"><bdi class="n">120 000</bdi> × <bdi class="n">0.75</bdi> = <bdi class="n">90 000</bdi></span> ← تكلفة عدم النشاط = <span class="eq"><bdi class="n">120 000</bdi> − <bdi class="n">90 000</bdi> = <bdi class="n">30 000</bdi></span></div>
+          <div>(ب) K = <span class="eq"><bdi class="n">7 500</bdi> ÷ <bdi class="n">6 000</bdi> = <bdi class="n">1.25</bdi></span> ← المحمّل = <span class="eq"><bdi class="n">120 000</bdi> × <bdi class="n">1.25</bdi> = <bdi class="n">150 000</bdi></span> ← فائض النشاط = <span class="eq"><bdi class="n">150 000</bdi> − <bdi class="n">120 000</bdi> = <bdi class="n">30 000</bdi></span></div>
+        </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">3</bdi></span><span class="lvl l3">متوسط</span></p>
+        <p>ورشة نشاطها العادي <bdi class="n">2 000</bdi> وحدة. أنتجت وباعت <bdi class="n">1 600</bdi> وحدة بسعر <bdi class="n">190</bdi> دج. أعباؤها المتغيرة <bdi class="n">100</bdi> دج للوحدة، وأعباؤها الثابتة للإنتاج <bdi class="n">80 000</bdi> دج. أعباء التوزيع <bdi class="n">28 000</bdi> دج (لا تخضع للتحميل العقلاني). احسب تكلفة الإنتاج والوحدة، النتيجة، ثم قارن بالتكلفة الكاملة.</p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <div class="calc">
+          <div>K = <span class="eq"><bdi class="n">1 600</bdi> ÷ <bdi class="n">2 000</bdi> = <bdi class="n">0.8</bdi></span></div>
+          <div>الثابتة المحمّلة = <span class="eq"><bdi class="n">80 000</bdi> × <bdi class="n">0.8</bdi> = <bdi class="n">64 000</bdi></span> ← تكلفة عدم النشاط = <span class="eq"><bdi class="n">80 000</bdi> − <bdi class="n">64 000</bdi> = <bdi class="n">16 000</bdi></span></div>
+          <div>تكلفة الإنتاج = <span class="eq"><bdi class="n">1 600</bdi> × <bdi class="n">100</bdi> + <bdi class="n">64 000</bdi> = <bdi class="n">224 000</bdi></span> ← للوحدة <span class="eq"><bdi class="n">224 000</bdi> ÷ <bdi class="n">1 600</bdi> = <bdi class="n">140</bdi></span></div>
+          <div>رقم الأعمال = <span class="eq"><bdi class="n">1 600</bdi> × <bdi class="n">190</bdi> = <bdi class="n">304 000</bdi></span></div>
+          <div>النتيجة = <span class="eq"><bdi class="n">304 000</bdi> − <bdi class="n">224 000</bdi> − <bdi class="n">28 000</bdi> − <bdi class="n">16 000</bdi> = <bdi class="n">36 000</bdi></span> دج</div>
+          <div>بالتكلفة الكاملة: تكلفة الوحدة <span class="eq">(<bdi class="n">160 000</bdi> + <bdi class="n">80 000</bdi>) ÷ <bdi class="n">1 600</bdi> = <bdi class="n">150</bdi></span> والنتيجة <span class="eq"><bdi class="n">304 000</bdi> − <bdi class="n">240 000</bdi> − <bdi class="n">28 000</bdi> = <bdi class="n">36 000</bdi></span> ✔</div>
+        </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">4</bdi></span><span class="lvl l4">متقدم</span></p>
+        <p>أعباء إنتاج ثابتة <bdi class="n">60 000</bdi> دج شهرياً، متغيرة <bdi class="n">80</bdi> دج للوحدة، النشاط العادي <bdi class="n">1 000</bdi> وحدة. أنتجت المؤسسة <bdi class="n">500</bdi> وحدة في جانفي و<bdi class="n">1 500</bdi> وحدة في جويلية.</p>
+        <ol>
+          <li>احسب تكلفة الوحدة بالتكلفة الكاملة في الشهرين.</li>
+          <li>احسب تكلفة الوحدة العقلانية وفرق النشاط.</li>
+          <li>المؤسسة تضع هامش <bdi class="n">25%</bdi> على التكلفة. قارن السعرين في الشهرين بالطريقتين وعلّق.</li>
+        </ol>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <h4><span class="pill"><bdi class="n">1</bdi></span>التكلفة الكاملة</h4>
+        <div class="calc">
+          <div>جانفي: <span class="eq">(<bdi class="n">500</bdi> × <bdi class="n">80</bdi> + <bdi class="n">60 000</bdi>) ÷ <bdi class="n">500</bdi> = <bdi class="n">200</bdi></span></div>
+          <div>جويلية: <span class="eq">(<bdi class="n">1 500</bdi> × <bdi class="n">80</bdi> + <bdi class="n">60 000</bdi>) ÷ <bdi class="n">1 500</bdi> = <bdi class="n">120</bdi></span></div>
+        </div>
+        <h4><span class="pill"><bdi class="n">2</bdi></span>التحميل العقلاني</h4>
+        <div class="calc">
+          <div>جانفي: K = <bdi class="n">0.5</bdi> ← المحمّل <bdi class="n">30 000</bdi> ← تكلفة عدم النشاط <bdi class="n">30 000</bdi> ← الوحدة <span class="eq">(<bdi class="n">40 000</bdi> + <bdi class="n">30 000</bdi>) ÷ <bdi class="n">500</bdi> = <bdi class="n">140</bdi></span></div>
+          <div>جويلية: K = <bdi class="n">1.5</bdi> ← المحمّل <bdi class="n">90 000</bdi> ← فائض النشاط <bdi class="n">30 000</bdi> ← الوحدة <span class="eq">(<bdi class="n">120 000</bdi> + <bdi class="n">90 000</bdi>) ÷ <bdi class="n">1 500</bdi> = <bdi class="n">140</bdi></span></div>
+        </div>
+        <h4><span class="pill"><bdi class="n">3</bdi></span>السعر والتعليق</h4>
+        <div class="calc">
+          <div>بالكاملة: جانفي <span class="eq"><bdi class="n">200</bdi> × <bdi class="n">1.25</bdi> = <bdi class="n">250</bdi></span> ، جويلية <span class="eq"><bdi class="n">120</bdi> × <bdi class="n">1.25</bdi> = <bdi class="n">150</bdi></span> (سعران مختلفان جداً)</div>
+          <div>بالعقلانية: <span class="eq"><bdi class="n">140</bdi> × <bdi class="n">1.25</bdi> = <bdi class="n">175</bdi></span> في الشهرين (سعر مستقر)</div>
+        </div>
+        <p>التعليق: التكلفة الكاملة تعطي سعراً مرتفعاً في الركود وسعراً منخفضاً في الذروة فقط بسبب توزيع الثابت، أما العقلانية فتفصل كفاءة الإنتاج عن تذبذب النشاط.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <div class="pn">
+      <span></span><a href="sommaire_compta.html">📚 الفهرس</a><a href="5_1_cout_variable.html">→ الدرس <bdi class="n">5.1</bdi></a>
+    </div>
+    <footer>
+      تحضير بكالوريا <bdi class="n">2027</bdi> – شعبة تسيير واقتصاد – المحاسبة التحليلية (التحميل العقلاني)<br />بالتوفيق إن شاء الله 🌟
+    </footer>
+  </body>
+</html>

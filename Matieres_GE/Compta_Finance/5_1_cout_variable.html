@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>5.1 التكلفة المتغيرة</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --card: #fff;
+        --ink: #1b2a3a;
+        --muted: #5b6b7b;
+        --main: #0f5c8c;
+        --soft: #e4f0f8;
+        --ok: #1b7a4b;
+        --okbg: #e6f5ec;
+        --warn: #9a5b00;
+        --warnbg: #fff4de;
+        --line: #d5dee8;
+        --dr: #e8f1fb;
+        --cr: #fdeeee;
+        --g1b: #e4f0f8;
+        --g1s: #0f5c8c;
+        --g2b: #e6f5ec;
+        --g2s: #1b7a4b;
+        --g3b: #fff4de;
+        --g3s: #c27a00;
+        --g4b: #f1e8fb;
+        --g4s: #7a4bb3;
+        --g5b: #e0f4f2;
+        --g5s: #13867a;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10161d;
+          --card: #18212b;
+          --ink: #e6edf4;
+          --muted: #9fb0c1;
+          --main: #6bb8ea;
+          --soft: #1d2d3b;
+          --ok: #6fd39c;
+          --okbg: #17302450;
+          --warn: #f0b45a;
+          --warnbg: #3a2c12;
+          --line: #2c3a48;
+          --dr: #1b2c3f;
+          --cr: #3a2024;
+          --g1b: #1d2d3b;
+          --g1s: #6bb8ea;
+          --g2b: #173024;
+          --g2s: #6fd39c;
+          --g3b: #3a2c12;
+          --g3s: #f0b45a;
+          --g4b: #2b2140;
+          --g4s: #b995e8;
+          --g5b: #12302d;
+          --g5s: #5fd3c6;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Cairo", "Amiri", Tahoma, Arial, sans-serif;
+        line-height: 1.95;
+        font-size: 17px;
+      }
+
+      /* === Navbar inspirée de la capture d'écran === */
+      .site-topbar {
+        background: #1b2838;
+        color: #ffffff;
+        border-bottom: 1px solid #2b3c50;
+        padding: 0.55rem 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-topbar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .site-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .site-brand,
+      .site-nav-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.05);
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .site-brand:hover,
+      .site-nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+      }
+      .site-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-toggle-fr {
+        background: #ffc107;
+        color: #16202a;
+        border: none;
+        border-radius: 6px;
+        padding: 0.32rem 0.9rem;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: filter 0.15s ease;
+      }
+      .btn-toggle-fr:hover {
+        filter: brightness(1.05);
+      }
+
+      /* Barre secondaire des leçons */
+      .lessons-bar {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        padding: 0.55rem 1.2rem;
+      }
+      .lessons-bar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+      .lessons-label {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #1b2838;
+        margin-inline-end: 0.25rem;
+      }
+      .lesson-pill {
+        display: inline-block;
+        padding: 0.18rem 0.8rem;
+        border-radius: 999px;
+        border: 1.5px solid #2b6cb0;
+        color: #1a4971;
+        background: #f8fbff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .lesson-pill:hover {
+        background: #e4f0f8;
+        color: #0f5c8c;
+      }
+      .lesson-pill.active {
+        background: #e4f0f8;
+        border-color: #0f5c8c;
+        color: #0f5c8c;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .lessons-bar {
+          background: var(--card);
+        }
+        .lessons-label {
+          color: var(--ink);
+        }
+        .lesson-pill {
+          background: var(--soft);
+          color: var(--main);
+          border-color: var(--main);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .site-topbar {
+          padding: 0.4rem 0.6rem;
+        }
+        .site-brand,
+        .site-nav-links a,
+        .btn-toggle-fr {
+          font-size: 0.78rem;
+          padding: 0.22rem 0.55rem;
+        }
+        .lessons-bar {
+          padding: 0.45rem 0.6rem;
+        }
+        .lesson-pill {
+          font-size: 0.78rem;
+          padding: 0.14rem 0.55rem;
+        }
+        nav.toc ol {
+          columns: 1;
+        }
+        body {
+          font-size: 16px;
+        }
+        section {
+          padding: 1rem;
+        }
+      }
+
+      body.hide-fr .fr {
+        display: none;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0f5c8c, #16a085);
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0.2rem 0;
+        font-size: 1.8rem;
+      }
+      header p {
+        margin: 0.2rem 0;
+        opacity: 0.92;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .pn {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 980px;
+        margin: 0.8rem auto 0;
+        padding: 0 1rem;
+      }
+      .pn a {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 0 1rem;
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      nav.toc {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem 1.4rem;
+        margin: 1rem 0;
+      }
+      nav.toc ol {
+        columns: 2;
+        margin: 0.3rem 0;
+        padding-inline-start: 1.4rem;
+      }
+      nav.toc a {
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0;
+      }
+      h2 {
+        color: var(--main);
+        border-bottom: 3px solid var(--soft);
+        padding-bottom: 0.3rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--main);
+        margin-bottom: 0.2rem;
+      }
+      h4 {
+        margin: 1rem 0 0.2rem;
+        color: var(--main);
+      }
+      .fr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        font-family: Arial, sans-serif;
+        font-size: 0.9em;
+        color: var(--muted);
+      }
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      bdi.n {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+      }
+      .eq {
+        direction: rtl;
+        unicode-bidi: isolate;
+      }
+      .box {
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        margin: 0.8rem 0;
+        border-inline-start: 6px solid;
+      }
+      .def {
+        background: var(--soft);
+        border-color: var(--main);
+      }
+      .key {
+        background: var(--okbg);
+        border-color: var(--ok);
+      }
+      .warn {
+        background: var(--warnbg);
+        border-color: var(--warn);
+      }
+      .box b.t {
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.6rem 0;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 0.35rem 0.6rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      th {
+        background: var(--soft);
+        color: var(--main);
+      }
+      th.d {
+        background: var(--dr);
+      }
+      th.c {
+        background: var(--cr);
+      }
+      .wrap {
+        overflow-x: auto;
+      }
+      .num {
+        text-align: center;
+        direction: ltr;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      tr.tot td {
+        font-weight: 700;
+        border-top: 2px solid var(--main);
+        background: var(--soft);
+      }
+      table.inv tr.tot td {
+        background: var(--okbg);
+      }
+      .ex {
+        border: 1px dashed var(--main);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+      }
+      .pill {
+        display: inline-block;
+        background: var(--main);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        margin-inline-end: 0.4rem;
+      }
+      .lvl {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        border: 2px solid;
+      }
+      .l1 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .l2 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .l3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .l4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .formula {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.05em;
+        background: var(--soft);
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 0.6rem 0;
+      }
+      .calc {
+        background: var(--soft);
+        border-inline-start: 5px solid var(--main);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.4rem 0;
+      }
+      .calc > div {
+        padding: 0.1rem 0;
+      }
+      details {
+        background: var(--okbg);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.5rem 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ok);
+      }
+      .chain {
+        max-width: 680px;
+        margin: 0.6rem auto;
+      }
+      .cb2 {
+        border: 2px solid;
+        border-radius: 12px;
+        padding: 0.4rem 0.9rem;
+        text-align: center;
+      }
+      .cb2.g1 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .cb2.g2 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .cb2.g3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .cb2.g4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .cb2.g5 {
+        background: var(--g5b);
+        border-color: var(--g5s);
+      }
+      .cb2 small {
+        display: block;
+        color: var(--muted);
+      }
+      .ar {
+        text-align: center;
+        font-size: 1.3em;
+        color: var(--main);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1.5rem;
+        font-size: 0.9em;
+      }
+      @media print {
+        header,
+        .site-topbar,
+        .lessons-bar {
+          background: #fff;
+          color: #000;
+        }
+        nav.toc,
+        .pn {
+          display: none;
+        }
+        section {
+          break-inside: avoid-page;
+        }
+        details {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+    <body>
+    <nav class="site-topbar" aria-label="التنقل العام">
+      <div class="site-topbar-inner">
+        <div class="site-nav-right">
+          <a class="site-brand" href="sommaire_compta.html">البرنامج السنوي</a>
+          <div class="site-nav-links">
+            <a href="5_0_presentation_cout_partiel.html">شعبة تسيير واقتصاد</a>
+            <a href="5_2_imputation_rationnelle.html">المجال <bdi class="n">05</bdi></a>
+          </div>
+        </div>
+        <button type="button" class="btn-toggle-fr" onclick="document.body.classList.toggle('hide-fr')">
+          إخفاء / إظهار المصطلحات الفرنسية
+        </button>
+      </div>
+    </nav>
+    <div class="lessons-bar" aria-label="دروس المجال">
+      <div class="lessons-bar-inner">
+        <span class="lessons-label">دروس المجال <bdi class="n">05</bdi> :</span>
+        <a class="lesson-pill" href="5_0_presentation_cout_partiel.html"><bdi class="n">00</bdi>. تقديم عام</a>
+        <a class="lesson-pill active" href="5_1_cout_variable.html"><bdi class="n">01</bdi>. التكلفة المتغيرة</a>
+        <a class="lesson-pill" href="5_2_imputation_rationnelle.html"><bdi class="n">02</bdi>. التحميل العقلاني</a>
+      </div>
+    </div>
+    <header>
+      <h1>🧮 <bdi class="n">5.1</bdi> – طريقة التكلفة المتغيرة (<bdi class="n">Co&ucirc;t variable</bdi>)</h1>
+      <p>السنة الثالثة ثانوي – شعبة تسيير واقتصاد – بكالوريا <bdi class="n">2027</bdi></p>
+    </header>
+    <main>
+      <nav class="toc">
+        <b>📑 محتويات الدرس</b>
+        <ol>
+          <li><a href="#s1">الفكرة: لماذا نفصل المتغير عن الثابت؟</a></li>
+          <li><a href="#s2">المتغيرة والثابتة والمختلطة</a></li>
+          <li><a href="#s3">تسلسل الحساب بالتكلفة المتغيرة</a></li>
+          <li><a href="#s4">مثال متكامل: ورشة الهضاب</a></li>
+          <li><a href="#s5">لماذا تختلف النتيجة عن التكلفة الكاملة؟</a></li>
+          <li><a href="#s6">الأخطاء الشائعة وخلاصة الدرس</a></li>
+          <li><a href="#s7">تمارين تطبيقية (<bdi class="n">4</bdi>)</a></li>
+        </ol>
+      </nav>
+      <section id="s1">
+        <h2><bdi class="n">1</bdi>. الفكرة: لماذا نفصل الأعباء المتغيرة عن الثابتة؟ <span class="fr">Coût variable</span></h2>
+        <p>في التكلفة الكاملة، الأعباء الثابتة (إيجار، اهتلاك، أجور الإدارة) تُوزَّع على كل وحدة منتجة، فتتغير «تكلفة الوحدة» كلما تغير عدد الوحدات. لكن الإيجار لم يتغير! الحل في <b>التكلفة المتغيرة</b>: نحمّل المنتوج فقط ما يتغير فعلاً بإنتاجه، ونترك الأعباء الثابتة تُخصم مرة واحدة من مجموع الهوامش.</p>
+        <div class="box def"><b class="t">مبدأ الطريقة</b>نحسب كل التكاليف (شراء، إنتاج، سعر التكلفة) <b>بالأعباء المتغيرة وحدها</b>. ثم نحسب <b>الهامش على التكلفة المتغيرة</b> لكل منتوج، ونطرح من مجموع الهوامش <b>الأعباء الثابتة</b> للفترة فنحصل على النتيجة.</div>
+      </section>
+      <section id="s2">
+        <h2><bdi class="n">2</bdi>. الأعباء المتغيرة والأعباء الثابتة والمختلطة <span class="fr">Charges mixtes</span></h2>
+        <div class="wrap">
+          <table class="">
+            <tr><th>النوع</th><th>التعريف</th><th>أمثلة</th></tr>
+            <tr><td>متغيرة</td><td>تتناسب مع حجم النشاط (إنتاج أو مبيعات)</td><td>المواد الأولية، اليد العاملة المباشرة بالقطعة، التغليف، عمولات البيع، نقل المبيعات</td></tr>
+            <tr><td>ثابتة</td><td>لا تتغير بتغير النشاط ضمن المجال المعتاد</td><td>الإيجار، التأمين، الاهتلاك الخطي، أجور الإداريين، إشهار سنوي</td></tr>
+            <tr><td>مختلطة</td><td>جزء ثابت + جزء متغير</td><td>الكهرباء (اشتراك + استهلاك)، الصيانة، الهاتف</td></tr>
+          </table>
+        </div>
+        <div class="box warn"><b class="t">اختبار سريع</b>اسأل: «لو لم ننتج أي وحدة هذا الشهر، هل سيبقى هذا العبء؟» إن بقي فهو (في جزء منه على الأقل) <b>ثابت</b>.</div>
+        <h3>كيف نفصل الأعباء المختلطة؟</h3>
+        <p><b>الطريقة الأولى: طريقة النقطتين</b> (أعلى وأدنى نشاط). مثال: تكلفة الصيانة:</p>
+        <div class="wrap">
+          <table class="">
+            <tr><th>الشهر</th><th>النشاط (وحدة)</th><th>تكلفة الصيانة</th></tr>
+            <tr><td>الأول</td><td><bdi class="n">2 000</bdi></td><td><bdi class="n">64 000</bdi></td></tr>
+            <tr><td>الثاني</td><td><bdi class="n">3 000</bdi></td><td><bdi class="n">84 000</bdi></td></tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>الجزء المتغير للوحدة = <span class="eq">(<bdi class="n">84 000</bdi> − <bdi class="n">64 000</bdi>) ÷ (<bdi class="n">3 000</bdi> − <bdi class="n">2 000</bdi>) = <bdi class="n">20</bdi></span> دج</div>
+          <div>الجزء الثابت = <span class="eq"><bdi class="n">64 000</bdi> − (<bdi class="n">2 000</bdi> × <bdi class="n">20</bdi>) = <bdi class="n">24 000</bdi></span> دج</div>
+          <div>تقدير نشاط <bdi class="n">2 500</bdi> وحدة = <span class="eq"><bdi class="n">24 000</bdi> + (<bdi class="n">2 500</bdi> × <bdi class="n">20</bdi>) = <bdi class="n">74 000</bdi></span> دج</div>
+        </div>
+        <p><b>الطريقة الثانية: نسب معطاة في النص</b> — وهي الأكثر ورودا في الامتحان، مثلاً: «أعباء قسم الإنتاج <bdi class="n">100 000</bdi> دج، منها <bdi class="n">60</bdi>% متغيرة» أو يعطي الجدول المتغير والثابت جاهزين.</p>
+      </section>
+      <section id="s3">
+        <h2><bdi class="n">3</bdi>. تسلسل الحساب بالتكلفة المتغيرة <span class="fr">Chaîne</span></h2>
+        <div class="chain">
+          <div class="cb2 g1"><b>تكلفة الشراء المتغيرة</b><small>ثمن الشراء + مصاريف مباشرة + الجزء المتغير من قسم التموين</small></div>
+          <div class="ar">⬇ الجرد الدائم بالتكلفة الوسطية المرجحة ⬇</div>
+          <div class="cb2 g3"><b>تكلفة الإنتاج المتغيرة</b><small>مواد مستعملة + يد عاملة مباشرة + الجزء المتغير من أعباء الإنتاج</small></div>
+          <div class="ar">⬇ الجرد الدائم للمنتوج التام ⬇</div>
+          <div class="cb2 g4"><b>سعر التكلفة المتغير</b><small>تكلفة إنتاج المباع + الجزء المتغير من التوزيع</small></div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g2"><b>الهامش على التكلفة المتغيرة</b><small>رقم الأعمال − سعر التكلفة المتغير</small></div>
+          <div class="ar">⬇ نطرح الأعباء الثابتة (كلها) ⬇</div>
+          <div class="cb2 g5"><b>النتيجة التحليلية</b></div>
+        </div>
+        <div class="formula">سعر التكلفة المتغير = تكلفة إنتاج المباع (متغيرة) + الأعباء المتغيرة للتوزيع</div>
+        <div class="formula">الهامش على التكلفة المتغيرة = رقم الأعمال − سعر التكلفة المتغير</div>
+        <div class="formula">النتيجة التحليلية = مجموع الهوامش − مجموع الأعباء الثابتة</div>
+        <div class="box key"><b class="t">القاعدة الذهبية</b>في كل مراحل التكلفة المتغيرة <b>لا نُدخل أي عبء ثابت</b>. الأعباء الثابتة تُجمع كلها (إنتاج + إدارة + توزيع + تموين) وتُخصم في النهاية دفعة واحدة.</div>
+      </section>
+      <section id="s4">
+        <h2><bdi class="n">4</bdi>. مثال متكامل: ورشة الهضاب للحقائب (شهر مارس) <span class="fr">Exemple complet</span></h2>
+        <p>تنتج الورشة المنتوج التام <b>P</b> انطلاقاً من مادة أولية <b>M</b> (تكرار الحساب لمادتين كما في الباك <bdi class="n">2025</bdi> و<bdi class="n">2026</bdi> لا يضيف إلا خطوة تكرارية). معطيات الشهر:</p>
+        <ul>
+          <li><b>مخزون أول المدة:</b> المادة M: <bdi class="n">200</bdi> كلغ بتكلفة متغيرة إجمالية <bdi class="n">22 000</bdi> دج. المنتوج P: <bdi class="n">200</bdi> وحدة بتكلفة متغيرة إجمالية <bdi class="n">39 600</bdi> دج.</li>
+          <li><b>المشتريات:</b> <bdi class="n">800</bdi> كلغ من M بسعر <bdi class="n">100</bdi> دج للكلغ، مصاريف شراء مباشرة (نقل) <bdi class="n">8 000</bdi> دج.</li>
+          <li><b>الإنتاج:</b> <bdi class="n">1 000</bdi> وحدة من P، تستهلك <bdi class="n">800</bdi> كلغ من M (<bdi class="n">0.8</bdi> كلغ للوحدة)، ويد عاملة مباشرة <bdi class="n">500</bdi> ساعة بـ<bdi class="n">100</bdi> دج للساعة.</li>
+          <li><b>المبيعات:</b> <bdi class="n">900</bdi> وحدة بسعر <bdi class="n">400</bdi> دج للوحدة.</li>
+          <li>مجموع التوزيع الثانوي للأقسام الأساسية (الأعباء مفصولة إلى متغيرة وثابتة):</li>
+        </ul>
+        <div class="wrap">
+          <table class="">
+            <tr><th>القسم</th><th>المجموع</th><th>المتغير</th><th>الثابت</th><th>وحدة القياس</th><th>عددها</th><th>تكلفة الوحدة (المتغيرة)</th></tr>
+            <tr><td>التموين</td><td><bdi class="n">14 000</bdi></td><td><bdi class="n">8 000</bdi></td><td><bdi class="n">6 000</bdi></td><td>كلغ مشترى</td><td><bdi class="n">800</bdi></td><td><bdi class="n">10</bdi></td></tr>
+            <tr><td>الإنتاج</td><td><bdi class="n">94 000</bdi></td><td><bdi class="n">62 000</bdi></td><td><bdi class="n">32 000</bdi></td><td>وحدة منتجة</td><td><bdi class="n">1 000</bdi></td><td><bdi class="n">62</bdi></td></tr>
+            <tr><td>التوزيع</td><td><bdi class="n">60 000</bdi></td><td><bdi class="n">36 000</bdi></td><td><bdi class="n">24 000</bdi></td><td>وحدة مباعة</td><td><bdi class="n">900</bdi></td><td><bdi class="n">40</bdi></td></tr>
+            <tr class="tot"><td>المجموع</td><td><bdi class="n">168 000</bdi></td><td><bdi class="n">106 000</bdi></td><td><bdi class="n">62 000</bdi></td><td></td><td></td><td></td></tr>
+          </table>
+        </div>
+        <p>تُقيَّم الإخراجات بالتكلفة الوسطية المرجحة باعتبار المخزون الأولي. <b>المطلوب:</b> حساب النتيجة التحليلية بالتكلفة المتغيرة، ثم عتبة المردودية.</p>
+        <h4><span class="pill"><bdi class="n">1</bdi></span>تكلفة الشراء المتغيرة للمادة M وجردها الدائم</h4>
+        <div class="wrap">
+          <table class="">
+            <tr><th>البيان</th><th>الكمية</th><th>السعر</th><th>المبلغ</th></tr>
+            <tr><td>ثمن الشراء</td><td><bdi class="n">800</bdi></td><td><bdi class="n">100</bdi></td><td><bdi class="n">80 000</bdi></td></tr>
+            <tr><td>مصاريف شراء مباشرة</td><td></td><td></td><td><bdi class="n">8 000</bdi></td></tr>
+            <tr><td>قسم التموين (المتغير فقط)</td><td><bdi class="n">800</bdi></td><td><bdi class="n">10</bdi></td><td><bdi class="n">8 000</bdi></td></tr>
+            <tr class="tot"><td>تكلفة الشراء المتغيرة</td><td><bdi class="n">800</bdi></td><td><bdi class="n">120</bdi></td><td><bdi class="n">96 000</bdi></td></tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div><bdi class="n">CMUP</bdi> للمادة M = <span class="eq">(<bdi class="n">22 000</bdi> + <bdi class="n">96 000</bdi>) ÷ (<bdi class="n">200</bdi> + <bdi class="n">800</bdi>) = <bdi class="n">118</bdi></span> دج للكلغ</div>
+        </div>
+        <div class="wrap">
+          <table class="">
+            <tr><th>البيان (دخول)</th><th>الكمية</th><th>السعر</th><th>مبلغ</th><th>البيان (خروج)</th><th>الكمية</th><th>السعر</th><th>مبلغ</th></tr>
+            <tr><td>مخزون أول مدة</td><td><bdi class="n">200</bdi></td><td>—</td><td><bdi class="n">22 000</bdi></td><td>الاستعمال</td><td><bdi class="n">800</bdi></td><td><bdi class="n">118</bdi></td><td><bdi class="n">94 400</bdi></td></tr>
+            <tr><td>الشراء</td><td><bdi class="n">800</bdi></td><td><bdi class="n">120</bdi></td><td><bdi class="n">96 000</bdi></td><td>مخزون آخر مدة</td><td><bdi class="n">200</bdi></td><td><bdi class="n">118</bdi></td><td><bdi class="n">23 600</bdi></td></tr>
+            <tr class="tot"><td>المجموع</td><td><bdi class="n">1 000</bdi></td><td><bdi class="n">118</bdi></td><td><bdi class="n">118 000</bdi></td><td>المجموع</td><td><bdi class="n">1 000</bdi></td><td><bdi class="n">118</bdi></td><td><bdi class="n">118 000</bdi></td></tr>
+          </table>
+        </div>
+        <h4><span class="pill"><bdi class="n">2</bdi></span>تكلفة الإنتاج المتغيرة للمنتوج P وجرده الدائم</h4>
+        <div class="wrap">
+          <table class="">
+            <tr><th>البيان</th><th>الكمية</th><th>السعر</th><th>المبلغ</th></tr>
+            <tr><td>المادة M المستعملة</td><td><bdi class="n">800</bdi></td><td><bdi class="n">118</bdi></td><td><bdi class="n">94 400</bdi></td></tr>
+            <tr><td>اليد العاملة المباشرة</td><td><bdi class="n">500</bdi></td><td><bdi class="n">100</bdi></td><td><bdi class="n">50 000</bdi></td></tr>
+            <tr><td>قسم الإنتاج (المتغير فقط)</td><td><bdi class="n">1 000</bdi></td><td><bdi class="n">62</bdi></td><td><bdi class="n">62 000</bdi></td></tr>
+            <tr class="tot"><td>تكلفة الإنتاج المتغيرة</td><td><bdi class="n">1 000</bdi></td><td><bdi class="n">206.4</bdi></td><td><bdi class="n">206 400</bdi></td></tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div><bdi class="n">CMUP</bdi> للمنتوج P = <span class="eq">(<bdi class="n">39 600</bdi> + <bdi class="n">206 400</bdi>) ÷ (<bdi class="n">200</bdi> + <bdi class="n">1 000</bdi>) = <bdi class="n">205</bdi></span> دج للوحدة</div>
+        </div>
+        <div class="wrap">
+          <table class="">
+            <tr><th>البيان (دخول)</th><th>الكمية</th><th>السعر</th><th>مبلغ</th><th>البيان (خروج)</th><th>الكمية</th><th>السعر</th><th>مبلغ</th></tr>
+            <tr><td>مخزون أول مدة</td><td><bdi class="n">200</bdi></td><td><bdi class="n">198</bdi></td><td><bdi class="n">39 600</bdi></td><td>المبيعات</td><td><bdi class="n">900</bdi></td><td><bdi class="n">205</bdi></td><td><bdi class="n">184 500</bdi></td></tr>
+            <tr><td>الإنتاج</td><td><bdi class="n">1 000</bdi></td><td><bdi class="n">206.4</bdi></td><td><bdi class="n">206 400</bdi></td><td>مخزون آخر مدة</td><td><bdi class="n">300</bdi></td><td><bdi class="n">205</bdi></td><td><bdi class="n">61 500</bdi></td></tr>
+            <tr class="tot"><td>المجموع</td><td><bdi class="n">1 200</bdi></td><td><bdi class="n">205</bdi></td><td><bdi class="n">246 000</bdi></td><td>المجموع</td><td><bdi class="n">1 200</bdi></td><td><bdi class="n">205</bdi></td><td><bdi class="n">246 000</bdi></td></tr>
+          </table>
+        </div>
+        <h4><span class="pill"><bdi class="n">3</bdi></span>سعر التكلفة المتغير</h4>
+        <div class="calc">
+          <div>تكلفة إنتاج المباع = <span class="eq"><bdi class="n">900</bdi> × <bdi class="n">205</bdi> = <bdi class="n">184 500</bdi></span></div>
+          <div>التوزيع المتغير = <span class="eq"><bdi class="n">900</bdi> × <bdi class="n">40</bdi> = <bdi class="n">36 000</bdi></span></div>
+          <div>سعر التكلفة المتغير = <span class="eq"><bdi class="n">184 500</bdi> + <bdi class="n">36 000</bdi> = <bdi class="n">220 500</bdi></span> دج ← للوحدة <span class="eq"><bdi class="n">220 500</bdi> ÷ <bdi class="n">900</bdi> = <bdi class="n">245</bdi></span></div>
+        </div>
+        <h4><span class="pill"><bdi class="n">4</bdi></span>الهامش على التكلفة المتغيرة</h4>
+        <div class="calc">
+          <div>رقم الأعمال = <span class="eq"><bdi class="n">900</bdi> × <bdi class="n">400</bdi> = <bdi class="n">360 000</bdi></span></div>
+          <div>الهامش = <span class="eq"><bdi class="n">360 000</bdi> − <bdi class="n">220 500</bdi> = <bdi class="n">139 500</bdi></span> دج ← للوحدة <span class="eq"><bdi class="n">400</bdi> − <bdi class="n">245</bdi> = <bdi class="n">155</bdi></span></div>
+          <div>نسبة الهامش = <span class="eq"><bdi class="n">139 500</bdi> ÷ <bdi class="n">360 000</bdi> = <bdi class="n">38.75%</bdi></span></div>
+        </div>
+        <h4><span class="pill"><bdi class="n">5</bdi></span>النتيجة التحليلية</h4>
+        <div class="calc">
+          <div>الأعباء الثابتة = <span class="eq"><bdi class="n">6 000</bdi> + <bdi class="n">32 000</bdi> + <bdi class="n">24 000</bdi> = <bdi class="n">62 000</bdi></span></div>
+          <div>النتيجة = <span class="eq"><bdi class="n">139 500</bdi> − <bdi class="n">62 000</bdi> = <bdi class="n">77 500</bdi></span> دج ربح</div>
+        </div>
+        <h4><span class="pill"><bdi class="n">6</bdi></span>عتبة المردودية</h4>
+        <div class="calc">
+          <div>العتبة = <span class="eq"><bdi class="n">62 000</bdi> ÷ <bdi class="n">0.3875</bdi> = <bdi class="n">160 000</bdi></span> دج</div>
+          <div>بالكمية = <span class="eq"><bdi class="n">160 000</bdi> ÷ <bdi class="n">400</bdi> = <bdi class="n">400</bdi></span> وحدة (أو <span class="eq"><bdi class="n">62 000</bdi> ÷ <bdi class="n">155</bdi> = <bdi class="n">400</bdi></span>)</div>
+          <div>هامش الأمان = <span class="eq"><bdi class="n">360 000</bdi> − <bdi class="n">160 000</bdi> = <bdi class="n">200 000</bdi></span> دج، مؤشره = <bdi class="n">55.56%</bdi></div>
+        </div>
+        <div class="wrap">
+          <table class="">
+            <tr><th>رقم الأعمال</th><th>الهامش (38.75%)</th><th>الثابتة</th><th>النتيجة</th></tr>
+            <tr><td><bdi class="n">100 000</bdi></td><td><bdi class="n">38 750</bdi></td><td><bdi class="n">62 000</bdi></td><td>−<bdi class="n">23 250</bdi></td></tr>
+            <tr><td><bdi class="n">160 000</bdi></td><td><bdi class="n">62 000</bdi></td><td><bdi class="n">62 000</bdi></td><td><bdi class="n">0</bdi></td></tr>
+            <tr><td><bdi class="n">250 000</bdi></td><td><bdi class="n">96 875</bdi></td><td><bdi class="n">62 000</bdi></td><td><bdi class="n">34 875</bdi></td></tr>
+            <tr><td><bdi class="n">360 000</bdi></td><td><bdi class="n">139 500</bdi></td><td><bdi class="n">62 000</bdi></td><td><bdi class="n">77 500</bdi></td></tr>
+          </table>
+        </div>
+        <div class="box warn"><b class="t">تحقق دائماً</b>في كل جرد دائم: مجموع الدخول = مجموع الخروج (في الكمية والمبلغ): <bdi class="n">118 000</bdi> للمادة و<bdi class="n">246 000</bdi> للمنتوج ✔.</div>
+      </section>
+      <section id="s5">
+        <h2><bdi class="n">5</bdi>. لماذا تختلف النتيجة عن التكلفة الكاملة؟ <span class="fr">Comparaison</span></h2>
+        <p>الفرق يظهر عندما <b>تختلف الكمية المنتجة عن الكمية المباعة</b> (وجود مخزون). مثال بسيط: أنتجنا <bdi class="n">1 000</bdi> وحدة وبعنا <bdi class="n">800</bdi> بسعر <bdi class="n">400</bdi> دج. تكلفة متغيرة <bdi class="n">150</bdi> دج للوحدة، أعباء ثابتة للإنتاج <bdi class="n">100 000</bdi> دج، لا مخزون أولي.</p>
+        <div class="wrap">
+          <table class="">
+            <tr><th></th><th>التكلفة الكاملة</th><th>التكلفة المتغيرة</th></tr>
+            <tr><td>تكلفة إنتاج الوحدة</td><td><span class="eq">(<bdi class="n">150 000</bdi> + <bdi class="n">100 000</bdi>) ÷ <bdi class="n">1 000</bdi> = <bdi class="n">250</bdi></span></td><td><bdi class="n">150</bdi></td></tr>
+            <tr><td>تقييم المخزون (<bdi class="n">200</bdi> وحدة)</td><td><bdi class="n">50 000</bdi></td><td><bdi class="n">30 000</bdi></td></tr>
+            <tr><td>الهامش / النتيجة</td><td><bdi class="n">800</bdi> × (<bdi class="n">400</bdi> − <bdi class="n">250</bdi>) = <b><bdi class="n">120 000</bdi></b></td><td>الهامش <bdi class="n">800</bdi> × (<bdi class="n">400</bdi> − <bdi class="n">150</bdi>) = <bdi class="n">200 000</bdi>، النتيجة = <bdi class="n">200 000</bdi> − <bdi class="n">100 000</bdi> = <b><bdi class="n">100 000</bdi></b></td></tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>الفرق = <span class="eq"><bdi class="n">120 000</bdi> − <bdi class="n">100 000</bdi> = <bdi class="n">20 000</bdi></span> = الأعباء الثابتة المخزنة مع الوحدات غير المباعة = <span class="eq"><bdi class="n">200</bdi> × <bdi class="n">100</bdi> = <bdi class="n">20 000</bdi></span></div>
+        </div>
+        <div class="box key"><b class="t">الخلاصة</b>التكلفة الكاملة «تؤجل» جزءاً من الأعباء الثابتة داخل المخزون إلى الفترة التي تُباع فيها الوحدات، فتكون نتيجتها أعلى عند زيادة المخزون. التكلفة المتغيرة تخصم الثابتة كاملة من الفترة التي حدثت فيها. وإذا انعدم تغير المخزون تساوت النتيجتان.</div>
+      </section>
+      <section id="s6">
+        <h2><bdi class="n">6</bdi>. الأخطاء الشائعة وخلاصة الدرس</h2>
+        <ul>
+          <li>إدخال جزء من الأعباء الثابتة في تكلفة الإنتاج أو الشراء.</li>
+          <li>نسيان فصل أعباء التوزيع إلى متغيرة وثابتة، فيُخصم كل التوزيع من الهامش.</li>
+          <li>تقييم المخزون بالتكلفة الكاملة بدل المتغيرة.</li>
+          <li>قسمة الأعباء الثابتة على الكمية للحصول على «هامش الوحدة»: الثابتة تُخصم في المجموع.</li>
+          <li>حساب عتبة المردودية بالأعباء الكلية بدل الثابتة فقط.</li>
+          <li>نسيان التحقق: مجموع الدخول = مجموع الخروج في الجرد الدائم.</li>
+        </ul>
+        <div class="box key"><b class="t">الخلاصة</b><bdi class="n">1</bdi>) نصحّح الأعباء ونفصلها إلى متغيرة وثابتة. <bdi class="n">2</bdi>) نحسب شراء ← إنتاج ← سعر تكلفة بالمتغير فقط مع <bdi class="n">CMUP</bdi>. <bdi class="n">3</bdi>) الهامش = رقم الأعمال − سعر التكلفة المتغير. <bdi class="n">4</bdi>) النتيجة = الهامش − الأعباء الثابتة. <bdi class="n">5</bdi>) العتبة = الثابتة ÷ نسبة الهامش.</div>
+      </section>
+      <section id="s7">
+        <h2><bdi class="n">7</bdi>. تمارين تطبيقية (<bdi class="n">4</bdi>)</h2>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">1</bdi></span><span class="lvl l1">سهل</span></p>
+        <p>صنّف كل عبء لمؤسسة تنتج الكراسي إلى <b>متغير</b> أو <b>ثابت</b> أو <b>مختلط</b> مع التعليل: (<bdi class="n">1</bdi>) الخشب (<bdi class="n">2</bdi>) إيجار الورشة (<bdi class="n">3</bdi>) عمولة البائعين <bdi class="n">2%</bdi> من المبيعات (<bdi class="n">4</bdi>) الاهتلاك الخطي للآلات (<bdi class="n">5</bdi>) فاتورة الكهرباء (اشتراك + استهلاك) (<bdi class="n">6</bdi>) أجور عمال بالقطعة (<bdi class="n">7</bdi>) تأمين المصنع (<bdi class="n">8</bdi>) تغليف الكراسي.</p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <div class="wrap">
+          <table class="">
+            <tr><th>#</th><th>العبء</th><th>النوع</th><th>التعليل</th></tr>
+            <tr><td><bdi class="n">1</bdi></td><td>الخشب</td><td>متغير</td><td>يتناسب مع عدد الكراسي</td></tr>
+            <tr><td><bdi class="n">2</bdi></td><td>إيجار الورشة</td><td>ثابت</td><td>نفسه مهما كان الإنتاج</td></tr>
+            <tr><td><bdi class="n">3</bdi></td><td>عمولة البائعين</td><td>متغير</td><td>نسبة من المبيعات</td></tr>
+            <tr><td><bdi class="n">4</bdi></td><td>الاهتلاك الخطي</td><td>ثابت</td><td>قسط سنوي ثابت</td></tr>
+            <tr><td><bdi class="n">5</bdi></td><td>الكهرباء</td><td>مختلط</td><td>اشتراك ثابت + استهلاك متغير</td></tr>
+            <tr><td><bdi class="n">6</bdi></td><td>أجور بالقطعة</td><td>متغير</td><td>تتبع الكمية</td></tr>
+            <tr><td><bdi class="n">7</bdi></td><td>تأمين المصنع</td><td>ثابت</td><td>لا يرتبط بالإنتاج</td></tr>
+            <tr><td><bdi class="n">8</bdi></td><td>التغليف</td><td>متغير</td><td>يخص كل وحدة</td></tr>
+          </table>
+        </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">2</bdi></span><span class="lvl l2">سهل إلى متوسط</span></p>
+        <p>مؤسسة رقم أعمالها <bdi class="n">800 000</bdi> دج، أعباؤها المتغيرة <bdi class="n">520 000</bdi> دج وأعباؤها الثابتة <bdi class="n">168 000</bdi> دج. احسب الهامش ونسبته، النتيجة، عتبة المردودية، تاريخ بلوغها، هامش الأمان.</p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <div class="calc">
+          <div>الهامش = <span class="eq"><bdi class="n">800 000</bdi> − <bdi class="n">520 000</bdi> = <bdi class="n">280 000</bdi></span> ، نسبته = <span class="eq"><bdi class="n">280 000</bdi> ÷ <bdi class="n">800 000</bdi> = <bdi class="n">35%</bdi></span></div>
+          <div>النتيجة = <span class="eq"><bdi class="n">280 000</bdi> − <bdi class="n">168 000</bdi> = <bdi class="n">112 000</bdi></span> دج</div>
+          <div>العتبة = <span class="eq"><bdi class="n">168 000</bdi> ÷ <bdi class="n">0.35</bdi> = <bdi class="n">480 000</bdi></span> دج</div>
+          <div>التاريخ = <span class="eq">(<bdi class="n">480 000</bdi> ÷ <bdi class="n">800 000</bdi>) × <bdi class="n">12</bdi> = <bdi class="n">7.2</bdi></span> شهر = <bdi class="n">7</bdi> أشهر و<bdi class="n">6</bdi> أيام (حوالي <bdi class="n">6</bdi> أوت)</div>
+          <div>هامش الأمان = <span class="eq"><bdi class="n">800 000</bdi> − <bdi class="n">480 000</bdi> = <bdi class="n">320 000</bdi></span> ، مؤشره <bdi class="n">40%</bdi></div>
+        </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">3</bdi></span><span class="lvl l3">متوسط</span></p>
+        <p>تتغير تكلفة الصيانة كما يلي: <bdi class="n">1 500</bdi> وحدة ← <bdi class="n">57 000</bdi> دج، <bdi class="n">2 500</bdi> وحدة ← <bdi class="n">77 000</bdi> دج. (<bdi class="n">1</bdi>) افصل الجزأين الثابت والمتغير. (<bdi class="n">2</bdi>) قدّر التكلفة عند <bdi class="n">2 000</bdi> وحدة. (<bdi class="n">3</bdi>) إذا كان سعر البيع <bdi class="n">300</bdi> دج وباقي الأعباء المتغيرة <bdi class="n">180</bdi> دج للوحدة، فما هامش الوحدة الإجمالي؟</p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <div class="calc">
+          <div>الجزء المتغير = <span class="eq">(<bdi class="n">77 000</bdi> − <bdi class="n">57 000</bdi>) ÷ (<bdi class="n">2 500</bdi> − <bdi class="n">1 500</bdi>) = <bdi class="n">20</bdi></span> دج للوحدة</div>
+          <div>الجزء الثابت = <span class="eq"><bdi class="n">57 000</bdi> − (<bdi class="n">1 500</bdi> × <bdi class="n">20</bdi>) = <bdi class="n">27 000</bdi></span> دج</div>
+          <div>التقدير عند <bdi class="n">2 000</bdi> = <span class="eq"><bdi class="n">27 000</bdi> + (<bdi class="n">2 000</bdi> × <bdi class="n">20</bdi>) = <bdi class="n">67 000</bdi></span> دج</div>
+          <div>هامش الوحدة = <span class="eq"><bdi class="n">300</bdi> − <bdi class="n">180</bdi> − <bdi class="n">20</bdi> = <bdi class="n">100</bdi></span> دج (الصيانة المتغيرة تُحسب ضمن الأعباء المتغيرة)</div>
+        </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p><span class="pill">تمرين <bdi class="n">4</bdi></span><span class="lvl l4">متقدم</span></p>
+        <p>أنتجت مؤسسة <bdi class="n">2 000</bdi> وحدة وباعت <bdi class="n">1 500</bdi> وحدة بسعر <bdi class="n">600</bdi> دج. تكلفة الإنتاج المتغيرة <bdi class="n">250</bdi> دج للوحدة، التوزيع المتغير <bdi class="n">50</bdi> دج للوحدة المباعة، أعباء الإنتاج الثابتة <bdi class="n">200 000</bdi> دج وأعباء التوزيع الثابتة <bdi class="n">75 000</bdi> دج. لا مخزون أولي.</p>
+        <ol>
+          <li>احسب النتيجة بالتكلفة الكاملة.</li>
+          <li>احسب النتيجة بالتكلفة المتغيرة.</li>
+          <li>فسّر الفرق بين النتيجتين.</li>
+        </ol>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+        <h4><span class="pill"><bdi class="n">1</bdi></span>التكلفة الكاملة</h4>
+        <div class="calc">
+          <div>تكلفة إنتاج الوحدة = <span class="eq">(<bdi class="n">2 000</bdi> × <bdi class="n">250</bdi> + <bdi class="n">200 000</bdi>) ÷ <bdi class="n">2 000</bdi> = <bdi class="n">350</bdi></span></div>
+          <div>سعر التكلفة = <span class="eq"><bdi class="n">1 500</bdi> × <bdi class="n">350</bdi> + <bdi class="n">1 500</bdi> × <bdi class="n">50</bdi> + <bdi class="n">75 000</bdi> = <bdi class="n">675 000</bdi></span></div>
+          <div>النتيجة = <span class="eq"><bdi class="n">900 000</bdi> − <bdi class="n">675 000</bdi> = <bdi class="n">225 000</bdi></span> دج</div>
+        </div>
+        <h4><span class="pill"><bdi class="n">2</bdi></span>التكلفة المتغيرة</h4>
+        <div class="calc">
+          <div>سعر التكلفة المتغير = <span class="eq"><bdi class="n">1 500</bdi> × (<bdi class="n">250</bdi> + <bdi class="n">50</bdi>) = <bdi class="n">450 000</bdi></span></div>
+          <div>الهامش = <span class="eq"><bdi class="n">900 000</bdi> − <bdi class="n">450 000</bdi> = <bdi class="n">450 000</bdi></span></div>
+          <div>النتيجة = <span class="eq"><bdi class="n">450 000</bdi> − (<bdi class="n">200 000</bdi> + <bdi class="n">75 000</bdi>) = <bdi class="n">175 000</bdi></span> دج</div>
+        </div>
+        <h4><span class="pill"><bdi class="n">3</bdi></span>تفسير الفرق</h4>
+        <p>الفرق <span class="eq"><bdi class="n">225 000</bdi> − <bdi class="n">175 000</bdi> = <bdi class="n">50 000</bdi></span> = مخزون آخر المدة (<bdi class="n">500</bdi> وحدة) × الثابت للوحدة (<bdi class="n">200 000</bdi> ÷ <bdi class="n">2 000</bdi> = <bdi class="n">100</bdi>) = <bdi class="n">50 000</bdi>. التكلفة الكاملة أبقت هذا المبلغ في المخزون، والمتغيرة خصمته من الفترة.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <div class="pn">
+      <a href="5_2_imputation_rationnelle.html">الدرس <bdi class="n">5.2</bdi> ←</a><a href="sommaire_compta.html">📚 الفهرس</a><a href="5_0_presentation_cout_partiel.html">→ الدرس <bdi class="n">5.0</bdi></a>
+    </div>
+    <footer>
+      تحضير بكالوريا <bdi class="n">2027</bdi> – شعبة تسيير واقتصاد – المحاسبة التحليلية (التكلفة المتغيرة)<br />بالتوفيق إن شاء الله 🌟
+    </footer>
+  </body>
+</html>
