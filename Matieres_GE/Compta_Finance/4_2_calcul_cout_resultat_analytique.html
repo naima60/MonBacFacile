@@ -1,0 +1,3024 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>4.2 حساب التكاليف والنتيجة التحليلية</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --card: #fff;
+        --ink: #1b2a3a;
+        --muted: #5b6b7b;
+        --main: #0f5c8c;
+        --soft: #e4f0f8;
+        --ok: #1b7a4b;
+        --okbg: #e6f5ec;
+        --warn: #9a5b00;
+        --warnbg: #fff4de;
+        --line: #d5dee8;
+        --dr: #e8f1fb;
+        --cr: #fdeeee;
+        --g1b: #e4f0f8;
+        --g1s: #0f5c8c;
+        --g2b: #e6f5ec;
+        --g2s: #1b7a4b;
+        --g3b: #fff4de;
+        --g3s: #c27a00;
+        --g4b: #f1e8fb;
+        --g4s: #7a4bb3;
+        --g5b: #e0f4f2;
+        --g5s: #13867a;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10161d;
+          --card: #18212b;
+          --ink: #e6edf4;
+          --muted: #9fb0c1;
+          --main: #6bb8ea;
+          --soft: #1d2d3b;
+          --ok: #6fd39c;
+          --okbg: #17302450;
+          --warn: #f0b45a;
+          --warnbg: #3a2c12;
+          --line: #2c3a48;
+          --dr: #1b2c3f;
+          --cr: #3a2024;
+          --g1b: #1d2d3b;
+          --g1s: #6bb8ea;
+          --g2b: #173024;
+          --g2s: #6fd39c;
+          --g3b: #3a2c12;
+          --g3s: #f0b45a;
+          --g4b: #2b2140;
+          --g4s: #b995e8;
+          --g5b: #12302d;
+          --g5s: #5fd3c6;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Cairo", "Amiri", Tahoma, Arial, sans-serif;
+        line-height: 1.95;
+        font-size: 17px;
+      }
+
+      /* === Navbar inspirée de la capture d'écran === */
+      .site-topbar {
+        background: #1b2838;
+        color: #ffffff;
+        border-bottom: 1px solid #2b3c50;
+        padding: 0.55rem 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-topbar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .site-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .site-brand,
+      .site-nav-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.05);
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .site-brand:hover,
+      .site-nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+      }
+      .site-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-toggle-fr {
+        background: #ffc107;
+        color: #16202a;
+        border: none;
+        border-radius: 6px;
+        padding: 0.32rem 0.9rem;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: filter 0.15s ease;
+      }
+      .btn-toggle-fr:hover {
+        filter: brightness(1.05);
+      }
+
+      /* Barre secondaire des leçons */
+      .lessons-bar {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        padding: 0.55rem 1.2rem;
+      }
+      .lessons-bar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+      .lessons-label {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #1b2838;
+        margin-inline-end: 0.25rem;
+      }
+      .lesson-pill {
+        display: inline-block;
+        padding: 0.18rem 0.8rem;
+        border-radius: 999px;
+        border: 1.5px solid #2b6cb0;
+        color: #1a4971;
+        background: #f8fbff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
+      }
+      .lesson-pill:hover {
+        background: #e4f0f8;
+        color: #0f5c8c;
+      }
+      .lesson-pill.active {
+        background: #e4f0f8;
+        border-color: #0f5c8c;
+        color: #0f5c8c;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .lessons-bar {
+          background: var(--card);
+        }
+        .lessons-label {
+          color: var(--ink);
+        }
+        .lesson-pill {
+          background: var(--soft);
+          color: var(--main);
+          border-color: var(--main);
+        }
+      }
+
+      body.hide-fr .fr {
+        display: none;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0f5c8c, #16a085);
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0.2rem 0;
+        font-size: 1.8rem;
+      }
+      header p {
+        margin: 0.2rem 0;
+        opacity: 0.92;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .pn {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 980px;
+        margin: 0.8rem auto 0;
+        padding: 0 1rem;
+      }
+      .pn a {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 0 1rem;
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      nav.toc {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem 1.4rem;
+        margin: 1rem 0;
+      }
+      nav.toc ol {
+        columns: 2;
+        margin: 0.3rem 0;
+        padding-inline-start: 1.4rem;
+      }
+      nav.toc a {
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0;
+      }
+      h2 {
+        color: var(--main);
+        border-bottom: 3px solid var(--soft);
+        padding-bottom: 0.3rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--main);
+        margin-bottom: 0.2rem;
+      }
+      h4 {
+        margin: 1rem 0 0.2rem;
+        color: var(--main);
+      }
+      .fr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        font-family: Arial, sans-serif;
+        font-size: 0.9em;
+        color: var(--muted);
+      }
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      bdi.n {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+      }
+      .eq {
+        direction: rtl;
+        unicode-bidi: isolate;
+      }
+      .box {
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        margin: 0.8rem 0;
+        border-inline-start: 6px solid;
+      }
+      .def {
+        background: var(--soft);
+        border-color: var(--main);
+      }
+      .key {
+        background: var(--okbg);
+        border-color: var(--ok);
+      }
+      .warn {
+        background: var(--warnbg);
+        border-color: var(--warn);
+      }
+      .box b.t {
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.6rem 0;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 0.35rem 0.6rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      th {
+        background: var(--soft);
+        color: var(--main);
+      }
+      th.d {
+        background: var(--dr);
+      }
+      th.c {
+        background: var(--cr);
+      }
+      .wrap {
+        overflow-x: auto;
+      }
+      .num {
+        text-align: center;
+        direction: ltr;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      tr.tot td {
+        font-weight: 700;
+        border-top: 2px solid var(--main);
+        background: var(--soft);
+      }
+      table.inv tr.tot td {
+        background: var(--okbg);
+      }
+      .ex {
+        border: 1px dashed var(--main);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+      }
+      .pill {
+        display: inline-block;
+        background: var(--main);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        margin-inline-end: 0.4rem;
+      }
+      .lvl {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        border: 2px solid;
+      }
+      .l1 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .l2 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .l3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .l4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .formula {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.05em;
+        background: var(--soft);
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 0.6rem 0;
+      }
+      .calc {
+        background: var(--soft);
+        border-inline-start: 5px solid var(--main);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.4rem 0;
+      }
+      .calc > div {
+        padding: 0.1rem 0;
+      }
+      details {
+        background: var(--okbg);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.5rem 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ok);
+      }
+      .chain {
+        max-width: 680px;
+        margin: 0.6rem auto;
+      }
+      .cb2 {
+        border: 2px solid;
+        border-radius: 12px;
+        padding: 0.4rem 0.9rem;
+        text-align: center;
+      }
+      .cb2.g1 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .cb2.g2 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .cb2.g3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .cb2.g4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .cb2.g5 {
+        background: var(--g5b);
+        border-color: var(--g5s);
+      }
+      .cb2 small {
+        display: block;
+        color: var(--muted);
+      }
+      .ar {
+        text-align: center;
+        font-size: 1.3em;
+        color: var(--main);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1.5rem;
+        font-size: 0.9em;
+      }
+      @media (max-width: 640px) {
+        .site-topbar {
+          padding: 0.4rem 0.6rem;
+        }
+        .site-brand,
+        .site-nav-links a,
+        .btn-toggle-fr {
+          font-size: 0.78rem;
+          padding: 0.22rem 0.55rem;
+        }
+        .lessons-bar {
+          padding: 0.45rem 0.6rem;
+        }
+        .lesson-pill {
+          font-size: 0.78rem;
+          padding: 0.14rem 0.55rem;
+        }
+        nav.toc ol {
+          columns: 1;
+        }
+        body {
+          font-size: 16px;
+        }
+        section {
+          padding: 1rem;
+        }
+      }
+      @media print {
+        header,
+        .site-topbar,
+        .lessons-bar {
+          background: #fff;
+          color: #000;
+        }
+        nav.toc,
+        .pn {
+          display: none;
+        }
+        section {
+          break-inside: avoid-page;
+        }
+        details {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-topbar" aria-label="التنقل العام">
+      <div class="site-topbar-inner">
+        <div class="site-nav-right">
+          <a class="site-brand" href="sommaire_compta.html">البرنامج السنوي</a>
+          <div class="site-nav-links">
+            <a href="4_0_presentation_cout_complet.html">شعبة تسيير واقتصاد</a>
+            <a href="4_1_charges_incorporables_4.html"
+              >المجال <bdi class="n">04</bdi></a
+            >
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn-toggle-fr"
+          onclick="document.body.classList.toggle('hide-fr')"
+        >
+          إخفاء / إظهار المصطلحات الفرنسية
+        </button>
+      </div>
+    </nav>
+
+    <div class="lessons-bar" aria-label="دروس المجال">
+      <div class="lessons-bar-inner">
+        <span class="lessons-label">دروس المجال <bdi class="n">04</bdi> :</span>
+        <a class="lesson-pill" href="4_0_presentation_cout_complet.html"
+          ><bdi class="n">00</bdi>. تقديم عام</a
+        >
+        <a class="lesson-pill" href="4_1_charges_incorporables_4.html"
+          ><bdi class="n">01</bdi>. الأعباء المعتبرة</a
+        >
+        <a
+          class="lesson-pill active"
+          href="4_2_calcul_cout_resultat_analytique_3.html"
+          ><bdi class="n">02</bdi>. حساب التكاليف والنتيجة</a
+        >
+        <a class="lesson-pill" href="4_3_Valorisation_des_stocks.html"
+          ><bdi class="n">03</bdi>. تقييم المخزونات</a
+        >
+      </div>
+    </div>
+
+    <header>
+      <h1>🏭 <bdi class="n">4.2</bdi> – حساب التكاليف والنتيجة التحليلية</h1>
+      <p>
+        السنة الثالثة ثانوي – شعبة تسيير واقتصاد – بكالوريا
+        <bdi class="n">2027</bdi>
+      </p>
+     
+    </header>
+    
+    <main>
+      <nav class="toc">
+        <b>📑 محتويات الدرس</b>
+        <ol>
+          <li>
+            <a href="#s1"
+              >الصورة الكبرى: <bdi class="n">5</bdi> مراحل بترتيب ثابت</a
+            >
+          </li>
+          <li>
+            <a href="#s2">مثال الدرس: مؤسسة الرياض لصناعة الكراسي (شهر مارس)</a>
+          </li>
+          <li><a href="#s3">المرحلة ①: جدول توزيع الأعباء غير المباشرة</a></li>
+          <li>
+            <a href="#s4">المرحلة ②: تكلفة الشراء والجرد الدائم للمواد</a>
+          </li>
+          <li>
+            <a href="#s5"
+              >المرحلة ③: تكلفة الإنتاج والجرد الدائم للمنتج التام</a
+            >
+          </li>
+          <li>
+            <a href="#s6">المرحلتان ④ و⑤: سعر التكلفة والنتيجة التحليلية</a>
+          </li>
+          <li><a href="#s7">وحدات القياس: كيف أحسب عددها؟</a></li>
+          <li><a href="#s8">حالات متقدمة تظهر في الباك</a></li>
+          <li><a href="#s9">ورقة الصيغ والأخطاء الشائعة</a></li>
+          <li>
+            <a href="#s10">تمارين تطبيقية (<bdi class="n">4</bdi>)</a>
+          </li>
+          <li><a href="#s11">خلاصة الدرس</a></li>
+        </ol>
+      </nav>
+      <section id="s1">
+        <h2>
+          <bdi class="n">1</bdi>. الصورة الكبرى: <bdi class="n">5</bdi> مراحل
+          بترتيب ثابت
+        </h2>
+        <p>
+          في أي تمرين تكلفة كامل ستتبع هذا المسار، وكل مرحلة تحتاج نتيجة التي
+          قبلها:
+        </p>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>المرحلة</th>
+              <th>ماذا نحسب؟</th>
+              <th>نحتاج إليه من</th>
+            </tr>
+            <tr>
+              <td>①</td>
+              <td>جدول توزيع الأعباء غير المباشرة وتكلفة وحدة القياس</td>
+              <td>معطيات الأعباء</td>
+            </tr>
+            <tr>
+              <td>②</td>
+              <td>
+                تكلفة شراء كل مادة + حساب الجرد الدائم (<bdi class="n">CMUP</bdi
+                >)
+              </td>
+              <td>① تكلفة وحدة قسم التموين</td>
+            </tr>
+            <tr>
+              <td>③</td>
+              <td>تكلفة الإنتاج + حساب الجرد الدائم للمنتج التام</td>
+              <td>① قسم الإنتاج + ② المواد</td>
+            </tr>
+            <tr>
+              <td>④</td>
+              <td>سعر التكلفة للمنتجات المباعة</td>
+              <td>③ <bdi class="n">CMUP</bdi> + ① قسم التوزيع</td>
+            </tr>
+            <tr>
+              <td>⑤</td>
+              <td>النتيجة التحليلية ثم الصافية</td>
+              <td>④ + رقم الأعمال</td>
+            </tr>
+          </table>
+        </div>
+        <div class="box key">
+          <b class="t">نصيحة</b>اكتب هذا الجدول في مسودتك وضع علامة ✔ بعد إتمام
+          كل مرحلة. في الامتحان تذهب النقاط للدقة وللترتيب.
+        </div>
+      </section>
+      <section id="s2">
+        <h2>
+          <bdi class="n">2</bdi>. مثال الدرس: مؤسسة الرياض لصناعة الكراسي (شهر
+          مارس)
+        </h2>
+        <p>ننجز كل المراحل على مثال واحد واقعي. إليك المعطيات:</p>
+        <ol>
+          <li>
+            <b>مخزون أول المدة:</b> الخشب (<bdi class="n">M₁</bdi>)
+            <bdi class="n">200</bdi> كلغ بتكلفة <bdi class="n">38 720</bdi> دج؛
+            القماش (<bdi class="n">M₂</bdi>) <bdi class="n">100</bdi> متر بتكلفة
+            <bdi class="n">13 280</bdi> دج؛ الكراسي التامة (<bdi class="n"
+              >P</bdi
+            >) <bdi class="n">200</bdi> كرسي بتكلفة
+            <bdi class="n">74 000</bdi> دج.
+          </li>
+          <li>
+            <b>المشتريات:</b> <bdi class="n">M₁</bdi>
+            <bdi class="n">800</bdi> كلغ بـ <bdi class="n">190</bdi> دج/كلغ؛
+            <bdi class="n">M₂</bdi> <bdi class="n">400</bdi> متر بـ
+            <bdi class="n">120</bdi> دج/متر. مصاريف شراء مباشرة (نقل):
+            <bdi class="n">8 000</bdi> لـ <bdi class="n">M₁</bdi> و<bdi
+              class="n"
+              >2 000</bdi
+            >
+            لـ <bdi class="n">M₂</bdi>.
+          </li>
+          <li>
+            <b>الإنتاج:</b> <bdi class="n">1 000</bdi> كرسي باستعمال
+            <bdi class="n">600</bdi> كلغ من <bdi class="n">M₁</bdi> و<bdi
+              class="n"
+              >300</bdi
+            >
+            متر من <bdi class="n">M₂</bdi>، و<bdi class="n">400</bdi> ساعة يد
+            عاملة مباشرة بـ <bdi class="n">250</bdi> دج للساعة.
+          </li>
+          <li>
+            <b>المبيعات:</b> <bdi class="n">900</bdi> كرسي بسعر
+            <bdi class="n">600</bdi> دج للكرسي.
+          </li>
+          <li>
+            <b>الأعباء غير المباشرة (التوزيع الأولي):</b> الإدارة
+            <bdi class="n">34 000</bdi>، الصيانة <bdi class="n">26 000</bdi>،
+            التموين <bdi class="n">17 000</bdi>، الإنتاج
+            <bdi class="n">59 000</bdi>، التوزيع <bdi class="n">9 000</bdi>.
+          </li>
+          <li>
+            <b>التوزيع الثانوي:</b> الإدارة توزع على: الصيانة
+            <bdi class="n">10%</bdi>، التموين <bdi class="n">20%</bdi>، الإنتاج
+            <bdi class="n">40%</bdi>، التوزيع <bdi class="n">30%</bdi>. الصيانة
+            توزع على: الإدارة <bdi class="n">20%</bdi>، التموين
+            <bdi class="n">10%</bdi>، الإنتاج <bdi class="n">50%</bdi>، التوزيع
+            <bdi class="n">20%</bdi>.
+          </li>
+          <li>
+            <b>وحدات القياس:</b> التموين: <bdi class="n">100</bdi> دج من ثمن
+            شراء المواد المشتراة؛ الإنتاج: الوحدة المنتجة؛ التوزيع:
+            <bdi class="n">100</bdi> دج من رقم الأعمال.
+          </li>
+          <li>
+            عناصر إضافية <bdi class="n">10 000</bdi> دج، أعباء غير معتبرة
+            <bdi class="n">4 000</bdi> دج.
+          </li>
+        </ol>
+        <div class="box warn">
+          <b class="t">لاحظ</b>الإدارة والصيانة يخدمان بعضهما بعضاً (الإدارة
+          تعطي الصيانة <bdi class="n">10%</bdi> والصيانة تعطي الإدارة
+          <bdi class="n">20%</bdi>). هذه هي «الخدمات المتبادلة» ولحلها نحتاج
+          معادلتين.
+        </div>
+      </section>
+      <section id="s3">
+        <h2>
+          <bdi class="n">3</bdi>. المرحلة ①: جدول توزيع الأعباء غير المباشرة
+        </h2>
+        <h4><span class="pill">أ</span>نفهم الخدمات المتبادلة</h4>
+        <p>
+          نرمز بـ <b><bdi class="n">x</bdi></b> لمجموع أعباء الإدارة
+          <u>بعد</u> أن تستقبل نصيبها من الصيانة، وبـ
+          <b><bdi class="n">y</bdi></b> لمجموع أعباء الصيانة بعد أن تستقبل
+          نصيبها من الإدارة.
+        </p>
+        <div class="calc">
+          <div>
+            الإدارة:
+            <span class="eq"
+              ><bdi class="n">x</bdi> = <bdi class="n">34 000</bdi> +
+              <bdi class="n">0.20</bdi> <bdi class="n">y</bdi></span
+            >
+            &nbsp;&nbsp;(<bdi class="n">1</bdi>)
+          </div>
+          <div>
+            الصيانة:
+            <span class="eq"
+              ><bdi class="n">y</bdi> = <bdi class="n">26 000</bdi> +
+              <bdi class="n">0.10</bdi> <bdi class="n">x</bdi></span
+            >
+            &nbsp;&nbsp;(<bdi class="n">2</bdi>)
+          </div>
+        </div>
+        <h4><span class="pill">ب</span>نحل المعادلتين بالتعويض (خطوة بخطوة)</h4>
+        <div class="calc">
+          <div>نعوّض (<bdi class="n">2</bdi>) في (<bdi class="n">1</bdi>):</div>
+          <div>
+            <span class="eq"
+              ><bdi class="n">x</bdi> = <bdi class="n">34 000</bdi> +
+              <bdi class="n">0.20</bdi> × (<bdi class="n">26 000</bdi> +
+              <bdi class="n">0.10</bdi> <bdi class="n">x</bdi>)</span
+            >
+          </div>
+          <div>
+            ننشر القوس:
+            <span class="eq"
+              ><bdi class="n">x</bdi> = <bdi class="n">34 000</bdi> +
+              <bdi class="n">5 200</bdi> + <bdi class="n">0.02</bdi>
+              <bdi class="n">x</bdi></span
+            >
+          </div>
+          <div>
+            نجمع الأعداد ونحوّل <bdi class="n">x</bdi>:
+            <span class="eq"
+              ><bdi class="n">x</bdi> − <bdi class="n">0.02</bdi>
+              <bdi class="n">x</bdi> = <bdi class="n">39 200</bdi></span
+            >
+          </div>
+          <div>
+            أي:
+            <span class="eq"
+              ><bdi class="n">0.98</bdi> <bdi class="n">x</bdi> =
+              <bdi class="n">39 200</bdi></span
+            >
+          </div>
+          <div>
+            إذن:
+            <span class="eq"
+              ><bdi class="n">x</bdi> = <bdi class="n">39 200</bdi> ÷
+              <bdi class="n">0.98</bdi> = <bdi class="n">40 000</bdi></span
+            >
+          </div>
+          <div>
+            نعوّض في (<bdi class="n">2</bdi>):
+            <span class="eq"
+              ><bdi class="n">y</bdi> = <bdi class="n">26 000</bdi> +
+              <bdi class="n">0.10</bdi> × <bdi class="n">40 000</bdi> =
+              <bdi class="n">30 000</bdi></span
+            >
+          </div>
+        </div>
+        <div class="box key">
+          <b class="t">تحقق من الحل</b>في (<bdi class="n">1</bdi>):
+          <span class="eq"
+            ><bdi class="n">34 000</bdi> + <bdi class="n">0.20</bdi> ×
+            <bdi class="n">30 000</bdi> = <bdi class="n">40 000</bdi></span
+          >
+          ✔ &nbsp; وفي (<bdi class="n">2</bdi>):
+          <span class="eq"
+            ><bdi class="n">26 000</bdi> + <bdi class="n">0.10</bdi> ×
+            <bdi class="n">40 000</bdi> = <bdi class="n">30 000</bdi></span
+          >
+          ✔
+        </div>
+        <h4><span class="pill">ج</span>نوزع بالنسب</h4>
+        <div class="calc">
+          <div>
+            الإدارة (<bdi class="n">40 000</bdi>): الصيانة
+            <span class="eq"
+              ><bdi class="n">10%</bdi> = <bdi class="n">4 000</bdi></span
+            >، التموين
+            <span class="eq"
+              ><bdi class="n">20%</bdi> = <bdi class="n">8 000</bdi></span
+            >، الإنتاج
+            <span class="eq"
+              ><bdi class="n">40%</bdi> = <bdi class="n">16 000</bdi></span
+            >، التوزيع
+            <span class="eq"
+              ><bdi class="n">30%</bdi> = <bdi class="n">12 000</bdi></span
+            >
+          </div>
+          <div>
+            الصيانة (<bdi class="n">30 000</bdi>): الإدارة
+            <span class="eq"
+              ><bdi class="n">20%</bdi> = <bdi class="n">6 000</bdi></span
+            >، التموين
+            <span class="eq"
+              ><bdi class="n">10%</bdi> = <bdi class="n">3 000</bdi></span
+            >، الإنتاج
+            <span class="eq"
+              ><bdi class="n">50%</bdi> = <bdi class="n">15 000</bdi></span
+            >، التوزيع
+            <span class="eq"
+              ><bdi class="n">20%</bdi> = <bdi class="n">6 000</bdi></span
+            >
+          </div>
+        </div>
+        <h4><span class="pill">د</span>الجدول (الأقسام المساعدة تنتهي بصفر)</h4>
+        <div class="wrap">
+          <table class="rep">
+            <tr>
+              <th>البيان</th>
+              <th>الإدارة</th>
+              <th>الصيانة</th>
+              <th>التموين</th>
+              <th>الإنتاج</th>
+              <th>التوزيع</th>
+            </tr>
+            <tr>
+              <td>مجموع التوزيع الأولي</td>
+              <td class="num">34 000</td>
+              <td class="num">26 000</td>
+              <td class="num">17 000</td>
+              <td class="num">59 000</td>
+              <td class="num">9 000</td>
+            </tr>
+            <tr>
+              <td>
+                توزيع الإدارة (<bdi class="n">10%</bdi>،
+                <bdi class="n">20%</bdi>، <bdi class="n">40%</bdi>،
+                <bdi class="n">30%</bdi>)
+              </td>
+              <td class="num">-40 000</td>
+              <td class="num">4 000</td>
+              <td class="num">8 000</td>
+              <td class="num">16 000</td>
+              <td class="num">12 000</td>
+            </tr>
+            <tr>
+              <td>
+                توزيع الصيانة (<bdi class="n">20%</bdi>،
+                <bdi class="n">10%</bdi>، <bdi class="n">50%</bdi>،
+                <bdi class="n">20%</bdi>)
+              </td>
+              <td class="num">6 000</td>
+              <td class="num">-30 000</td>
+              <td class="num">3 000</td>
+              <td class="num">15 000</td>
+              <td class="num">6 000</td>
+            </tr>
+            <tr class="tot">
+              <td>مجموع التوزيع الثانوي</td>
+              <td class="num">0</td>
+              <td class="num">0</td>
+              <td class="num">28 000</td>
+              <td class="num">90 000</td>
+              <td class="num">27 000</td>
+            </tr>
+            <tr>
+              <td>طبيعة وحدة القياس</td>
+              <td></td>
+              <td></td>
+              <td><bdi class="n">100</bdi> دج ثمن شراء</td>
+              <td>وحدة منتجة</td>
+              <td><bdi class="n">100</bdi> دج رقم أعمال</td>
+            </tr>
+            <tr>
+              <td>عدد وحدات القياس</td>
+              <td></td>
+              <td></td>
+              <td class="num">2 000</td>
+              <td class="num">1 000</td>
+              <td class="num">5 400</td>
+            </tr>
+            <tr class="tot">
+              <td>تكلفة وحدة القياس</td>
+              <td></td>
+              <td></td>
+              <td class="num">14</td>
+              <td class="num">90</td>
+              <td class="num">5</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            التموين:
+            <span class="eq"
+              ><bdi class="n">17 000</bdi> + <bdi class="n">8 000</bdi> +
+              <bdi class="n">3 000</bdi> = <bdi class="n">28 000</bdi></span
+            >
+            ←
+            <span class="eq"
+              ><bdi class="n">28 000</bdi> ÷ <bdi class="n">2 000</bdi> =
+              <bdi class="n">14</bdi></span
+            >
+            دج لكل <bdi class="n">100</bdi> دج مشتريات
+          </div>
+          <div>
+            الإنتاج:
+            <span class="eq"
+              ><bdi class="n">59 000</bdi> + <bdi class="n">16 000</bdi> +
+              <bdi class="n">15 000</bdi> = <bdi class="n">90 000</bdi></span
+            >
+            ←
+            <span class="eq"
+              ><bdi class="n">90 000</bdi> ÷ <bdi class="n">1 000</bdi> =
+              <bdi class="n">90</bdi></span
+            >
+            دج للوحدة المنتجة
+          </div>
+          <div>
+            التوزيع:
+            <span class="eq"
+              ><bdi class="n">9 000</bdi> + <bdi class="n">12 000</bdi> +
+              <bdi class="n">6 000</bdi> = <bdi class="n">27 000</bdi></span
+            >
+            ←
+            <span class="eq"
+              ><bdi class="n">27 000</bdi> ÷ <bdi class="n">5 400</bdi> =
+              <bdi class="n">5</bdi></span
+            >
+            دج لكل <bdi class="n">100</bdi> دج مبيعات
+          </div>
+        </div>
+        <div class="calc">
+          <div>من أين عدد وحدات القياس؟</div>
+          <div>
+            التموين: ثمن الشراء
+            <span class="eq"
+              ><bdi class="n">152 000</bdi> + <bdi class="n">48 000</bdi> =
+              <bdi class="n">200 000</bdi></span
+            >
+            ←
+            <span class="eq"
+              ><bdi class="n">200 000</bdi> ÷ <bdi class="n">100</bdi> =
+              <bdi class="n">2 000</bdi></span
+            >
+          </div>
+          <div>الإنتاج: عدد الكراسي المنتجة = <bdi class="n">1 000</bdi></div>
+          <div>
+            التوزيع: رقم الأعمال
+            <span class="eq"
+              ><bdi class="n">900</bdi> × <bdi class="n">600</bdi> =
+              <bdi class="n">540 000</bdi></span
+            >
+            ←
+            <span class="eq"
+              ><bdi class="n">540 000</bdi> ÷ <bdi class="n">100</bdi> =
+              <bdi class="n">5 400</bdi></span
+            >
+          </div>
+        </div>
+        <div class="box warn">
+          <b class="t">تحقق ذهبي</b>مجموع التوزيع الأولي = مجموع التوزيع
+          الثانوي:
+          <span class="eq"
+            ><bdi class="n">34 000</bdi> + <bdi class="n">26 000</bdi> +
+            <bdi class="n">17 000</bdi> + <bdi class="n">59 000</bdi> +
+            <bdi class="n">9 000</bdi> = <bdi class="n">145 000</bdi></span
+          >
+          و
+          <span class="eq"
+            ><bdi class="n">28 000</bdi> + <bdi class="n">90 000</bdi> +
+            <bdi class="n">27 000</bdi> = <bdi class="n">145 000</bdi></span
+          >
+          ✔
+        </div>
+      </section>
+      <section id="s4">
+        <h2>
+          <bdi class="n">4</bdi>. المرحلة ②: تكلفة الشراء والجرد الدائم للمواد
+        </h2>
+        <p>
+          تكلفة الشراء = ثمن الشراء + مصاريف مباشرة + مصاريف غير مباشرة.
+          المصاريف غير المباشرة =
+          <b
+            >(ثمن الشراء ÷ <bdi class="n">100</bdi>) × تكلفة وحدة قسم التموين
+            (<bdi class="n">14</bdi>)</b
+          >.
+        </p>
+        <h4>
+          <span class="pill">أ</span>تكلفة شراء الخشب <bdi class="n">M₁</bdi>
+        </h4>
+        <div class="wrap">
+          <table class="qpm">
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>ثمن الشراء</td>
+              <td class="num">800</td>
+              <td class="num">190</td>
+              <td class="num">152 000</td>
+            </tr>
+            <tr>
+              <td>مصاريف شراء مباشرة (نقل)</td>
+              <td class="num"></td>
+              <td class="num"></td>
+              <td class="num">8 000</td>
+            </tr>
+            <tr>
+              <td>مصاريف غير مباشرة (قسم التموين)</td>
+              <td class="num">1 520</td>
+              <td class="num">14</td>
+              <td class="num">21 280</td>
+            </tr>
+            <tr class="tot">
+              <td>تكلفة الشراء</td>
+              <td class="num">800</td>
+              <td class="num">226.6</td>
+              <td class="num">181 280</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            عدد وحدات القياس =
+            <span class="eq"
+              ><bdi class="n">152 000</bdi> ÷ <bdi class="n">100</bdi> =
+              <bdi class="n">1 520</bdi></span
+            >
+          </div>
+          <div>
+            المصاريف غير المباشرة =
+            <span class="eq"
+              ><bdi class="n">1 520</bdi> × <bdi class="n">14</bdi> =
+              <bdi class="n">21 280</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة الشراء =
+            <span class="eq"
+              ><bdi class="n">152 000</bdi> + <bdi class="n">8 000</bdi> +
+              <bdi class="n">21 280</bdi> = <bdi class="n">181 280</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة الكلغ =
+            <span class="eq"
+              ><bdi class="n">181 280</bdi> ÷ <bdi class="n">800</bdi> =
+              <bdi class="n">226.6</bdi></span
+            >
+          </div>
+        </div>
+        <h4>
+          <span class="pill">ب</span>تكلفة شراء القماش <bdi class="n">M₂</bdi>
+        </h4>
+        <div class="wrap">
+          <table class="qpm">
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>ثمن الشراء</td>
+              <td class="num">400</td>
+              <td class="num">120</td>
+              <td class="num">48 000</td>
+            </tr>
+            <tr>
+              <td>مصاريف شراء مباشرة (نقل)</td>
+              <td class="num"></td>
+              <td class="num"></td>
+              <td class="num">2 000</td>
+            </tr>
+            <tr>
+              <td>مصاريف غير مباشرة (قسم التموين)</td>
+              <td class="num">480</td>
+              <td class="num">14</td>
+              <td class="num">6 720</td>
+            </tr>
+            <tr class="tot">
+              <td>تكلفة الشراء</td>
+              <td class="num">400</td>
+              <td class="num">141.8</td>
+              <td class="num">56 720</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            عدد وحدات القياس =
+            <span class="eq"
+              ><bdi class="n">48 000</bdi> ÷ <bdi class="n">100</bdi> =
+              <bdi class="n">480</bdi></span
+            >
+          </div>
+          <div>
+            المصاريف غير المباشرة =
+            <span class="eq"
+              ><bdi class="n">480</bdi> × <bdi class="n">14</bdi> =
+              <bdi class="n">6 720</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة الشراء =
+            <span class="eq"
+              ><bdi class="n">48 000</bdi> + <bdi class="n">2 000</bdi> +
+              <bdi class="n">6 720</bdi> = <bdi class="n">56 720</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة المتر =
+            <span class="eq"
+              ><bdi class="n">56 720</bdi> ÷ <bdi class="n">400</bdi> =
+              <bdi class="n">141.8</bdi></span
+            >
+          </div>
+          <div>
+            تحقق:
+            <span class="eq"
+              ><bdi class="n">21 280</bdi> + <bdi class="n">6 720</bdi> =
+              <bdi class="n">28 000</bdi></span
+            >
+            = مجموع تموين ✔
+          </div>
+        </div>
+        <h4>
+          <span class="pill">ج</span>التكلفة الوسطية المرجحة وحساب الجرد الدائم
+        </h4>
+        <div class="calc">
+          <div>
+            <bdi class="n">CMUP</bdi>(<bdi class="n">M₁</bdi>) =
+            <span class="eq"
+              >(<bdi class="n">38 720</bdi> + <bdi class="n">181 280</bdi>) ÷
+              (<bdi class="n">200</bdi> + <bdi class="n">800</bdi>) =
+              <bdi class="n">220 000</bdi> ÷ <bdi class="n">1 000</bdi> =
+              <bdi class="n">220</bdi></span
+            >
+          </div>
+          <div>
+            <bdi class="n">CMUP</bdi>(<bdi class="n">M₂</bdi>) =
+            <span class="eq"
+              >(<bdi class="n">13 280</bdi> + <bdi class="n">56 720</bdi>) ÷
+              (<bdi class="n">100</bdi> + <bdi class="n">400</bdi>) =
+              <bdi class="n">70 000</bdi> ÷ <bdi class="n">500</bdi> =
+              <bdi class="n">140</bdi></span
+            >
+          </div>
+        </div>
+        <p>
+          <b>حساب الجرد الدائم للخشب <bdi class="n">M₁</bdi></b> (الخروج:
+          <bdi class="n">600</bdi> كلغ مستعملة، والباقي مخزون آخر المدة):
+        </p>
+        <div class="wrap">
+          <table class="inv">
+            <tr>
+              <th colspan="4" class="d">الدخول</th>
+              <th colspan="4" class="c">الخروج</th>
+            </tr>
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>مخزون أول المدة</td>
+              <td class="num">200</td>
+              <td class="num">193.6</td>
+              <td class="num">38 720</td>
+              <td>الاستعمالات</td>
+              <td class="num">600</td>
+              <td class="num">220</td>
+              <td class="num">132 000</td>
+            </tr>
+            <tr>
+              <td>المشتريات</td>
+              <td class="num">800</td>
+              <td class="num">226.6</td>
+              <td class="num">181 280</td>
+              <td>مخزون آخر المدة</td>
+              <td class="num">400</td>
+              <td class="num">220</td>
+              <td class="num">88 000</td>
+            </tr>
+            <tr class="tot">
+              <td>المجموع</td>
+              <td class="num">1 000</td>
+              <td class="num">220</td>
+              <td class="num">220 000</td>
+              <td>المجموع</td>
+              <td class="num">1 000</td>
+              <td class="num">220</td>
+              <td class="num">220 000</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            الاستعمالات =
+            <span class="eq"
+              ><bdi class="n">600</bdi> × <bdi class="n">220</bdi> =
+              <bdi class="n">132 000</bdi></span
+            >
+          </div>
+          <div>
+            مخزون آخر المدة =
+            <span class="eq"
+              ><bdi class="n">400</bdi> × <bdi class="n">220</bdi> =
+              <bdi class="n">88 000</bdi></span
+            >
+            (الكمية
+            <span class="eq"
+              ><bdi class="n">1 000</bdi> − <bdi class="n">600</bdi> =
+              <bdi class="n">400</bdi></span
+            >)
+          </div>
+        </div>
+        <p>
+          <b>حساب الجرد الدائم للقماش <bdi class="n">M₂</bdi></b> (الخروج:
+          <bdi class="n">300</bdi> متر):
+        </p>
+        <div class="wrap">
+          <table class="inv">
+            <tr>
+              <th colspan="4" class="d">الدخول</th>
+              <th colspan="4" class="c">الخروج</th>
+            </tr>
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>مخزون أول المدة</td>
+              <td class="num">100</td>
+              <td class="num">132.8</td>
+              <td class="num">13 280</td>
+              <td>الاستعمالات</td>
+              <td class="num">300</td>
+              <td class="num">140</td>
+              <td class="num">42 000</td>
+            </tr>
+            <tr>
+              <td>المشتريات</td>
+              <td class="num">400</td>
+              <td class="num">141.8</td>
+              <td class="num">56 720</td>
+              <td>مخزون آخر المدة</td>
+              <td class="num">200</td>
+              <td class="num">140</td>
+              <td class="num">28 000</td>
+            </tr>
+            <tr class="tot">
+              <td>المجموع</td>
+              <td class="num">500</td>
+              <td class="num">140</td>
+              <td class="num">70 000</td>
+              <td>المجموع</td>
+              <td class="num">500</td>
+              <td class="num">140</td>
+              <td class="num">70 000</td>
+            </tr>
+          </table>
+        </div>
+        <div class="box warn">
+          <b class="t">تحقق</b>مجموع الدخول = مجموع الخروج في الكمية والمبلغ.
+          هذا هو برهانك على أن الحساب صحيح.
+        </div>
+      </section>
+      <section id="s5">
+        <h2>
+          <bdi class="n">5</bdi>. المرحلة ③: تكلفة الإنتاج والجرد الدائم للمنتج
+          التام
+        </h2>
+        <p>
+          تكلفة الإنتاج = المواد المستعملة (بـ <bdi class="n">CMUP</bdi>) + اليد
+          العاملة المباشرة + أعباء قسم الإنتاج (عدد الوحدات × تكلفة وحدة
+          القياس).
+        </p>
+        <div class="wrap">
+          <table class="qpm">
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>خشب <bdi class="n">M₁</bdi> مستعمل</td>
+              <td class="num">600</td>
+              <td class="num">220</td>
+              <td class="num">132 000</td>
+            </tr>
+            <tr>
+              <td>قماش <bdi class="n">M₂</bdi> مستعمل</td>
+              <td class="num">300</td>
+              <td class="num">140</td>
+              <td class="num">42 000</td>
+            </tr>
+            <tr>
+              <td>يد عاملة مباشرة</td>
+              <td class="num">400</td>
+              <td class="num">250</td>
+              <td class="num">100 000</td>
+            </tr>
+            <tr>
+              <td>أعباء غير مباشرة (قسم الإنتاج)</td>
+              <td class="num">1 000</td>
+              <td class="num">90</td>
+              <td class="num">90 000</td>
+            </tr>
+            <tr class="tot">
+              <td>تكلفة إنتاج الفترة</td>
+              <td class="num">1 000</td>
+              <td class="num">364</td>
+              <td class="num">364 000</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            يد عاملة =
+            <span class="eq"
+              ><bdi class="n">400</bdi> × <bdi class="n">250</bdi> =
+              <bdi class="n">100 000</bdi></span
+            >
+          </div>
+          <div>
+            أعباء الإنتاج =
+            <span class="eq"
+              ><bdi class="n">1 000</bdi> × <bdi class="n">90</bdi> =
+              <bdi class="n">90 000</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة الإنتاج =
+            <span class="eq"
+              ><bdi class="n">132 000</bdi> + <bdi class="n">42 000</bdi> +
+              <bdi class="n">100 000</bdi> + <bdi class="n">90 000</bdi> =
+              <bdi class="n">364 000</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة الكرسي =
+            <span class="eq"
+              ><bdi class="n">364 000</bdi> ÷ <bdi class="n">1 000</bdi> =
+              <bdi class="n">364</bdi></span
+            >
+          </div>
+        </div>
+        <p>
+          <b>التكلفة الوسطية المرجحة للمنتج التام</b> (مخزون أول المدة
+          <bdi class="n">200</bdi> كرسي بـ <bdi class="n">74 000</bdi>):
+        </p>
+        <div class="calc">
+          <div>
+            <bdi class="n">CMUP</bdi>(<bdi class="n">P</bdi>) =
+            <span class="eq"
+              >(<bdi class="n">74 000</bdi> + <bdi class="n">364 000</bdi>) ÷
+              (<bdi class="n">200</bdi> + <bdi class="n">1 000</bdi>) =
+              <bdi class="n">438 000</bdi> ÷ <bdi class="n">1 200</bdi> =
+              <bdi class="n">365</bdi></span
+            >
+          </div>
+        </div>
+        <div class="wrap">
+          <table class="inv">
+            <tr>
+              <th colspan="4" class="d">الدخول</th>
+              <th colspan="4" class="c">الخروج</th>
+            </tr>
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>مخزون أول المدة</td>
+              <td class="num">200</td>
+              <td class="num">370</td>
+              <td class="num">74 000</td>
+              <td>المبيعات (الخروج)</td>
+              <td class="num">900</td>
+              <td class="num">365</td>
+              <td class="num">328 500</td>
+            </tr>
+            <tr>
+              <td>إنتاج الفترة</td>
+              <td class="num">1 000</td>
+              <td class="num">364</td>
+              <td class="num">364 000</td>
+              <td>مخزون آخر المدة</td>
+              <td class="num">300</td>
+              <td class="num">365</td>
+              <td class="num">109 500</td>
+            </tr>
+            <tr class="tot">
+              <td>المجموع</td>
+              <td class="num">1 200</td>
+              <td class="num">365</td>
+              <td class="num">438 000</td>
+              <td>المجموع</td>
+              <td class="num">1 200</td>
+              <td class="num">365</td>
+              <td class="num">438 000</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            تكلفة إنتاج المباع =
+            <span class="eq"
+              ><bdi class="n">900</bdi> × <bdi class="n">365</bdi> =
+              <bdi class="n">328 500</bdi></span
+            >
+          </div>
+          <div>
+            مخزون آخر المدة =
+            <span class="eq"
+              ><bdi class="n">300</bdi> × <bdi class="n">365</bdi> =
+              <bdi class="n">109 500</bdi></span
+            >
+            ، تحقق:
+            <span class="eq"
+              ><bdi class="n">328 500</bdi> + <bdi class="n">109 500</bdi> =
+              <bdi class="n">438 000</bdi></span
+            >
+            ✔
+          </div>
+        </div>
+      </section>
+      <section id="s6">
+        <h2>
+          <bdi class="n">6</bdi>. المرحلتان ④ و⑤: سعر التكلفة والنتيجة التحليلية
+        </h2>
+        <h4><span class="pill">أ</span>سعر التكلفة للكراسي المباعة</h4>
+        <div class="wrap">
+          <table class="qpm">
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>تكلفة إنتاج الكراسي المباعة</td>
+              <td class="num">900</td>
+              <td class="num">365</td>
+              <td class="num">328 500</td>
+            </tr>
+            <tr>
+              <td>أعباء التوزيع غير المباشرة</td>
+              <td class="num">5 400</td>
+              <td class="num">5</td>
+              <td class="num">27 000</td>
+            </tr>
+            <tr class="tot">
+              <td>سعر التكلفة</td>
+              <td class="num">900</td>
+              <td class="num">395</td>
+              <td class="num">355 500</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            أعباء التوزيع =
+            <span class="eq"
+              ><bdi class="n">5 400</bdi> × <bdi class="n">5</bdi> =
+              <bdi class="n">27 000</bdi></span
+            >
+          </div>
+          <div>
+            سعر التكلفة =
+            <span class="eq"
+              ><bdi class="n">328 500</bdi> + <bdi class="n">27 000</bdi> =
+              <bdi class="n">355 500</bdi></span
+            >
+          </div>
+          <div>
+            سعر تكلفة الكرسي =
+            <span class="eq"
+              ><bdi class="n">355 500</bdi> ÷ <bdi class="n">900</bdi> =
+              <bdi class="n">395</bdi></span
+            >
+          </div>
+        </div>
+        <h4><span class="pill">ب</span>النتيجة التحليلية</h4>
+        <div class="wrap">
+          <table class="qpm">
+            <tr>
+              <th>البيان</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>المبلغ</th>
+            </tr>
+            <tr>
+              <td>رقم الأعمال</td>
+              <td class="num">900</td>
+              <td class="num">600</td>
+              <td class="num">540 000</td>
+            </tr>
+            <tr>
+              <td>سعر التكلفة (−)</td>
+              <td class="num">900</td>
+              <td class="num">395</td>
+              <td class="num">355 500</td>
+            </tr>
+            <tr class="tot">
+              <td>النتيجة التحليلية</td>
+              <td class="num">900</td>
+              <td class="num">205</td>
+              <td class="num">184 500</td>
+            </tr>
+          </table>
+        </div>
+        <div class="calc">
+          <div>
+            رقم الأعمال =
+            <span class="eq"
+              ><bdi class="n">900</bdi> × <bdi class="n">600</bdi> =
+              <bdi class="n">540 000</bdi></span
+            >
+          </div>
+          <div>
+            النتيجة =
+            <span class="eq"
+              ><bdi class="n">540 000</bdi> − <bdi class="n">355 500</bdi> =
+              <bdi class="n">184 500</bdi></span
+            >
+            دج ربح
+          </div>
+          <div>
+            تحقق: ربح الكرسي
+            <span class="eq"
+              ><bdi class="n">600</bdi> − <bdi class="n">395</bdi> =
+              <bdi class="n">205</bdi></span
+            >
+            ←
+            <span class="eq"
+              ><bdi class="n">900</bdi> × <bdi class="n">205</bdi> =
+              <bdi class="n">184 500</bdi></span
+            >
+            ✔
+          </div>
+        </div>
+        <h4><span class="pill">ج</span>النتيجة الصافية للمحاسبة التحليلية</h4>
+        <div class="calc">
+          <div>
+            <span class="eq"
+              ><bdi class="n">184 500</bdi> +
+              <bdi class="n">10 000</bdi> (إضافية) −
+              <bdi class="n">4 000</bdi> (غير معتبرة) =
+              <bdi class="n">190 500</bdi></span
+            >
+            دج
+          </div>
+        </div>
+        <h3>الحصيلة في نظرة واحدة</h3>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>العنصر</th>
+              <th>المبلغ</th>
+              <th>كيف حصلنا عليه</th>
+            </tr>
+            <tr>
+              <td>تكلفة شراء المواد</td>
+              <td class="num">238 000</td>
+              <td><bdi class="n">M₁</bdi> + <bdi class="n">M₂</bdi></td>
+            </tr>
+            <tr>
+              <td>تكلفة الإنتاج</td>
+              <td class="num">364 000</td>
+              <td>مواد + يد عاملة + أعباء الورشة</td>
+            </tr>
+            <tr>
+              <td><bdi class="n">CMUP</bdi> للكرسي</td>
+              <td class="num">365</td>
+              <td>
+                (<bdi class="n">74 000</bdi> + <bdi class="n">364 000</bdi>) ÷
+                <bdi class="n">1 200</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>سعر التكلفة</td>
+              <td class="num">355 500</td>
+              <td>
+                <bdi class="n">328 500</bdi> + <bdi class="n">27 000</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>رقم الأعمال</td>
+              <td class="num">540 000</td>
+              <td><bdi class="n">900</bdi> × <bdi class="n">600</bdi></td>
+            </tr>
+            <tr class="tot">
+              <td>النتيجة التحليلية</td>
+              <td class="num">184 500</td>
+              <td>
+                <bdi class="n">540 000</bdi> − <bdi class="n">355 500</bdi>
+              </td>
+            </tr>
+            <tr class="tot">
+              <td>النتيجة الصافية</td>
+              <td class="num">190 500</td>
+              <td>
+                <bdi class="n">184 500</bdi> + <bdi class="n">10 000</bdi> −
+                <bdi class="n">4 000</bdi>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section id="s7">
+        <h2><bdi class="n">7</bdi>. وحدات القياس: كيف أحسب عددها؟</h2>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>القسم</th>
+              <th>وحدة القياس المعتادة</th>
+              <th>عدد الوحدات</th>
+            </tr>
+            <tr>
+              <td>التموين</td>
+              <td><bdi class="n">100</bdi> دج من ثمن الشراء</td>
+              <td>ثمن شراء المواد المشتراة ÷ <bdi class="n">100</bdi></td>
+            </tr>
+            <tr>
+              <td>التموين</td>
+              <td>كلغ مادة مشتراة</td>
+              <td>مجموع الكيلوغرامات المشتراة</td>
+            </tr>
+            <tr>
+              <td>الإنتاج</td>
+              <td>ساعة يد عاملة مباشرة</td>
+              <td>مجموع ساعات العمل في الورشة</td>
+            </tr>
+            <tr>
+              <td>الإنتاج</td>
+              <td>وحدة منتجة</td>
+              <td>عدد الوحدات المنتجة في الفترة</td>
+            </tr>
+            <tr>
+              <td>الإنتاج</td>
+              <td>كلغ مادة مستعملة</td>
+              <td>الكميات المستعملة من المواد</td>
+            </tr>
+            <tr>
+              <td>التوزيع</td>
+              <td><bdi class="n">100</bdi> دج من رقم الأعمال</td>
+              <td>رقم الأعمال ÷ <bdi class="n">100</bdi></td>
+            </tr>
+            <tr>
+              <td>التوزيع</td>
+              <td>وحدة مباعة</td>
+              <td>عدد الوحدات المباعة</td>
+            </tr>
+          </table>
+        </div>
+        <div class="box key">
+          <b class="t">قاعدة</b>وحدة القياس تعطى لك في الجدول. أنت تحسب
+          <b>عددها</b> من المعطيات الأخرى، ثم تقسم.
+        </div>
+      </section>
+      <section id="s8">
+        <h2><bdi class="n">8</bdi>. حالات متقدمة تظهر في الباك</h2>
+        <h3>
+          <bdi class="n">1</bdi>) عدة ورشات ومنتجات نصف مصنعة (باك
+          <bdi class="n">2010</bdi> و<bdi class="n">2015</bdi>)
+        </h3>
+        <p>
+          ورشة <bdi class="n">1</bdi> تصنع منتجين نصف مصنعين
+          <bdi class="n">S₁</bdi> و<bdi class="n">S₂</bdi> من المواد، وورشة
+          <bdi class="n">2</bdi> تصنع المنتج التام من
+          <bdi class="n">S₁</bdi> و<bdi class="n">S₂</bdi> ولوازم. المنهج نفسه:
+        </p>
+        <ol>
+          <li>
+            نحسب تكلفة إنتاج كل نصف مصنع (مواد + يد عاملة + أعباء الورشة
+            <bdi class="n">1</bdi>).
+          </li>
+          <li>
+            نحسب <b><bdi class="n">CMUP</bdi></b> لكل نصف مصنع بحساب جرد دائم
+            خاص به.
+          </li>
+          <li>
+            تكلفة إنتاج المنتج التام = (الكميات المستعملة من
+            <bdi class="n">S₁</bdi> و<bdi class="n">S₂</bdi> بـ
+            <bdi class="n">CMUP</bdi>) + لوازم + يد عاملة الورشة
+            <bdi class="n">2</bdi> + أعباء الورشة <bdi class="n">2</bdi>.
+          </li>
+          <li>
+            ثم نكمل: <bdi class="n">CMUP</bdi> للمنتج التام ← سعر التكلفة ←
+            النتيجة.
+          </li>
+        </ol>
+        <h3><bdi class="n">2</bdi>) منتجان تامان في الورشة نفسها</h3>
+        <p>
+          نوزّع الأعباء المشتركة (التوزيع ويد عاملة) بين المنتجين حسب المعطى:
+          <b>الكمية المنتجة</b> أو <b>رقم الأعمال</b> أو <b>ساعات العمل</b>، ثم
+          نكرر الخطوات لكل منتوج.
+        </p>
+        <h3><bdi class="n">3</bdi>) متى لا يوجد توزيع ثانوي متبادل؟</h3>
+        <p>
+          إذا كان قسم الإدارة فقط يوزع على الباقي (ولا يتلقى شيئاً) فلا نحتاج
+          معادلات: نوزع بالنسب مباشرة (كما في التمرين
+          <bdi class="n">1</bdi> أدناه).
+        </p>
+        <h3><bdi class="n">4</bdi>) متى لا يوجد مخزون أول المدة؟</h3>
+        <p>
+          يكون <bdi class="n">CMUP</bdi> = تكلفة الفترة ÷ كمية الفترة، ولا نحتاج
+          متوسطاً مرجحاً.
+        </p>
+      </section>
+      <section id="s9">
+        <h2><bdi class="n">9</bdi>. ورقة الصيغ والأخطاء الشائعة</h2>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>الرقم</th>
+              <th>الصيغة</th>
+            </tr>
+            <tr>
+              <td><bdi class="n">1</bdi></td>
+              <td>
+                التوزيع الثانوي المتبادل: <bdi class="n">x</bdi> =
+                <bdi class="n">A</bdi> + <bdi class="n">b</bdi>·<bdi class="n"
+                  >y</bdi
+                >
+                ، <bdi class="n">y</bdi> = <bdi class="n">B</bdi> +
+                <bdi class="n">a</bdi>·<bdi class="n">x</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td><bdi class="n">2</bdi></td>
+              <td>
+                تكلفة وحدة القياس = مجموع التوزيع الثانوي ÷ عدد وحدات القياس
+              </td>
+            </tr>
+            <tr>
+              <td><bdi class="n">3</bdi></td>
+              <td>
+                تكلفة الشراء = ثمن الشراء + مصاريف مباشرة + مصاريف غير مباشرة
+              </td>
+            </tr>
+            <tr>
+              <td><bdi class="n">4</bdi></td>
+              <td>
+                <bdi class="n">CMUP</bdi> = (تكلفة أول المدة + تكلفة الدخول) ÷
+                (كمية أول المدة + كمية الدخول)
+              </td>
+            </tr>
+            <tr>
+              <td><bdi class="n">5</bdi></td>
+              <td>
+                تكلفة الإنتاج = مواد مستعملة + يد عاملة مباشرة + أعباء غير
+                مباشرة
+              </td>
+            </tr>
+            <tr>
+              <td><bdi class="n">6</bdi></td>
+              <td>سعر التكلفة = تكلفة إنتاج المباع + أعباء التوزيع</td>
+            </tr>
+            <tr>
+              <td><bdi class="n">7</bdi></td>
+              <td>النتيجة التحليلية = رقم الأعمال − سعر التكلفة</td>
+            </tr>
+            <tr>
+              <td><bdi class="n">8</bdi></td>
+              <td>
+                النتيجة الصافية = النتيجة التحليلية + عناصر إضافية − أعباء غير
+                معتبرة
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="box warn">
+          <b class="t">أخطاء شائعة</b>
+          <ul style="margin: 0.2rem 0">
+            <li>
+              حل المعادلتين بنسب خاطئة (أن تأخذ نسبة الإدارة للصيانة وتضعها في
+              معادلة الإدارة).
+            </li>
+            <li>قسمة مبلغ قسم قبل التوزيع الثانوي على وحدات القياس.</li>
+            <li>
+              تقييم الاستعمالات بسعر الشراء بدل <bdi class="n">CMUP</bdi>.
+            </li>
+            <li>نسيان مخزون أول المدة عند حساب <bdi class="n">CMUP</bdi>.</li>
+            <li>حساب سعر التكلفة على الكمية المنتجة بدل المباعة.</li>
+            <li>عدم التحقق من تساوي مجموعي الدخول والخروج.</li>
+          </ul>
+        </div>
+      </section>
+      <section id="s10">
+        <h2>
+          <bdi class="n">10</bdi>. تمارين تطبيقية (<bdi class="n">4</bdi>)
+        </h2>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">1</bdi></span
+            ><span class="lvl l1">سهل</span>
+          </p>
+          <p>
+            قسم الإدارة يوزع أعباءه (<bdi class="n">30 000</bdi> دج) على:
+            التموين <bdi class="n">20%</bdi>، الإنتاج <bdi class="n">50%</bdi>،
+            التوزيع <bdi class="n">30%</bdi> (دون خدمات متبادلة). التوزيع الأولي
+            للأقسام الأساسية: التموين <bdi class="n">12 000</bdi>، الإنتاج
+            <bdi class="n">48 000</bdi>، التوزيع <bdi class="n">21 000</bdi>.
+            وحدات القياس: التموين <bdi class="n">100</bdi> دج من ثمن الشراء (ثمن
+            الشراء <bdi class="n">200 000</bdi>)، الإنتاج:
+            <bdi class="n">900</bdi> وحدة منتجة، التوزيع:
+            <bdi class="n">100</bdi> دج من رقم الأعمال (رقم الأعمال
+            <bdi class="n">300 000</bdi>).
+          </p>
+          <p>
+            احسب تكلفة وحدة القياس لكل قسم، ثم أعباء التوزيع لبيع قيمته
+            <bdi class="n">90 000</bdi> دج.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>
+              <span class="pill"><bdi class="n">1</bdi></span
+              >توزيع الإدارة
+            </h4>
+            <div class="calc">
+              <div>
+                التموين:
+                <span class="eq"
+                  ><bdi class="n">30 000</bdi> × <bdi class="n">20%</bdi> =
+                  <bdi class="n">6 000</bdi></span
+                >
+              </div>
+              <div>
+                الإنتاج:
+                <span class="eq"
+                  ><bdi class="n">30 000</bdi> × <bdi class="n">50%</bdi> =
+                  <bdi class="n">15 000</bdi></span
+                >
+              </div>
+              <div>
+                التوزيع:
+                <span class="eq"
+                  ><bdi class="n">30 000</bdi> × <bdi class="n">30%</bdi> =
+                  <bdi class="n">9 000</bdi></span
+                >
+              </div>
+              <div>
+                تحقق:
+                <span class="eq"
+                  ><bdi class="n">6 000</bdi> + <bdi class="n">15 000</bdi> +
+                  <bdi class="n">9 000</bdi> = <bdi class="n">30 000</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">2</bdi></span
+              >المجموع بعد التوزيع الثانوي
+            </h4>
+            <div class="calc">
+              <div>
+                التموين:
+                <span class="eq"
+                  ><bdi class="n">12 000</bdi> + <bdi class="n">6 000</bdi> =
+                  <bdi class="n">18 000</bdi></span
+                >
+              </div>
+              <div>
+                الإنتاج:
+                <span class="eq"
+                  ><bdi class="n">48 000</bdi> + <bdi class="n">15 000</bdi> =
+                  <bdi class="n">63 000</bdi></span
+                >
+              </div>
+              <div>
+                التوزيع:
+                <span class="eq"
+                  ><bdi class="n">21 000</bdi> + <bdi class="n">9 000</bdi> =
+                  <bdi class="n">30 000</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">3</bdi></span
+              >عدد وحدات القياس
+            </h4>
+            <div class="calc">
+              <div>
+                التموين:
+                <span class="eq"
+                  ><bdi class="n">200 000</bdi> ÷ <bdi class="n">100</bdi> =
+                  <bdi class="n">2 000</bdi></span
+                >
+              </div>
+              <div>الإنتاج: <bdi class="n">900</bdi></div>
+              <div>
+                التوزيع:
+                <span class="eq"
+                  ><bdi class="n">300 000</bdi> ÷ <bdi class="n">100</bdi> =
+                  <bdi class="n">3 000</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">4</bdi></span
+              >تكلفة وحدة القياس
+            </h4>
+            <div class="calc">
+              <div>
+                التموين:
+                <span class="eq"
+                  ><bdi class="n">18 000</bdi> ÷ <bdi class="n">2 000</bdi> =
+                  <bdi class="n">9</bdi></span
+                >
+              </div>
+              <div>
+                الإنتاج:
+                <span class="eq"
+                  ><bdi class="n">63 000</bdi> ÷ <bdi class="n">900</bdi> =
+                  <bdi class="n">70</bdi></span
+                >
+              </div>
+              <div>
+                التوزيع:
+                <span class="eq"
+                  ><bdi class="n">30 000</bdi> ÷ <bdi class="n">3 000</bdi> =
+                  <bdi class="n">10</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">5</bdi></span
+              >أعباء توزيع بيع بـ <bdi class="n">90 000</bdi>
+            </h4>
+            <div class="calc">
+              <div>
+                عدد الوحدات =
+                <span class="eq"
+                  ><bdi class="n">90 000</bdi> ÷ <bdi class="n">100</bdi> =
+                  <bdi class="n">900</bdi></span
+                >
+              </div>
+              <div>
+                الأعباء =
+                <span class="eq"
+                  ><bdi class="n">900</bdi> × <bdi class="n">10</bdi> =
+                  <bdi class="n">9 000</bdi></span
+                >
+                دج
+              </div>
+            </div>
+            <div class="box key">
+              <b class="t">تحقق</b>مجموع الأعباء الموزعة
+              <span class="eq"
+                ><bdi class="n">18 000</bdi> + <bdi class="n">63 000</bdi> +
+                <bdi class="n">30 000</bdi> = <bdi class="n">111 000</bdi></span
+              >
+              =
+              <span class="eq"
+                ><bdi class="n">30 000</bdi> + <bdi class="n">12 000</bdi> +
+                <bdi class="n">48 000</bdi> + <bdi class="n">21 000</bdi> =
+                <bdi class="n">111 000</bdi></span
+              >
+              ✔
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">2</bdi></span
+            ><span class="lvl l2">متوسط</span>
+          </p>
+          <p>
+            مؤسسة، مادة أولية <bdi class="n">M</bdi>: مخزون أول المدة
+            <bdi class="n">300</bdi> كلغ بتكلفة <bdi class="n">45 000</bdi> دج.
+            اشترت <bdi class="n">700</bdi> كلغ بـ <bdi class="n">160</bdi> دج
+            للكلغ، مصاريف شراء مباشرة <bdi class="n">7 000</bdi> دج، وتكلفة وحدة
+            قسم التموين <bdi class="n">5</bdi> دج لكل
+            <bdi class="n">100</bdi> دج من ثمن الشراء. استعملت في الإنتاج
+            <bdi class="n">650</bdi> كلغ.
+          </p>
+          <p>
+            احسب تكلفة الشراء، <bdi class="n">CMUP</bdi>، وأنجز حساب الجرد
+            الدائم.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>
+              <span class="pill"><bdi class="n">1</bdi></span
+              >تكلفة الشراء
+            </h4>
+            <div class="calc">
+              <div>
+                ثمن الشراء =
+                <span class="eq"
+                  ><bdi class="n">700</bdi> × <bdi class="n">160</bdi> =
+                  <bdi class="n">112 000</bdi></span
+                >
+              </div>
+              <div>
+                وحدات التموين =
+                <span class="eq"
+                  ><bdi class="n">112 000</bdi> ÷ <bdi class="n">100</bdi> =
+                  <bdi class="n">1 120</bdi></span
+                >
+              </div>
+              <div>
+                مصاريف غير مباشرة =
+                <span class="eq"
+                  ><bdi class="n">1 120</bdi> × <bdi class="n">5</bdi> =
+                  <bdi class="n">5 600</bdi></span
+                >
+              </div>
+              <div>
+                تكلفة الشراء =
+                <span class="eq"
+                  ><bdi class="n">112 000</bdi> + <bdi class="n">7 000</bdi> +
+                  <bdi class="n">5 600</bdi> =
+                  <bdi class="n">124 600</bdi></span
+                >
+              </div>
+              <div>
+                تكلفة الكلغ =
+                <span class="eq"
+                  ><bdi class="n">124 600</bdi> ÷ <bdi class="n">700</bdi> =
+                  <bdi class="n">178</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">2</bdi></span
+              ><bdi class="n">CMUP</bdi>
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  >(<bdi class="n">45 000</bdi> + <bdi class="n">124 600</bdi>)
+                  ÷ (<bdi class="n">300</bdi> + <bdi class="n">700</bdi>) =
+                  <bdi class="n">169 600</bdi> ÷ <bdi class="n">1 000</bdi> =
+                  <bdi class="n">169.6</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">3</bdi></span
+              >حساب الجرد الدائم
+            </h4>
+            <div class="wrap">
+              <table class="inv">
+                <tr>
+                  <th colspan="4" class="d">الدخول</th>
+                  <th colspan="4" class="c">الخروج</th>
+                </tr>
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>مخزون أول المدة</td>
+                  <td class="num">300</td>
+                  <td class="num">150</td>
+                  <td class="num">45 000</td>
+                  <td>الاستعمالات</td>
+                  <td class="num">650</td>
+                  <td class="num">169.6</td>
+                  <td class="num">110 240</td>
+                </tr>
+                <tr>
+                  <td>المشتريات</td>
+                  <td class="num">700</td>
+                  <td class="num">178</td>
+                  <td class="num">124 600</td>
+                  <td>مخزون آخر المدة</td>
+                  <td class="num">350</td>
+                  <td class="num">169.6</td>
+                  <td class="num">59 360</td>
+                </tr>
+                <tr class="tot">
+                  <td>المجموع</td>
+                  <td class="num">1 000</td>
+                  <td class="num">169.6</td>
+                  <td class="num">169 600</td>
+                  <td>المجموع</td>
+                  <td class="num">1 000</td>
+                  <td class="num">169.6</td>
+                  <td class="num">169 600</td>
+                </tr>
+              </table>
+            </div>
+            <div class="calc">
+              <div>
+                الاستعمالات =
+                <span class="eq"
+                  ><bdi class="n">650</bdi> × <bdi class="n">169.6</bdi> =
+                  <bdi class="n">110 240</bdi></span
+                >
+              </div>
+              <div>
+                مخزون آخر المدة =
+                <span class="eq"
+                  ><bdi class="n">350</bdi> × <bdi class="n">169.6</bdi> =
+                  <bdi class="n">59 360</bdi></span
+                >
+              </div>
+              <div>
+                تحقق:
+                <span class="eq"
+                  ><bdi class="n">110 240</bdi> + <bdi class="n">59 360</bdi> =
+                  <bdi class="n">169 600</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">3</bdi></span
+            ><span class="lvl l3">متوسط إلى متقدم</span>
+          </p>
+          <p>
+            لإنتاج <bdi class="n">500</bdi> وحدة من منتج تام
+            <bdi class="n">P</bdi>: مواد مستعملة (مقيّمة بـ
+            <bdi class="n">CMUP</bdi>): <bdi class="n">400</bdi> كلغ من
+            <bdi class="n">M₁</bdi> بـ <bdi class="n">120</bdi> دج و<bdi
+              class="n"
+              >200</bdi
+            >
+            متر من <bdi class="n">M₂</bdi> بـ <bdi class="n">90</bdi> دج؛
+            <bdi class="n">300</bdi> ساعة يد عاملة بـ
+            <bdi class="n">200</bdi> دج؛ مجموع أعباء قسم الإنتاج بعد التوزيع
+            الثانوي: <bdi class="n">25 000</bdi> دج. مخزون أول المدة من
+            <bdi class="n">P</bdi>: <bdi class="n">100</bdi> وحدة بتكلفة
+            <bdi class="n">30 800</bdi> دج. بيع <bdi class="n">450</bdi> وحدة
+            بسعر <bdi class="n">500</bdi> دج، وتكلفة وحدة قسم التوزيع
+            <bdi class="n">8</bdi> دج لكل <bdi class="n">100</bdi> دج من رقم
+            الأعمال.
+          </p>
+          <p>
+            احسب تكلفة الإنتاج، <bdi class="n">CMUP</bdi> للمنتج، سعر التكلفة
+            والنتيجة التحليلية.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>
+              <span class="pill"><bdi class="n">1</bdi></span
+              >تكلفة الإنتاج
+            </h4>
+            <div class="wrap">
+              <table class="qpm">
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td><bdi class="n">M₁</bdi> مستعمل</td>
+                  <td class="num">400</td>
+                  <td class="num">120</td>
+                  <td class="num">48 000</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">M₂</bdi> مستعمل</td>
+                  <td class="num">200</td>
+                  <td class="num">90</td>
+                  <td class="num">18 000</td>
+                </tr>
+                <tr>
+                  <td>يد عاملة</td>
+                  <td class="num">300</td>
+                  <td class="num">200</td>
+                  <td class="num">60 000</td>
+                </tr>
+                <tr>
+                  <td>أعباء قسم الإنتاج</td>
+                  <td class="num"></td>
+                  <td class="num"></td>
+                  <td class="num">25 000</td>
+                </tr>
+                <tr class="tot">
+                  <td>تكلفة الإنتاج</td>
+                  <td class="num">500</td>
+                  <td class="num">302</td>
+                  <td class="num">151 000</td>
+                </tr>
+              </table>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">2</bdi></span
+              ><bdi class="n">CMUP</bdi> للمنتج
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  >(<bdi class="n">30 800</bdi> + <bdi class="n">151 000</bdi>)
+                  ÷ (<bdi class="n">100</bdi> + <bdi class="n">500</bdi>) =
+                  <bdi class="n">181 800</bdi> ÷ <bdi class="n">600</bdi> =
+                  <bdi class="n">303</bdi></span
+                >
+              </div>
+            </div>
+            <div class="wrap">
+              <table class="inv">
+                <tr>
+                  <th colspan="4" class="d">الدخول</th>
+                  <th colspan="4" class="c">الخروج</th>
+                </tr>
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>مخزون أول المدة</td>
+                  <td class="num">100</td>
+                  <td class="num">308</td>
+                  <td class="num">30 800</td>
+                  <td>المبيعات</td>
+                  <td class="num">450</td>
+                  <td class="num">303</td>
+                  <td class="num">136 350</td>
+                </tr>
+                <tr>
+                  <td>الإنتاج</td>
+                  <td class="num">500</td>
+                  <td class="num">302</td>
+                  <td class="num">151 000</td>
+                  <td>مخزون آخر المدة</td>
+                  <td class="num">150</td>
+                  <td class="num">303</td>
+                  <td class="num">45 450</td>
+                </tr>
+                <tr class="tot">
+                  <td>المجموع</td>
+                  <td class="num">600</td>
+                  <td class="num">303</td>
+                  <td class="num">181 800</td>
+                  <td>المجموع</td>
+                  <td class="num">600</td>
+                  <td class="num">303</td>
+                  <td class="num">181 800</td>
+                </tr>
+              </table>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">3</bdi></span
+              >سعر التكلفة
+            </h4>
+            <div class="calc">
+              <div>
+                رقم الأعمال =
+                <span class="eq"
+                  ><bdi class="n">450</bdi> × <bdi class="n">500</bdi> =
+                  <bdi class="n">225 000</bdi></span
+                >
+              </div>
+              <div>
+                وحدات التوزيع =
+                <span class="eq"
+                  ><bdi class="n">225 000</bdi> ÷ <bdi class="n">100</bdi> =
+                  <bdi class="n">2 250</bdi></span
+                >
+              </div>
+              <div>
+                أعباء التوزيع =
+                <span class="eq"
+                  ><bdi class="n">2 250</bdi> × <bdi class="n">8</bdi> =
+                  <bdi class="n">18 000</bdi></span
+                >
+              </div>
+              <div>
+                سعر التكلفة =
+                <span class="eq"
+                  ><bdi class="n">136 350</bdi> + <bdi class="n">18 000</bdi> =
+                  <bdi class="n">154 350</bdi></span
+                >
+                (سعر تكلفة الوحدة
+                <span class="eq"
+                  ><bdi class="n">154 350</bdi> ÷ <bdi class="n">450</bdi> =
+                  <bdi class="n">343</bdi></span
+                >)
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">4</bdi></span
+              >النتيجة
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  ><bdi class="n">225 000</bdi> − <bdi class="n">154 350</bdi> =
+                  <bdi class="n">70 650</bdi></span
+                >
+                دج ربح
+              </div>
+              <div>
+                تحقق:
+                <span class="eq"
+                  >(<bdi class="n">500</bdi> − <bdi class="n">343</bdi>) ×
+                  <bdi class="n">450</bdi> = <bdi class="n">157</bdi> ×
+                  <bdi class="n">450</bdi> = <bdi class="n">70 650</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">4</bdi></span
+            ><span class="lvl l4">شامل (مستوى الباكالوريا)</span>
+          </p>
+          <p>
+            مؤسسة «الواحة» لصناعة المربى تنتج المنتج التام
+            <bdi class="n">P</bdi> (جرّة مربى) من مادتين: الفواكه
+            <bdi class="n">M₁</bdi> والسكر <bdi class="n">M₂</bdi> (بالكلغ).
+            معطيات شهر أفريل:
+          </p>
+          <ol>
+            <li>
+              <b>مخزون أول المدة:</b> <bdi class="n">M₁</bdi>
+              <bdi class="n">100</bdi> كلغ بـ <bdi class="n">16 000</bdi> دج؛
+              <bdi class="n">M₂</bdi> <bdi class="n">200</bdi> كلغ بـ
+              <bdi class="n">13 600</bdi> دج؛ <bdi class="n">P</bdi>
+              <bdi class="n">200</bdi> وحدة بـ <bdi class="n">48 400</bdi> دج.
+            </li>
+            <li>
+              <b>المشتريات:</b> <bdi class="n">M₁</bdi>
+              <bdi class="n">400</bdi> كلغ بـ <bdi class="n">140</bdi> دج/كلغ؛
+              <bdi class="n">M₂</bdi> <bdi class="n">800</bdi> كلغ بـ
+              <bdi class="n">60</bdi> دج/كلغ. مصاريف شراء مباشرة:
+              <bdi class="n">2 400</bdi> لـ <bdi class="n">M₁</bdi> و<bdi
+                class="n"
+                >1 600</bdi
+              >
+              لـ <bdi class="n">M₂</bdi>.
+            </li>
+            <li>
+              <b>الإنتاج:</b> <bdi class="n">1 000</bdi> وحدة باستعمال
+              <bdi class="n">450</bdi> كلغ من <bdi class="n">M₁</bdi> و<bdi
+                class="n"
+                >700</bdi
+              >
+              كلغ من <bdi class="n">M₂</bdi> و<bdi class="n">500</bdi> ساعة يد
+              عاملة مباشرة بـ <bdi class="n">150</bdi> دج للساعة.
+            </li>
+            <li>
+              <b>المبيعات:</b> <bdi class="n">800</bdi> وحدة بسعر
+              <bdi class="n">400</bdi> دج.
+            </li>
+            <li>
+              <b>التوزيع الأولي:</b> الإدارة <bdi class="n">26 000</bdi>،
+              الصيانة <bdi class="n">17 000</bdi>، التموين
+              <bdi class="n">2 400</bdi>، الإنتاج <bdi class="n">18 000</bdi>،
+              التوزيع <bdi class="n">4 800</bdi>.
+            </li>
+            <li>
+              <b>التوزيع الثانوي:</b> الإدارة: صيانة <bdi class="n">10%</bdi>،
+              تموين <bdi class="n">20%</bdi>، إنتاج <bdi class="n">50%</bdi>،
+              توزيع <bdi class="n">20%</bdi>. الصيانة: إدارة
+              <bdi class="n">20%</bdi>، تموين <bdi class="n">10%</bdi>، إنتاج
+              <bdi class="n">60%</bdi>، توزيع <bdi class="n">10%</bdi>.
+            </li>
+            <li>
+              <b>وحدات القياس:</b> التموين <bdi class="n">100</bdi> دج من ثمن
+              الشراء؛ الإنتاج ساعة يد عاملة مباشرة؛ التوزيع
+              <bdi class="n">100</bdi> دج من رقم الأعمال.
+            </li>
+            <li>
+              عناصر إضافية <bdi class="n">6 000</bdi> دج، أعباء غير معتبرة
+              <bdi class="n">9 500</bdi> دج.
+            </li>
+          </ol>
+          <p>
+            <b>المطلوب:</b> (<bdi class="n">1</bdi>) أتمم جدول التوزيع. (<bdi
+              class="n"
+              >2</bdi
+            >) احسب تكلفة شراء <bdi class="n">M₁</bdi> و<bdi class="n">M₂</bdi>
+            وأنجز حساب الجرد الدائم لكل منهما. (<bdi class="n">3</bdi>) احسب
+            تكلفة الإنتاج و<bdi class="n">CMUP</bdi> للمنتج
+            <bdi class="n">P</bdi> وأنجز حساب جرده. (<bdi class="n">4</bdi>)
+            احسب سعر التكلفة والنتيجة التحليلية. (<bdi class="n">5</bdi>) احسب
+            النتيجة الصافية.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>
+              <span class="pill"><bdi class="n">1</bdi></span
+              >جدول التوزيع
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  ><bdi class="n">x</bdi> = <bdi class="n">26 000</bdi> +
+                  <bdi class="n">0.20</bdi> <bdi class="n">y</bdi></span
+                >
+                &nbsp; ، &nbsp;
+                <span class="eq"
+                  ><bdi class="n">y</bdi> = <bdi class="n">17 000</bdi> +
+                  <bdi class="n">0.10</bdi> <bdi class="n">x</bdi></span
+                >
+              </div>
+              <div>
+                التعويض:
+                <span class="eq"
+                  ><bdi class="n">x</bdi> = <bdi class="n">26 000</bdi> +
+                  <bdi class="n">0.20</bdi> (<bdi class="n">17 000</bdi> +
+                  <bdi class="n">0.10</bdi> <bdi class="n">x</bdi>) =
+                  <bdi class="n">29 400</bdi> + <bdi class="n">0.02</bdi>
+                  <bdi class="n">x</bdi></span
+                >
+              </div>
+              <div>
+                <span class="eq"
+                  ><bdi class="n">0.98</bdi> <bdi class="n">x</bdi> =
+                  <bdi class="n">29 400</bdi></span
+                >
+                ←
+                <span class="eq"
+                  ><bdi class="n">x</bdi> = <bdi class="n">30 000</bdi></span
+                >
+              </div>
+              <div>
+                <span class="eq"
+                  ><bdi class="n">y</bdi> = <bdi class="n">17 000</bdi> +
+                  <bdi class="n">0.10</bdi> × <bdi class="n">30 000</bdi> =
+                  <bdi class="n">20 000</bdi></span
+                >
+              </div>
+              <div>
+                تحقق:
+                <span class="eq"
+                  ><bdi class="n">26 000</bdi> + <bdi class="n">0.20</bdi> ×
+                  <bdi class="n">20 000</bdi> =
+                  <bdi class="n">30 000</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+            <div class="wrap">
+              <table class="rep">
+                <tr>
+                  <th>البيان</th>
+                  <th>الإدارة</th>
+                  <th>الصيانة</th>
+                  <th>التموين</th>
+                  <th>الإنتاج</th>
+                  <th>التوزيع</th>
+                </tr>
+                <tr>
+                  <td>مجموع التوزيع الأولي</td>
+                  <td class="num">26 000</td>
+                  <td class="num">17 000</td>
+                  <td class="num">2 400</td>
+                  <td class="num">18 000</td>
+                  <td class="num">4 800</td>
+                </tr>
+                <tr>
+                  <td>
+                    توزيع الإدارة (<bdi class="n">10%</bdi>،
+                    <bdi class="n">20%</bdi>، <bdi class="n">50%</bdi>،
+                    <bdi class="n">20%</bdi>)
+                  </td>
+                  <td class="num">-30 000</td>
+                  <td class="num">3 000</td>
+                  <td class="num">6 000</td>
+                  <td class="num">15 000</td>
+                  <td class="num">6 000</td>
+                </tr>
+                <tr>
+                  <td>
+                    توزيع الصيانة (<bdi class="n">20%</bdi>،
+                    <bdi class="n">10%</bdi>، <bdi class="n">60%</bdi>،
+                    <bdi class="n">10%</bdi>)
+                  </td>
+                  <td class="num">4 000</td>
+                  <td class="num">-20 000</td>
+                  <td class="num">2 000</td>
+                  <td class="num">12 000</td>
+                  <td class="num">2 000</td>
+                </tr>
+                <tr class="tot">
+                  <td>مجموع التوزيع الثانوي</td>
+                  <td class="num">0</td>
+                  <td class="num">0</td>
+                  <td class="num">10 400</td>
+                  <td class="num">45 000</td>
+                  <td class="num">12 800</td>
+                </tr>
+                <tr>
+                  <td>طبيعة وحدة القياس</td>
+                  <td></td>
+                  <td></td>
+                  <td><bdi class="n">100</bdi> دج ثمن شراء</td>
+                  <td>ساعة يد عاملة مباشرة</td>
+                  <td><bdi class="n">100</bdi> دج رقم أعمال</td>
+                </tr>
+                <tr>
+                  <td>عدد وحدات القياس</td>
+                  <td></td>
+                  <td></td>
+                  <td class="num">1 040</td>
+                  <td class="num">500</td>
+                  <td class="num">3 200</td>
+                </tr>
+                <tr class="tot">
+                  <td>تكلفة وحدة القياس</td>
+                  <td></td>
+                  <td></td>
+                  <td class="num">10</td>
+                  <td class="num">90</td>
+                  <td class="num">4</td>
+                </tr>
+              </table>
+            </div>
+            <div class="calc">
+              <div>
+                عدد الوحدات: التموين
+                <span class="eq"
+                  >(<bdi class="n">56 000</bdi> + <bdi class="n">48 000</bdi>) ÷
+                  <bdi class="n">100</bdi> = <bdi class="n">1 040</bdi></span
+                >
+              </div>
+              <div>
+                الإنتاج <span class="eq"><bdi class="n">500</bdi> ساعة</span>
+              </div>
+              <div>
+                التوزيع
+                <span class="eq"
+                  >(<bdi class="n">800</bdi> × <bdi class="n">400</bdi>) ÷
+                  <bdi class="n">100</bdi> = <bdi class="n">3 200</bdi></span
+                >
+              </div>
+              <div>
+                التحقق:
+                <span class="eq"
+                  ><bdi class="n">26 000</bdi> + <bdi class="n">17 000</bdi> +
+                  <bdi class="n">2 400</bdi> + <bdi class="n">18 000</bdi> +
+                  <bdi class="n">4 800</bdi> = <bdi class="n">68 200</bdi></span
+                >
+                و
+                <span class="eq"
+                  ><bdi class="n">10 400</bdi> + <bdi class="n">45 000</bdi> +
+                  <bdi class="n">12 800</bdi> =
+                  <bdi class="n">68 200</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">2</bdi></span
+              >تكلفة الشراء والجرد الدائم
+            </h4>
+            <div class="wrap">
+              <table class="qpm">
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>ثمن الشراء</td>
+                  <td class="num">400</td>
+                  <td class="num">140</td>
+                  <td class="num">56 000</td>
+                </tr>
+                <tr>
+                  <td>مصاريف مباشرة</td>
+                  <td class="num"></td>
+                  <td class="num"></td>
+                  <td class="num">2 400</td>
+                </tr>
+                <tr>
+                  <td>مصاريف غير مباشرة</td>
+                  <td class="num">560</td>
+                  <td class="num">10</td>
+                  <td class="num">5 600</td>
+                </tr>
+                <tr class="tot">
+                  <td>تكلفة شراء <bdi class="n">M₁</bdi></td>
+                  <td class="num">400</td>
+                  <td class="num">160</td>
+                  <td class="num">64 000</td>
+                </tr>
+              </table>
+            </div>
+            <div class="wrap">
+              <table class="qpm">
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>ثمن الشراء</td>
+                  <td class="num">800</td>
+                  <td class="num">60</td>
+                  <td class="num">48 000</td>
+                </tr>
+                <tr>
+                  <td>مصاريف مباشرة</td>
+                  <td class="num"></td>
+                  <td class="num"></td>
+                  <td class="num">1 600</td>
+                </tr>
+                <tr>
+                  <td>مصاريف غير مباشرة</td>
+                  <td class="num">480</td>
+                  <td class="num">10</td>
+                  <td class="num">4 800</td>
+                </tr>
+                <tr class="tot">
+                  <td>تكلفة شراء <bdi class="n">M₂</bdi></td>
+                  <td class="num">800</td>
+                  <td class="num">68</td>
+                  <td class="num">54 400</td>
+                </tr>
+              </table>
+            </div>
+            <div class="calc">
+              <div>
+                <bdi class="n">CMUP</bdi>(<bdi class="n">M₁</bdi>) =
+                <span class="eq"
+                  >(<bdi class="n">16 000</bdi> + <bdi class="n">64 000</bdi>) ÷
+                  (<bdi class="n">100</bdi> + <bdi class="n">400</bdi>) =
+                  <bdi class="n">160</bdi></span
+                >
+              </div>
+              <div>
+                <bdi class="n">CMUP</bdi>(<bdi class="n">M₂</bdi>) =
+                <span class="eq"
+                  >(<bdi class="n">13 600</bdi> + <bdi class="n">54 400</bdi>) ÷
+                  (<bdi class="n">200</bdi> + <bdi class="n">800</bdi>) =
+                  <bdi class="n">68</bdi></span
+                >
+              </div>
+            </div>
+            <div class="wrap">
+              <table class="inv">
+                <tr>
+                  <th colspan="4" class="d">الدخول</th>
+                  <th colspan="4" class="c">الخروج</th>
+                </tr>
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>أول المدة <bdi class="n">M₁</bdi></td>
+                  <td class="num">100</td>
+                  <td class="num">160</td>
+                  <td class="num">16 000</td>
+                  <td>الاستعمالات</td>
+                  <td class="num">450</td>
+                  <td class="num">160</td>
+                  <td class="num">72 000</td>
+                </tr>
+                <tr>
+                  <td>المشتريات</td>
+                  <td class="num">400</td>
+                  <td class="num">160</td>
+                  <td class="num">64 000</td>
+                  <td>مخزون آخر المدة</td>
+                  <td class="num">50</td>
+                  <td class="num">160</td>
+                  <td class="num">8 000</td>
+                </tr>
+                <tr class="tot">
+                  <td>المجموع</td>
+                  <td class="num">500</td>
+                  <td class="num">160</td>
+                  <td class="num">80 000</td>
+                  <td>المجموع</td>
+                  <td class="num">500</td>
+                  <td class="num">160</td>
+                  <td class="num">80 000</td>
+                </tr>
+              </table>
+            </div>
+            <div class="wrap">
+              <table class="inv">
+                <tr>
+                  <th colspan="4" class="d">الدخول</th>
+                  <th colspan="4" class="c">الخروج</th>
+                </tr>
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>أول المدة <bdi class="n">M₂</bdi></td>
+                  <td class="num">200</td>
+                  <td class="num">68</td>
+                  <td class="num">13 600</td>
+                  <td>الاستعمالات</td>
+                  <td class="num">700</td>
+                  <td class="num">68</td>
+                  <td class="num">47 600</td>
+                </tr>
+                <tr>
+                  <td>المشتريات</td>
+                  <td class="num">800</td>
+                  <td class="num">68</td>
+                  <td class="num">54 400</td>
+                  <td>مخزون آخر المدة</td>
+                  <td class="num">300</td>
+                  <td class="num">68</td>
+                  <td class="num">20 400</td>
+                </tr>
+                <tr class="tot">
+                  <td>المجموع</td>
+                  <td class="num">1 000</td>
+                  <td class="num">68</td>
+                  <td class="num">68 000</td>
+                  <td>المجموع</td>
+                  <td class="num">1 000</td>
+                  <td class="num">68</td>
+                  <td class="num">68 000</td>
+                </tr>
+              </table>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">3</bdi></span
+              >تكلفة الإنتاج وجرد المنتج التام
+            </h4>
+            <div class="wrap">
+              <table class="qpm">
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td><bdi class="n">M₁</bdi> مستعمل</td>
+                  <td class="num">450</td>
+                  <td class="num">160</td>
+                  <td class="num">72 000</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">M₂</bdi> مستعمل</td>
+                  <td class="num">700</td>
+                  <td class="num">68</td>
+                  <td class="num">47 600</td>
+                </tr>
+                <tr>
+                  <td>يد عاملة مباشرة</td>
+                  <td class="num">500</td>
+                  <td class="num">150</td>
+                  <td class="num">75 000</td>
+                </tr>
+                <tr>
+                  <td>أعباء قسم الإنتاج</td>
+                  <td class="num">500</td>
+                  <td class="num">90</td>
+                  <td class="num">45 000</td>
+                </tr>
+                <tr class="tot">
+                  <td>تكلفة الإنتاج</td>
+                  <td class="num">1 000</td>
+                  <td class="num">239.6</td>
+                  <td class="num">239 600</td>
+                </tr>
+              </table>
+            </div>
+            <div class="calc">
+              <div>
+                <bdi class="n">CMUP</bdi>(<bdi class="n">P</bdi>) =
+                <span class="eq"
+                  >(<bdi class="n">48 400</bdi> + <bdi class="n">239 600</bdi>)
+                  ÷ (<bdi class="n">200</bdi> + <bdi class="n">1 000</bdi>) =
+                  <bdi class="n">288 000</bdi> ÷ <bdi class="n">1 200</bdi> =
+                  <bdi class="n">240</bdi></span
+                >
+              </div>
+            </div>
+            <div class="wrap">
+              <table class="inv">
+                <tr>
+                  <th colspan="4" class="d">الدخول</th>
+                  <th colspan="4" class="c">الخروج</th>
+                </tr>
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>أول المدة</td>
+                  <td class="num">200</td>
+                  <td class="num">242</td>
+                  <td class="num">48 400</td>
+                  <td>المبيعات</td>
+                  <td class="num">800</td>
+                  <td class="num">240</td>
+                  <td class="num">192 000</td>
+                </tr>
+                <tr>
+                  <td>الإنتاج</td>
+                  <td class="num">1 000</td>
+                  <td class="num">239.6</td>
+                  <td class="num">239 600</td>
+                  <td>مخزون آخر المدة</td>
+                  <td class="num">400</td>
+                  <td class="num">240</td>
+                  <td class="num">96 000</td>
+                </tr>
+                <tr class="tot">
+                  <td>المجموع</td>
+                  <td class="num">1 200</td>
+                  <td class="num">240</td>
+                  <td class="num">288 000</td>
+                  <td>المجموع</td>
+                  <td class="num">1 200</td>
+                  <td class="num">240</td>
+                  <td class="num">288 000</td>
+                </tr>
+              </table>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">4</bdi></span
+              >سعر التكلفة والنتيجة
+            </h4>
+            <div class="wrap">
+              <table class="qpm">
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>تكلفة إنتاج المباع</td>
+                  <td class="num">800</td>
+                  <td class="num">240</td>
+                  <td class="num">192 000</td>
+                </tr>
+                <tr>
+                  <td>أعباء التوزيع</td>
+                  <td class="num">3 200</td>
+                  <td class="num">4</td>
+                  <td class="num">12 800</td>
+                </tr>
+                <tr class="tot">
+                  <td>سعر التكلفة</td>
+                  <td class="num">800</td>
+                  <td class="num">256</td>
+                  <td class="num">204 800</td>
+                </tr>
+              </table>
+            </div>
+            <div class="wrap">
+              <table class="qpm">
+                <tr>
+                  <th>البيان</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>المبلغ</th>
+                </tr>
+                <tr>
+                  <td>رقم الأعمال</td>
+                  <td class="num">800</td>
+                  <td class="num">400</td>
+                  <td class="num">320 000</td>
+                </tr>
+                <tr>
+                  <td>سعر التكلفة (−)</td>
+                  <td class="num">800</td>
+                  <td class="num">256</td>
+                  <td class="num">204 800</td>
+                </tr>
+                <tr class="tot">
+                  <td>النتيجة التحليلية</td>
+                  <td class="num">800</td>
+                  <td class="num">144</td>
+                  <td class="num">115 200</td>
+                </tr>
+              </table>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">5</bdi></span
+              >النتيجة الصافية
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  ><bdi class="n">115 200</bdi> + <bdi class="n">6 000</bdi> −
+                  <bdi class="n">9 500</bdi> =
+                  <bdi class="n">111 700</bdi></span
+                >
+                دج
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+      <section id="s11">
+        <h2><bdi class="n">11</bdi>. خلاصة الدرس</h2>
+        <div class="box key">
+          <b class="t"> ما يجب أن تحفظه :</b>
+            <p><bdi class="n">1</bdi>) نوزع الأعباء
+             غير المباشرة بمعادلتين إن وُجدت خدمات متبادلة.</p>
+            <p> <bdi class="n">2</bdi>)
+             تكلفة وحدة القياس = مجموع التوزيع الثانوي ÷ عدد الوحدات.</p>
+            <p><bdi class="n">3</bdi>) تكلفة الشراء ثم <bdi class="n">CMUP</bdi> ثم
+            الاستعمالات.</p>
+            <p><bdi class="n">4</bdi>) تكلفة الإنتاج ثم
+            <bdi class="n">CMUP</bdi> للمنتج.</p>
+            <p><bdi class="n">5</bdi>) سعر التكلفة
+            = تكلفة إنتاج المباع + التوزيع.</p>
+            <p><bdi class="n">6</bdi>) النتيجة
+            التحليلية ثم الصافية. وفي كل جرد: <b>الدخول = الخروج</b>.</p>
+        </div>
+      </section>
+    </main>
+    <div class="pn">
+      <span></span><a href="sommaire_compta.html">📚 الفهرس</a
+      ><a href="4_1_charges_incorporables.html"
+        >→ الدرس <bdi class="n">4.1</bdi></a
+      >
+    </div>
+    <footer>
+      تحضير بكالوريا <bdi class="n">2027</bdi> – شعبة تسيير واقتصاد – المحاسبة
+      التحليلية (التكلفة الكاملة)<br />بالتوفيق إن شاء الله 🌟
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1651 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>4.1 الأعباء المعتبرة وغير المعتبرة</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --card: #fff;
+        --ink: #1b2a3a;
+        --muted: #5b6b7b;
+        --main: #0f5c8c;
+        --soft: #e4f0f8;
+        --ok: #1b7a4b;
+        --okbg: #e6f5ec;
+        --warn: #9a5b00;
+        --warnbg: #fff4de;
+        --line: #d5dee8;
+        --dr: #e8f1fb;
+        --cr: #fdeeee;
+        --g1b: #e4f0f8;
+        --g1s: #0f5c8c;
+        --g2b: #e6f5ec;
+        --g2s: #1b7a4b;
+        --g3b: #fff4de;
+        --g3s: #c27a00;
+        --g4b: #f1e8fb;
+        --g4s: #7a4bb3;
+        --g5b: #e0f4f2;
+        --g5s: #13867a;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10161d;
+          --card: #18212b;
+          --ink: #e6edf4;
+          --muted: #9fb0c1;
+          --main: #6bb8ea;
+          --soft: #1d2d3b;
+          --ok: #6fd39c;
+          --okbg: #17302450;
+          --warn: #f0b45a;
+          --warnbg: #3a2c12;
+          --line: #2c3a48;
+          --dr: #1b2c3f;
+          --cr: #3a2024;
+          --g1b: #1d2d3b;
+          --g1s: #6bb8ea;
+          --g2b: #173024;
+          --g2s: #6fd39c;
+          --g3b: #3a2c12;
+          --g3s: #f0b45a;
+          --g4b: #2b2140;
+          --g4s: #b995e8;
+          --g5b: #12302d;
+          --g5s: #5fd3c6;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Cairo", "Amiri", Tahoma, Arial, sans-serif;
+        line-height: 1.95;
+        font-size: 17px;
+      }
+
+      /* === Navbar inspirée de la capture d'écran === */
+      .site-topbar {
+        background: #1b2838;
+        color: #ffffff;
+        border-bottom: 1px solid #2b3c50;
+        padding: 0.55rem 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-topbar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .site-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .site-brand,
+      .site-nav-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.05);
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .site-brand:hover,
+      .site-nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+      }
+      .site-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-toggle-fr {
+        background: #ffc107;
+        color: #16202a;
+        border: none;
+        border-radius: 6px;
+        padding: 0.32rem 0.9rem;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: filter 0.15s ease;
+      }
+      .btn-toggle-fr:hover {
+        filter: brightness(1.05);
+      }
+
+      /* Barre secondaire des leçons */
+      .lessons-bar {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        padding: 0.55rem 1.2rem;
+      }
+      .lessons-bar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+      .lessons-label {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #1b2838;
+        margin-inline-end: 0.25rem;
+      }
+      .lesson-pill {
+        display: inline-block;
+        padding: 0.18rem 0.8rem;
+        border-radius: 999px;
+        border: 1.5px solid #2b6cb0;
+        color: #1a4971;
+        background: #f8fbff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .lesson-pill:hover {
+        background: #e4f0f8;
+        color: #0f5c8c;
+      }
+      .lesson-pill.active {
+        background: #e4f0f8;
+        border-color: #0f5c8c;
+        color: #0f5c8c;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .lessons-bar {
+          background: var(--card);
+        }
+        .lessons-label {
+          color: var(--ink);
+        }
+        .lesson-pill {
+          background: var(--soft);
+          color: var(--main);
+          border-color: var(--main);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .site-topbar {
+          padding: 0.4rem 0.6rem;
+        }
+        .site-brand,
+        .site-nav-links a,
+        .btn-toggle-fr {
+          font-size: 0.78rem;
+          padding: 0.22rem 0.55rem;
+        }
+        .lessons-bar {
+          padding: 0.45rem 0.6rem;
+        }
+        .lesson-pill {
+          font-size: 0.78rem;
+          padding: 0.14rem 0.55rem;
+        }
+        nav.toc ol {
+          columns: 1;
+        }
+        body {
+          font-size: 16px;
+        }
+        section {
+          padding: 1rem;
+        }
+      }
+
+      body.hide-fr .fr {
+        display: none;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0f5c8c, #16a085);
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0.2rem 0;
+        font-size: 1.8rem;
+      }
+      header p {
+        margin: 0.2rem 0;
+        opacity: 0.92;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .pn {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 980px;
+        margin: 0.8rem auto 0;
+        padding: 0 1rem;
+      }
+      .pn a {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 0 1rem;
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      nav.toc {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem 1.4rem;
+        margin: 1rem 0;
+      }
+      nav.toc ol {
+        columns: 2;
+        margin: 0.3rem 0;
+        padding-inline-start: 1.4rem;
+      }
+      nav.toc a {
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0;
+      }
+      h2 {
+        color: var(--main);
+        border-bottom: 3px solid var(--soft);
+        padding-bottom: 0.3rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--main);
+        margin-bottom: 0.2rem;
+      }
+      h4 {
+        margin: 1rem 0 0.2rem;
+        color: var(--main);
+      }
+      .fr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        font-family: Arial, sans-serif;
+        font-size: 0.9em;
+        color: var(--muted);
+      }
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      bdi.n {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+      }
+      .eq {
+        direction: rtl;
+        unicode-bidi: isolate;
+      }
+      .box {
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        margin: 0.8rem 0;
+        border-inline-start: 6px solid;
+      }
+      .def {
+        background: var(--soft);
+        border-color: var(--main);
+      }
+      .key {
+        background: var(--okbg);
+        border-color: var(--ok);
+      }
+      .warn {
+        background: var(--warnbg);
+        border-color: var(--warn);
+      }
+      .box b.t {
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.6rem 0;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 0.35rem 0.6rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      th {
+        background: var(--soft);
+        color: var(--main);
+      }
+      th.d {
+        background: var(--dr);
+      }
+      th.c {
+        background: var(--cr);
+      }
+      .wrap {
+        overflow-x: auto;
+      }
+      .num {
+        text-align: center;
+        direction: ltr;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      tr.tot td {
+        font-weight: 700;
+        border-top: 2px solid var(--main);
+        background: var(--soft);
+      }
+      table.inv tr.tot td {
+        background: var(--okbg);
+      }
+      .ex {
+        border: 1px dashed var(--main);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+      }
+      .pill {
+        display: inline-block;
+        background: var(--main);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        margin-inline-end: 0.4rem;
+      }
+      .lvl {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        border: 2px solid;
+      }
+      .l1 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .l2 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .l3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .l4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .formula {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.05em;
+        background: var(--soft);
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 0.6rem 0;
+      }
+      .calc {
+        background: var(--soft);
+        border-inline-start: 5px solid var(--main);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.4rem 0;
+      }
+      .calc > div {
+        padding: 0.1rem 0;
+      }
+      details {
+        background: var(--okbg);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.5rem 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ok);
+      }
+      .chain {
+        max-width: 680px;
+        margin: 0.6rem auto;
+      }
+      .cb2 {
+        border: 2px solid;
+        border-radius: 12px;
+        padding: 0.4rem 0.9rem;
+        text-align: center;
+      }
+      .cb2.g1 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .cb2.g2 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .cb2.g3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .cb2.g4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .cb2.g5 {
+        background: var(--g5b);
+        border-color: var(--g5s);
+      }
+      .cb2 small {
+        display: block;
+        color: var(--muted);
+      }
+      .ar {
+        text-align: center;
+        font-size: 1.3em;
+        color: var(--main);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1.5rem;
+        font-size: 0.9em;
+      }
+      @media print {
+        header,
+        .site-topbar,
+        .lessons-bar {
+          background: #fff;
+          color: #000;
+        }
+        nav.toc,
+        .pn {
+          display: none;
+        }
+        section {
+          break-inside: avoid-page;
+        }
+        details {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NavBAR -->
+    <nav class="site-topbar" aria-label="التنقل العام">
+      <div class="site-topbar-inner">
+        <div class="site-nav-right">
+          <a class="site-brand" href="sommaire_compta.html">البرنامج السنوي</a>
+          <div class="site-nav-links">
+            <a href="4_0_presentation_cout_complet.html">شعبة تسيير واقتصاد</a>
+            <a href="4_2_calcul_cout_resultat_analytique.html">المجال <bdi class="n">04</bdi></a>
+          </div>
+        </div>
+        <button type="button" class="btn-toggle-fr" onclick="document.body.classList.toggle('hide-fr')">
+          إخفاء / إظهار المصطلحات الفرنسية
+        </button>
+      </div>
+    </nav>
+
+    <!-- Barre des leçons du domaine -->
+    <div class="lessons-bar" aria-label="دروس المجال">
+      <div class="lessons-bar-inner">
+        <span class="lessons-label">دروس المجال <bdi class="n">04</bdi> :</span>
+        <a class="lesson-pill" href="4_0_presentation_cout_complet.html"><bdi class="n">00</bdi>. تقديم عام</a>
+        <a class="lesson-pill active" href="4_1_charges_incorporables_4.html"><bdi class="n">01</bdi>. الأعباء المعتبرة</a>
+        <a class="lesson-pill" href="4_2_calcul_cout_resultat_analytique.html"><bdi class="n">02</bdi>. حساب التكاليف والنتيجة</a>
+        <a class="lesson-pill" href="4_3_Valorisation_des_stocks.html"><bdi class="n">03</bdi>. تقييم المخزونات</a>
+      </div>
+    </div>
+
+    <header>
+      <h1>
+        🧾 <bdi class="n">4.1</bdi> – الأعباء المعتبرة (<bdi class="n"
+          >Charges</bdi
+        >
+        <bdi class="n">incorporables</bdi>)
+      </h1>
+      <p>
+        السنة الثالثة ثانوي – شعبة تسيير واقتصاد – بكالوريا
+        <bdi class="n">2027</bdi>
+      </p>
+     
+    </header>
+   
+    <main>
+      <nav class="toc">
+        <b>📑 محتويات الدرس</b>
+        <ol>
+          <li><a href="#s1">الفكرة: لماذا نصحّح أعباء المحاسبة العامة؟</a></li>
+          <li><a href="#s2">من المحاسبة العامة إلى المحاسبة التحليلية</a></li>
+          <li><a href="#s3">الأعباء غير المعتبرة</a></li>
+          <li><a href="#s4">العناصر الإضافية</a></li>
+          <li><a href="#s5">الأعباء المباشرة والأعباء غير المباشرة</a></li>
+          <li><a href="#s6">تصنيف الأعباء حسب الوظيفة</a></li>
+          <li><a href="#s7">مثال متكامل: ورشة الأمل للنجارة</a></li>
+          <li><a href="#s8">المطابقة بين نتيجتي المحاسبتين</a></li>
+          <li><a href="#s9">الأخطاء الشائعة وخلاصة الدرس</a></li>
+          <li>
+            <a href="#s10">تمارين تطبيقية (<bdi class="n">4</bdi>)</a>
+          </li>
+        </ol>
+      </nav>
+      <section id="s1">
+        <h2>
+          <bdi class="n">1</bdi>. الفكرة: لماذا نصحّح أعباء المحاسبة العامة؟
+        </h2>
+        <p>
+          المحاسبة العامة تسجل <b>كل</b> ما تنفقه المؤسسة، لكن المحاسبة
+          التحليلية تريد معرفة <b>تكلفة المنتوج العادية</b>. تخيل أن المؤسسة
+          دفعت غرامة مرورية: هي عبء حقيقي، لكن هل يُعقل أن نحمّلها على سعر كرسي؟
+          بالطبع لا.
+        </p>
+        <p>
+          وفي المقابل، مالك ورشة يعمل فيها بنفسه دون أن يتقاضى راتباً: المحاسبة
+          العامة لا تسجل له أجراً، لكن لو وظّفنا مسيراً بدله لدفعنا له أجراً.
+          فلكي تكون التكلفة <b>صادقة</b> نضيف أجر المالك.
+        </p>
+        <div class="box key">
+          <b class="t">إذن نقوم بعمليتين</b><b>نحذف</b> ما ليس من النشاط العادي
+          (أعباء غير معتبرة)، و<b>نضيف</b> ما يخص النشاط ولم يُسجَّل (عناصر
+          إضافية).
+        </div>
+      </section>
+      <section id="s2">
+        <h2>
+          <bdi class="n">2</bdi>. من المحاسبة العامة إلى المحاسبة التحليلية
+        </h2>
+        <div class="formula">
+          الأعباء المعتبرة = الأعباء حسب الطبيعة (م.ع) − الأعباء غير المعتبرة +
+          العناصر الإضافية
+        </div>
+        <div class="chain">
+          <div class="cb2 g1">
+            <b>أعباء المحاسبة العامة</b
+            ><small
+              >الأصناف <bdi class="n">60</bdi> إلى <bdi class="n">68</bdi> كما
+              هي مسجلة</small
+            >
+          </div>
+          <div class="ar">⬇ نطرح الأعباء غير المعتبرة ➖</div>
+          <div class="cb2 g3"><b>أعباء عادية فقط</b></div>
+          <div class="ar">⬇ نضيف العناصر الإضافية ➕</div>
+          <div class="cb2 g2">
+            <b>الأعباء المعتبرة</b><small>هي التي تدخل في حساب التكاليف</small>
+          </div>
+          <div class="ar">⬇ نصنّف</div>
+          <div class="cb2 g4"><b>مباشرة</b> + <b>غير مباشرة</b></div>
+        </div>
+        <div class="box warn">
+          <b class="t">تسميات مرادفة في الامتحان</b>«الأعباء غير المعتبرة» =
+          «الأعباء غير المحملة»، و«العناصر الإضافية» = «الأعباء الإضافية». المهم
+          أن تفهم المعنى.
+        </div>
+      </section>
+      <section id="s3">
+        <h2>
+          <bdi class="n">3</bdi>. الأعباء غير المعتبرة
+          <span class="fr">Charges non incorporables</span>
+        </h2>
+        <div class="box def">
+          <b class="t">التعريف</b>أعباء مسجلة في المحاسبة العامة لكنها
+          <b>لا تتعلق بالنشاط العادي</b> للمؤسسة أو بالدورة الحالية، فلا تدخل في
+          حساب التكاليف.
+        </div>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>النوع</th>
+              <th>لماذا نستبعده؟</th>
+              <th>مثال</th>
+            </tr>
+            <tr>
+              <td>الغرامات والعقوبات</td>
+              <td>ليست تكلفة إنتاج</td>
+              <td>غرامة جبائية <bdi class="n">8 000</bdi> دج</td>
+            </tr>
+            <tr>
+              <td>أعباء السنوات السابقة</td>
+              <td>تخص دورة أخرى (استقلالية الدورات)</td>
+              <td>فاتورة صيانة تخص السنة الماضية</td>
+            </tr>
+            <tr>
+              <td>المخصصات الاستثنائية</td>
+              <td>غير متكررة وغير مرتبطة بالإنتاج</td>
+              <td>مخصصات استثنائية</td>
+            </tr>
+            <tr>
+              <td>الضريبة على الأرباح</td>
+              <td>توزيع للنتيجة وليست تكلفة منتوج</td>
+              <td>الضريبة على أرباح الشركات</td>
+            </tr>
+            <tr>
+              <td>خسائر التنازل عن أصول</td>
+              <td>عملية استثنائية</td>
+              <td>نواقص قيمة عن التنازل</td>
+            </tr>
+          </table>
+        </div>
+        <div class="box warn">
+          <b class="t">في الامتحان</b>عادة يُعطى لك مبلغ «الأعباء غير المعتبرة»
+          جاهزاً (كما في الباك <bdi class="n">2015</bdi> و<bdi class="n"
+            >2025</bdi
+          >)، أو يُذكر في نص التمرين أنها أعباء استثنائية أو غير محملة. المهم أن
+          تعرف أين تضعه في الصيغة.
+        </div>
+      </section>
+      <section id="s4">
+        <h2>
+          <bdi class="n">4</bdi>. العناصر الإضافية
+          <span class="fr">Charges supplétives</span>
+        </h2>
+        <div class="box def">
+          <b class="t">التعريف</b>أعباء <b>اقتصادية حقيقية</b> لا تسجلها
+          المحاسبة العامة، لكن تجب إضافتها لتكون التكلفة صادقة.
+        </div>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>النوع</th>
+              <th>فكرته</th>
+              <th>مثال</th>
+            </tr>
+            <tr>
+              <td>أجر المستغل (المالك)</td>
+              <td>المالك يعمل ولا يتقاضى أجراً، فنحسب له أجر مدير</td>
+              <td>أجر شهري افتراضي <bdi class="n">6 000</bdi> دج</td>
+            </tr>
+            <tr>
+              <td>فوائد رأس المال الخاص</td>
+              <td>المال الخاص لو وضع في بنك لأعطى فائدة، فنحسب فائدته</td>
+              <td>
+                <bdi class="n">5%</bdi> من رأس مال
+                <bdi class="n">600 000</bdi> = <bdi class="n">30 000</bdi> دج
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+          لاحظ أن العناصر الإضافية <b>تزيد</b> الأعباء المعتبرة، وبالتالي
+          <b>تخفض</b> النتيجة التحليلية مقارنة بالنتيجة العامة.
+        </p>
+      </section>
+      <section id="s5">
+        <h2>
+          <bdi class="n">5</bdi>. الأعباء المباشرة والأعباء غير المباشرة
+          <span class="fr">Directes / Indirectes</span>
+        </h2>
+        <div class="box def">
+          <b class="t">المباشرة</b>أعباء يمكن <b>تحميلها مباشرة</b> على تكلفة
+          معينة (منتوج، مادة…) <b>دون معالجة مسبقة</b>.
+        </div>
+        <div class="box def">
+          <b class="t">غير المباشرة</b>أعباء تخص
+          <b>عدة منتوجات أو عدة مراحل</b>، ولا نستطيع تحميلها إلا بعد
+          <b>توزيعها</b> على الأقسام وقياسها بوحدة قياس.
+        </div>
+        <h3>اختبار الأسئلة الثلاثة</h3>
+        <ol>
+          <li>هل أستطيع أن أقول لأي منتوج (أو مادة) يعود هذا العبء بدقة؟</li>
+          <li>هل توجد وثيقة تثبته (فاتورة المادة، بطاقة ساعات العمل)؟</li>
+          <li>هل أستطيع أن أحمّله دون قسمة أو مفتاح توزيع؟</li>
+        </ol>
+        <p>إذا كانت الإجابات <b>نعم</b> فهو مباشر، وإلا فهو غير مباشر.</p>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>العبء</th>
+              <th>النوع</th>
+              <th>التعليل</th>
+            </tr>
+            <tr>
+              <td>ثمن شراء المادة الأولية</td>
+              <td>مباشر</td>
+              <td>يعود لمادة محددة وله فاتورة</td>
+            </tr>
+            <tr>
+              <td>أجر العامل الذي يصنع المنتوج (بساعات مسجلة)</td>
+              <td>مباشر</td>
+              <td>نعرف ساعاته على كل منتوج</td>
+            </tr>
+            <tr>
+              <td>نقل المواد المشتراة (فاتورة خاصة بها)</td>
+              <td>مباشر (للشراء)</td>
+              <td>يخص عملية شراء محددة</td>
+            </tr>
+            <tr>
+              <td>إيجار المصنع</td>
+              <td>غير مباشر</td>
+              <td>يخدم كل المنتوجات</td>
+            </tr>
+            <tr>
+              <td>كهرباء الورشة</td>
+              <td>غير مباشر</td>
+              <td>مشتركة بين المنتوجات</td>
+            </tr>
+            <tr>
+              <td>أجر المحاسب</td>
+              <td>غير مباشر</td>
+              <td>يخدم الإدارة كلها</td>
+            </tr>
+            <tr>
+              <td>اهتلاك الآلات المشتركة</td>
+              <td>غير مباشر</td>
+              <td>تُستعمل لعدة منتوجات</td>
+            </tr>
+          </table>
+        </div>
+        <div class="box key">
+          <b class="t">نموذج إجابة (سؤال الباك <bdi class="n">2026</bdi>)</b
+          ><b>الأعباء المباشرة:</b> هي التي يمكن تحميلها مباشرة في تكلفة معينة
+          دون الحاجة إلى معالجة مسبقة. <b>الأعباء غير المباشرة:</b> هي التي
+          تتعلق بأكثر من عنصر ولا يمكن تحميلها على التكاليف إلا بعد معالجتها
+          (التوزيع على الأقسام).
+        </div>
+        <div class="box warn">
+          <b class="t">انتبه</b>المباشر أو غير المباشر يتعلق بـ<b
+            >التكلفة المراد حسابها</b
+          >: أجر مشرف ورشة يخص منتجاً واحداً قد يكون مباشراً بالنسبة لتكلفة ذلك
+          المنتوج، لكنه غير مباشر إذا خدم عدة منتوجات.
+        </div>
+      </section>
+      <section id="s6">
+        <h2>
+          <bdi class="n">6</bdi>. تصنيف الأعباء حسب الوظيفة
+          <span class="fr">Par fonction</span>
+        </h2>
+        <p>الأعباء غير المباشرة تُجمع في أقسام تقابل وظائف المؤسسة:</p>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>الوظيفة</th>
+              <th>القسم</th>
+              <th>أمثلة أعباء</th>
+              <th>وحدة القياس المعتادة</th>
+            </tr>
+            <tr>
+              <td>الإدارة</td>
+              <td>قسم مساعد</td>
+              <td>أجور الإداريين، التأمين</td>
+              <td>يُوزَّع بنسب مئوية</td>
+            </tr>
+            <tr>
+              <td>الصيانة</td>
+              <td>قسم مساعد</td>
+              <td>أجور عمال الصيانة، قطع الغيار</td>
+              <td>يُوزَّع بنسب مئوية</td>
+            </tr>
+            <tr>
+              <td>الشراء (التموين)</td>
+              <td>قسم أساسي</td>
+              <td>أجور المخزن، نقل داخلي</td>
+              <td><bdi class="n">100</bdi> دج من ثمن الشراء، أو كلغ مشترى</td>
+            </tr>
+            <tr>
+              <td>الإنتاج</td>
+              <td>قسم أساسي</td>
+              <td>اهتلاك الآلات، كهرباء الورشة</td>
+              <td>ساعة يد عاملة، أو وحدة منتجة</td>
+            </tr>
+            <tr>
+              <td>التوزيع</td>
+              <td>قسم أساسي</td>
+              <td>عمولات البيع، إشهار، تغليف</td>
+              <td><bdi class="n">100</bdi> دج من رقم الأعمال، أو وحدة مباعة</td>
+            </tr>
+          </table>
+        </div>
+        <p>تفصيل توزيع هذه الأقسام في الدرس <bdi class="n">4.2</bdi>.</p>
+      </section>
+      <section id="s7">
+        <h2><bdi class="n">7</bdi>. مثال متكامل: ورشة الأمل للنجارة</h2>
+        <p>معطيات سنة كاملة من المحاسبة العامة (بالدينار):</p>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>العبء (حسب الطبيعة)</th>
+              <th>المبلغ</th>
+              <th>معتبر؟</th>
+              <th>التصنيف</th>
+            </tr>
+            <tr>
+              <td>مشتريات الخشب (<bdi class="n">60</bdi>)</td>
+              <td class="num">600 000</td>
+              <td>نعم</td>
+              <td>مباشر</td>
+            </tr>
+            <tr>
+              <td>أجور عمال الورشة</td>
+              <td class="num">300 000</td>
+              <td>نعم</td>
+              <td>مباشر</td>
+            </tr>
+            <tr>
+              <td>إيجار المحل</td>
+              <td class="num">120 000</td>
+              <td>نعم</td>
+              <td>غير مباشر</td>
+            </tr>
+            <tr>
+              <td>كهرباء</td>
+              <td class="num">40 000</td>
+              <td>نعم</td>
+              <td>غير مباشر</td>
+            </tr>
+            <tr>
+              <td>أجور الإدارة</td>
+              <td class="num">90 000</td>
+              <td>نعم</td>
+              <td>غير مباشر</td>
+            </tr>
+            <tr>
+              <td>اهتلاكات</td>
+              <td class="num">80 000</td>
+              <td>نعم</td>
+              <td>غير مباشر</td>
+            </tr>
+            <tr>
+              <td>غرامة جبائية</td>
+              <td class="num">10 000</td>
+              <td><b>لا</b></td>
+              <td>مستبعد</td>
+            </tr>
+            <tr>
+              <td>ضريبة على الأرباح</td>
+              <td class="num">45 000</td>
+              <td><b>لا</b></td>
+              <td>مستبعد</td>
+            </tr>
+            <tr class="tot">
+              <td>مجموع أعباء المحاسبة العامة</td>
+              <td class="num">1 285 000</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <p>
+          معلومة إضافية: المالك يعمل في الورشة بدون أجر، وأجر مدير مماثل يقدّر
+          بـ <span class="eq"><bdi class="n">60 000</bdi></span> دج (عنصر
+          إضافي). رقم الأعمال
+          <span class="eq"><bdi class="n">1 500 000</bdi></span> دج.
+        </p>
+        <h4>
+          <span class="pill"><bdi class="n">1</bdi></span
+          >الأعباء غير المعتبرة
+        </h4>
+        <div class="calc">
+          <div>
+            غرامة + ضريبة =
+            <span class="eq"
+              ><bdi class="n">10 000</bdi> + <bdi class="n">45 000</bdi> =
+              <bdi class="n">55 000</bdi></span
+            >
+          </div>
+        </div>
+        <h4>
+          <span class="pill"><bdi class="n">2</bdi></span
+          >الأعباء المعتبرة
+        </h4>
+        <div class="calc">
+          <div>
+            الأعباء المعتبرة =
+            <span class="eq"
+              ><bdi class="n">1 285 000</bdi> − <bdi class="n">55 000</bdi> +
+              <bdi class="n">60 000</bdi> = <bdi class="n">1 290 000</bdi></span
+            >
+            دج
+          </div>
+        </div>
+        <h4>
+          <span class="pill"><bdi class="n">3</bdi></span
+          >التصنيف
+        </h4>
+        <div class="calc">
+          <div>
+            المباشرة = خشب + أجور العمال =
+            <span class="eq"
+              ><bdi class="n">600 000</bdi> + <bdi class="n">300 000</bdi> =
+              <bdi class="n">900 000</bdi></span
+            >
+          </div>
+          <div>
+            غير المباشرة = إيجار + كهرباء + إدارة + اهتلاك + أجر المالك =
+            <span class="eq"
+              ><bdi class="n">120 000</bdi> + <bdi class="n">40 000</bdi> +
+              <bdi class="n">90 000</bdi> + <bdi class="n">80 000</bdi> +
+              <bdi class="n">60 000</bdi> = <bdi class="n">390 000</bdi></span
+            >
+          </div>
+          <div>
+            التحقق:
+            <span class="eq"
+              ><bdi class="n">900 000</bdi> + <bdi class="n">390 000</bdi> =
+              <bdi class="n">1 290 000</bdi></span
+            >
+            ✔
+          </div>
+        </div>
+        <h4>
+          <span class="pill"><bdi class="n">4</bdi></span
+          >المطابقة بين النتيجتين
+        </h4>
+        <div class="calc">
+          <div>
+            نتيجة المحاسبة العامة =
+            <span class="eq"
+              ><bdi class="n">1 500 000</bdi> − <bdi class="n">1 285 000</bdi> =
+              <bdi class="n">215 000</bdi></span
+            >
+          </div>
+          <div>
+            النتيجة التحليلية =
+            <span class="eq"
+              ><bdi class="n">1 500 000</bdi> − <bdi class="n">1 290 000</bdi> =
+              <bdi class="n">210 000</bdi></span
+            >
+          </div>
+          <div>
+            التحقق: النتيجة العامة = التحليلية − غير المعتبرة + الإضافية =
+            <span class="eq"
+              ><bdi class="n">210 000</bdi> − <bdi class="n">55 000</bdi> +
+              <bdi class="n">60 000</bdi> = <bdi class="n">215 000</bdi></span
+            >
+            ✔
+          </div>
+        </div>
+      </section>
+      <section id="s8">
+        <h2>
+          <bdi class="n">8</bdi>. المطابقة بين نتيجتي المحاسبتين
+          <span class="fr">Réconciliation</span>
+        </h2>
+        <div class="formula">
+          النتيجة الصافية للمحاسبة التحليلية = النتيجة التحليلية الإجمالية +
+          العناصر الإضافية − الأعباء غير المعتبرة
+        </div>
+        <p>
+          وهذه النتيجة الصافية يجب أن تساوي <b>نتيجة المحاسبة العامة</b>. إذا لم
+          تتساويا ففي الحساب خطأ يجب البحث عنه.
+        </p>
+        <div class="box key">
+          <b class="t">كيف أحفظ الإشارتين؟</b>العناصر الإضافية
+          <b>لم تُسجَّل</b> في المحاسبة العامة فنعيدها: <b>+</b>. وغير المعتبرة
+          <b>سُجّلت</b> فيها لكننا حذفناها من التكاليف، فنخصمها: <b>−</b>.
+        </div>
+        <h3>مثالان حقيقيان من الباكالوريا</h3>
+        <div class="ex">
+          <p>
+            <span class="pill">باك <bdi class="n">2015</bdi></span
+            ><b>الموضوع الثاني – الجزء الثاني (المحاسبة التحليلية)</b>
+          </p>
+          <p>
+            <b>السياق:</b> مؤسسة «الأمل» تصنع نوعين من اللعب: لعب الذكور (<bdi
+              class="n"
+              >JG</bdi
+            >) ولعب الإناث (<bdi class="n">JF</bdi>). بعد حساب سعر التكلفة لكل
+            نوع مباع، حُسبت النتيجة التحليلية الإجمالية لكل نوع. ويذكر نص
+            التمرين أن مبلغ <b><bdi class="n">1 100</bdi> دج</b> يعتبر عناصر
+            إضافية، وأن مبلغ <b><bdi class="n">3 006</bdi> دج</b> أعباء غير
+            محملة (غير معتبرة). المطلوب: النتيجة الصافية للمحاسبة التحليلية.
+          </p>
+          <div class="wrap">
+            <table class="">
+              <tr>
+                <th>البيان</th>
+                <th>المبلغ</th>
+              </tr>
+              <tr>
+                <td>
+                  النتيجة التحليلية الإجمالية للعب الإناث (<bdi class="n"
+                    >JF</bdi
+                  >)
+                </td>
+                <td class="num">64 320</td>
+              </tr>
+              <tr>
+                <td>
+                  النتيجة التحليلية الإجمالية للعب الذكور (<bdi class="n"
+                    >JG</bdi
+                  >)
+                </td>
+                <td class="num">56 160</td>
+              </tr>
+              <tr class="tot">
+                <td>مجموع النتائج التحليلية الإجمالية</td>
+                <td class="num">120 480</td>
+              </tr>
+              <tr>
+                <td>+ العناصر الإضافية</td>
+                <td class="num">1 100</td>
+              </tr>
+              <tr>
+                <td>− الأعباء غير المحملة</td>
+                <td class="num">3 006</td>
+              </tr>
+              <tr class="tot">
+                <td>النتيجة الصافية للمحاسبة التحليلية</td>
+                <td class="num">118 574</td>
+              </tr>
+            </table>
+          </div>
+          <div class="calc">
+            <div>
+              النتيجة الإجمالية =
+              <span class="eq"
+                ><bdi class="n">64 320</bdi> + <bdi class="n">56 160</bdi> =
+                <bdi class="n">120 480</bdi></span
+              >
+            </div>
+            <div>
+              النتيجة الصافية =
+              <span class="eq"
+                ><bdi class="n">120 480</bdi> + <bdi class="n">1 100</bdi> −
+                <bdi class="n">3 006</bdi> = <bdi class="n">118 574</bdi></span
+              >
+              دج
+            </div>
+          </div>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">باك <bdi class="n">2025</bdi></span
+            ><b>الموضوع الأول – الجزء الأول (حساب وتحليل التكاليف الكلية)</b>
+          </p>
+          <p>
+            <b>السياق:</b> مؤسسة «الورود» تنتج وتبيع المنتجين
+            <bdi class="n">P₁</bdi> و<bdi class="n">P₂</bdi>. بعد حساب سعر
+            التكلفة لكل منتوج مباع، حُسبت النتيجة التحليلية لكل منهما. ويذكر
+            النص أن العناصر الإضافية
+            <b><bdi class="n">14 500</bdi> دج</b> والأعباء غير المعتبرة
+            <b><bdi class="n">5 750</bdi> دج</b>. المطلوب: النتيجة الصافية
+            للمحاسبة التحليلية.
+          </p>
+          <div class="wrap">
+            <table class="">
+              <tr>
+                <th>البيان</th>
+                <th>المبلغ</th>
+              </tr>
+              <tr>
+                <td>النتيجة التحليلية للمنتوج <bdi class="n">P₁</bdi></td>
+                <td class="num">131 250</td>
+              </tr>
+              <tr>
+                <td>النتيجة التحليلية للمنتوج <bdi class="n">P₂</bdi></td>
+                <td class="num">105 000</td>
+              </tr>
+              <tr class="tot">
+                <td>النتيجة التحليلية الإجمالية</td>
+                <td class="num">236 250</td>
+              </tr>
+              <tr>
+                <td>+ العناصر الإضافية</td>
+                <td class="num">14 500</td>
+              </tr>
+              <tr>
+                <td>− الأعباء غير المعتبرة</td>
+                <td class="num">5 750</td>
+              </tr>
+              <tr class="tot">
+                <td>النتيجة الصافية للمحاسبة التحليلية</td>
+                <td class="num">245 000</td>
+              </tr>
+            </table>
+          </div>
+          <div class="calc">
+            <div>
+              النتيجة الإجمالية =
+              <span class="eq"
+                ><bdi class="n">131 250</bdi> + <bdi class="n">105 000</bdi> =
+                <bdi class="n">236 250</bdi></span
+              >
+            </div>
+            <div>
+              النتيجة الصافية =
+              <span class="eq"
+                ><bdi class="n">236 250</bdi> + <bdi class="n">14 500</bdi> −
+                <bdi class="n">5 750</bdi> = <bdi class="n">245 000</bdi></span
+              >
+              دج
+            </div>
+          </div>
+        </div>
+        <div class="box warn">
+          <b class="t">ماذا نلاحظ؟</b>في المثالين:
+          <b>النتيجة التحليلية لكل منتوج</b> تُجمع أولاً، ثم نضيف الإضافية ونطرح
+          غير المعتبرة. الأرقام المعطاة في النص (<bdi class="n">1 100</bdi>
+          و<bdi class="n">3 006</bdi>، أو <bdi class="n">14 500</bdi> و<bdi
+            class="n"
+            >5 750</bdi
+          >) هي التي تُوضع في هذه الصيغة.
+        </div>
+      </section>
+      <section id="s9">
+        <h2><bdi class="n">9</bdi>. الأخطاء الشائعة وخلاصة الدرس</h2>
+        <ul>
+          <li>إضافة الأعباء غير المعتبرة بدل طرحها من أعباء الطبيعة.</li>
+          <li>
+            نسيان العناصر الإضافية أو طرحها بدل جمعها عند حساب النتيجة الصافية.
+          </li>
+          <li>
+            اعتبار أجور الإدارة أعباء مباشرة. (أعباء الإدارة غير مباشرة دائماً.)
+          </li>
+          <li>
+            الخلط بين «معتبرة» و«مباشرة»: الأولى تتعلق بالدخول إلى التكلفة،
+            والثانية بكيفية التحميل.
+          </li>
+          <li>
+            نسيان التحقق: مجموع المباشرة + غير المباشرة = الأعباء المعتبرة.
+          </li>
+        </ul>
+        <div class="box key">
+          <b class="t">الخلاصة</b><bdi class="n">1</bdi>) الأعباء المعتبرة =
+          أعباء الطبيعة − غير المعتبرة + الإضافية. <bdi class="n">2</bdi>)
+          نصنّفها إلى مباشرة وغير مباشرة. <bdi class="n">3</bdi>) غير المباشرة
+          تمر بالأقسام (الدرس <bdi class="n">4.2</bdi>). <bdi class="n">4</bdi>)
+          النتيجة الصافية = التحليلية + الإضافية − غير المعتبرة = نتيجة المحاسبة
+          العامة.
+        </div>
+      </section>
+      <section id="s10">
+        <h2>
+          <bdi class="n">10</bdi>. تمارين تطبيقية (<bdi class="n">4</bdi>)
+        </h2>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">1</bdi></span
+            ><span class="lvl l1">سهل</span>
+          </p>
+          <p>
+            مؤسسة لصناعة الكراسي. صنّف كل عبء إلى <b>مباشر</b> أو
+            <b>غير مباشر</b> بالنسبة لتكلفة الكرسي مع التعليل: (<bdi class="n"
+              >1</bdi
+            >) الخشب المستعمل (<bdi class="n">2</bdi>) أجور عمال الورشة بساعات
+            مسجلة (<bdi class="n">3</bdi>) إيجار المصنع (<bdi class="n">4</bdi>)
+            أجر المحاسب (<bdi class="n">5</bdi>) كهرباء الورشة (<bdi class="n"
+              >6</bdi
+            >) نقل الخشب المشترى (<bdi class="n">7</bdi>) اهتلاك الآلات (<bdi
+              class="n"
+              >8</bdi
+            >) أجر سائق يوزع كل المنتجات.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <div class="wrap">
+              <table class="">
+                <tr>
+                  <th>#</th>
+                  <th>العبء</th>
+                  <th>النوع</th>
+                  <th>التعليل</th>
+                </tr>
+                <tr>
+                  <td><bdi class="n">1</bdi></td>
+                  <td>الخشب المستعمل</td>
+                  <td>مباشر</td>
+                  <td>يعود للكرسي ويُقاس بالكمية</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">2</bdi></td>
+                  <td>أجور عمال الورشة</td>
+                  <td>مباشر</td>
+                  <td>ساعات العمل مسجلة على الكرسي</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">3</bdi></td>
+                  <td>إيجار المصنع</td>
+                  <td>غير مباشر</td>
+                  <td>مشترك بين كل المنتجات</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">4</bdi></td>
+                  <td>أجر المحاسب</td>
+                  <td>غير مباشر</td>
+                  <td>يخدم الإدارة كلها</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">5</bdi></td>
+                  <td>كهرباء الورشة</td>
+                  <td>غير مباشر</td>
+                  <td>عداد واحد لعدة منتجات</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">6</bdi></td>
+                  <td>نقل الخشب المشترى</td>
+                  <td>مباشر (تكلفة الشراء)</td>
+                  <td>فاتورة خاصة بعملية شراء الخشب</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">7</bdi></td>
+                  <td>اهتلاك الآلات</td>
+                  <td>غير مباشر</td>
+                  <td>تُستعمل لعدة منتجات</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">8</bdi></td>
+                  <td>أجر سائق التوزيع</td>
+                  <td>غير مباشر</td>
+                  <td>يخدم كل المنتجات (يمر بقسم التوزيع)</td>
+                </tr>
+              </table>
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">2</bdi></span
+            ><span class="lvl l2">سهل إلى متوسط</span>
+          </p>
+          <p>
+            مجموع أعباء المحاسبة العامة لمؤسسة <bdi class="n">850 000</bdi> دج،
+            منها: غرامة <bdi class="n">15 000</bdi>، مخصصات استثنائية
+            <bdi class="n">25 000</bdi>، أعباء سنوات سابقة
+            <bdi class="n">10 000</bdi>. تقدّر المؤسسة أجر مسيرها المالك بـ
+            <bdi class="n">48 000</bdi> وفوائد رأسمالها الخاص بـ
+            <bdi class="n">12 000</bdi>. رقم الأعمال
+            <bdi class="n">1 000 000</bdi>.
+          </p>
+          <p>احسب الأعباء المعتبرة، ثم النتيجتين العامة والتحليلية.</p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>
+              <span class="pill"><bdi class="n">1</bdi></span
+              >الأعباء غير المعتبرة
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  ><bdi class="n">15 000</bdi> + <bdi class="n">25 000</bdi> +
+                  <bdi class="n">10 000</bdi> =
+                  <bdi class="n">50 000</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">2</bdi></span
+              >العناصر الإضافية
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  ><bdi class="n">48 000</bdi> + <bdi class="n">12 000</bdi> =
+                  <bdi class="n">60 000</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">3</bdi></span
+              >الأعباء المعتبرة
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  ><bdi class="n">850 000</bdi> − <bdi class="n">50 000</bdi> +
+                  <bdi class="n">60 000</bdi> =
+                  <bdi class="n">860 000</bdi></span
+                >
+                دج
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">4</bdi></span
+              >النتيجتان
+            </h4>
+            <div class="calc">
+              <div>
+                العامة =
+                <span class="eq"
+                  ><bdi class="n">1 000 000</bdi> −
+                  <bdi class="n">850 000</bdi> =
+                  <bdi class="n">150 000</bdi></span
+                >
+              </div>
+              <div>
+                التحليلية =
+                <span class="eq"
+                  ><bdi class="n">1 000 000</bdi> −
+                  <bdi class="n">860 000</bdi> =
+                  <bdi class="n">140 000</bdi></span
+                >
+              </div>
+              <div>
+                تحقق:
+                <span class="eq"
+                  ><bdi class="n">140 000</bdi> − <bdi class="n">50 000</bdi> +
+                  <bdi class="n">60 000</bdi> =
+                  <bdi class="n">150 000</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">3</bdi></span
+            ><span class="lvl l3">متوسط</span>
+          </p>
+          <ol>
+            <li>
+              نتيجتا منتجين: (أ) <bdi class="n">180 000</bdi> و(ب)
+              <bdi class="n">95 000</bdi>، العناصر الإضافية
+              <bdi class="n">25 000</bdi>، الأعباء غير المعتبرة
+              <bdi class="n">12 000</bdi>. احسب النتيجة الصافية.
+            </li>
+            <li>
+              مؤسسة نتيجتها العامة <bdi class="n">410 000</bdi>، أعباؤها غير
+              المعتبرة <bdi class="n">38 000</bdi> وعناصرها الإضافية
+              <bdi class="n">52 000</bdi>. احسب النتيجة التحليلية.
+            </li>
+          </ol>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>السؤال <bdi class="n">1</bdi></h4>
+            <div class="calc">
+              <div>
+                النتيجة التحليلية الإجمالية =
+                <span class="eq"
+                  ><bdi class="n">180 000</bdi> + <bdi class="n">95 000</bdi> =
+                  <bdi class="n">275 000</bdi></span
+                >
+              </div>
+              <div>
+                النتيجة الصافية =
+                <span class="eq"
+                  ><bdi class="n">275 000</bdi> + <bdi class="n">25 000</bdi> −
+                  <bdi class="n">12 000</bdi> =
+                  <bdi class="n">288 000</bdi></span
+                >
+                دج
+              </div>
+            </div>
+            <h4>السؤال <bdi class="n">2</bdi></h4>
+            <div class="calc">
+              <div>التحليلية = العامة + غير المعتبرة − الإضافية</div>
+              <div>
+                التحليلية =
+                <span class="eq"
+                  ><bdi class="n">410 000</bdi> + <bdi class="n">38 000</bdi> −
+                  <bdi class="n">52 000</bdi> =
+                  <bdi class="n">396 000</bdi></span
+                >
+                دج
+              </div>
+              <div>
+                تحقق:
+                <span class="eq"
+                  ><bdi class="n">396 000</bdi> − <bdi class="n">38 000</bdi> +
+                  <bdi class="n">52 000</bdi> =
+                  <bdi class="n">410 000</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">4</bdi></span
+            ><span class="lvl l4">شامل</span>
+          </p>
+          <p>مؤسسة «الينابيع» (سنة كاملة). أعباء المحاسبة العامة:</p>
+          <div class="wrap">
+            <table class="">
+              <tr>
+                <th>العبء</th>
+                <th>المبلغ</th>
+              </tr>
+              <tr>
+                <td>مواد أولية</td>
+                <td class="num">450 000</td>
+              </tr>
+              <tr>
+                <td>أجور عمال الإنتاج</td>
+                <td class="num">280 000</td>
+              </tr>
+              <tr>
+                <td>أجور الإدارة</td>
+                <td class="num">120 000</td>
+              </tr>
+              <tr>
+                <td>إيجار</td>
+                <td class="num">96 000</td>
+              </tr>
+              <tr>
+                <td>اهتلاكات</td>
+                <td class="num">64 000</td>
+              </tr>
+              <tr>
+                <td>غرامة جبائية</td>
+                <td class="num">8 000</td>
+              </tr>
+              <tr>
+                <td>مخصصات استثنائية</td>
+                <td class="num">22 000</td>
+              </tr>
+              <tr>
+                <td>أعباء سنوات سابقة</td>
+                <td class="num">12 000</td>
+              </tr>
+              <tr>
+                <td>ضريبة على الأرباح</td>
+                <td class="num">48 000</td>
+              </tr>
+            </table>
+          </div>
+          <p>
+            أجر المالك الافتراضي (عنصر إضافي): <bdi class="n">72 000</bdi> دج.
+            رقم الأعمال: <bdi class="n">1 350 000</bdi> دج.
+          </p>
+          <p>
+            <b>المطلوب:</b> (<bdi class="n">1</bdi>) الأعباء غير المعتبرة (<bdi
+              class="n"
+              >2</bdi
+            >) الأعباء المعتبرة (<bdi class="n">3</bdi>) المباشرة وغير المباشرة
+            والتحقق (<bdi class="n">4</bdi>) نتيجة المحاسبة العامة والنتيجة
+            التحليلية والمطابقة (<bdi class="n">5</bdi>) نسبة الأعباء غير
+            المباشرة من المعتبرة، وتعليق.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>
+              <span class="pill"><bdi class="n">1</bdi></span
+              >مجموع الأعباء وغير المعتبرة
+            </h4>
+            <div class="calc">
+              <div>
+                المجموع =
+                <span class="eq"
+                  ><bdi class="n">450 000</bdi> + <bdi class="n">280 000</bdi> +
+                  <bdi class="n">120 000</bdi> + <bdi class="n">96 000</bdi> +
+                  <bdi class="n">64 000</bdi> + <bdi class="n">8 000</bdi> +
+                  <bdi class="n">22 000</bdi> + <bdi class="n">12 000</bdi> +
+                  <bdi class="n">48 000</bdi> =
+                  <bdi class="n">1 100 000</bdi></span
+                >
+              </div>
+              <div>
+                غير المعتبرة =
+                <span class="eq"
+                  ><bdi class="n">8 000</bdi> + <bdi class="n">22 000</bdi> +
+                  <bdi class="n">12 000</bdi> + <bdi class="n">48 000</bdi> =
+                  <bdi class="n">90 000</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">2</bdi></span
+              >الأعباء المعتبرة
+            </h4>
+            <div class="calc">
+              <div>
+                <span class="eq"
+                  ><bdi class="n">1 100 000</bdi> −
+                  <bdi class="n">90 000</bdi> + <bdi class="n">72 000</bdi> =
+                  <bdi class="n">1 082 000</bdi></span
+                >
+                دج
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">3</bdi></span
+              >التصنيف
+            </h4>
+            <div class="calc">
+              <div>
+                المباشرة =
+                <span class="eq"
+                  ><bdi class="n">450 000</bdi> + <bdi class="n">280 000</bdi> =
+                  <bdi class="n">730 000</bdi></span
+                >
+              </div>
+              <div>
+                غير المباشرة =
+                <span class="eq"
+                  ><bdi class="n">120 000</bdi> + <bdi class="n">96 000</bdi> +
+                  <bdi class="n">64 000</bdi> + <bdi class="n">72 000</bdi> =
+                  <bdi class="n">352 000</bdi></span
+                >
+                (أجر المالك ضمن الإدارة)
+              </div>
+              <div>
+                التحقق:
+                <span class="eq"
+                  ><bdi class="n">730 000</bdi> + <bdi class="n">352 000</bdi> =
+                  <bdi class="n">1 082 000</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">4</bdi></span
+              >النتيجتان
+            </h4>
+            <div class="calc">
+              <div>
+                العامة =
+                <span class="eq"
+                  ><bdi class="n">1 350 000</bdi> −
+                  <bdi class="n">1 100 000</bdi> =
+                  <bdi class="n">250 000</bdi></span
+                >
+              </div>
+              <div>
+                التحليلية =
+                <span class="eq"
+                  ><bdi class="n">1 350 000</bdi> −
+                  <bdi class="n">1 082 000</bdi> =
+                  <bdi class="n">268 000</bdi></span
+                >
+              </div>
+              <div>
+                المطابقة:
+                <span class="eq"
+                  ><bdi class="n">268 000</bdi> − <bdi class="n">90 000</bdi> +
+                  <bdi class="n">72 000</bdi> =
+                  <bdi class="n">250 000</bdi></span
+                >
+                ✔
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">5</bdi></span
+              >النسبة والتعليق
+            </h4>
+            <div class="calc">
+              <div>
+                نسبة غير المباشرة =
+                <span class="eq"
+                  ><bdi class="n">352 000</bdi> ÷
+                  <bdi class="n">1 082 000</bdi> =
+                  <bdi class="n">0.3253</bdi></span
+                >
+                أي حوالي <b><bdi class="n">32.5%</bdi></b>
+              </div>
+            </div>
+            <p>
+              التعليق: نحو ثلث التكلفة غير مباشر، فلا بد من توزيعه بعناية على
+              الأقسام (الدرس <bdi class="n">4.2</bdi>). والنتيجة التحليلية أكبر
+              من العامة بـ
+              <span class="eq"
+                ><bdi class="n">268 000</bdi> − <bdi class="n">250 000</bdi> =
+                <bdi class="n">18 000</bdi></span
+              >
+              لأن الأعباء المستبعدة (<bdi class="n">90 000</bdi>) أكبر من
+              الإضافية (<bdi class="n">72 000</bdi>).
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <div class="pn">
+      <a href="4_2_calcul_cout_resultat_analytique.html"
+        >الدرس <bdi class="n">4.2</bdi> ←</a
+      ><a href="sommaire_compta.html">📚 الفهرس</a
+      ><a href="4_0_presentation_cout_complet.html"
+        >→ الدرس <bdi class="n">4.0</bdi></a
+      >
+    </div>
+    <footer>
+      تحضير بكالوريا <bdi class="n">2027</bdi> – شعبة تسيير واقتصاد – المحاسبة
+      التحليلية (التكلفة الكاملة)<br />بالتوفيق إن شاء الله 🌟
+    </footer>
+  </body>
+</html>

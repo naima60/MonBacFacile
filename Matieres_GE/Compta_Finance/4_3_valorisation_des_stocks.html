@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>4.3 تقييم المخزونات (ثقافة عامة: CMUP، FIFO، LIFO)</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --card: #fff;
+        --ink: #1b2a3a;
+        --muted: #5b6b7b;
+        --main: #0f5c8c;
+        --soft: #e4f0f8;
+        --ok: #1b7a4b;
+        --okbg: #e6f5ec;
+        --warn: #9a5b00;
+        --warnbg: #fff4de;
+        --line: #d5dee8;
+        --dr: #e8f1fb;
+        --cr: #fdeeee;
+        --g1b: #e4f0f8;
+        --g1s: #0f5c8c;
+        --g2b: #e6f5ec;
+        --g2s: #1b7a4b;
+        --g3b: #fff4de;
+        --g3s: #c27a00;
+        --g4b: #f1e8fb;
+        --g4s: #7a4bb3;
+        --g5b: #e0f4f2;
+        --g5s: #13867a;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10161d;
+          --card: #18212b;
+          --ink: #e6edf4;
+          --muted: #9fb0c1;
+          --main: #6bb8ea;
+          --soft: #1d2d3b;
+          --ok: #6fd39c;
+          --okbg: #17302450;
+          --warn: #f0b45a;
+          --warnbg: #3a2c12;
+          --line: #2c3a48;
+          --dr: #1b2c3f;
+          --cr: #3a2024;
+          --g1b: #1d2d3b;
+          --g1s: #6bb8ea;
+          --g2b: #173024;
+          --g2s: #6fd39c;
+          --g3b: #3a2c12;
+          --g3s: #f0b45a;
+          --g4b: #2b2140;
+          --g4s: #b995e8;
+          --g5b: #12302d;
+          --g5s: #5fd3c6;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Cairo", "Amiri", Tahoma, Arial, sans-serif;
+        line-height: 1.95;
+        font-size: 17px;
+      }
+
+      /* === Navbar === */
+      .site-topbar {
+        background: #1b2838;
+        color: #ffffff;
+        border-bottom: 1px solid #2b3c50;
+        padding: 0.55rem 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-topbar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .site-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .site-brand,
+      .site-nav-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.05);
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .site-brand:hover,
+      .site-nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+      }
+      .site-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-toggle-fr {
+        background: #ffc107;
+        color: #16202a;
+        border: none;
+        border-radius: 6px;
+        padding: 0.32rem 0.9rem;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: filter 0.15s ease;
+      }
+      .btn-toggle-fr:hover {
+        filter: brightness(1.05);
+      }
+
+      /* Barre secondaire des leçons */
+      .lessons-bar {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        padding: 0.55rem 1.2rem;
+      }
+      .lessons-bar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+      .lessons-label {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #1b2838;
+        margin-inline-end: 0.25rem;
+      }
+      .lesson-pill {
+        display: inline-block;
+        padding: 0.18rem 0.8rem;
+        border-radius: 999px;
+        border: 1.5px solid #2b6cb0;
+        color: #1a4971;
+        background: #f8fbff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .lesson-pill:hover {
+        background: #e4f0f8;
+        color: #0f5c8c;
+      }
+      .lesson-pill.active {
+        background: #e4f0f8;
+        border-color: #0f5c8c;
+        color: #0f5c8c;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .lessons-bar {
+          background: var(--card);
+        }
+        .lessons-label {
+          color: var(--ink);
+        }
+        .lesson-pill {
+          background: var(--soft);
+          color: var(--main);
+          border-color: var(--main);
+        }
+      }
+
+      body.hide-fr .fr {
+        display: none;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0f5c8c, #16a085);
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0.2rem 0;
+        font-size: 1.8rem;
+      }
+      header p {
+        margin: 0.2rem 0;
+        opacity: 0.92;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .pn {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 980px;
+        margin: 0.8rem auto 0;
+        padding: 0 1rem;
+      }
+      .pn a {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 0 1rem;
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      nav.toc {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem 1.4rem;
+        margin: 1rem 0;
+      }
+      nav.toc ol {
+        columns: 2;
+        margin: 0.3rem 0;
+        padding-inline-start: 1.4rem;
+      }
+      nav.toc a {
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0;
+      }
+      h2 {
+        color: var(--main);
+        border-bottom: 3px solid var(--soft);
+        padding-bottom: 0.3rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--main);
+        margin-bottom: 0.2rem;
+      }
+      h4 {
+        margin: 1rem 0 0.2rem;
+        color: var(--main);
+      }
+      .fr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        font-family: Arial, sans-serif;
+        font-size: 0.9em;
+        color: var(--muted);
+      }
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      bdi.n {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+      }
+      .eq {
+        direction: rtl;
+        unicode-bidi: isolate;
+      }
+      .box {
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        margin: 0.8rem 0;
+        border-inline-start: 6px solid;
+      }
+      .def {
+        background: var(--soft);
+        border-color: var(--main);
+      }
+      .key {
+        background: var(--okbg);
+        border-color: var(--ok);
+      }
+      .warn {
+        background: var(--warnbg);
+        border-color: var(--warn);
+      }
+      .box b.t {
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.6rem 0;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 0.35rem 0.6rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      th {
+        background: var(--soft);
+        color: var(--main);
+      }
+      th.d {
+        background: var(--dr);
+      }
+      th.c {
+        background: var(--cr);
+      }
+      .wrap {
+        overflow-x: auto;
+      }
+      .num {
+        text-align: center;
+        direction: ltr;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      tr.tot td {
+        font-weight: 700;
+        border-top: 2px solid var(--main);
+        background: var(--soft);
+      }
+      table.inv tr.tot td {
+        background: var(--okbg);
+      }
+      .ex {
+        border: 1px dashed var(--main);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+      }
+      .pill {
+        display: inline-block;
+        background: var(--main);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        margin-inline-end: 0.4rem;
+      }
+      .lvl {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        border: 2px solid;
+      }
+      .l1 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .l2 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .l3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .l4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .formula {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.05em;
+        background: var(--soft);
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 0.6rem 0;
+      }
+      .calc {
+        background: var(--soft);
+        border-inline-start: 5px solid var(--main);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.4rem 0;
+      }
+      .calc > div {
+        padding: 0.1rem 0;
+      }
+      details {
+        background: var(--okbg);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.5rem 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ok);
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1.5rem;
+        font-size: 0.9em;
+      }
+      @media (max-width: 640px) {
+        .site-topbar {
+          padding: 0.4rem 0.6rem;
+        }
+        .site-brand,
+        .site-nav-links a,
+        .btn-toggle-fr {
+          font-size: 0.78rem;
+          padding: 0.22rem 0.55rem;
+        }
+        .lessons-bar {
+          padding: 0.45rem 0.6rem;
+        }
+        .lesson-pill {
+          font-size: 0.78rem;
+          padding: 0.14rem 0.55rem;
+        }
+        nav.toc ol {
+          columns: 1;
+        }
+        body {
+          font-size: 16px;
+        }
+        section {
+          padding: 1rem;
+        }
+      }
+      @media print {
+        header,
+        .site-topbar,
+        .lessons-bar {
+          background: #fff;
+          color: #000;
+        }
+        nav.toc,
+        .pn {
+          display: none;
+        }
+        section {
+          break-inside: avoid-page;
+        }
+        details {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-topbar" aria-label="التنقل العام">
+      <div class="site-topbar-inner">
+        <div class="site-nav-right">
+          <a class="site-brand" href="sommaire_compta.html">البرنامج السنوي</a>
+          <div class="site-nav-links">
+            <a href="4_0_presentation_cout_complet.html">شعبة تسيير واقتصاد</a>
+            <a href="4_2_calcul_cout_resultat_analytique_3.html">المجال <bdi class="n">04</bdi></a>
+          </div>
+        </div>
+        <button type="button" class="btn-toggle-fr" onclick="document.body.classList.toggle('hide-fr')">
+          إخفاء / إظهار المصطلحات الفرنسية
+        </button>
+      </div>
+    </nav>
+
+    <div class="lessons-bar" aria-label="دروس المجال">
+      <div class="lessons-bar-inner">
+        <span class="lessons-label">دروس المجال <bdi class="n">04</bdi> :</span>
+        <a class="lesson-pill" href="4_0_presentation_cout_complet.html"><bdi class="n">00</bdi>. تقديم عام</a>
+        <a class="lesson-pill" href="4_1_charges_incorporables_4.html"><bdi class="n">01</bdi>. الأعباء المعتبرة</a>
+        <a class="lesson-pill" href="4_2_calcul_cout_resultat_analytique_3.html"><bdi class="n">02</bdi>. حساب التكاليف والنتيجة</a>
+        <a class="lesson-pill active" href="4_3_Valorisation_des_stocks.html"><bdi class="n">03</bdi>. تقييم المخزونات (ثقافة عامة)</a>
+      </div>
+    </div>
+
+    <header>
+      <h1>
+        📦 <bdi class="n">4.3</bdi> – تقييم المخزونات (ثقافة عامة)
+      </h1>
+      <p>
+        إضافة معرفية مكملة للمحاسبة التحليلية – <bdi class="n">CMUP</bdi>، <bdi class="n">FIFO</bdi> و<bdi class="n">LIFO</bdi>
+      </p>
+     
+    </header>
+
+    
+    <main>
+      <div class="box warn">
+        <b class="t">ملاحظة حول المنهاج (ثقافة عامة)</b>
+        هذا المحور ليس ضمن مقرر بكالوريا شعبة تسيير واقتصاد في المجال <bdi class="n">04</bdi> (حيث نعتمد أساساً على <bdi class="n">CMUP</bdi>)، لكن الاطلاع على <bdi class="n">FIFO</bdi> و<bdi class="n">LIFO</bdi> يمنحك فهماً أعمق لكيفية تسعير الخروج من المخازن في المحاسبة الدولية والجامعية.
+      </div>
+
+      <nav class="toc">
+        <b>📑 محتويات هذا المحور الإثرائي</b>
+        <ol>
+          <li><a href="#s1">لماذا نحتاج طرق تقييم المخزونات؟</a></li>
+          <li><a href="#s2">الطريقة الأولى: التكلفة الوسطية المرجحة (CMUP)</a></li>
+          <li><a href="#s3">الطريقة الثانية: الوارد أولاً صادر أولاً (FIFO)</a></li>
+          <li><a href="#s4">الطريقة الثالثة: الوارد أخيراً صادر أولاً (LIFO)</a></li>
+          <li><a href="#s4b">القطاعات التي تعتمد كل طريقة في الواقع</a></li>
+          <li><a href="#s5">مثال موحد يجمع الطرق الثلاث</a></li>
+          <li><a href="#s6">مقارنة وأثر التضخم على النتيجة والمخزون</a></li>
+        </ol>
+      </nav>
+
+      <section id="s1">
+        <h2><bdi class="n">1</bdi>. لماذا نحتاج طرق تقييم المخزونات؟</h2>
+        <p>
+          عندما تشتري المؤسسة مادة أولية أو تنتج سلعة على دفعات بأسعار مختلفة عبر الزمن، ثم تخرج كمية للاستعمال أو البيع: <b>بأي سعر نقيّم هذه الخرجات؟</b>
+        </p>
+        <div class="box def">
+          <b class="t">الفكرة الأساسية</b>
+          تقييم الخرجات يحدد في آنٍ واحد: <b>تكلفة الاستعمال/المبيعات</b> (التي تؤثر في التكلفة والنتيجة) وقيمة <b>مخزون آخر المدة</b> (الذي يظهر في الميزانية).
+        </div>
+      </section>
+
+      <section id="s2">
+        <h2>
+          <bdi class="n">2</bdi>. التكلفة الوسطية المرجحة
+          <span class="fr">CMUP – Coût Moyen Unitaire Pondéré</span>
+        </h2>
+        <p>
+          تُحسب بدمج مخزون أول المدة مع مداخل الفترة للحصول على متوسط سعر موحد للوحدة.
+        </p>
+        <div class="formula">
+          <bdi class="n">CMUP</bdi> = (قيمة مخزون أول المدة + قيمة المداخل) ÷ (كمية مخزون أول المدة + كمية المداخل)
+        </div>
+        <ul>
+          <li><b>مزاياها:</b> تبسّط الحساب وتخفف أثر تقلبات الأسعار المفاجئة.</li>
+          <li><b>حدودها:</b> تخفي الفروق بين الدفعات القديمة والحديثة.</li>
+        </ul>
+      </section>
+
+      <section id="s3">
+        <h2>
+          <bdi class="n">3</bdi>. الوارد أولاً صادر أولاً
+          <span class="fr">FIFO – First In, First Out (PEPS)</span>
+        </h2>
+        <p>
+          نفترض أن الدفعات الأقدم دخولاً إلى المخزن هي التي تخرج أولاً عند الاستعمال أو البيع.
+        </p>
+        <div class="box key">
+          <b class="t">متى تكون منطقية؟</b>
+          مناسبة للمنتجات القابلة للتلف أو ذات مدة صلاحية (مواد غذائية، أدوية) لأن المخزون الأقدم يُصرف أولاً.
+        </div>
+        <ul>
+          <li><b>مخزون آخر المدة:</b> يتكون غالباً من أحدث المشتريات/الدفعات.</li>
+        </ul>
+      </section>
+
+      <section id="s4">
+        <h2>
+          <bdi class="n">4</bdi>. الوارد أخيراً صادر أولاً
+          <span class="fr">LIFO – Last In, First Out (DEPS)</span>
+        </h2>
+        <p>
+          نفترض أن آخر دفعة دخلت إلى المخزن هي التي تخرج أولاً عند الاستعمال أو البيع.
+        </p>
+        <div class="box warn">
+          <b class="t">تنبيه محاسبي</b>
+          طريقة <bdi class="n">LIFO</bdi> غير مسموحة بموجب المعايير الدولية (<bdi class="n">IFRS</bdi>) وفي أغلب الأنظمة المحاسبية الحديثة، لكنها تبقى مفيدة لفهم أثر الأسعار الجارية على التكلفة.
+        </div>
+        <ul>
+          <li><b>مخزون آخر المدة:</b> يبقى مقيّماً بأسعار الدفعات الأقدم.</li>
+        </ul>
+      </section>
+
+      <section id="s4b">
+        <h2><bdi class="n">4 </bdi>. القطاعات التي تعتمد كل طريقة في الواقع</h2>
+        <p>
+          في الحياة العملية، لا يختار المحاسب أو المسير طريقة التقييم بشكل عشوائي، بل يرتبط اختيارها بطبيعة السلعة وسرعة دورانها وهدف التحليل المالي أو الضريبي:
+        </p>
+        <ul>
+          <li>
+            <b>قطاع المواد الغذائية والصيدلانية (<bdi class="n">FIFO</bdi>):</b> منتجات ذات تاريخ صلاحية أو سريعة التلف (الألبان، اللحوم، الأدوية، مستحضرات التجميل). منطق «الأقدم يخرج أولاً» يطابق الواقع الفيزيائي للمخزن ويقلل الهدر.
+          </li>
+          <li>
+            <b>قطاع الملابس والموضة والتقنيات السريعة (<bdi class="n">FIFO</bdi>):</b> المجموعات الموسمية أو الأجهزة التي تفقد جاذبيتها أو قيمتها سريعاً تُصرف أولاً حتى لا تتقادم في المخازن.
+          </li>
+          <li>
+            <b>المؤسسات الصناعية المتوسطة والتموينات المتكررة (<bdi class="n">CMUP</bdi>):</b> عندما تتكرر المشتريات بأسعار متقاربة نسبياً وتختلط الدفعات في المخزن (مثل المواد الأولية للنجارة أو البناء أو الخياطة)، يعطي المتوسط المرجح استقراراً وسهولة في حساب التكاليف.
+          </li>
+          <li>
+            <b>قطاعات المواد الخام والسلع المتكدسة في أكوام أو صهاريج (<bdi class="n">LIFO</bdi> – كتحليل اقتصادي/جبائي):</b> في بعض الأنشطة التاريخية (مثل المعادن، الفحم، أو بعض المخزونات السائبة)، كان يُنظر إلى آخر دفعة مضافة وكأنها الأقرب للوصول والاستعمال، مما يقارب تكلفة البيع من أسعار السوق الحالية في أوقات التضخم، وإن كانت معايير <bdi class="n">IFRS</bdi> تحظر استخدامها في القوائم المالية الدولية.
+          </li>
+        </ul>
+        <div class="box key">
+          <b class="t">لماذا يهمك هذا كطالب تسيير واقتصاد؟</b>
+          فهم ربط الطريقة بالقطاع يجعلك ترى المحاسبة كأداة لتسيير المؤسسة واتخاذ القرار وليس مجرد أرقام جامدة على الورق—وهي نفس الذهنية التي تساعدك على استيعاب حساب التكاليف والنتيجة في البكالوريا وبعدها في الجامعة والعمل.
+        </div>
+      </section>
+
+      <section id="s5">
+        <h2><bdi class="n">5</bdi>. مثال موحد يجمع الطرق الثلاث</h2>
+        <p>
+          لنفترض مادة <bdi class="n">M</bdi> خلال شهر:
+          مخزون أول المدة: <bdi class="n">100</bdi> كلغ بـ <bdi class="n">10</bdi> دج (<bdi class="n">1 000</bdi> دج)؛
+          دخول جديد: <bdi class="n">100</bdi> كلغ بـ <bdi class="n">14</bdi> دج (<bdi class="n">1 400</bdi> دج)؛
+          خروج للاستعمال: <bdi class="n">120</bdi> كلغ (ويبقى <bdi class="n">80</bdi> كلغ في آخر المدة).
+        </p>
+
+        <div class="wrap">
+          <table>
+            <tr>
+              <th>الطريقة</th>
+              <th>تكلفة الخروج (<bdi class="n">120</bdi> كلغ)</th>
+              <th>مخزون آخر المدة (<bdi class="n">80</bdi> كلغ)</th>
+            </tr>
+            <tr>
+              <td><b><bdi class="n">CMUP</bdi></b> (المتوسط = <bdi class="n">2 400 ÷ 200 = 12</bdi> دج)</td>
+              <td class="num">120 × 12 = 1 440</td>
+              <td class="num">80 × 12 = 960</td>
+            </tr>
+            <tr>
+              <td><b><bdi class="n">FIFO</bdi></b> (<bdi class="n">100</bdi> بـ <bdi class="n">10</bdi> + <bdi class="n">20</bdi> بـ <bdi class="n">14</bdi>)</td>
+              <td class="num">1 000 + 280 = 1 280</td>
+              <td class="num">80 × 14 = 1 120</td>
+            </tr>
+            <tr>
+              <td><b><bdi class="n">LIFO</bdi></b> (<bdi class="n">100</bdi> بـ <bdi class="n">14</bdi> + <bdi class="n">20</bdi> بـ <bdi class="n">10</bdi>)</td>
+              <td class="num">1 400 + 200 = 1 600</td>
+              <td class="num">80 × 10 = 800</td>
+            </tr>
+          </table>
+        </div>
+
+        <details>
+          <summary>تحقق سريع من المجموع الكلي</summary>
+          <div class="calc">
+            <div>في جميع الطرق، مجموع قيمة الخروج + قيمة مخزون آخر المدة = <span class="eq"><bdi class="n">1 000</bdi> + <bdi class="n">1 400</bdi> = <bdi class="n">2 400</bdi></span> دج ✔</div>
+          </div>
+        </details>
+      </section>
+
+      <section id="s6">
+        <h2><bdi class="n">6</bdi>. مقارنة وأثر التضخم على النتيجة والمخزون</h2>
+        <p>عند ارتفاع الأسعار تدريجياً (تضخم):</p>
+        <ul>
+          <li><b><bdi class="n">LIFO</bdi></b> يعطي أعلى تكلفة خروج وأقل مخزون آخر المدة، مما يقلّص الربح المحاسبي الظاهر.</li>
+          <li><b><bdi class="n">FIFO</bdi></b> يعطي أقل تكلفة خروج وأعلى مخزون آخر المدة، مما يرفع الربح المحاسبي الظاهر.</li>
+          <li><b><bdi class="n">CMUP</bdi></b> يقع في الوسط بينهما ويُعدّ المعيار المعتمد في دروس التكلفة الكاملة.</li>
+        </ul>
+      </section>
+    </main>
+
+    <div class="pn">
+      <span></span>
+      <a href="sommaire_compta.html">📚 الفهرس</a>
+      <a href="4_2_calcul_cout_resultat_analytique_3.html">→ الدرس <bdi class="n">4.2</bdi></a>
+    </div>
+
+    <footer>
+      محور إثرائي (ثقافة عامة) – شعبة تسيير واقتصاد – المحاسبة التحليلية<br />
+      بالتوفيق إن شاء الله 🌟
+    </footer>
+  </body>
+</html>

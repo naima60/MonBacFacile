@@ -1,0 +1,1618 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>4.0 مدخل إلى المحاسبة التحليلية – التكلفة الكاملة</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --card: #fff;
+        --ink: #1b2a3a;
+        --muted: #5b6b7b;
+        --main: #0f5c8c;
+        --soft: #e4f0f8;
+        --ok: #1b7a4b;
+        --okbg: #e6f5ec;
+        --warn: #9a5b00;
+        --warnbg: #fff4de;
+        --line: #d5dee8;
+        --dr: #e8f1fb;
+        --cr: #fdeeee;
+        --g1b: #e4f0f8;
+        --g1s: #0f5c8c;
+        --g2b: #e6f5ec;
+        --g2s: #1b7a4b;
+        --g3b: #fff4de;
+        --g3s: #c27a00;
+        --g4b: #f1e8fb;
+        --g4s: #7a4bb3;
+        --g5b: #e0f4f2;
+        --g5s: #13867a;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10161d;
+          --card: #18212b;
+          --ink: #e6edf4;
+          --muted: #9fb0c1;
+          --main: #6bb8ea;
+          --soft: #1d2d3b;
+          --ok: #6fd39c;
+          --okbg: #17302450;
+          --warn: #f0b45a;
+          --warnbg: #3a2c12;
+          --line: #2c3a48;
+          --dr: #1b2c3f;
+          --cr: #3a2024;
+          --g1b: #1d2d3b;
+          --g1s: #6bb8ea;
+          --g2b: #173024;
+          --g2s: #6fd39c;
+          --g3b: #3a2c12;
+          --g3s: #f0b45a;
+          --g4b: #2b2140;
+          --g4s: #b995e8;
+          --g5b: #12302d;
+          --g5s: #5fd3c6;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Cairo", "Amiri", Tahoma, Arial, sans-serif;
+        line-height: 1.95;
+        font-size: 17px;
+      }
+
+      /* === Style Navbar inspiré de la capture d'écran === */
+      .site-topbar {
+        background: #1b2838;
+        color: #ffffff;
+        border-bottom: 1px solid #2b3c50;
+        padding: 0.55rem 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .site-topbar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .site-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .site-brand,
+      .site-nav-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.05);
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .site-brand:hover,
+      .site-nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #ffffff;
+      }
+      .site-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-toggle-fr {
+        background: #ffc107;
+        color: #16202a;
+        border: none;
+        border-radius: 6px;
+        padding: 0.32rem 0.9rem;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: filter 0.15s ease;
+      }
+      .btn-toggle-fr:hover {
+        filter: brightness(1.05);
+      }
+
+      /* Barre secondaire des leçons (pilules) */
+      .lessons-bar {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+        padding: 0.55rem 1.2rem;
+      }
+      .lessons-bar-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+      .lessons-label {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #1b2838;
+        margin-inline-end: 0.25rem;
+      }
+      .lesson-pill {
+        display: inline-block;
+        padding: 0.18rem 0.8rem;
+        border-radius: 999px;
+        border: 1.5px solid #2b6cb0;
+        color: #1a4971;
+        background: #f8fbff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .lesson-pill:hover {
+        background: #e4f0f8;
+        color: #0f5c8c;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .lessons-bar {
+          background: var(--card);
+        }
+        .lessons-label {
+          color: var(--ink);
+        }
+        .lesson-pill {
+          background: var(--soft);
+          color: var(--main);
+          border-color: var(--main);
+        }
+      }
+
+      body.hide-fr .fr {
+        display: none;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0f5c8c, #16a085);
+        color: #fff;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0.2rem 0;
+        font-size: 1.8rem;
+      }
+      header p {
+        margin: 0.2rem 0;
+        opacity: 0.92;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .pn {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        max-width: 980px;
+        margin: 0.8rem auto 0;
+        padding: 0 1rem;
+      }
+      .pn a {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 0 1rem;
+        color: var(--main);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.2rem 1.5rem;
+        margin: 1.2rem 0;
+      }
+      h2 {
+        color: var(--main);
+        border-bottom: 3px solid var(--soft);
+        padding-bottom: 0.3rem;
+        margin-top: 0;
+      }
+      h3 {
+        color: var(--main);
+        margin-bottom: 0.2rem;
+      }
+      h4 {
+        margin: 1rem 0 0.2rem;
+        color: var(--main);
+      }
+      .fr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        font-family: Arial, sans-serif;
+        font-size: 0.9em;
+        color: var(--muted);
+      }
+      .ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+        display: inline-block;
+      }
+      bdi.n {
+        direction: ltr;
+        unicode-bidi: isolate;
+        white-space: nowrap;
+      }
+      .eq {
+        direction: rtl;
+        unicode-bidi: isolate;
+      }
+      .box {
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        margin: 0.8rem 0;
+        border-inline-start: 6px solid;
+      }
+      .def {
+        background: var(--soft);
+        border-color: var(--main);
+      }
+      .key {
+        background: var(--okbg);
+        border-color: var(--ok);
+      }
+      .warn {
+        background: var(--warnbg);
+        border-color: var(--warn);
+      }
+      .box b.t {
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.6rem 0;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 0.35rem 0.6rem;
+        text-align: right;
+        vertical-align: top;
+      }
+      th {
+        background: var(--soft);
+        color: var(--main);
+      }
+      th.d {
+        background: var(--dr);
+      }
+      th.c {
+        background: var(--cr);
+      }
+      .wrap {
+        overflow-x: auto;
+      }
+      .num {
+        text-align: center;
+        direction: ltr;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      tr.tot td {
+        font-weight: 700;
+        border-top: 2px solid var(--main);
+        background: var(--soft);
+      }
+      table.inv tr.tot td {
+        background: var(--okbg);
+      }
+      .ex {
+        border: 1px dashed var(--main);
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+      }
+      .pill {
+        display: inline-block;
+        background: var(--main);
+        color: #fff;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        margin-inline-end: 0.4rem;
+      }
+      .lvl {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 0 0.7rem;
+        font-size: 0.85em;
+        border: 2px solid;
+      }
+      .l1 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .l2 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .l3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .l4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .formula {
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.05em;
+        background: var(--soft);
+        border-radius: 10px;
+        padding: 0.5rem;
+        margin: 0.6rem 0;
+      }
+      .calc {
+        background: var(--soft);
+        border-inline-start: 5px solid var(--main);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.4rem 0;
+      }
+      .calc > div {
+        padding: 0.1rem 0;
+      }
+      details {
+        background: var(--okbg);
+        border-radius: 8px;
+        padding: 0.4rem 0.9rem;
+        margin: 0.5rem 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ok);
+      }
+      .chain {
+        max-width: 680px;
+        margin: 0.6rem auto;
+      }
+      .cb2 {
+        border: 2px solid;
+        border-radius: 12px;
+        padding: 0.4rem 0.9rem;
+        text-align: center;
+      }
+      .cb2.g1 {
+        background: var(--g1b);
+        border-color: var(--g1s);
+      }
+      .cb2.g2 {
+        background: var(--g2b);
+        border-color: var(--g2s);
+      }
+      .cb2.g3 {
+        background: var(--g3b);
+        border-color: var(--g3s);
+      }
+      .cb2.g4 {
+        background: var(--g4b);
+        border-color: var(--g4s);
+      }
+      .cb2.g5 {
+        background: var(--g5b);
+        border-color: var(--g5s);
+      }
+      .cb2 small {
+        display: block;
+        color: var(--muted);
+      }
+      .ar {
+        text-align: center;
+        font-size: 1.3em;
+        color: var(--main);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1.5rem;
+        font-size: 0.9em;
+      }
+      @media (max-width: 640px) {
+  .site-topbar {
+    position: static; /* ou gardez sticky avec une hauteur réduite */
+    padding: 0.4rem 0.6rem;
+  }
+  .site-brand,
+  .site-nav-links a,
+  .btn-toggle-fr {
+    font-size: 0.78rem;
+    padding: 0.22rem 0.55rem;
+  }
+  .lessons-bar {
+    padding: 0.45rem 0.6rem;
+  }
+  .lesson-pill {
+    font-size: 0.78rem;
+    padding: 0.14rem 0.55rem;
+  }
+}
+      @media print {
+        header,
+        .site-topbar,
+        .lessons-bar {
+          background: #fff;
+          color: #000;
+        }
+        nav.toc,
+        .pn {
+          display: none;
+        }
+        section {
+          break-inside: avoid-page;
+        }
+        details {
+          display: block;
+        }
+      }
+
+      /* Style navbar */
+      nav.toc {
+        background: var(--card, #fff);
+        border: 1px solid var(--line, #d5dee8);
+        border-radius: 12px;
+        padding: 1rem 1.4rem;
+        margin: 1rem 0;
+      }
+
+      nav.toc ol {
+        columns: 2;
+        margin: 0.3rem 0;
+        padding-inline-start: 1.4rem;
+      }
+
+      nav.toc a {
+        color: var(--main, #0f5c8c);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+
+      /* Alignement et sens de lecture propre pour la colonne / termes français */
+/* À placer tout à la fin de <style> */
+table th.col-fr,
+table td.col-fr {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  text-align: left !important;
+}
+
+table th.col-fr *,
+table td.col-fr * {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- NavBAR -->
+    <nav class="site-topbar" aria-label="التنقل العام">
+      <div class="site-topbar-inner">
+        <div class="site-nav-right">
+          <a class="site-brand" href="sommaire_compta.html">البرنامج السنوي</a>
+          <div class="site-nav-links">
+            <a href="4_1_charges_incorporables.html">شعبة تسيير واقتصاد</a>
+           
+          </div>
+        </div>
+        <button type="button" class="btn-toggle-fr" onclick="document.body.classList.toggle('hide-fr')">
+          إخفاء / إظهار المصطلحات الفرنسية
+        </button>
+      </div>
+    </nav>
+
+    <!-- Barre des leçons du domaine -->
+    <div class="lessons-bar" aria-label="دروس المجال">
+      <div class="lessons-bar-inner">
+        <span class="lessons-label">دروس المجال <bdi class="n">04</bdi> :</span>
+        <a class="lesson-pill" href="4_0_presentation_cout_complet_3.html"><bdi class="n">00</bdi>. تقديم عام</a>
+        <a class="lesson-pill" href="4_1_charges_incorporables.html"><bdi class="n">01</bdi>. الأعباء المعتبرة</a>
+        <a class="lesson-pill" href="4_2_calcul_cout_resultat_analytique.html"><bdi class="n">02</bdi>. حساب التكاليف والنتيجة</a>
+        <a class="lesson-pill" href="4_3_Valorisation_des_stocks.html"><bdi class="n">03</bdi>. تقييم المخزونات</a>
+      </div>
+    </div>
+
+    <header>
+      <h1>📊 <bdi class="n">4.0</bdi> – مدخل إلى المحاسبة التحليلية</h1>
+      <p>
+        السنة الثالثة ثانوي – شعبة تسيير واقتصاد – بكالوريا
+        <bdi class="n">2027</bdi>
+      </p>
+    </header>
+
+    <main>
+      <nav class="toc">
+        <b>📑 محتويات الدرس</b>
+        <ol>
+          <li><a href="#s1">ما هي المحاسبة التحليلية؟</a></li>
+          <li><a href="#s2">مصطلحات أساسية</a></li>
+          <li><a href="#s3">سلسلة التكاليف: من الشراء إلى النتيجة</a></li>
+          <li><a href="#s4">أي الأعباء ندخل في التكلفة؟</a></li>
+          <li>
+            <a href="#s5">الأقسام التحليلية وتوزيع الأعباء غير المباشرة</a>
+          </li>
+          <li><a href="#s6">تقييم المخزونات: التكلفة الوسطية المرجحة</a></li>
+          <li><a href="#s7">مثال مصغّر كامل من الشراء إلى النتيجة</a></li>
+          <li>
+            <a href="#s8"
+              >خريطة الحل: <bdi class="n">6</bdi> خطوات تتكرر في كل امتحان</a
+            >
+          </li>
+          <li><a href="#s9">كيف يظهر هذا الموضوع في الباكالوريا؟</a></li>
+          <li>
+            <a href="#s10">تمارين تطبيقية (<bdi class="n">4</bdi>)</a>
+          </li>
+          <li><a href="#s11">خارطة الدروس القادمة</a></li>
+        </ol>
+      </nav>
+      <section id="s1">
+        <h2>
+          <bdi class="n">1</bdi>. ما هي المحاسبة التحليلية؟
+          <span class="fr">Comptabilité analytique</span>
+        </h2>
+        <div class="box def">
+          <b class="t">التعريف</b>المحاسبة التحليلية محاسبة <b>داخلية</b> تحسب
+          تكاليف المنتجات والأقسام داخل المؤسسة، وتعرف النتيجة التي يحققها كل
+          منتوج، لمساعدة المسير على <b>تحديد سعر البيع</b> و<b>اتخاذ القرار</b>.
+        </div>
+        <h3>قصة تشرح الفكرة</h3>
+        <p>
+          صاحب «مخبزة الأمل» يسأله محاسبه في نهاية الشهر: «ربحت هذا الشهر
+          <b><bdi class="n">50 000</bdi> دج</b>». هذا جواب المحاسبة العامة. لكن
+          صاحب المخبزة يريد أن يعرف أشياء أدق:
+        </p>
+        <ol>
+          <li>كم <b>يكلفني</b> رغيف الخبز الواحد؟ وكم تكلفني قطعة الحلوى؟</li>
+          <li>بكم يجب أن <b>أبيع</b> لأربح؟</li>
+          <li>أي المنتوجات <b>تربحني</b> وأيها <b>تخسرني</b>؟</li>
+        </ol>
+        <p>
+          المحاسبة العامة لا تجيب عن هذه الأسئلة، والمحاسبة التحليلية هي التي
+          تجيب عنها.
+        </p>
+        <h3>المقارنة بين المحاسبتين</h3>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>وجه المقارنة</th>
+              <th>المحاسبة العامة</th>
+              <th>المحاسبة التحليلية</th>
+            </tr>
+            <tr>
+              <td>الهدف</td>
+              <td>صورة صادقة عن الذمة والنتيجة (قوائم مالية)</td>
+              <td>حساب التكاليف وسعر التكلفة والنتيجة لكل منتوج</td>
+            </tr>
+            <tr>
+              <td>مع من؟</td>
+              <td>الغير: زبائن، موردون، بنك، دولة</td>
+              <td>داخل المؤسسة: أقسام ومنتوجات</td>
+            </tr>
+            <tr>
+              <td>الإلزام</td>
+              <td>إلزامية</td>
+              <td>اختيارية (حسب حاجة المسير)</td>
+            </tr>
+            <tr>
+              <td>تصنيف الأعباء</td>
+              <td>
+                حسب الطبيعة (<bdi class="n">60</bdi>، <bdi class="n">61</bdi>،
+                <bdi class="n">63</bdi>، <bdi class="n">68</bdi> …)
+              </td>
+              <td>حسب الوجهة والوظيفة (شراء، إنتاج، توزيع)</td>
+            </tr>
+            <tr>
+              <td>النتيجة</td>
+              <td>نتيجة واحدة إجمالية</td>
+              <td>نتيجة لكل منتوج ثم نتيجة إجمالية</td>
+            </tr>
+            <tr>
+              <td>المستفيد</td>
+              <td>الإدارة الجبائية، البنك، الشركاء</td>
+              <td>المسير (التسعير والقرارات)</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section id="s2">
+        <h2>
+          <bdi class="n">2</bdi>. مصطلحات أساسية
+          <span class="fr">Vocabulaire</span>
+        </h2>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>المصطلح</th>
+              <th>المعنى البسيط</th>
+              <th><bdi class="n">Fran</bdi>ç<bdi class="n">ais</bdi></th>
+            </tr>
+            <tr>
+              <td>العبء</td>
+              <td>مبلغ تنفقه المؤسسة (مشتريات، أجور، اهتلاك…)</td>
+              <td><bdi class="n">Charge</bdi></td>
+            </tr>
+            <tr>
+              <td>التكلفة</td>
+              <td>مجموع الأعباء الخاصة بمرحلة معينة (شراء، إنتاج…)</td>
+              <td><bdi class="n">Co</bdi>û<bdi class="n">t</bdi></td>
+            </tr>
+            <tr>
+              <td>سعر التكلفة</td>
+              <td>كل ما كلفه المنتوج منذ الشراء حتى وصوله إلى الزبون</td>
+              <td>
+                <bdi class="n">Prix</bdi> <bdi class="n">de</bdi>
+                <bdi class="n">revient</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>التكلفة الكاملة</td>
+              <td>
+                نحمّل المنتوج <b>كل</b> الأعباء المعتبرة: المباشرة وغير المباشرة
+              </td>
+              <td>
+                <bdi class="n">Co</bdi>û<bdi class="n">t</bdi>
+                <bdi class="n">complet</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>العبء المباشر</td>
+              <td>يخص منتوجاً واحداً ويُحمَّل عليه مباشرة</td>
+              <td><bdi class="n">Charge</bdi> <bdi class="n">directe</bdi></td>
+            </tr>
+            <tr>
+              <td>العبء غير المباشر</td>
+              <td>يخص عدة منتوجات، يجب توزيعه أولاً</td>
+              <td>
+                <bdi class="n">Charge</bdi> <bdi class="n">indirecte</bdi>
+              </td>
+            </tr>
+            <tr>
+              <td>القسم التحليلي</td>
+              <td>
+                مكان تجمع فيه الأعباء غير المباشرة (إدارة، صيانة، تموين، إنتاج،
+                توزيع)
+              </td>
+              <td>
+                <bdi class="n">Centre</bdi> <bdi class="n">d</bdi>’<bdi
+                  class="n"
+                  >analyse</bdi
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>وحدة القياس</td>
+              <td>وحدة تقيس نشاط القسم (ساعة عمل، وحدة منتجة…)</td>
+              <td>
+                <bdi class="n">Unit</bdi>é <bdi class="n">d</bdi>’œ<bdi
+                  class="n"
+                  >uvre</bdi
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>التكلفة الوسطية المرجحة</td>
+              <td>سعر وحدة المخزون بعد مزج المخزون الأولي بالمشتريات</td>
+              <td><bdi class="n">CMUP</bdi></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section id="s3">
+        <h2>
+          <bdi class="n">3</bdi>. سلسلة التكاليف: من الشراء إلى النتيجة
+          <span class="fr">La chaîne des coûts</span>
+        </h2>
+        <p>
+          تتبع التكاليف مسار السلعة نفسه: نشتري، ثم نصنع، ثم نبيع. عند كل مرحلة
+          نحسب تكلفة:
+        </p>
+        <div class="chain">
+          <div class="cb2 g1">
+            <b>الشراء</b
+            ><small>ثمن الشراء + مصاريف مباشرة + مصاريف التموين</small>
+          </div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g2">
+            <b>تكلفة الشراء</b
+            ><small>تدخل مخزون المواد (حساب الجرد الدائم)</small>
+          </div>
+          <div class="ar">⬇ نقيّم الاستعمال بالتكلفة الوسطية المرجحة</div>
+          <div class="cb2 g3">
+            <b>الإنتاج</b
+            ><small>مواد مستعملة + يد عاملة مباشرة + أعباء الورشة</small>
+          </div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g3">
+            <b>تكلفة الإنتاج</b><small>تدخل مخزون المنتجات التامة</small>
+          </div>
+          <div class="ar">⬇ نقيّم المبيعات بالتكلفة الوسطية المرجحة</div>
+          <div class="cb2 g4">
+            <b>سعر التكلفة</b
+            ><small>تكلفة إنتاج المبيعات + أعباء التوزيع</small>
+          </div>
+          <div class="ar">⬇</div>
+          <div class="cb2 g5">
+            <b>النتيجة التحليلية</b><small>رقم الأعمال − سعر التكلفة</small>
+          </div>
+        </div>
+        <h3>الصيغ الخمس التي تحفظها</h3>
+        <div class="formula">
+          تكلفة الشراء = ثمن الشراء + مصاريف الشراء المباشرة + مصاريف الشراء غير
+          المباشرة (قسم التموين)
+        </div>
+        <div class="formula">
+          تكلفة الإنتاج = تكلفة المواد المستعملة + اليد العاملة المباشرة +
+          الأعباء غير المباشرة (قسم الإنتاج)
+        </div>
+        <div class="formula">
+          سعر التكلفة = تكلفة إنتاج المنتجات المباعة + أعباء التوزيع
+        </div>
+        <div class="formula">النتيجة التحليلية = رقم الأعمال − سعر التكلفة</div>
+        <div class="formula">
+          النتيجة الصافية = النتيجة التحليلية الإجمالية + العناصر الإضافية −
+          الأعباء غير المعتبرة
+        </div>
+        <div class="box key">
+          <b class="t">فكرة تلخص كل شيء</b>كل مرحلة <b>تأخذ</b> تكلفة المرحلة
+          السابقة وتضيف إليها ما أنفق فيها. لذلك تُحسب التكاليف دائماً
+          <b>بالترتيب</b>: شراء ← إنتاج ← بيع.
+        </div>
+      </section>
+      <section id="s4">
+        <h2>
+          <bdi class="n">4</bdi>. أي الأعباء ندخل في التكلفة؟
+          <span class="fr">Charges incorporables</span>
+        </h2>
+        <p>لا تدخل كل أعباء المحاسبة العامة في التكلفة. نصحّح الأعباء أولاً:</p>
+        <div class="formula">
+          الأعباء المعتبرة = الأعباء حسب الطبيعة − الأعباء غير المعتبرة +
+          العناصر الإضافية
+        </div>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>العنصر</th>
+              <th>ما هو؟</th>
+              <th>مثال</th>
+            </tr>
+            <tr>
+              <td>الأعباء غير المعتبرة</td>
+              <td>
+                أعباء حقيقية لكنها ليست من نشاط المؤسسة العادي، فلا نحمّلها
+                للتكاليف
+              </td>
+              <td>غرامة جبائية، أعباء سنوات سابقة، مخصصات استثنائية</td>
+            </tr>
+            <tr>
+              <td>العناصر الإضافية</td>
+              <td>
+                أعباء لا تسجلها المحاسبة العامة لكنها موجودة اقتصادياً، فنضيفها
+              </td>
+              <td>أجر المالك الذي يعمل بدون راتب، فوائد رأس المال الخاص</td>
+            </tr>
+          </table>
+        </div>
+        <p>
+          بعدها نقسم الأعباء المعتبرة إلى <b>مباشرة</b> و<b>غير مباشرة</b>.
+          <i>التفصيل الكامل في الدرس <bdi class="n">4.1</bdi>.</i>
+        </p>
+      </section>
+      <section id="s5">
+        <h2>
+          <bdi class="n">5</bdi>. الأقسام التحليلية وتوزيع الأعباء غير المباشرة
+          <span class="fr">Centres d’analyse</span>
+        </h2>
+        <p>
+          الإيجار والكهرباء والإدارة أعباء <b>مشتركة</b>: لا نعرف كم تخص رغيف
+          الخبز وكم تخص الحلوى. الحل: نجمعها في <b>أقسام</b> ثم نوزعها بعدل
+          بواسطة <b>وحدة قياس</b>.
+        </p>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>نوع القسم</th>
+              <th>الأقسام</th>
+              <th>دوره</th>
+            </tr>
+            <tr>
+              <td>أقسام مساعدة</td>
+              <td>الإدارة، الصيانة</td>
+              <td>
+                تخدم باقي الأقسام ولا تنتج شيئاً بنفسها، لذلك تُوزَّع كلياً
+              </td>
+            </tr>
+            <tr>
+              <td>أقسام أساسية (رئيسية)</td>
+              <td>التموين، الإنتاج (الورشات)، التوزيع</td>
+              <td>
+                مرتبطة مباشرة بمراحل السلسلة، وتُحمَّل أعباؤها على التكاليف
+              </td>
+            </tr>
+          </table>
+        </div>
+        <h3>خطوات التوزيع الثلاث</h3>
+        <ol>
+          <li>
+            <b>التوزيع الأولي:</b> نضع كل عبء غير مباشر في القسم الذي يخصه.
+          </li>
+          <li>
+            <b>التوزيع الثانوي:</b> نفرّغ الأقسام المساعدة في الأقسام الأخرى
+            بنسب مئوية. إذا كان قسمان يخدمان بعضهما نحل <b>معادلتين</b>.
+          </li>
+          <li>
+            <b>تكلفة وحدة القياس</b> = مجموع التوزيع الثانوي ÷ عدد وحدات القياس.
+          </li>
+        </ol>
+        <div class="formula">
+          تكلفة وحدة القياس = مجموع أعباء القسم بعد التوزيع الثانوي ÷ عدد وحدات
+          القياس
+        </div>
+        <p>
+          <i>مثال تشبيهي:</i> فاتورة كهرباء المحل <bdi class="n">12 000</bdi> دج
+          يتقاسمها مخبز وحلويات حسب ساعات التشغيل: <bdi class="n">300</bdi> ساعة
+          للمخبز و<bdi class="n">100</bdi> ساعة للحلويات، فتكلفة الساعة =
+          <bdi class="n">12 000</bdi> ÷ <bdi class="n">400</bdi> =
+          <b><bdi class="n">30</bdi> دج</b>، ويتحمل المخبز
+          <bdi class="n">9 000</bdi> والحلويات <bdi class="n">3 000</bdi>.
+          التفصيل في الدرس <bdi class="n">4.2</bdi>.
+        </p>
+      </section>
+      <section id="s6">
+        <h2>
+          <bdi class="n">6</bdi>. تقييم المخزونات: التكلفة الوسطية المرجحة
+          <span class="fr">CMUP</span>
+        </h2>
+        <p>
+          عندما يكون عندنا مخزون قديم ثم نشتري كمية جديدة بسعر مختلف، فبأي سعر
+          نقيّم ما نستعمله؟ نستعمل <b>متوسطاً مرجحاً</b> (يراعي الكميات).
+        </p>
+        <div class="formula">
+          <bdi class="n">CMUP</bdi> = (تكلفة مخزون أول المدة + تكلفة الدخول) ÷
+          (كمية مخزون أول المدة + كمية الدخول)
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">مثال</span>مخزون أول المدة
+            <bdi class="n">100</bdi> كلغ بـ <bdi class="n">10</bdi> دج للكلغ،
+            واشترينا <bdi class="n">300</bdi> كلغ بـ <bdi class="n">12</bdi> دج
+            للكلغ.
+          </p>
+          <div class="calc">
+            <div>
+              تكلفة مخزون أول المدة =
+              <span class="eq"
+                ><bdi class="n">100</bdi> × <bdi class="n">10</bdi> =
+                <bdi class="n">1 000</bdi></span
+              >
+            </div>
+            <div>
+              تكلفة المشتريات =
+              <span class="eq"
+                ><bdi class="n">300</bdi> × <bdi class="n">12</bdi> =
+                <bdi class="n">3 600</bdi></span
+              >
+            </div>
+            <div>
+              مجموع التكلفة =
+              <span class="eq"
+                ><bdi class="n">1 000</bdi> + <bdi class="n">3 600</bdi> =
+                <bdi class="n">4 600</bdi></span
+              >
+            </div>
+            <div>
+              مجموع الكمية =
+              <span class="eq"
+                ><bdi class="n">100</bdi> + <bdi class="n">300</bdi> =
+                <bdi class="n">400</bdi></span
+              >
+            </div>
+            <div>
+              <bdi class="n">CMUP</bdi> =
+              <span class="eq"
+                ><bdi class="n">4 600</bdi> ÷ <bdi class="n">400</bdi> =
+                <bdi class="n">11.5</bdi></span
+              >
+              دج للكلغ
+            </div>
+            <div>
+              إذا استعملنا <bdi class="n">250</bdi> كلغ:
+              <span class="eq"
+                ><bdi class="n">250</bdi> × <bdi class="n">11.5</bdi> =
+                <bdi class="n">2 875</bdi></span
+              >
+              دج، ويبقى
+              <span class="eq"
+                ><bdi class="n">150</bdi> × <bdi class="n">11.5</bdi> =
+                <bdi class="n">1 725</bdi></span
+              >
+              دج. والمجموع
+              <span class="eq"
+                ><bdi class="n">2 875</bdi> + <bdi class="n">1 725</bdi> =
+                <bdi class="n">4 600</bdi></span
+              >
+              ✔
+            </div>
+          </div>
+        </div>
+        <div class="box warn">
+          <b class="t">تحقق دائماً</b>في حساب الجرد الدائم:
+          <b>مجموع الدخول = مجموع الخروج</b> (في الكمية وفي المبلغ).
+        </div>
+      </section>
+      <section id="s7">
+        <h2>
+          <bdi class="n">7</bdi>. مثال مصغّر كامل من الشراء إلى النتيجة
+          <span class="fr">Exemple simple</span>
+        </h2>
+        <p>مصنع صغير للبسكويت. <b>لا يوجد</b> أي مخزون في أول الشهر.</p>
+        <ul>
+          <li>
+            اشترى <bdi class="n">500</bdi> كلغ من الدقيق بـ
+            <bdi class="n">40</bdi> دج للكلغ.
+          </li>
+          <li>
+            مصاريف شراء مباشرة (نقل): <bdi class="n">1 500</bdi> دج. مصاريف شراء
+            غير مباشرة (قسم التموين): <bdi class="n">1 000</bdi> دج.
+          </li>
+          <li>
+            استعمل كل الدقيق لإنتاج <bdi class="n">1 000</bdi> علبة. يد عاملة
+            مباشرة: <bdi class="n">6 000</bdi> دج. أعباء غير مباشرة للورشة:
+            <bdi class="n">4 500</bdi> دج.
+          </li>
+          <li>
+            باع <bdi class="n">800</bdi> علبة بسعر <bdi class="n">50</bdi> دج
+            للعلبة. أعباء التوزيع: <bdi class="n">2 000</bdi> دج.
+          </li>
+        </ul>
+        <h4>
+          <span class="pill"><bdi class="n">1</bdi></span
+          >تكلفة شراء الدقيق
+        </h4>
+        <div class="calc">
+          <div>
+            ثمن الشراء =
+            <span class="eq"
+              ><bdi class="n">500</bdi> × <bdi class="n">40</bdi> =
+              <bdi class="n">20 000</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة الشراء =
+            <span class="eq"
+              ><bdi class="n">20 000</bdi> + <bdi class="n">1 500</bdi> +
+              <bdi class="n">1 000</bdi> = <bdi class="n">22 500</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة الكلغ =
+            <span class="eq"
+              ><bdi class="n">22 500</bdi> ÷ <bdi class="n">500</bdi> =
+              <bdi class="n">45</bdi></span
+            >
+          </div>
+        </div>
+        <h4>
+          <span class="pill"><bdi class="n">2</bdi></span
+          >تكلفة إنتاج العلب
+        </h4>
+        <div class="calc">
+          <div>
+            الدقيق المستعمل (<bdi class="n">500</bdi> كلغ بـ
+            <bdi class="n">45</bdi>) =
+            <span class="eq"><bdi class="n">22 500</bdi></span>
+          </div>
+          <div>
+            تكلفة الإنتاج =
+            <span class="eq"
+              ><bdi class="n">22 500</bdi> + <bdi class="n">6 000</bdi> +
+              <bdi class="n">4 500</bdi> = <bdi class="n">33 000</bdi></span
+            >
+          </div>
+          <div>
+            تكلفة العلبة =
+            <span class="eq"
+              ><bdi class="n">33 000</bdi> ÷ <bdi class="n">1 000</bdi> =
+              <bdi class="n">33</bdi></span
+            >
+          </div>
+        </div>
+        <h4>
+          <span class="pill"><bdi class="n">3</bdi></span
+          >سعر التكلفة (للعلب المباعة فقط)
+        </h4>
+        <div class="calc">
+          <div>
+            تكلفة إنتاج <bdi class="n">800</bdi> علبة =
+            <span class="eq"
+              ><bdi class="n">800</bdi> × <bdi class="n">33</bdi> =
+              <bdi class="n">26 400</bdi></span
+            >
+          </div>
+          <div>
+            سعر التكلفة =
+            <span class="eq"
+              ><bdi class="n">26 400</bdi> + <bdi class="n">2 000</bdi> =
+              <bdi class="n">28 400</bdi></span
+            >
+          </div>
+          <div>
+            سعر تكلفة العلبة =
+            <span class="eq"
+              ><bdi class="n">28 400</bdi> ÷ <bdi class="n">800</bdi> =
+              <bdi class="n">35.5</bdi></span
+            >
+          </div>
+        </div>
+        <h4>
+          <span class="pill"><bdi class="n">4</bdi></span
+          >النتيجة التحليلية
+        </h4>
+        <div class="calc">
+          <div>
+            رقم الأعمال =
+            <span class="eq"
+              ><bdi class="n">800</bdi> × <bdi class="n">50</bdi> =
+              <bdi class="n">40 000</bdi></span
+            >
+          </div>
+          <div>
+            النتيجة =
+            <span class="eq"
+              ><bdi class="n">40 000</bdi> − <bdi class="n">28 400</bdi> =
+              <bdi class="n">11 600</bdi></span
+            >
+            دج ربح
+          </div>
+          <div>
+            ربح العلبة =
+            <span class="eq"
+              ><bdi class="n">50</bdi> − <bdi class="n">35.5</bdi> =
+              <bdi class="n">14.5</bdi></span
+            >
+            ←
+            <span class="eq"
+              ><bdi class="n">800</bdi> × <bdi class="n">14.5</bdi> =
+              <bdi class="n">11 600</bdi></span
+            >
+            ✔
+          </div>
+        </div>
+        <div class="box key">
+          <b class="t">وماذا عن العلب غير المباعة؟</b>بقيت
+          <bdi class="n">200</bdi> علبة في المخزن. تقيَّم بتكلفة إنتاجها:
+          <span class="eq"
+            ><bdi class="n">200</bdi> × <bdi class="n">33</bdi> =
+            <bdi class="n">6 600</bdi></span
+          >
+          دج. هي ليست عبئاً ضائعاً بل <b>مخزون</b> سيُباع لاحقاً.
+        </div>
+      </section>
+      <section id="s8">
+        <h2>
+          <bdi class="n">8</bdi>. خريطة الحل: <bdi class="n">6</bdi> خطوات تتكرر
+          في كل امتحان <span class="fr">Méthode</span>
+        </h2>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>الخطوة</th>
+              <th>ماذا نحسب؟</th>
+              <th>الدرس</th>
+            </tr>
+            <tr>
+              <td><bdi class="n">1</bdi></td>
+              <td>تصنيف الأعباء وتصحيحها (معتبرة؟ مباشرة؟ غير مباشرة؟)</td>
+              <td><bdi class="n">4.1</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">2</bdi></td>
+              <td>جدول توزيع الأعباء غير المباشرة وتكلفة وحدة القياس</td>
+              <td><bdi class="n">4.2</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">3</bdi></td>
+              <td>
+                تكلفة شراء المواد + حساب الجرد الدائم للمواد (<bdi class="n"
+                  >CMUP</bdi
+                >)
+              </td>
+              <td><bdi class="n">4.2</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">4</bdi></td>
+              <td>تكلفة الإنتاج + حساب الجرد الدائم للمنتج التام</td>
+              <td><bdi class="n">4.2</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">5</bdi></td>
+              <td>سعر التكلفة للمنتجات المباعة</td>
+              <td><bdi class="n">4.2</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">6</bdi></td>
+              <td>
+                النتيجة التحليلية ثم الصافية (عناصر إضافية، أعباء غير معتبرة)
+              </td>
+              <td><bdi class="n">4.1</bdi> + <bdi class="n">4.2</bdi></td>
+            </tr>
+          </table>
+        </div>
+        <div class="box warn">
+          <b class="t">نصيحة</b>لا تقفز بين الخطوات: كل خطوة تعطي رقماً تحتاجه
+          الخطوة التي بعدها. الأخطاء المتسلسلة هي سبب ضياع أغلب النقاط.
+        </div>
+      </section>
+      <section id="s9">
+        <h2>
+          <bdi class="n">9</bdi>. كيف يظهر هذا الموضوع في الباكالوريا؟
+          <span class="fr">Le bac</span>
+        </h2>
+        <p>من خلال دراسة مواضيع الباك المتاحة لدينا:</p>
+        <div class="wrap">
+          <table class="">
+            <tr>
+              <th>الدورة</th>
+              <th>الموضوع</th>
+              <th>ما طُلب (ملخص)</th>
+              <th>النقاط</th>
+            </tr>
+            <tr>
+              <td><bdi class="n">2010</bdi></td>
+              <td>الأول والثاني</td>
+              <td>
+                جدول توزيع بمعادلتين، تكلفة الشراء والجرد الدائم، تكلفة الإنتاج
+                (ورشتان)، سعر التكلفة والنتيجة
+              </td>
+              <td><bdi class="n">08</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">2015</bdi></td>
+              <td>الأول والثاني</td>
+              <td>
+                نفس الهيكل مع منتجين نصف مصنعين (ورشتان) أو منتجين تامين، ثم
+                النتيجة الصافية بالعناصر الإضافية
+              </td>
+              <td><bdi class="n">08</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">2025</bdi></td>
+              <td>الأول</td>
+              <td>
+                جدول التوزيع، تكلفة الشراء و<bdi class="n">CMUP</bdi>، سعر
+                التكلفة والنتيجة لمنتجين، النتيجة الصافية
+              </td>
+              <td><bdi class="n">06</bdi></td>
+            </tr>
+            <tr>
+              <td><bdi class="n">2026</bdi></td>
+              <td>الأول</td>
+              <td>
+                تصنيف الأعباء مباشرة/غير مباشرة مع الشرح، جدول التوزيع، الجرد
+                الدائم، سعر التكلفة، النتيجة الصافية
+              </td>
+              <td><bdi class="n">06</bdi></td>
+            </tr>
+          </table>
+        </div>
+        <p>
+          الخلاصة: هذا الجزء يحتل
+          <b
+            ><bdi class="n">6</bdi> إلى <bdi class="n">8</bdi> نقاط من
+            <bdi class="n">20</bdi></b
+          >
+          تقريباً في كل موضوع يتضمنه، وهو من أكثر الأجزاء
+          <b>قابلية للإتقان</b> لأنه يعتمد على خطوات ثابتة.
+        </p>
+      </section>
+      <section id="s10">
+        <h2>
+          <bdi class="n">10</bdi>. تمارين تطبيقية (<bdi class="n">4</bdi>)
+        </h2>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">1</bdi></span
+            ><span class="lvl l1">سهل</span>
+          </p>
+          <p>ضع <b>صح</b> أو <b>خطأ</b> مع التصحيح:</p>
+          <ol>
+            <li>المحاسبة التحليلية إلزامية قانوناً مثل المحاسبة العامة.</li>
+            <li>سعر التكلفة يشمل أعباء التوزيع.</li>
+            <li>الأعباء غير المعتبرة تُحمَّل على التكاليف.</li>
+            <li>العناصر الإضافية تُضاف إلى الأعباء المعتبرة.</li>
+            <li>
+              في حساب الجرد الدائم يجب أن يتساوى مجموع الدخول ومجموع الخروج.
+            </li>
+            <li>قسم الإدارة قسم أساسي.</li>
+          </ol>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <div class="wrap">
+              <table class="">
+                <tr>
+                  <th></th>
+                  <th>الحكم</th>
+                  <th>التصحيح</th>
+                </tr>
+                <tr>
+                  <td><bdi class="n">1</bdi></td>
+                  <td>خطأ</td>
+                  <td>المحاسبة التحليلية اختيارية، والعامة هي الإلزامية</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">2</bdi></td>
+                  <td>صح</td>
+                  <td>
+                    سعر التكلفة = تكلفة إنتاج المنتجات المباعة + أعباء التوزيع
+                  </td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">3</bdi></td>
+                  <td>خطأ</td>
+                  <td>لا تُحمَّل، بل تُستبعد لأنها خارج النشاط العادي</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">4</bdi></td>
+                  <td>صح</td>
+                  <td>
+                    الأعباء المعتبرة = أعباء الطبيعة − غير المعتبرة + الإضافية
+                  </td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">5</bdi></td>
+                  <td>صح</td>
+                  <td>هذا هو التحقق الأساسي من صحة الجرد</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">6</bdi></td>
+                  <td>خطأ</td>
+                  <td>الإدارة قسم مساعد يُوزَّع على الأقسام الأخرى</td>
+                </tr>
+              </table>
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">2</bdi></span
+            ><span class="lvl l2">سهل إلى متوسط</span>
+          </p>
+          <p>
+            رتّب العناصر التالية حسب ترتيب حسابها في السلسلة، ثم اكتب صيغة كل
+            عنصر: (أ) النتيجة التحليلية (ب) تكلفة الإنتاج (ج) تكلفة الشراء (د)
+            سعر التكلفة.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <p>الترتيب الصحيح: <b>ج ← ب ← د ← أ</b></p>
+            <div class="wrap">
+              <table class="">
+                <tr>
+                  <th>الترتيب</th>
+                  <th>العنصر</th>
+                  <th>الصيغة</th>
+                </tr>
+                <tr>
+                  <td><bdi class="n">1</bdi></td>
+                  <td>تكلفة الشراء</td>
+                  <td>ثمن الشراء + مصاريف مباشرة + مصاريف التموين</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">2</bdi></td>
+                  <td>تكلفة الإنتاج</td>
+                  <td>مواد مستعملة + يد عاملة مباشرة + أعباء الورشة</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">3</bdi></td>
+                  <td>سعر التكلفة</td>
+                  <td>تكلفة إنتاج المبيعات + أعباء التوزيع</td>
+                </tr>
+                <tr>
+                  <td><bdi class="n">4</bdi></td>
+                  <td>النتيجة التحليلية</td>
+                  <td>رقم الأعمال − سعر التكلفة</td>
+                </tr>
+              </table>
+            </div>
+            <div class="box key">
+              <b class="t">لماذا هذا الترتيب؟</b>كل عنصر يستعمل نتيجة العنصر
+              الذي قبله: لا يمكن حساب تكلفة الإنتاج قبل معرفة تكلفة المواد
+              المشتراة.
+            </div>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">3</bdi></span
+            ><span class="lvl l3">متوسط</span>
+          </p>
+          <p>
+            ورشة لصناعة العصائر، بدون مخزون أول المدة. اشترت
+            <bdi class="n">300</bdi> كلغ من الفواكه بـ
+            <bdi class="n">60</bdi> دج للكلغ، مصاريف شراء مباشرة
+            <bdi class="n">2 400</bdi> دج وغير مباشرة
+            <bdi class="n">1 800</bdi> دج. استعملتها كلها في إنتاج
+            <bdi class="n">1 200</bdi> قارورة، يد عاملة مباشرة
+            <bdi class="n">9 000</bdi> دج وأعباء الورشة
+            <bdi class="n">6 600</bdi> دج. بيع <bdi class="n">1 000</bdi> قارورة
+            بـ <bdi class="n">40</bdi> دج للقارورة، وأعباء التوزيع
+            <bdi class="n">3 000</bdi> دج.
+          </p>
+          <p>
+            <b>المطلوب:</b> احسب تكلفة الشراء، تكلفة الإنتاج، سعر التكلفة
+            والنتيجة التحليلية.
+          </p>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>
+              <span class="pill"><bdi class="n">1</bdi></span
+              >تكلفة الشراء
+            </h4>
+            <div class="calc">
+              <div>
+                ثمن الشراء =
+                <span class="eq"
+                  ><bdi class="n">300</bdi> × <bdi class="n">60</bdi> =
+                  <bdi class="n">18 000</bdi></span
+                >
+              </div>
+              <div>
+                تكلفة الشراء =
+                <span class="eq"
+                  ><bdi class="n">18 000</bdi> + <bdi class="n">2 400</bdi> +
+                  <bdi class="n">1 800</bdi> = <bdi class="n">22 200</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">2</bdi></span
+              >تكلفة الإنتاج
+            </h4>
+            <div class="calc">
+              <div>
+                تكلفة الإنتاج =
+                <span class="eq"
+                  ><bdi class="n">22 200</bdi> + <bdi class="n">9 000</bdi> +
+                  <bdi class="n">6 600</bdi> = <bdi class="n">37 800</bdi></span
+                >
+              </div>
+              <div>
+                تكلفة القارورة =
+                <span class="eq"
+                  ><bdi class="n">37 800</bdi> ÷ <bdi class="n">1 200</bdi> =
+                  <bdi class="n">31.5</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">3</bdi></span
+              >سعر التكلفة
+            </h4>
+            <div class="calc">
+              <div>
+                تكلفة إنتاج المباع =
+                <span class="eq"
+                  ><bdi class="n">1 000</bdi> × <bdi class="n">31.5</bdi> =
+                  <bdi class="n">31 500</bdi></span
+                >
+              </div>
+              <div>
+                سعر التكلفة =
+                <span class="eq"
+                  ><bdi class="n">31 500</bdi> + <bdi class="n">3 000</bdi> =
+                  <bdi class="n">34 500</bdi></span
+                >
+              </div>
+            </div>
+            <h4>
+              <span class="pill"><bdi class="n">4</bdi></span
+              >النتيجة
+            </h4>
+            <div class="calc">
+              <div>
+                رقم الأعمال =
+                <span class="eq"
+                  ><bdi class="n">1 000</bdi> × <bdi class="n">40</bdi> =
+                  <bdi class="n">40 000</bdi></span
+                >
+              </div>
+              <div>
+                النتيجة التحليلية =
+                <span class="eq"
+                  ><bdi class="n">40 000</bdi> − <bdi class="n">34 500</bdi> =
+                  <bdi class="n">5 500</bdi></span
+                >
+                دج ربح
+              </div>
+            </div>
+            <p>
+              التحقق: المخزون المتبقي
+              <span class="eq"
+                ><bdi class="n">200</bdi> × <bdi class="n">31.5</bdi> =
+                <bdi class="n">6 300</bdi></span
+              >
+              دج، و<span class="eq"
+                ><bdi class="n">31 500</bdi> + <bdi class="n">6 300</bdi> =
+                <bdi class="n">37 800</bdi></span
+              >
+              = تكلفة الإنتاج ✔
+            </p>
+          </details>
+        </div>
+        <div class="ex">
+          <p>
+            <span class="pill">تمرين <bdi class="n">4</bdi></span
+            ><span class="lvl l4">متقدم</span>
+          </p>
+          <p>
+            نتيجة المحاسبة العامة لمؤسسة هي
+            <b><bdi class="n">150 000</bdi> دج</b>. الأعباء غير المعتبرة
+            <bdi class="n">20 000</bdi> دج والعناصر الإضافية
+            <bdi class="n">35 000</bdi> دج.
+          </p>
+          <ol>
+            <li>احسب النتيجة التحليلية.</li>
+            <li>اشرح سبب الفرق بين النتيجتين.</li>
+            <li>
+              في مؤسسة أخرى النتيجة التحليلية الإجمالية لمنتجين: (أ)
+              <bdi class="n">210 000</bdi> و(ب) −<bdi class="n">30 000</bdi>.
+              العناصر الإضافية <bdi class="n">35 000</bdi> والأعباء غير المعتبرة
+              <bdi class="n">20 000</bdi>. احسب النتيجة الصافية وعلّق على
+              المنتوج (ب).
+            </li>
+          </ol>
+          <details>
+            <summary>الحل المفصّل (حاول أولاً!)</summary>
+            <h4>السؤال <bdi class="n">1</bdi></h4>
+            <div class="calc">
+              <div>
+                النتيجة العامة = النتيجة التحليلية − الأعباء غير المعتبرة +
+                العناصر الإضافية
+              </div>
+              <div>
+                النتيجة التحليلية = النتيجة العامة + الأعباء غير المعتبرة −
+                العناصر الإضافية
+              </div>
+              <div>
+                النتيجة التحليلية =
+                <span class="eq"
+                  ><bdi class="n">150 000</bdi> + <bdi class="n">20 000</bdi> −
+                  <bdi class="n">35 000</bdi> =
+                  <bdi class="n">135 000</bdi></span
+                >
+                دج
+              </div>
+            </div>
+            <h4>السؤال <bdi class="n">2</bdi></h4>
+            <p>
+              الفرق
+              <span class="eq"
+                ><bdi class="n">150 000</bdi> − <bdi class="n">135 000</bdi> =
+                <bdi class="n">15 000</bdi></span
+              >
+              يساوي
+              <span class="eq"
+                ><bdi class="n">35 000</bdi> − <bdi class="n">20 000</bdi></span
+              >: لقد <b>أضفنا</b> عناصر إضافية (تخفض النتيجة التحليلية) و<b
+                >استبعدنا</b
+              >
+              أعباء غير معتبرة (ترفعها)، والإضافية أكبر فانخفضت النتيجة
+              التحليلية.
+            </p>
+            <h4>السؤال <bdi class="n">3</bdi></h4>
+            <div class="calc">
+              <div>
+                النتيجة التحليلية الإجمالية =
+                <span class="eq"
+                  ><bdi class="n">210 000</bdi> + (−<bdi class="n">30 000</bdi>)
+                  = <bdi class="n">180 000</bdi></span
+                >
+              </div>
+              <div>
+                النتيجة الصافية =
+                <span class="eq"
+                  ><bdi class="n">180 000</bdi> + <bdi class="n">35 000</bdi> −
+                  <bdi class="n">20 000</bdi> =
+                  <bdi class="n">195 000</bdi></span
+                >
+                دج
+              </div>
+            </div>
+            <p>
+              التعليق: المنتوج (ب) <b>يخسّر</b> المؤسسة
+              <bdi class="n">30 000</bdi> دج رغم أن النتيجة الإجمالية موجبة. على
+              المسير مراجعة سعر بيعه أو تكلفته أو التخلي عنه، وهذه معلومة لا
+              تقدمها المحاسبة العامة.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section id="s11">
+        <h2><bdi class="n">11</bdi>. خارطة الدروس القادمة</h2>
+        <ul>
+          <li>
+            <a href="4_1_charges_incorporables.html"
+              ><b>الدرس <bdi class="n">1</bdi>: الأعباء المعتبرة</b></a
+            >
+            — الأعباء غير المعتبرة، العناصر الإضافية، المباشرة وغير المباشرة.
+          </li>
+          <li>
+            <a href="4_2_calcul_cout_resultat_analytique.html"
+              ><b
+                >الدرس <bdi class="n">2</bdi>: حساب التكاليف والنتيجة
+                التحليلية</b
+              ></a
+            >
+            — جدول التوزيع، الجرد الدائم، تكلفة الإنتاج وسعر التكلفة.
+          </li>
+        </ul>
+        <div class="box key">
+          <b class="t">ملخص الدرس</b><bdi class="n">1</bdi>) المحاسبة التحليلية
+          تحسب التكاليف والنتيجة لكل منتوج. <bdi class="n">2</bdi>) السلسلة:
+          شراء ← إنتاج ← بيع. <bdi class="n">3</bdi>) نصحّح الأعباء ثم نوزع غير
+          المباشرة بوحدات القياس. <bdi class="n">4</bdi>) نقيّم المخزون بـ
+          <bdi class="n">CMUP</bdi>. <bdi class="n">5</bdi>) النتيجة الصافية =
+          التحليلية + الإضافية − غير المعتبرة.
+        </div>
+      </section>
+    </main>
+    <div class="pn">
+      <a href="4_1_charges_incorporables.html"
+        >الدرس <bdi class="n">1</bdi> ←</a
+      ><a href="sommaire_compta.html">📚 الفهرس</a><span></span>
+    </div>
+    <footer>
+      تحضير بكالوريا <bdi class="n">2027</bdi> – شعبة تسيير واقتصاد – المحاسبة
+      التحليلية (التكلفة الكاملة)<br />بالتوفيق إن شاء الله 🌟
+    </footer>
+  </body>
+</html>
