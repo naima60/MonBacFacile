@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الضريبة على الدخل الإجمالي | القانون — BacApp-dz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Lien CSS commun DÉSACTIVÉ : les styles de cette page sont intégrés ci-dessous -->
+    <!-- <link rel="stylesheet" href="../assets/compta.css" /> -->
+
+    <style>
+      /* ===== Styles de base (copie des styles communs utilisés par cette page) ===== */
+      .compta-body {
+        background-color: #f2f5f7;
+        color: #1f2937;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      }
+
+      .compta-navbar {
+        background-color: #264653;
+      }
+
+      .compta-hero {
+        background: linear-gradient(135deg, #264653 0%, #2a9d8f 100%);
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(38, 70, 83, 0.14);
+      }
+
+      .compta-hero .fr-term {
+        color: #fde68a;
+      }
+
+      .compta-card {
+        background-color: #ffffff;
+        border: 1px solid #dce4e8;
+        border-radius: 14px;
+        box-shadow: 0 3px 12px rgba(38, 70, 83, 0.06);
+        scroll-margin-top: 80px;
+      }
+
+      .compta-title {
+        color: #264653;
+      }
+
+      .compta-context {
+        background-color: #fffbeb;
+        border-right: 4px solid #f59e0b;
+        border-radius: 8px;
+        padding: 12px 16px;
+      }
+
+      .compta-formula {
+        background-color: #eef7f6;
+        border-right: 4px solid #2a9d8f;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin: 10px 0;
+      }
+
+      .compta-example {
+        background-color: #f8fafb;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        padding: 16px;
+      }
+
+      .compta-list {
+        padding-right: 1.25rem;
+      }
+
+      .compta-list li {
+        margin-bottom: 0.55rem;
+        line-height: 1.7;
+      }
+
+      .compta-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .compta-pill-btn {
+        background-color: #eef7f6;
+        color: #264653;
+        border: 1px solid #2a9d8f;
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 0.35rem 0.9rem;
+      }
+
+      .compta-pill-btn:hover,
+      .compta-pill-btn.active-pill {
+        background-color: #2a9d8f;
+        color: #ffffff;
+      }
+
+      .compta-action-btn {
+        background-color: #e76f51;
+        color: #ffffff;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 0.35rem 0.85rem;
+        text-decoration: none;
+      }
+
+      .compta-action-btn:hover {
+        background-color: #d65a3b;
+        color: #ffffff;
+      }
+
+      .fr-term {
+        color: #1d4ed8;
+        font-weight: 600;
+        direction: ltr;
+        unicode-bidi: embed;
+      }
+
+      .hide-fr-terms .fr-term {
+        display: none;
+      }
+
+      /* ===== Spécifique à cette page : affichage des montants et formules ===== */
+      .num-ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      /* Ligne de calcul : uniquement chiffres, opérateurs et unité */
+      .calc-line {
+        direction: ltr;
+        unicode-bidi: isolate;
+        text-align: right;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+        overflow-x: auto;
+        margin: 0.25rem 0 0.9rem;
+        padding: 0.4rem 0.75rem;
+        background: #eef7f6;
+        border-radius: 8px;
+      }
+
+      /* Commentaire arabe sous un calcul */
+      .calc-note {
+        direction: rtl;
+        text-align: right;
+        font-size: 0.9rem;
+        color: #475569;
+        margin: -0.5rem 0 0.9rem;
+      }
+    </style>
+  </head>
+
+  <body class="compta-body">
+    <!-- شريط التنقل: كتلة واحدة ثابتة -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="3_0_presentation_finances_publiques.html"
+            >
+              المجال 03 : المالية العامة
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_droit.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 03 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 03"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 03 :</span>
+          <a href="3_1_budget_loi_finances.html" class="btn btn-sm compta-pill-btn"
+            >07. الميزانية العامة وقانون المالية</a
+          >
+          <a href="3_2_impots_taxes.html" class="btn btn-sm compta-pill-btn"
+            >08. الضرائب والرسوم</a
+          >
+          <a href="3_3_irg.html" class="btn btn-sm compta-pill-btn active-pill"
+            >09. الضريبة على الدخل الإجمالي</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <header class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-2">الوحدة 09</span>
+        <h1 class="h2 fw-bold mb-2">الضريبة على الدخل الإجمالي <span class="fr-term">(Impôt sur le Revenu Global — IRG)</span></h1>
+        <p class="mb-0 opacity-90">بعد هذا الدرس ستفهم مفهوم الضريبة على الدخل الإجمالي، وصنف المرتبات والأجور الخاضع لها، وكيف تُطبّق عملياً في كشوف الأجور.</p>
+      </header>
+
+      <!-- 1 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">1. نبدأ بقصة من الواقع</h2>
+        <div class="compta-context">
+          عند نهاية كل شهر، تعدّ المؤسسة كشوف رواتب عمالها. يُقتطع من مرتب العامل مبلغ مالي بموجب قانون الضرائب وتحوّله المؤسسة إلى إدارة الضرائب / الخزينة العمومية؛ هذا الاقتطاع الجبائي على الدخل يُعرف بـ <strong>الضريبة على الدخل الإجمالي <span class="num-ltr">(IRG)</span></strong>.
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">2. مفهوم الضريبة على الدخل الإجمالي (IRG)</h2>
+        <div class="compta-formula">
+          <strong>التعريف :</strong> الضريبة على الدخل الإجمالي <span class="fr-term">(IRG — Impôt sur le Revenu Global)</span> هي ضريبة سنوية تؤسس على الدخل الصافي الإجمالي للأشخاص الطبيعيين، وتُعدّ من أهم <strong>الضرائب المباشرة</strong> التي تفرض على مداخيل الأفراد خلال سنة.
+        </div>
+        <ul class="compta-list mb-0">
+          <li><strong>تفرض على الأشخاص الطبيعيين :</strong> أي الأفراد (وليس الشركات الخاضعة للضريبة على أرباح الشركات <span class="num-ltr">IBS</span>).</li>
+          <li><strong>تُعدّ ضريبة مباشرة :</strong> لأنها تمس الدخل مباشرة وتُحسَب وفق قواعد جبائية محددة قانوناً.</li>
+          <li><strong>اقتطاع من المصدر في المرتبات والأجور :</strong> بالنسبة للأجراء، يتولى المستخدم اقتطاع الضريبة المستحقة على الأجور ودفعها وفق الآجال القانونية.</li>
+        </ul>
+      </section>
+
+      <!-- 3 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">3. كيفية تطبيق الضريبة على الدخل الإجمالي (بين النظرية والتطبيق)</h2>
+        <div class="compta-context mb-3">
+          <strong>لماذا نقول إنها «ضريبة سنوية» رغم اقتطاعها «شهرياً» في كشف الراتب؟</strong><br />
+          من الناحية القانونية والجبائية، تُعدّ الضريبة على الدخل الإجمالي <strong>ضريبة سنوية</strong> لأن وعاءها الضريبي يُقدّر على أساس الدخل الصافي الإجمالي خلال السنة وفق جدول تصاعدي سنوي. غير أنه من الناحية التطبيقية في <strong>المرتبات والأجور</strong>، يعتمد المشرع آلية <strong>الاقتطاع من المصدر شهرياً</strong> <span class="fr-term">(Retenue à la source mensuelle)</span>؛ حيث يحسب المستخدم الاقتطاع الشهري المستحق على أجر العامل ويحجزه من راتبه كل شهر، ثم يدفعه إلى إدارة الضرائب في الآجال المقررة، وذلك لتسهيل التحصيل على المكلف وتوفير سيولة منتظمة للخزينة العمومية. ولا ينبغي الخلط بين اقتطاع <span class="num-ltr">IRG</span> (وهو ضريبة جبائية) وبين <strong>اشتراك الضمان الاجتماعي</strong> (وهو اقتطاع اجتماعي مخصص لتمويل الحماية الاجتماعية كالتأمين الصحي والتقاعد).
+        </div>
+
+        <h3 class="h5 fw-bold mt-3">مثال عددي توضيحي مبسّط (لفهم منطق الاقتطاع الشهري)</h3>
+        <div class="compta-example">
+          <p>
+            نفترض في وضعية توضيحية مبسّطة أن عاملاً يتقاضى أجراً خاضعاً لاقتطاع الضمان الاجتماعي
+            قدره <strong class="num-ltr">80&nbsp;000&nbsp;دج</strong> شهرياً، وبعد خصم اشتراك الضمان
+            الاجتماعي (بمعدل <strong class="num-ltr">9%</strong>) يصبح الأجر الخاضع للضريبة
+            <strong class="num-ltr">72&nbsp;800&nbsp;دج</strong>. لنفترض — لأغراض التبسيط التوضيحي فقط —
+            أن المبلغ الشهري المستحق كاقتطاع <strong class="num-ltr">IRG</strong> في هذه الحالة هو
+            <strong class="num-ltr">7&nbsp;820&nbsp;دج</strong>
+            (مثال توضيحي غير مُلزم بحسابات الشرائح التفصيلية في مادة القانون).
+          </p>
+
+          <p class="mb-1"><strong>الخطوة 1 : حساب اشتراك الضمان الاجتماعي (حصة العامل <span class="num-ltr">9%</span>)</strong></p>
+          <p class="calc-line">80&nbsp;000 × 9% = 7&nbsp;200 DA</p>
+
+          <p class="mb-1"><strong>الخطوة 2 : تحديد الأجر بعد خصم اشتراك الضمان الاجتماعي</strong></p>
+          <p class="calc-line">80&nbsp;000 − 7&nbsp;200 = 72&nbsp;800 DA</p>
+
+          <p class="mb-1"><strong>الخطوة 3 : اقتطاع الضريبة على الدخل الإجمالي <span class="num-ltr">(IRG)</span> الشهري</strong></p>
+          <p class="calc-line">72&nbsp;800 − 7&nbsp;820 = 64&nbsp;980 DA</p>
+          <p class="calc-note">المبلغ <span class="num-ltr">7&nbsp;820</span> دج هو IRG (مثال توضيحي)، والناتج <span class="num-ltr">64&nbsp;980</span> دج هو الأجر الصافي المستلم.</p>
+
+          <p class="mb-0">
+            <strong>النتيجة :</strong> يقتطع المستخدم شهرياً مبلغ <strong class="num-ltr">7&nbsp;200&nbsp;دج</strong>
+            للضمان الاجتماعي ومبلغ <strong class="num-ltr">7&nbsp;820&nbsp;دج</strong> كـ
+            <strong class="num-ltr">IRG</strong> ويحوّل الضريبة إلى إدارة الضرائب، بينما يظل أساس الضريبة
+            في القانون الجبائي سنوياً.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">4. أصناف الدخول الخاضعة للضريبة على الدخل الإجمالي</h2>
+        <p class="mb-2">تشمل الضريبة على الدخل الإجمالي عدة أصناف من مداخيل الأشخاص الطبيعيين، من أبرزها:</p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>1. المرتبات والأجور والمعاشات والريوع العمرية</strong>
+              <p class="mt-2 mb-0">الدخول الناتجة عن العمل المأجور والوظائف والمرتبات والمنح المرتبطة بها، وفق القواعد الخاصة باقتطاع الأجور.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>2. الأرباح الصناعية والتجارية والحرفية وغير التجارية</strong>
+              <p class="mt-2 mb-0">المداخيل المحققة من الأنشطة التجارية أو الحرفية الفردية أو المهن الحرة (كالمحامين والأطباء والمهندسين المستقلين).</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>3. المداخيل الفلاحية</strong>
+              <p class="mt-2 mb-0">الأرباح والعائدات الناتجة عن النشاط الفلاحي وتربية المواشي وفق الشروط والإعفاءات المحددة قانوناً.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>4. الريوع العقارية</strong>
+              <p class="mt-2 mb-0">المداخيل المتأتية من إيجار العقارات المبنية وغير المبنية أو الحقوق العقارية.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">5. تدرّب على نمط البكالوريا</h2>
+        <div class="compta-context">
+          توظف شركة عدداً من العمال بشكل دائم، وتقتطع من مرتباتهم مبلغاً مالياً بموجب قانون الضرائب لصالح الخزينة العمومية.
+          <ol class="mt-2 mb-0">
+            <li>ماذا يمثل هذا المبلغ المقتطع من أجور العمال؟</li>
+            <li>عرّف هذه الضريبة، واذكر صنفاً آخر من أصناف الدخول الخاضعة لها غير المرتبات والأجور.</li>
+          </ol>
+        </div>
+        <button type="button" class="btn compta-action-btn mt-3" data-toggle-solution="sol1">إظهار الحل</button>
+        <div id="sol1" class="compta-example mt-3 d-none">
+          <p><strong>1) طبيعة المبلغ المقتطع :</strong> يمثل <strong>الضريبة على الدخل الإجمالي <span class="num-ltr">(IRG)</span></strong>.</p>
+          <p class="mb-0"><strong>2) التعريف وصنف آخر من الدخول :</strong> هي ضريبة سنوية مباشرة تؤسس على الدخل الصافي الإجمالي للأشخاص الطبيعيين (وتُطبق على المرتبات والأجور والمعاشات). ومن الأصناف الأخرى الخاضعة لها: الأرباح الصناعية والتجارية، أو الريوع العقارية، أو المداخيل الفلاحية.</p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">6. الملخص للحفظ</h2>
+        <div class="row g-2 text-center mb-3">
+          <div class="col-md-6">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>الضريبة على الدخل الإجمالي (IRG)</strong><br />ضريبة سنوية مباشرة على دخل الأشخاص الطبيعيين وتُقتطع شهرياً من الأجور
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>أبرز الدخول الخاضعة</strong><br />المرتبات والأجور · الأرباح المهنية · الريوع العقارية · الفلاحية
+            </div>
+          </div>
+        </div>
+        <div class="compta-formula mb-0">
+          <strong>حيلة للحفظ :</strong> <strong>IRG</strong> = ضريبة <strong>مباشرة</strong> على دخل <strong>الأشخاص الطبيعيين</strong>؛ أساسها <strong>سنوي</strong> وتُطبّق على الأجراء عبر <strong>الاقتطاع الشهري من المصدر</strong>.
+        </div>
+      </section>
+    </main>
+
+    <!-- Lien JS commun DÉSACTIVÉ : le script nécessaire à cette page est intégré ci-dessous -->
+    <!-- <script src="../assets/compta.js"></script> -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Masquer / afficher les termes français (même clé que le site : le choix reste partagé entre les pages)
+        const FR_KEY = "compta-hide-fr";
+        const readPref = () => {
+          try {
+            return localStorage.getItem(FR_KEY) === "1";
+          } catch (e) {
+            return false;
+          }
+        };
+        const savePref = (hidden) => {
+          try {
+            localStorage.setItem(FR_KEY, hidden ? "1" : "0");
+          } catch (e) {
+            /* stockage indisponible : on ignore */
+          }
+        };
+
+        if (readPref()) {
+          document.body.classList.add("hide-fr-terms");
+        }
+
+        const btnToggleFr = document.getElementById("btnToggleFr");
+        if (btnToggleFr) {
+          btnToggleFr.setAttribute(
+            "aria-pressed",
+            String(document.body.classList.contains("hide-fr-terms"))
+          );
+          btnToggleFr.addEventListener("click", () => {
+            const hidden = document.body.classList.toggle("hide-fr-terms");
+            btnToggleFr.setAttribute("aria-pressed", String(hidden));
+            savePref(hidden);
+          });
+        }
+
+        // Afficher / masquer la solution de l'exercice
+        document.querySelectorAll("[data-toggle-solution]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const targetId = btn.getAttribute("data-toggle-solution");
+            const solutionEl = document.getElementById(targetId);
+            if (!solutionEl) return;
+
+            const isHidden = solutionEl.classList.toggle("d-none");
+            btn.textContent = isHidden ? "إظهار الحل" : "إخفاء الحل";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شركة المساهمة والشركة ذات المسؤولية المحدودة | القانون — BacApp-dz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="../assets/compta.css">
+    
+    <style>
+      :root {
+        --primary-navy: #0f294a;
+        --secondary-teal: #0d6e6e;
+        --accent-gold: #e6a817;
+        --bg-soft: #f4f7fb;
+        --card-bg: #ffffff;
+        --text-main: #1e293b;
+        --text-muted: #526071;
+        --border-soft: #dce5f0;
+      }
+
+      
+      .course-pill-btn:hover,
+      .course-pill-btn.active-pill {
+        background-color: var(--secondary-teal);
+        color: #ffffff;
+        border-color: var(--secondary-teal);
+      }
+
+      .course-hero {
+        background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-teal) 100%);
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(15, 41, 74, 0.14);
+      }
+
+      .course-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-soft);
+        border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(15, 41, 74, 0.05);
+      }
+
+      .course-title {
+        color: var(--primary-navy);
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+      }
+
+      .course-context {
+        background-color: #f8fafc;
+        border-right: 4px solid var(--secondary-teal);
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+      }
+
+      .course-formula {
+        background-color: #fffbeb;
+        border: 1px solid #fde68a;
+        border-right: 4px solid var(--accent-gold);
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .course-list {
+        padding-right: 1.25rem;
+      }
+
+      .course-list li {
+        margin-bottom: 0.45rem;
+      }
+
+      .course-example {
+        background-color: #f0fdfa;
+        border: 1px solid #99f6e4;
+        border-radius: 10px;
+        padding: 1.15rem 1.35rem;
+      }
+
+      .course-action-btn {
+        background-color: var(--primary-navy);
+        color: #ffffff;
+        font-weight: 600;
+        border: none;
+      }
+
+      .course-action-btn:hover {
+        background-color: var(--secondary-teal);
+        color: #ffffff;
+      }
+
+      .num-ltr {
+        direction: ltr;
+        unicode-bidi: isolate;
+        display: inline-block;
+      }
+
+      .fr-term {
+        color: var(--secondary-teal);
+        font-weight: 600;
+        font-size: 0.92em;
+      }
+
+      body.hide-fr .fr-term {
+        display: none;
+      }
+
+      .table thead th {
+        background-color: var(--primary-navy);
+        color: #ffffff;
+        border-color: #1e3a5f;
+        text-align: center;
+      }
+    </style>
+
+  </head>
+
+
+  <body class="compta-body">
+       <!-- شريط التنقل: كتلة واحدة ثابتة -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="1_0_presentation_contrats_societes.html"
+            >
+              المجال 01 : العقود والشركات التجارية
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_droit.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 01"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_contrat_vente.html" class="btn btn-sm compta-pill-btn active-pill"
+            >01. عقد البيع</a
+          >
+          <a href="1_2_contrat_societe.html" class="btn btn-sm compta-pill-btn"
+            >02. عقد الشركة</a
+          >
+          <a href="1_3_societe_solidarite.html" class="btn btn-sm compta-pill-btn"
+            >03. شركة التضامن</a
+          >
+          <a
+            href="1_4_societe_actions_sarl.html"
+            class="btn btn-sm compta-pill-btn"
+            >04. المساهمة وذ.م.م</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <header class="course-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-2">الوحدة 04</span>
+        <h1 class="h2 fw-bold mb-2">شركة المساهمة والشركة ذات المسؤولية المحدودة <span class="fr-term">(SPA et SARL)</span> والشركة ذات الشخص الوحيد <span class="fr-term">(EURL)</span></h1>
+        <p class="mb-0 opacity-90">بعد هذا الدرس ستعرف تعريف كل شركة من هذه الشركات التجارية وخصائصها، وإجراءات تأسيس شركة المساهمة (بالاكتتاب العلني للادخار ودونه)، ومميزات الشركة ذات المسؤولية المحدودة والشركة ذات الشخص الوحيد.</p>
+      </header>
+
+      <!-- 1 -->
+      <section class="course-card p-4 mb-4">
+        <h2 class="h4 fw-bold course-title mb-3">1. نبدأ بقصة من الواقع</h2>
+        <div class="course-context">
+          أراد مجموعة من المستثمرين إنجاز مشروع صناعي ضخم يتطلب رؤوس أموال كبيرة فأسسوا <strong>شركة مساهمة <span class="num-ltr">(SPA)</span></strong> يُقسَّم رأسمالها إلى أسهم قابلة للتداول. وفي المقابل، فضّل شريكان يثق كل منهما في الآخر إقامة مشروع تجاري متوسط بمسؤولية محدودة فاختارا <strong>الشركة ذات المسؤولية المحدودة <span class="num-ltr">(SARL)</span></strong>، بينما قرر مستثمر آخر العمل بمفرده مع فصل ذمته المالية عن ذمة مشروعه فأنشأ <strong>شركة ذات الشخص الوحيد ذات المسؤولية المحدودة <span class="num-ltr">(EURL)</span></strong>.
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="course-card p-4 mb-4">
+        <h2 class="h4 fw-bold course-title mb-3">2. شركة المساهمة <span class="fr-term">(Société Par Actions — SPA)</span> : التعريف، الخصائص، وإجراءات التأسيس</h2>
+
+        <div class="course-formula">
+          <strong>تعريف شركة المساهمة <span class="fr-term">(SPA)</span> :</strong> هي الشركة التي ينقسم رأسمالها إلى <strong>أسهم <span class="fr-term">(Actions)</span></strong> وتتكوّن من شركاء لا يتحملون الخسائر إلا بقدر حصتهم، ولا يمكن أن يقل عدد الشركاء فيها عن <strong>سبعة (<span class="num-ltr">07</span>) شركاء</strong> (ما لم ينص القانون على خلاف ذلك في حالات خاصة).
+        </div>
+
+        <h3 class="h5 fw-bold mt-3">خصائص شركة المساهمة</h3>
+        <ul class="course-list">
+          <li><strong>الحد الأدنى لعدد الشركاء :</strong> لا يقل عن <strong>سبعة (<span class="num-ltr">07</span>) شركاء</strong> (مساهمين).</li>
+          <li><strong>تقسيم رأس المال إلى أسهم :</strong> تكون الأسهم متساوية القيمة، وغالباً ما تكون <strong>قابلة للتداول</strong> وفق القانون.</li>
+          <li><strong>مسؤولية المساهمين المحدودة :</strong> لا يُسأل المساهم عن ديون الشركة وخسائرها إلا في حدود <strong>مقدار ما يملكه من أسهم</strong> (حصته في رأس المال).</li>
+          <li><strong>التسمية والهياكل التنظيمية :</strong> تُسمّى باسم يدل على موضوعها أو غرضها، وتُدار عادةً عبر مجلس إدارة أو مجلس مديرين ومجلس مراقبة، مع ضرورة تعيين <strong>محافظ الحسابات <span class="fr-term">(Commissaire aux comptes)</span></strong>.</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-4">إجراءات تأسيس شركة المساهمة : حالة اللجوء إلى الاكتتاب العلني للادخار <span class="fr-term">(Appel public à l'épargne)</span></h3>
+        <p class="mb-2">يلجأ المؤسسون إلى الاكتتاب العلني للادخار عندما يطرحون الأسهم للجمهور لجمع رؤوس الأموال، وتتم عبر خطوات قانونية منظمة من أبرزها:</p>
+        <ul class="course-list">
+          <li><strong>تحرير مشروع القانون الأساسي :</strong> يضع المؤسسون مشروع القانون الأساسي للشركة ويودعونه لدى المركز الوطني للسجل التجاري <span class="num-ltr">(CNRC)</span> أو الجهة المختصة.</li>
+          <li><strong>نشر نشرة إعلامية :</strong> تُنشر معلومات تفصيلية حول الشركة ومشروعها ورأسمالها وشروط الاكتتاب لإعلام الجمهور الراغب في الاكتتاب.</li>
+          <li><strong>فتح باب الاكتتاب ودفع الأقساط :</strong> يكتتب الجمهور في الأسهم، ويتم دفع الحصص النقدية وتحرير الأسهم وفق النسب التي يحددها القانون، وتودع الأموال لدى موثق أو مؤسسة مالية مؤهلة.</li>
+          <li><strong>تحرير الحصص العينية (إن وُجدت) :</strong> يُقدَّم تقرير حول تقييم الحصص العينية من طرف محافظ الحصص <span class="fr-term">(Commissaire aux apports)</span>.</li>
+          <li><strong>الجمعية العامة التأسيسية والقيد في السجل التجاري :</strong> تُعقد الجمعية العامة التأسيسية للمصادقة على القانون الأساسي وتقييم الحصص العينية وتعيين أجهزة الإدارة ومحافظ الحسابات، ثم يتم استكمال الإجراءات الرسمية والقيد في <strong>السجل التجاري</strong> لاكتساب الشخصية المعنوية.</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-4">إجراءات تأسيس شركة المساهمة : حالة التأسيس دون اللجوء إلى الاكتتاب العلني للادخار <span class="fr-term">(Sans appel public à l'épargne)</span></h3>
+        <p class="mb-2">عندما يكتتب المؤسسون بأنفسهم في كامل رأس المال دون طرح أسهم للجمهور، تكون الإجراءات أبسط وأسرع:</p>
+        <ul class="course-list mb-0">
+          <li><strong>إعداد القانون الأساسي :</strong> يُحرَّر القانون الأساسي للشركة بصورة رسمية (عقد رسمي لدى الموثق) متضمناً بيانات الشركة ورأسمالها وتوزيع الأسهم.</li>
+          <li><strong>اكتتاب وتحرير رأس المال :</strong> يكتتب المؤسسون في جميع الأسهم ويُودعون المبالغ النقدية المستحقة لدى الموثق أو البنك، مع تقييم الحصص العينية عند وجودها.</li>
+          <li><strong>تعيين أجهزة التسيير ومحافظ الحسابات :</strong> يتم تعيين أعضاء أجهزة الإدارة أو التسيير ومحافظ الحسابات في القانون الأساسي أو في اجتماع تأسيسي.</li>
+          <li><strong>إيداع ملف التأسيس والقيد في السجل التجاري :</strong> تُستكمل إجراءات الإشهار القانوني والقيد في <strong>السجل التجاري</strong> لتكتسب الشركة الشخصية المعنوية وتبدأ نشاطها.</li>
+        </ul>
+      </section>
+
+      <!-- 3 -->
+      <section class="course-card p-4 mb-4">
+        <h2 class="h4 fw-bold course-title mb-3">3. الشركة ذات المسؤولية المحدودة <span class="fr-term">(SARL)</span> والشركة ذات الشخص الوحيد <span class="fr-term">(EURL)</span></h2>
+
+        <div class="course-formula mb-3">
+          <strong>تعريف الشركة ذات المسؤولية المحدودة <span class="fr-term">(SARL — Société à Responsabilité Limitée)</span> :</strong> هي شركة تجارية يؤسسها شريكان أو أكثر لا يتحملون الخسائر إلا في حدود حصصهم، ويُقسَّم رأسمالها إلى <strong>حصص اجتماعية <span class="fr-term">(Parts sociales)</span></strong> متساوية القيمة، ولا يتجاوز عدد الشركاء فيها <strong>خمسين (<span class="num-ltr">50</span>) شريكاً</strong>.
+        </div>
+
+        <h3 class="h5 fw-bold mt-3">خصائص الشركة ذات المسؤولية المحدودة (SARL)</h3>
+        <ul class="course-list">
+          <li><strong>عدد الشركاء :</strong> من شريكين (<span class="num-ltr">02</span>) إلى حد أقصى قدره <strong>خمسون (<span class="num-ltr">50</span>) شريكاً</strong>.</li>
+          <li><strong>رأس المال وحصص الشركاء :</strong> يُقسَّم رأس المال إلى <strong>حصص اجتماعية</strong> (وليس أسهماً)، وتكون هذه الحصص في الأصل <strong>غير قابلة للتداول</strong> بالطرق التجارية الحرة (وتخضع لقيود التنازل للغير أو الورثة).</li>
+          <li><strong>مسؤولية محدودة :</strong> مسؤولية كل شريك عن ديون الشركة وخسائرها محدودة بقيمة حصته في رأس المال.</li>
+          <li><strong>إدارة الشركة :</strong> يُديرها مدير أو عدة مديرين (من الشركاء أو من غيرهم)، وتتمتع الشركة بالشخصية المعنوية بمجرد القيد في السجل التجاري.</li>
+        </ul>
+
+        <div class="course-formula mt-4 mb-3">
+          <strong>تعريف الشركة ذات الشخص الوحيد ذات المسؤولية المحدودة <span class="fr-term">(EURL — Entreprise Unipersonnelle à Responsabilité Limitée)</span> :</strong> هي شكل قانوني للشركة ذات المسؤولية المحدودة يتكون من <strong>شريك وحيد</strong> فقط، يمتلك كامل رأس المال المقسّم إلى حصص اجتماعية، وتكون مسؤوليته عن ديون الشركة محدودة في حدود حصته المقدمة.
+        </div>
+
+        <h3 class="h5 fw-bold mt-3">خصائص الشركة ذات الشخص الوحيد (EURL)</h3>
+        <ul class="course-list mb-0">
+          <li><strong>وحدة الشريك :</strong> يملكها <strong>شخص واحد</strong> (طبيعي أو معنوي وفق الشروط القانونية)، مما يتيح العمل الفردي في إطار شركة.</li>
+          <li><strong>الفصل بين الذمتين الماليتين :</strong> تنفصل الذمة المالية للشركة عن الذمة المالية الشخصية للشريك الوحيد، فلا تُمسّ أمواله الخاصة بديون الشركة إلا في حدود حصته (ما لم يرتكب أخطاء جسيمة أو يضمن شخصياً).</li>
+          <li><strong>صلاحيات الشريك الوحيد :</strong> يمارس الشريك الوحيد السلطات التي تعود للجمعية العامة للشركاء في شركة <span class="num-ltr">SARL</span>، ويتخذ القرارات ويدوّنها في سجل خاص.</li>
+          <li><strong>المرونة والانتقال :</strong> تتيح إمكانية دخول شركاء جدد لاحقاً فتتحول عملياً إلى شركة ذات مسؤولية محدودة متعددة الشركاء.</li>
+        </ul>
+      </section>
+
+      <!-- 4 -->
+      <section class="course-card p-4 mb-4">
+        <h2 class="h4 fw-bold course-title mb-3">4. جدول مقارنة تلخيصي بين SPA و SARL و EURL</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle mb-0">
+            <thead>
+              <tr>
+                <th>وجه المقارنة</th>
+                <th>شركة المساهمة <span class="num-ltr">(SPA)</span></th>
+                <th>الشركة ذات المسؤولية المحدودة <span class="num-ltr">(SARL)</span></th>
+                <th>الشركة ذات الشخص الوحيد <span class="num-ltr">(EURL)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>عدد الشركاء</strong></td>
+                <td>لا يقل عن <strong><span class="num-ltr">07</span> شركاء</strong> (حد أدنى).</td>
+                <td>من <strong><span class="num-ltr">02</span> إلى <span class="num-ltr">50</span> شريكاً</strong> (حد أقصى).</td>
+                <td><strong>شريك وحيد</strong> فقط.</td>
+              </tr>
+              <tr>
+                <td><strong>تقسيم رأس المال</strong></td>
+                <td><strong>أسهم</strong> <span class="fr-term">(Actions)</span>.</td>
+                <td><strong>حصص اجتماعية</strong> <span class="fr-term">(Parts sociales)</span>.</td>
+                <td><strong>حصص اجتماعية</strong> يملكها الشريك الوحيد.</td>
+              </tr>
+              <tr>
+                <td><strong>تداول الحصص / الأسهم</strong></td>
+                <td>قابلة للتداول في الغالب وفق القانون.</td>
+                <td>غير قابلة للتداول الحر؛ يخضع التنازل لقيود وشروط.</td>
+                <td>تخضع لقيود التنازل المقررة للحصص الاجتماعية.</td>
+              </tr>
+              <tr>
+                <td><strong>مسؤولية الشركاء</strong></td>
+                <td>محدودة بقيمة الأسهم المكتتب فيها.</td>
+                <td>محدودة بقيمة الحصة الاجتماعية.</td>
+                <td>محدودة بقيمة الحصة في حدود الذمة المستقلة للشركة.</td>
+              </tr>
+              <tr>
+                <td><strong>الاكتتاب العلني للادخار</strong></td>
+                <td>ممكن (مع إجراءات خاصة) أو بدونه.</td>
+                <td>غير مطروح للاكتتاب العلني للادخار.</td>
+                <td>غير مطروح للاكتتاب العلني للادخار.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="course-card p-4 mb-4">
+        <h2 class="h4 fw-bold course-title mb-3">5. تدرّب على نمط البكالوريا</h2>
+        <div class="course-context">
+          اتفقت مجموعة من المستثمرين (أكثر من سبعة أشخاص) على إنشاء شركة لتنفيذ مشروع كبير وطرح أسهمها للجمهور، بينما أنشأ تاجر آخر شركة بمفرده تقتصر مسؤوليته فيها على حصته.
+          <ol class="mt-2 mb-0">
+            <li>ما هو نوع الشركة الأولى؟ وما هو الفرق بين تأسيسها بالاكتتاب العلني للادخار ودونه؟</li>
+            <li>ما هو شكل الشركة الثانية؟ وما هي أهم ميزة لها بالنسبة لصاحبها؟</li>
+          </ol>
+        </div>
+        <button type="button" class="btn course-action-btn mt-3" data-toggle-solution="sol1">إظهار الحل</button>
+        <div id="sol1" class="course-example mt-3 d-none">
+          <p><strong>1) نوع الشركة الأولى والفرق في التأسيس :</strong> هي <strong>شركة المساهمة <span class="num-ltr">(SPA)</span></strong>. عند التأسيس <strong>بالاكتتاب العلني للادخار</strong> يتم طرح الأسهم للجمهور ونشر نشرة إعلامية وفتح الاكتتاب وعقد جمعية عامة تأسيسية؛ أما <strong>دون اكتتاب علني للادخار</strong> فيكتتب المؤسسون بأنفسهم في كامل رأس المال وتكون الإجراءات أخف.</p>
+          <p class="mb-0"><strong>2) شكل الشركة الثانية وأهم ميزة لها :</strong> هي <strong>الشركة ذات الشخص الوحيد ذات المسؤولية المحدودة <span class="num-ltr">(EURL)</span></strong>. من أهم مزاياها جمعها بين انفراد شخص واحد بالقرار والملكية وبين <strong>محدودية المسؤولية</strong> وفصل الذمة المالية للشركة عن ذمته الشخصية.</p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="course-card p-4">
+        <h2 class="h4 fw-bold course-title mb-3">6. الملخص للحفظ</h2>
+        <div class="row g-2 text-center mb-3">
+          <div class="col-md-4">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>شركة المساهمة (SPA)</strong><br />7 شركاء فأكثر · رأسمالها أسهم · اكتتاب علني أو بدونه
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>شركة ذ.م.م (SARL)</strong><br />من 2 إلى 50 شريكاً · حصص اجتماعية · مسؤولية محدودة
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>شركة الشخص الوحيد (EURL)</strong><br />شريك وحيد · حصص اجتماعية · ذمة مستقلة ومسؤولية محدودة
+            </div>
+          </div>
+        </div>
+        <div class="course-formula mb-0">
+          <strong>حيلة للحفظ :</strong> <strong>SPA</strong> = أسهم و<strong>7</strong> شركاء فأكثر؛ <strong>SARL</strong> = حصص اجتماعية و<strong>2 إلى 50</strong> شريكاً؛ <strong>EURL</strong> = شريك <strong>واحد</strong> بمسؤولية محدودة.
+        </div>
+      </section>
+    </main>
+
+   <script src="../assets/compta.js"></script>
+  </body>
+</html>

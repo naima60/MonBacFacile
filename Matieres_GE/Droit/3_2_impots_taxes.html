@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الضرائب والرسوم | القانون — BacApp-dz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/compta.css" />
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل: كتلة واحدة ثابتة -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="3_0_presentation_finances_publiques.html"
+            >
+              المجال 03 : المالية العامة
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_droit.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 03 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 03"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 03 :</span>
+          <a href="3_1_budget_loi_finances.html" class="btn btn-sm compta-pill-btn"
+            >07. الميزانية العامة وقانون المالية</a
+          >
+          <a href="3_2_impots_taxes.html" class="btn btn-sm compta-pill-btn active-pill"
+            >08. الضرائب والرسوم</a
+          >
+          <a href="3_3_irg.html" class="btn btn-sm compta-pill-btn"
+            >09. الضريبة على الدخل الإجمالي</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <header class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-2">الوحدة 08</span>
+        <h1 class="h2 fw-bold mb-2">الضرائب والرسوم <span class="fr-term">(Impôts et taxes)</span></h1>
+        <p class="mb-0 opacity-90">بعد هذا الدرس ستعرف تعريف الضريبة وخصائصها وأنواعها وأمثلة تطبيقية عنها في الجزائر، وقواعد النظام الضريبي، وتعريف الرسم وخصائصه والفرق الجوهري بينهما.</p>
+      </header>
+
+      <!-- 1 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">1. نبدأ بقصة من الواقع</h2>
+        <div class="compta-context">
+          عندما يدفع المواطن أو الشركة ضريبة على الدخل أو الأرباح، فهو يساهم في تمويل الخزينة العمومية <strong>دون مقابل مباشر</strong>. وعندما يطلب استخراج وثيقة أو خدمة إدارية خاصة يفرض القانون مقابلها <strong>رسماً</strong>، فهو يدفع مبلغاً مرتبطاً بخدمة أو نفع خاص. كلتاهما أداتان قانونيتان من مصادر الإيرادات العامة للدولة.
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">2. الضريبة : تعريفها، خصائصها، وأنواعها</h2>
+        <div class="compta-formula">
+          <strong>تعريف الضريبة <span class="fr-term">(L'impôt)</span> :</strong> تأدية نقدية أو خدمة مالية تُفرض على الأشخاص جبراً من طرف السلطة العامة <strong>دون مقابل وبصفة نهائية</strong> من أجل تغطية النفقات العامة وتحقيق الأهداف الاقتصادية والاجتماعية.
+        </div>
+
+        <h3 class="h5 fw-bold mt-3">خصائص الضريبة</h3>
+        <ul class="compta-list">
+          <li><strong>أداء نقدي :</strong> تُدفع غالباً في شكل نقود.</li>
+          <li><strong>إجبارية :</strong> تُفرض بقوة القانون والسلطة العامة، ولا مجال لاختيار المكلف بدفعها.</li>
+          <li><strong>بدون مقابل مباشر :</strong> لا ينتظر دافع الضريبة خدمة خاصة مقابلة لما دفعه تحديداً.</li>
+          <li><strong>بصفة نهائية :</strong> لا تردّ إلى المكلف بعد دفعها (على عكس القرض العام).</li>
+          <li><strong>تهدف إلى تحقيق النفع العام :</strong> تُخصّص لتغطية النفقات العامة وتحقيق التضامن الاجتماعي.</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-3">أنواع الضرائب</h3>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>أ) الضرائب المباشرة <span class="fr-term">(Impôts directs)</span></strong>
+              <p class="mt-2 mb-0">ضرائب تُفرض مباشرة على <strong>الدخل والثروة</strong>، وتُحصّل غالباً بواسطة قوائم اسمية بناءً على إشعار مسبق من إدارة الضرائب، وتنتقل مباشرة من المكلف إلى الخزينة العامة (مثل: IRG، IBS، ISF).</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>ب) الضرائب غير المباشرة <span class="fr-term">(Impôts indirects)</span></strong>
+              <p class="mt-2 mb-0">ضرائب تُفرض على <strong>عمليات التداول والاستهلاك والخدمات المؤداة</strong>، ويمكن نقل عبئها من شخص إلى آخر ليتحملها المستهلك النهائي (مثل: TVA، TIC).</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-3">أمثلة لأهم الضرائب المباشرة وغير المباشرة في الجزائر</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle mb-0">
+            <thead>
+              <tr>
+                <th>الضريبة</th>
+                <th>النوع</th>
+                <th>الهدف / الاستخدام</th>
+                <th>النسبة / المعدل المطبق (معالم في الجزائر)</th>
+                <th>الوعاء الضريبي (على ماذا تُطبّق؟)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>الضريبة على الدخل الإجمالي</strong><br /><span class="num-ltr">IRG</span> <span class="fr-term">(Impôt sur le Revenu Global)</span></td>
+                <td><span class="badge bg-primary">مباشرة</span></td>
+                <td>تمويل ميزانية الدولة وإخضاع مداخيل الأفراد للضريبة حسب قدرتهم التكليفية.</td>
+                <td>جدول تصاعدي من <strong><span class="num-ltr">0%</span> إلى <span class="num-ltr">35%</span></strong> (مع إعفاء المداخيل الضعيفة وتخفيض خاص للأجور).</td>
+                <td>الدخل الصافي الإجمالي السنوي <strong>للأشخاص الطبيعيين</strong> (المرتبات والأجور، المداخيل العقارية، الفلاحية، والمهنية).</td>
+              </tr>
+              <tr>
+                <td><strong>الضريبة على أرباح الشركات</strong><br /><span class="num-ltr">IBS</span> <span class="fr-term">(Impôt sur les Bénéfices des Sociétés)</span></td>
+                <td><span class="badge bg-primary">مباشرة</span></td>
+                <td>إخضاع الأرباح المحققة من طرف الشركات التجارية لتغذية الإيرادات الجبائية للدولة.</td>
+                <td><strong><span class="num-ltr">19%</span></strong> (إنتاج السلع)، <strong><span class="num-ltr">23%</span></strong> (البناء والأشغال العمومية والسياحة)، <strong><span class="num-ltr">26%</span></strong> (باقي الأنشطة).</td>
+                <td><strong>الربح الجبائي الصافي</strong> السنوي الذي تحققه الشركات التجارية (شركة المساهمة، ذ.م.م، وغيرها).</td>
+              </tr>
+              <tr>
+                <td><strong>الضريبة على الثروة</strong><br /><span class="num-ltr">ISF</span> <span class="fr-term">(Impôt Sur la Fortune)</span></td>
+                <td><span class="badge bg-primary">مباشرة</span></td>
+                <td>إخضاع الممتلكات والثروات الكبيرة لتعزيز العدالة الضريبية.</td>
+                <td>نسب تصاعدية تُطبّق على الثروات التي تفوق العتبة القانونية المحددة.</td>
+                <td>القيمة الصافية <strong>لممتلكات وثروة</strong> الأشخاص الطبيعيين (عقارات، سيارات فاخرة، أموال منقولة…).</td>
+              </tr>
+              <tr>
+                <td><strong>الرسم على القيمة المضافة</strong><br /><span class="num-ltr">TVA</span> <span class="fr-term">(Taxe sur la Valeur Ajoutée)</span></td>
+                <td><span class="badge bg-warning text-dark">غير مباشرة</span></td>
+                <td>توفير مورد مالي أساسي للخزينة العمومية عند كل مرحلة من مراحل التداول، ويتحملها المستهلك النهائي.</td>
+                <td>المعدل العادي <strong><span class="num-ltr">19%</span></strong> والمعدل المخفّض <strong><span class="num-ltr">9%</span></strong> (حسب طبيعة السلع والخدمات).</td>
+                <td>رقم الأعمال / قيمة <strong>عمليات البيع، الأشغال العقارية، تأدية الخدمات، والاستيراد</strong> (خارج الرسم).</td>
+              </tr>
+              <tr>
+                <td><strong>الرسم الداخلي على الاستهلاك</strong><br /><span class="num-ltr">TIC</span> <span class="fr-term">(Taxe Intérieure de Consommation)</span></td>
+                <td><span class="badge bg-warning text-dark">غير مباشرة</span></td>
+                <td>تمويل الميزانية العامة وتوجيه أو ترشيد استهلاك بعض المنتجات الخاصة.</td>
+                <td>معدلات أو تعريفات نوعية يحددها القانون الجبائي حسب صنف المنتج.</td>
+                <td>بعض <strong>المنتجات الاستهلاكية المحددة</strong> (مثل التبغ، المواد البترولية، وبعض السلع الكمالية).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">3. قواعد النظام الضريبي</h2>
+        <p class="mb-2">يعتمد المشرع في وضع أسس النظام الضريبي على أربع (04) قواعد أساسية:</p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>1. قاعدة العدالة :</strong> تطبيق مبدأ المساواة بين المواطنين في أداء الضريبة كلٌّ حسب قدرته التكليفية ومقدرته المالية.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>2. قاعدة اليقين :</strong> تحديد الضريبة بصورة واضحة ودقيقة ومعلومة مسبقاً دون غموض أو تحكم.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>3. قاعدة الملاءمة في الدفع :</strong> ملاءمة مواعيد وطرق دفع الضريبة مع ظروف المكلفين وتسهيل أدائها.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>4. قاعدة الاقتصاد في التحصيل :</strong> اتباع طرق وإجراءات تحصيل غير مكلفة حتى لا يضيع جزء كبير من حصيلة الضريبة في مصاريف جبايتها.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">4. الرسم وخصائصه والفرق بين الضريبة والرسم</h2>
+        <div class="compta-formula">
+          <strong>تعريف الرسم <span class="fr-term">(La taxe)</span> :</strong> مبلغ مالي نقدي يدفعه الشخص مقابل <strong>خدمة تؤديها له هيئة عامة</strong> أو <strong>نفع خاص</strong> يستفيد منه (دون أن يشترط بالضرورة تكافؤ تام بين قيمة الرسم والتكلفة الحقيقية للخدمة).
+        </div>
+
+        <h3 class="h5 fw-bold mt-3">خصائص الرسم</h3>
+        <ul class="compta-list mb-3">
+          <li><strong>مبلغ نقدي تحدده الدولة بالقانون :</strong> يُفرض ويُحدّد من جهة واحدة هي الدولة بموجب نص قانوني.</li>
+          <li><strong>ارتباطه بمقابل أو خدمة خاصة أو نفع خاص :</strong> يرتبط بأداء خدمة إدارية أو نفع خاص يستفيد منه دافع الرسم.</li>
+          <li><strong>الطابع الإجباري :</strong> لأنه صادر عن السلطة العامة، فيُلزم بدفعه متى تحققت الواقعة المنشئة له ولو لم يستفد الشخص فعلياً من الخدمة أو امتنع عن استعمالها.</li>
+        </ul>
+
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle mb-0">
+            <thead>
+              <tr>
+                <th>وجه المقارنة</th>
+                <th>الضريبة <span class="fr-term">(L'impôt)</span></th>
+                <th>الرسم <span class="fr-term">(La taxe)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>المقابل المباشر</strong></td>
+                <td><strong>لا يوجد</strong> مقابل مباشر؛ تُدفع لتغطية النفقات العامة عموماً.</td>
+                <td><strong>يوجد</strong> ارتباط بخدمة عامة أو نفع خاص يستفيد منه الشخص.</td>
+              </tr>
+              <tr>
+                <td><strong>الإجبارية</strong></td>
+                <td>إجبارية بنص القانون.</td>
+                <td>إجبارية بنص القانون أيضاً.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">5. تدرّب على نمط البكالوريا</h2>
+        <div class="compta-context">
+          تُعدّ الضرائب والرسوم من أهم مصادر الإيرادات العامة للدولة.
+          <ol class="mt-2 mb-0">
+            <li>عرّف الرسم واذكر خصائصه.</li>
+            <li>عرّف الضريبة غير المباشرة وأعطِ مثالاً عنها.</li>
+            <li>ما هي القواعد التي يعتمدها المشرع في وضع أسس النظام الضريبي؟</li>
+          </ol>
+        </div>
+        <button type="button" class="btn compta-action-btn mt-3" data-toggle-solution="sol1">إظهار الحل</button>
+        <div id="sol1" class="compta-example mt-3 d-none">
+          <p><strong>1) تعريف الرسم وخصائصه :</strong> الرسم مبلغ مالي نقدي يدفعه الشخص مقابل خدمة تؤديها له هيئة عامة أو نفع خاص يستفيد منه. من خصائصه: مبلغ نقدي تفرضه الدولة بالقانون، يرتبط بخدمة أو نفع خاص، ويتميز بطابعه الإجباري.</p>
+          <p><strong>2) تعريف الضريبة غير المباشرة ومثالها :</strong> هي الضريبة التي تُفرض على عمليات التداول والاستهلاك والخدمات المؤداة ويمكن نقل عبئها إلى المستهلك النهائي. مثالها: الرسم على القيمة المضافة (<span class="num-ltr">TVA</span>) أو الرسم الداخلي على الاستهلاك (<span class="num-ltr">TIC</span>).</p>
+          <p class="mb-0"><strong>3) قواعد النظام الضريبي :</strong> قاعدة العدالة، قاعدة اليقين، قاعدة الملاءمة في الدفع، وقاعدة الاقتصاد في التحصيل.</p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">6. الملخص للحفظ</h2>
+        <div class="row g-2 text-center mb-3">
+          <div class="col-md-4">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>الضريبة</strong><br />إجبارية · نهائية · بدون مقابل مباشر<br />(مباشرة: IRG, IBS · غير مباشرة: TVA, TIC)
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>الرسم</strong><br />إجباري · مرتبط بخدمة أو نفع خاص
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded-3 p-2 bg-white h-100">
+              <strong>قواعد النظام الضريبي</strong><br />العدالة · اليقين · الملاءمة · الاقتصاد
+            </div>
+          </div>
+        </div>
+        <div class="compta-formula mb-0">
+          <strong>حيلة للحفظ :</strong> الضريبة = <strong>بلا مقابل مباشر</strong>؛ الرسم = <strong>مقابل خدمة أو نفع خاص</strong>. وقواعد النظام الضريبي تجمعها عبارة: <strong>«عدالة، يقين، ملاءمة، اقتصاد»</strong>.
+        </div>
+      </section>
+    </main>
+    <script src="../assets/compta.js"></script>
+  </body>
+</html>
