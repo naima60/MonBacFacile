@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عقد الشركة | القانون — BacApp-dz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/compta.css" />
+  </head>
+  <body class="compta-body">
+    <!-- شريط التنقل: كتلة واحدة ثابتة -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-dark shadow-sm compta-navbar" aria-label="التنقل الرئيسي">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-light fw-bold" href="1_0_presentation_contrats_societes.html">المجال 01 : العقود والشركات التجارية</a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="sommaire_droit.html">البرنامج السنوي</a>
+            <a class="btn btn-sm btn-outline-light fw-bold" href="../../home_filieres/home_GE.html">شعبة تسيير واقتصاد</a>
+          </div>
+          <button type="button" id="btnToggleFr" class="btn btn-sm btn-warning fw-bold" aria-pressed="false">إخفاء / إظهار المصطلحات الفرنسية</button>
+        </div>
+      </nav>
+      <nav class="bg-white border-bottom shadow-sm py-2" aria-label="دروس المجال 01">
+        <div class="container d-flex flex-wrap align-items-center justify-content-center gap-2">
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_contrat_vente.html" class="btn btn-sm compta-pill-btn">01. عقد البيع</a>
+          <a href="1_2_contrat_societe.html" class="btn btn-sm compta-pill-btn active-pill">02. عقد الشركة</a>
+          <a href="1_3_societe_solidarite.html" class="btn btn-sm compta-pill-btn">03. شركة التضامن</a>
+          <a href="1_4_societe_actions_sarl.html" class="btn btn-sm compta-pill-btn">04. المساهمة وذ.م.م</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <header class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-2">الوحدة 02</span>
+        <h1 class="h2 fw-bold mb-2">عقد الشركة <span class="fr-term">(Contrat de société)</span></h1>
+        <p class="mb-0 opacity-90">بعد هذا الدرس ستعرف كيف تنشأ الشركة، وما الأركان التي لا تصح بدونها، ومتى تنتهي.</p>
+      </header>
+
+      <!-- 1 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">1. نبدأ بقصة من الواقع</h2>
+        <div class="compta-context">
+          <strong>رضوان</strong> و<strong>ياسر</strong> و<strong>نوال</strong> يريدون فتح مخبزة. رضوان وياسر سيضعان مبلغاً من المال، ونوال تملك محلاً تجارياً ستضعه في المشروع. اتفقوا على العمل معاً وعلى اقتسام الأرباح وتحمّل الخسائر. هذا الاتفاق هو <strong>عقد شركة</strong>، والمخبزة هي <strong>الشركة</strong>.
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">2. التعريف</h2>
+        <div class="compta-formula">
+          <strong>التعريف (المادة 416 من القانون المدني) :</strong> الشركة عقد يلتزم بمقتضاه <strong>شخصان طبيعيان أو معنويان أو أكثر</strong> على المساهمة في نشاط مشترك، بتقديم <strong>حصة</strong> من عمل أو مال أو نقد، بهدف <strong>اقتسام الربح</strong> الذي قد ينتج عن هذا النشاط، مع تحمّل <strong>الخسائر</strong> التي قد تنجر عنه.
+        </div>
+        <p class="mb-0">كلمات المفتاح في التعريف: <strong>أشخاص أكثر من واحد · حصص · نشاط مشترك · أرباح وخسائر</strong>.</p>
+      </section>
+
+      <!-- 3 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">3. أركان عقد الشركة</h2>
+        <p>لعقد الشركة ثلاثة أنواع من الأركان:</p>
+        <div class="row g-3 mb-3">
+          <div class="col-md-4">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>الأركان الموضوعية العامة</strong>
+              <p class="small text-secondary mb-1">مشتركة بين كل العقود</p>
+              <ul class="compta-list mb-0"><li>الرضا</li><li>المحل</li><li>السبب</li></ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>الأركان الموضوعية الخاصة</strong>
+              <p class="small text-secondary mb-1">خاصة بالشركة فقط</p>
+              <ul class="compta-list mb-0"><li>تعدد الشركاء</li><li>تقديم الحصص</li><li>نية المشاركة</li><li>اقتسام الأرباح والخسائر</li></ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>الأركان الشكلية</strong>
+              <p class="small text-secondary mb-1">الشكل الذي يطلبه القانون</p>
+              <ul class="compta-list mb-0"><li>الكتابة</li><li>الشهر</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4">شرح الأركان الخاصة</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead><tr><th>الركن</th><th>المعنى</th><th>مثال (المخبزة)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>تعدد الشركاء</strong></td><td>لا شركة بشخص واحد (إلا ما استثناه القانون).</td><td>ثلاثة شركاء: رضوان وياسر ونوال.</td></tr>
+              <tr><td><strong>تقديم الحصص</strong></td><td>كل شريك يضع شيئاً في المشروع.</td><td>مبلغ مالي، محل تجاري، أو خبرة.</td></tr>
+              <tr><td><strong>نية المشاركة</strong></td><td>رغبة الشركاء في التعاون على قدم المساواة لإنجاح المشروع.</td><td>الثلاثة يعملون معاً كشركاء، لا كأجراء عند أحدهم.</td></tr>
+              <tr><td><strong>اقتسام الأرباح والخسائر</strong></td><td>كل شريك يأخذ من الربح ويتحمل من الخسارة.</td><td>الاتفاق على توزيع ربح المخبزة بينهم.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="h6 fw-bold">أنواع الحصص</h4>
+        <ul class="compta-list">
+          <li><strong>حصة نقدية :</strong> مبلغ مالي. مثال: ياسر وضع مبلغاً في الحساب البنكي للشركة.</li>
+          <li><strong>حصة عينية :</strong> مال غير نقدي (محل، سيارة، آلة…). مثال: نوال قدّمت محلاً تجارياً.</li>
+          <li><strong>حصة عمل :</strong> جهد أو خبرة. مثال: شريك خبير في التسيير يقدم خبرته في إدارة الشركة.</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-4">الأركان الشكلية</h3>
+        <ul class="compta-list mb-0">
+          <li><strong>الكتابة :</strong> يُحرَّر عقد الشركة رسمياً لدى <strong>الموثق</strong>.</li>
+          <li><strong>الشهر :</strong> إيداع نسختين من العقد لدى المركز الوطني للسجل التجاري، ونشر ملخص للعقد التأسيسي في <strong>النشرة الرسمية للإعلانات القانونية</strong> وفي <strong>جريدة وطنية يومية</strong>.</li>
+        </ul>
+      </section>
+
+      <!-- 4 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">4. الشخصية المعنوية للشركة</h2>
+        <div class="compta-context mb-3">فكّر: المخبزة تبيع وتشتري وتوقّع عقوداً. باسم من؟ ليس باسم رضوان وحده، بل باسم <strong>الشركة</strong> نفسها، كأنها شخص مستقل.</div>
+        <ul class="compta-list mb-0">
+          <li>تكتسب الشركة <strong>الشخصية المعنوية</strong> بمجرد تكوينها، ويكون لها اسم وعنوان وذمة مالية مستقلة.</li>
+          <li>لكن لا يمكنها الاحتجاج بهذه الشخصية <strong>في مواجهة الغير</strong> إلا بعد استيفاء إجراءات <strong>الشهر</strong> (المادة 417).</li>
+        </ul>
+      </section>
+
+      <!-- 5 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">5. توزيع الأرباح والخسائر : مثال محسوب</h2>
+        <div class="compta-example">
+          <p>تأسست شركة بين الشريكين <strong>أمين</strong> و<strong>سعاد</strong>. قدّم أمين حصة نقدية قدرها <strong><span class="num-ltr">3&nbsp;000&nbsp;000</span> دج</strong>، وقدّمت سعاد حصة عينية (محل) قيمتها <strong><span class="num-ltr">2&nbsp;000&nbsp;000</span> دج</strong>. نص القانون الأساسي على توزيع الأرباح والخسائر بنسبة الحصص. في نهاية السنة حققت الشركة ربحاً قدره <strong><span class="num-ltr">1&nbsp;000&nbsp;000</span> دج</strong>.</p>
+
+          <p class="mb-1"><strong>الخطوة 1 : رأس مال الشركة</strong></p>
+          <p class="fw-bold"><span class="num-ltr">3&nbsp;000&nbsp;000</span> + <span class="num-ltr">2&nbsp;000&nbsp;000</span> = <span class="num-ltr">5&nbsp;000&nbsp;000</span> دج</p>
+
+          <p class="mb-1"><strong>الخطوة 2 : نسبة كل شريك</strong></p>
+          <p class="fw-bold">أمين : <span class="num-ltr">3&nbsp;000&nbsp;000</span> ÷ <span class="num-ltr">5&nbsp;000&nbsp;000</span> = <span class="num-ltr">60%</span></p>
+          <p class="fw-bold">سعاد : <span class="num-ltr">2&nbsp;000&nbsp;000</span> ÷ <span class="num-ltr">5&nbsp;000&nbsp;000</span> = <span class="num-ltr">40%</span></p>
+
+          <p class="mb-1"><strong>الخطوة 3 : توزيع الربح</strong></p>
+          <p class="fw-bold">أمين : <span class="num-ltr">1&nbsp;000&nbsp;000</span> × <span class="num-ltr">60%</span> = <span class="num-ltr">600&nbsp;000</span> دج</p>
+          <p class="fw-bold">سعاد : <span class="num-ltr">1&nbsp;000&nbsp;000</span> × <span class="num-ltr">40%</span> = <span class="num-ltr">400&nbsp;000</span> دج</p>
+
+          <p class="mb-0"><strong>لو حققت الشركة خسارة قدرها <span class="num-ltr">500&nbsp;000</span> دج</strong> بدل الربح، لتحمّل أمين <span class="num-ltr">300&nbsp;000</span> دج (60%) وسعاد <span class="num-ltr">200&nbsp;000</span> دج (40%).</p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">6. انقضاء الشركة</h2>
+        <p>الشركة لا تدوم إلى الأبد. هناك أسباب <strong>عامة</strong> تنطبق على كل الشركات، وأسباب <strong>خاصة</strong> بشركات الأشخاص.</p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>الأسباب العامة</strong>
+              <ul class="compta-list mb-0 mt-2">
+                <li><strong>انتهاء المدة :</strong> مدة الشركة محددة في العقد ولا تتجاوز 99 سنة.</li>
+                <li><strong>تحقيق الغاية</strong> التي أُنشئت لها.</li>
+                <li><strong>هلاك رأس المال :</strong> هلاك كل المال أو جزء كبير منه بحيث لا تبقى فائدة من الاستمرار.</li>
+                <li><strong>اتفاق الشركاء</strong> على الحل قبل حلول الأجل (بإجماع الشركاء).</li>
+                <li>الاندماج، أو الحل بحكم قضائي، أو إفلاس الشركة.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>الأسباب الخاصة</strong>
+              <ul class="compta-list mb-0 mt-2">
+                <li><strong>وفاة</strong> أحد الشركاء.</li>
+                <li><strong>إفلاس</strong> أحد الشركاء.</li>
+                <li><strong>المنع من ممارسة التجارة</strong> أو فقدان الأهلية (جنون، سفه…).</li>
+                <li><strong>انسحاب</strong> أحد الشركاء.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="compta-formula mt-3 mb-0">
+          <strong>مهم :</strong> قد تستمر الشركة رغم السبب الخاص إذا نص <strong>القانون الأساسي</strong> على ذلك، أو إذا قرّر <strong>الشركاء بإجماعهم</strong> الاستمرار.
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">7. تدرّب على نمط البكالوريا</h2>
+        <div class="compta-context">
+          في بداية 2025 أسس الإخوة <strong>رضوان</strong> و<strong>ياسر</strong> و<strong>نوال</strong> و<strong>مراد</strong> شركة تجارية. حُرّر عقد رسمي لدى الموثق، وأُودعت نسختان منه بالسجل التجاري، ونُشر ملخصه في النشرة الرسمية للإعلانات القانونية وفي جريدة يومية. قدّم رضوان وياسر مبلغاً نقدياً قدره <strong><span class="num-ltr">3&nbsp;000&nbsp;000</span> دج</strong>، وقدّمت نوال محلاً تجارياً، وقدّم مراد خبرته في الإعلام الآلي. اتفقوا على التعاون الإيجابي بينهم.
+          <ol class="mt-2 mb-0">
+            <li>استخرج الأركان الموضوعية الخاصة من الوضعية.</li>
+            <li>استخرج الأركان الشكلية.</li>
+          </ol>
+        </div>
+        <button type="button" class="btn compta-action-btn mt-3" data-toggle-solution="sol2">إظهار الحل</button>
+        <div id="sol2" class="compta-example mt-3 d-none">
+          <p class="mb-1"><strong>1) الأركان الموضوعية الخاصة :</strong></p>
+          <ul>
+            <li><strong>تعدد الشركاء :</strong> أربعة شركاء (رضوان وياسر ونوال ومراد).</li>
+            <li><strong>تقديم الحصص :</strong> حصة نقدية (<span class="num-ltr">3&nbsp;000&nbsp;000</span> دج)، وحصة عينية (المحل التجاري)، وحصة عمل (خبرة مراد في الإعلام الآلي).</li>
+            <li><strong>نية المشاركة :</strong> التعاون الإيجابي بين الشركاء.</li>
+          </ul>
+          <p class="mb-1"><strong>2) الأركان الشكلية :</strong></p>
+          <ul class="mb-0">
+            <li><strong>الكتابة :</strong> تحرير عقد رسمي لدى الموثق.</li>
+            <li><strong>الشهر :</strong> إيداع نسختين بالسجل التجاري، ونشر ملخص العقد في النشرة الرسمية للإعلانات القانونية وفي جريدة يومية.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">8. الملخص للحفظ</h2>
+        <div class="row g-2 text-center mb-3">
+          <div class="col-12"><div class="border rounded-3 p-2 bg-white"><strong>عقد الشركة</strong> = أشخاص يقدّمون حصصاً للمساهمة في نشاط مشترك واقتسام الربح والخسارة (م 416)</div></div>
+          <div class="col-md-3"><div class="border rounded-3 p-2 bg-white h-100"><strong>أركان عامة</strong><br />الرضا · المحل · السبب</div></div>
+          <div class="col-md-3"><div class="border rounded-3 p-2 bg-white h-100"><strong>أركان خاصة</strong><br />تعدد الشركاء · الحصص · نية المشاركة · اقتسام الأرباح والخسائر</div></div>
+          <div class="col-md-3"><div class="border rounded-3 p-2 bg-white h-100"><strong>أركان شكلية</strong><br />الكتابة · الشهر</div></div>
+          <div class="col-md-3"><div class="border rounded-3 p-2 bg-white h-100"><strong>الحصص</strong><br />نقدية · عينية · عمل</div></div>
+          <div class="col-md-6"><div class="border rounded-3 p-2 bg-white h-100"><strong>أسباب الانقضاء العامة</strong><br />المدة · الغاية · هلاك المال · اتفاق الشركاء · الاندماج · حكم قضائي · الإفلاس</div></div>
+          <div class="col-md-6"><div class="border rounded-3 p-2 bg-white h-100"><strong>أسباب الانقضاء الخاصة</strong><br />وفاة · إفلاس · منع من التجارة · فقدان الأهلية · انسحاب</div></div>
+        </div>
+        <div class="compta-formula mb-0">
+          <strong>حيلة للحفظ :</strong> الأركان الخاصة «<strong>ش ح ن ق</strong>» = <strong>ش</strong>ركاء متعددون، <strong>ح</strong>صص، <strong>ن</strong>ية المشاركة، اقتسام الأرباح والخسائر. وتذكّر: <strong>الشهر</strong> هو ما يجعل الشخصية المعنوية تُحتج بها على الغير.
+        </div>
+      </section>
+    </main>
+    <script src="../assets/compta.js"></script>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عقد البيع | القانون — BacApp-dz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/compta.css" />
+  </head>
+  <body class="compta-body">
+       <!-- شريط التنقل: كتلة واحدة ثابتة -->
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-dark shadow-sm compta-navbar"
+        aria-label="التنقل الرئيسي"
+      >
+        <div
+          class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
+        >
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="1_0_presentation_contrats_societes.html"
+            >
+              المجال 01 : العقود والشركات التجارية
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="sommaire_droit.html"
+            >
+              البرنامج السنوي
+            </a>
+            <a
+              class="btn btn-sm btn-outline-light fw-bold"
+              href="../../home_filieres/home_GE.html"
+            >
+              شعبة تسيير واقتصاد
+            </a>
+          </div>
+          <button
+            type="button"
+            id="btnToggleFr"
+            class="btn btn-sm btn-warning fw-bold"
+            aria-pressed="false"
+          >
+            إخفاء / إظهار المصطلحات الفرنسية
+          </button>
+        </div>
+      </nav>
+
+      <!-- شريط دروس المجال 01 -->
+      <nav
+        class="bg-white border-bottom shadow-sm py-2"
+        aria-label="دروس المجال 01"
+      >
+        <div
+          class="container d-flex flex-wrap align-items-center justify-content-center gap-2"
+        >
+          <span class="small fw-bold text-muted ms-1">دروس المجال 01 :</span>
+          <a href="1_1_contrat_vente.html" class="btn btn-sm compta-pill-btn active-pill"
+            >01. عقد البيع</a
+          >
+          <a href="1_2_contrat_societe.html" class="btn btn-sm compta-pill-btn"
+            >02. عقد الشركة</a
+          >
+          <a href="1_3_societe_solidarite.html" class="btn btn-sm compta-pill-btn"
+            >03. شركة التضامن</a
+          >
+          <a
+            href="1_4_societe_actions_sarl.html"
+            class="btn btn-sm compta-pill-btn"
+            >04. المساهمة وذ.م.م</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-4 py-md-5">
+      <header class="compta-hero p-4 p-md-5 mb-4 text-white">
+        <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill mb-2">الوحدة 01</span>
+        <h1 class="h2 fw-bold mb-2">عقد البيع <span class="fr-term">(Contrat de vente)</span></h1>
+        <p class="mb-0 opacity-90">بعد هذا الدرس ستعرف كيف تحدد أركان البيع، وما يلتزم به البائع وما يلتزم به المشتري.</p>
+      </header>
+
+      <!-- 1 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">1. نبدأ بقصة من الواقع</h2>
+        <div class="compta-context">
+          السيد <strong>كريم</strong> يريد بيع سيارته. السيدة <strong>سميرة</strong>
+           أعجبتها السيارة، فاتفقا على أن تدفع له <strong><span class="num-ltr">1&nbsp;200&nbsp;000</span> دج</strong>
+           وتأخذ السيارة. هذا الاتفاق البسيط هو <strong>عقد بيع</strong>
+           . فيه طرفان: <strong>البائع</strong> (كريم) و<strong>المشتري</strong> 
+           (سميرة).
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">2. التعريف والخصائص</h2>
+        <div class="compta-formula">
+          <strong>التعريف (المادة 351 من القانون المدني) :</strong> البيع عقد يلتزم بمقتضاه <strong>البائع</strong> أن ينقل للمشتري <strong>ملكية شيء أو حقاً مالياً آخر</strong> مقابل <strong>ثمن نقدي</strong>.
+        </div>
+        <ul class="compta-list mb-0">
+          <li><strong>عقد رضائي :</strong> يتم بمجرد اتفاق الطرفين (إلا إذا طلب القانون شكلاً معيناً، كما في بيع العقار).</li>
+          <li><strong>عقد ملزم للجانبين :</strong> كل طرف عليه التزامات تجاه الآخر.</li>
+          <li><strong>عقد معاوضة :</strong> كل طرف يأخذ مقابلاً لما يعطي (الشيء مقابل الثمن).</li>
+          <li><strong>عقد ناقل للملكية :</strong> بعده تنتقل ملكية الشيء من البائع إلى المشتري.</li>
+        </ul>
+      </section>
+
+      <!-- 3 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">3. أركان عقد البيع</h2>
+        <p>الركن هو ما لا يصح العقد بدونه. نقسمها إلى نوعين:</p>
+
+        <h3 class="h5 fw-bold mt-3">أ) الأركان الموضوعية</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead><tr><th>الركن</th><th>المعنى</th><th>مثال (كريم وسميرة)</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>الرضا</strong> <span class="fr-term">(Consentement)</span></td>
+                <td>تطابق الإيجاب والقبول على كل ما في العقد، مع أهلية الطرفين.</td>
+                <td>كريم يقول «أبيع بـ <span class="num-ltr">1&nbsp;200&nbsp;000</span> دج» وسميرة تقول «أشتري». الاثنان راشدان.</td>
+              </tr>
+              <tr>
+                <td><strong>المحل</strong> <span class="fr-term">(Objet)</span></td>
+                <td>ما يقع عليه العقد، وهو شيئان: <strong>المبيع</strong> و<strong>الثمن</strong>.</td>
+               <td>المبيع: السيارة. الثمن: <span class="num-ltr">1&nbsp;200&nbsp;000</span> دج.</td>
+              </tr>
+              <tr>
+                <td><strong>السبب</strong> <span class="fr-term">(Cause)</span></td>
+                <td>الدافع من العقد، ويجب أن يكون مشروعاً.</td>
+                <td>الحاجة إلى سيارة للتنقل. لو كان الغرض استعمالها في جريمة لبطل العقد.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="h6 fw-bold">شروط المحل</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>شروط المبيع</strong>
+              <ul class="compta-list mb-0 mt-2">
+                <li>موجود وقت البيع أو ممكن الوجود مستقبلاً.</li>
+                <li>معيّن أو قابل للتعيين (بذاته أو بنوعه).</li>
+                <li>مشروع، غير مخالف للنظام العام والآداب.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border rounded-3 p-3 bg-white h-100">
+              <strong>شروط الثمن</strong>
+              <ul class="compta-list mb-0 mt-2">
+                <li>مبلغ <strong>نقدي</strong>.</li>
+                <li><strong>جدّي</strong> ومتناسب مع قيمة الشيء (ليس ثمناً رمزياً).</li>
+                <li><strong>غير مستتر</strong>: مذكور في العقد بقيمته الحقيقية.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="h5 fw-bold mt-4">ب) الأركان الشكلية</h3>
+        <ul class="compta-list mb-0">
+          <li><strong>بيع المنقول</strong> (سيارة، هاتف…): يكفي الاتفاق، والكتابة للإثبات فقط.</li>
+          <li><strong>بيع العقار</strong> (شقة، أرض، بناية): <strong>الكتابة</strong> في عقد رسمي لدى <strong>الموثق</strong>، ثم <strong>الشهر</strong> في المحافظة العقارية. بدون ذلك لا تنتقل الملكية.</li>
+        </ul>
+      </section>
+
+      <!-- 4 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">4. التزامات البائع</h2>
+        <div class="compta-context mb-3">فكّر: ماذا تنتظر سميرة من كريم؟ تنتظر أن تصبح مالكة للسيارة، وأن تستلمها، وأن تعمل بلا مشاكل.</div>
+        <ul class="compta-list mb-0">
+          <li><strong>نقل الملكية :</strong> يفعل كل ما يلزم لتصبح السيارة ملكاً لسميرة (الوثائق، البطاقة الرمادية…).</li>
+          <li><strong>التسليم :</strong> يضع السيارة تحت تصرفها لتحوزها وتنتفع بها.</li>
+          <li><strong>الضمان :</strong> وهو نوعان:
+            <ul class="mt-2">
+              <li><strong>ضمان التعرض والاستحقاق :</strong> إذا ظهر شخص آخر يدّعي ملكية السيارة ونجح في أخذها من سميرة، يرجع المشتري على البائع ويطالبه بالتعويض.</li>
+              <li><strong>ضمان العيوب الخفية :</strong> إذا كان في السيارة عيب لا يُرى عند الشراء (مثل عطل خطير في المحرك)، يضمنه البائع.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 5 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">5. التزامات المشتري</h2>
+        <ul class="compta-list mb-3">
+          <li><strong>دفع الثمن :</strong> في الزمان والمكان المتفق عليهما، وإن لم يوجد اتفاق ففي مكان وزمان التسليم.</li>
+          <li><strong>تسلّم المبيع :</strong> يأخذ الشيء في الوقت المتفق عليه دون تأخير.</li>
+          <li><strong>دفع نفقات البيع :</strong> التسجيل، الطابع، الإعلان العقاري، التوثيق، ونفقات التسلّم، ما لم يتفق الطرفان على غير ذلك.</li>
+        </ul>
+
+        <h3 class="h5 fw-bold">مثال محسوب</h3>
+        <div class="compta-example">
+          <p>اشترى السيد <strong>ياسين</strong> شقة بثمن <strong class="num-ltr">2 400 000 دج</strong>، ودفع عند التوقيع <strong>40%</strong> من الثمن، والباقي عند التسليم. نفترض أن نفقات التوثيق والتسجيل بلغت <strong class="num-ltr">50 000 دج</strong> (رقم افتراضي للتوضيح).</p>
+          <p class="mb-1"><strong>الخطوة 1 : الدفعة الأولى</strong></p>
+          <p class="calc-line">2 400 000 × 40% = 960 000 دج</p>
+          <p class="mb-1"><strong>الخطوة 2 : الباقي عند التسليم</strong></p>
+          <p class="calc-line">2 400 000 − 960 000 = 1 440 000 دج</p>
+          <p class="mb-1"><strong>الخطوة 3 : المجموع الذي يدفعه المشتري</strong> (الثمن + النفقات، لأن النفقات عليه أصلاً)</p>
+          <p class="calc-line">2 400 000 + 50 000 = 2 450 000 دج</p>
+          <p class="mb-0"><strong>النتيجة :</strong> البائع يستلم <strong class="num-ltr">2 400 000 دج</strong>، أما المشتري فيتحمل <strong class="num-ltr">2 450 000 دج</strong>.</p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="compta-card p-4 mb-4">
+        <h2 class="h4 fw-bold compta-title mb-3">6. تدرّب على نمط البكالوريا</h2>
+        <div class="compta-context">
+          اتفق السيد <strong>مراد</strong> والسيد <strong>وليد</strong> على بيع مبنى جاهز للاستعمال التجاري بمبلغ <strong>4 ملايين دج</strong>. كلاهما كامل الأهلية، وتم تحرير العقد لدى الموثق.
+          <ol class="mt-2 mb-0">
+            <li>ما نوع العقد؟ عرّفه.</li>
+            <li>استخرج الأركان الموضوعية من الوضعية.</li>
+          </ol>
+        </div>
+        <button type="button" class="btn compta-action-btn mt-3" data-toggle-solution="sol1">إظهار الحل</button>
+        <div id="sol1" class="compta-example mt-3 d-none">
+          <p><strong>1) النوع :</strong> عقد بيع. هو عقد يلتزم بمقتضاه البائع أن ينقل للمشتري ملكية شيء أو حقاً مالياً آخر مقابل ثمن نقدي.</p>
+          <p class="mb-1"><strong>2) الأركان الموضوعية :</strong></p>
+          <ul class="mb-0">
+            <li><strong>الرضا :</strong> اتفاق الطرفين، وكلاهما كامل الأهلية.</li>
+            <li><strong>المحل :</strong> المبيع هو المبنى (موجود ومعيّن ومشروع)، والثمن 4 ملايين دج (نقدي ومذكور في العقد).</li>
+            <li><strong>السبب :</strong> استعمال المبنى في النشاط التجاري، وهو سبب مشروع.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="compta-card p-4">
+        <h2 class="h4 fw-bold compta-title mb-3">7. الملخص للحفظ</h2>
+        <div class="row g-2 text-center mb-3">
+          <div class="col-12"><div class="border rounded-3 p-2 bg-white"><strong>عقد البيع</strong> = نقل ملكية شيء مقابل ثمن نقدي (م 351)</div></div>
+          <div class="col-md-4"><div class="border rounded-3 p-2 bg-white h-100"><strong>الأركان</strong><br />الرضا · المحل · السبب<br />+ الكتابة والشهر للعقار</div></div>
+          <div class="col-md-4"><div class="border rounded-3 p-2 bg-white h-100"><strong>البائع يلتزم بـ</strong><br />نقل الملكية · التسليم · الضمان</div></div>
+          <div class="col-md-4"><div class="border rounded-3 p-2 bg-white h-100"><strong>المشتري يلتزم بـ</strong><br />دفع الثمن · التسلّم · نفقات البيع</div></div>
+        </div>
+        <div class="compta-formula mb-0">
+          <strong>حيلة للحفظ :</strong> البائع «<strong>ن ت ض</strong>» = نقل، تسليم، ضمان. المشتري «<strong>ث س ن</strong>» = ثمن، تسلّم، نفقات.
+        </div>
+      </section>
+    </main>
+    <script src="../assets/compta.js"></script>
+  </body>
+</html>
